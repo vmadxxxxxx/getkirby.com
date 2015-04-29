@@ -99,6 +99,8 @@ fields:
     help: Minimum of 4 characters required and only alphanumeric characters allowed. 
 ```
 
+Special characters (e.g. `&` or `<`) should be added with their character entity reference (e.g. `&amp;` or `&lt;`).
+
 ## Custom icons
 
 Most fields can have custom icons, which are set by the `icon` parameter. Custom icons can help to make your forms easier to scan.
