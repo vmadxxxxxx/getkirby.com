@@ -157,3 +157,11 @@ A more useful case for this is an article list for a blog.
   <a href="<?php echo $article->url() ?>">Read more…</a>
 </article>
 ```
+
+## Snippet as variable value
+
+The snippet() function has a third, optional parameter - boolean - which can be set to simply return the parsed text, instead of directly displaying it. This makes it possible to use snippets in a wide variety of situations, not just inside page templates:
+
+```php
+$email_body = snippet('email', array('data' => $data), true);
+```
