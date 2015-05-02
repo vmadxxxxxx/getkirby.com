@@ -20,7 +20,7 @@ Option | Default | Description
 -        | -       | -
 
 license | null | Setup for the license key
-debug | false | Enables/disbales PHP errors 
+debug | false | Enables/disables PHP errors 
 routes | array() | Additional route setup for Kirby's internal router
 error | 'error' | The name of the error page folder
 home | 'home' | The name of the home page folder
