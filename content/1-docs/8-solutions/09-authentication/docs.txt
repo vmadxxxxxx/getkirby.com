@@ -160,7 +160,7 @@ c::set('routes', array(
 ));
 ```
 
-By adding the code above to your config file, Kirby will register a new route to `http://yoursite.com/login` When you open that URL, the action method will be called and if there's a logged in user, the user will be logged out. Afterwards the script will redirect the user to the login page.
+By adding the code above to your config file, Kirby will register a new route to `http://yoursite.com/logout` When you open that URL, the action method will be called and if there's a logged in user, the user will be logged out. Afterwards the script will redirect the user to the login page.
 
 ### Adding a logout link to the menu
 
