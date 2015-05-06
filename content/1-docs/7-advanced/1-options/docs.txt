@@ -18,7 +18,6 @@ There are a number of available options in Kirby, which help you to customize th
 
 Option | Default | Description
 -        | -       | -
-
 license | null | Setup for the license key
 debug | false | Enables/disables PHP errors 
 routes | array() | Additional route setup for Kirby's internal router
