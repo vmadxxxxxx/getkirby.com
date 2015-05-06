@@ -18,9 +18,25 @@
       <?php echo str_replace('(\\', '(', kirbytext($page->text())) ?>
 
       <?php if(server::get('SERVER_NAME') == 'getkirby.com'): ?>
-      <section class="disqus">
-      <?php echo disqus('getkirby') ?>
-      </section>
+        <?php if($page->date() > strtotime('2015-03-16')): ?>
+        <div id="discourse-comments"></div>
+        <script>
+
+          var discourseUrl      = 'http://forum.getkirby.com/';
+          var discourseEmbedUrl = '<?php echo $page->url() ?>';
+
+          (function() {
+            var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+              d.src = discourseUrl + 'javascripts/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+          })();
+
+        </script>
+        <?php else: ?>
+        <section class="disqus">
+        <?php echo disqus('getkirby') ?>
+        </section>
+        <?php endif ?>
       <?php endif ?>
 
     </div>
