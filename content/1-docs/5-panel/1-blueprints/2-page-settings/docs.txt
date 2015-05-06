@@ -128,8 +128,9 @@ By default dates for numbers are taken from the `date` field. You can change tha
 ```
 …
 pages:
-  num: date
-  field: added
+  num: 
+    mode: date
+    field: added
 …
 ```
 
@@ -138,9 +139,10 @@ Even the format can be changed. To set the format, use (link: http://php.net/man
 ```
 …
 pages:
-  num: date
-  field: added
-  format: YmdHi
+  num: 
+    mode: date
+    field: added
+    format: YmdHi
 …
 ```
 
