@@ -41,3 +41,18 @@ Kirby can detect the prefered language of the visitor. This has to be activated 
 ```php
 c::set('language.detect', true);
 ```
+
+### Attention! Switching from single-language to multi-language
+
+If you start with a single language setup and wish to switch to multiple languages later, you have to rename your text files to include the language code.
+
+i.e.
+`projects.txt` > `projects.en.txt` 
+`myimage.jpg.txt` > `myimage.jpg.en.txt`
+
+**This process is not yet handled by Kirby and can lead to broken content.**
+
+
+
+
+
