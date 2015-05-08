@@ -18,7 +18,7 @@ Text:
 ## In your code
 
 ```php
-if(v::equals('A', 'A')) {
+if(v::same('A', 'A')) {
   echo 'Yay, valid!';
 }
 
