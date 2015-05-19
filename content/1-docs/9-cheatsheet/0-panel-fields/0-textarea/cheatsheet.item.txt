@@ -20,3 +20,17 @@ fields:
     label: Text
     type: textarea
 ```
+
+## Customizing buttons
+
+You can also specify which buttons to show at the bottom of the textarea field. You can hide the buttons completely by adding `buttons: false` or only show specific buttons by specifying which one:
+
+```
+fields:
+  text:
+    label: Text
+    type: textarea
+    buttons:
+      - link
+      - email
+```
