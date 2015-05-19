@@ -28,6 +28,47 @@ files:
 …
 ```
 
+## File limits
+
+Sometimes you only want specific file type to be uploaded to a certain template. To restrict panel users to upload other types, you can add a `type` field to the file's meta data in the blueprint. Please check out the (link: docs/cheatsheet/file/type text: list of all available file types).
+
+```
+…
+files:
+    type: document
+…
+```
+
+To allow multiple types provide a list of the file types you want:
+
+```
+…
+files:
+    type: 
+        - image
+        - video
+…
+```
+
+To limit the file size on a per template basis you have to add a `size` field to the file's meta data, specifying the maximum file size in bytes.
+
+```
+…
+files:
+    size: 12000000
+…
+```
+
+For images you can also define limits for their width and height by adding the respective `width` and/or `height` field to the file's meta data. These only apply for images and will be ignored for other file formats.
+
+```
+…
+files:
+    width: 500
+    height: 300
+…
+```
+
 ## Sortable files
 
 Files are sorted by their filenames by default. Since Kirby 2 it's also possible to sort files by drag & drop in the files manager. You have to switch this feature on in the blueprint's file settings. Sorting files by drag & drop will add a `sort` field to the file's meta data. Here's how to activate manual sorting.
