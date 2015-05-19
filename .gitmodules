@@ -4,6 +4,3 @@
 [submodule "panel"]
 	path = panel
 	url = https://github.com/getkirby/panel.git
-[submodule "forum"]
-	path = forum
-	url = https://github.com/getkirby/forum.getkirby.com.git
