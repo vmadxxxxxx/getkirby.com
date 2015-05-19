@@ -1,0 +1,69 @@
+Title: Supporting RTL languages
+
+----
+
+Description: Learn how to support languages with a RTL (right to left) reading direction.
+
+----
+
+Text:
+
+When supporting multiple languages you might include a language which features a different reading direction – not left-to-right (`ltr`) but right-to-left (`rtl). To support and display these languages properly some adaptions are necessary.
+
+## Setup language
+
+The first step is to specify the reading direction when (link: docs/languages/setup text: setting up languages). To do so, add an `direction`entry to your language array with a value of `rtl` for right-to-left or `ltr` for left-to-right (default).
+
+```php
+c::set('languages', array(
+  array(
+    'code'    => 'ar',
+    'name'    => 'Arabic',
+    'locale'  => 'ar_EG',
+    'url'     => '/ar',
+    'direction' => 'rtl'
+  )
+));
+```
+
+## Add body class
+
+The second step is to add the reading direction as a body class e.g. in your header snippet. To get and be able to output the current language's reading direction use `$site->language()->direction()`.
+
+```php
+<body class="<?php echo $site->language()->direction() ?>">
+```
+
+## Modify your CSS
+
+The biggest changes have to be made to your CSS. First you need to specify the reading direction for the body element when the `rtl`class is applied:
+
+```css
+body.rtl {
+  direction: rtl;
+}
+```
+
+Then you have to mirror every horizontal CSS layout positioning, alignment, padding, margins from left to right and from right to left, when `body.rtl`is applied:
+
+```css
+/* left to right */
+div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 2em;
+  padding: 1em 3em 1em 0;
+  border-right: 1px solid #eee;
+}
+
+
+/* right to left*/
+body.rtl div {
+  right: 0;
+  margin-right: 2em;
+  padding: 1em 0 1em 3em;
+  border-left: 1px solid #eee;
+}
+```
+
