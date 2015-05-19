@@ -1,0 +1,1 @@
+<?php go('http://forum.getkirby.com') ?>
