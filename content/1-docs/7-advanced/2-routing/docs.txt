@@ -51,16 +51,14 @@ function($anyPlaceholder, $numPlaceholder, $allPlaceholder) {
 
 ## Multi-language setup
 
-In case of multi-language sites the router is a bit tricky. You must call the `$site->visit()` method in order to 
-activate the selected page and set a language.
+In case of multi-language sites you must call the `$site->visit()` method in order to activate the selected page and set a language.
 
-```
+```php
 c::set('routes', array(
   array(
-    'pattern' => 'portal',
+    'pattern' => 'my/pattern',
     'action' => function () {
-      $site = site();
-      return $site->visit('portal', 'en');
+      return site()->visit('some/page', 'en');
     }
   )
 ));
