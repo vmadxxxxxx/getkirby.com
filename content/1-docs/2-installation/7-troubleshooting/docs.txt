@@ -1,0 +1,39 @@
+Title: Troubleshooting
+
+----
+
+Description:
+
+Your installation does not work as expected. Find out how to solve this.
+
+----
+
+Text:
+
+We try our best to make the installation of Kirby as effortless as possible, but with multiple server setups and PHP versions there's unfortunately always space for problems. We hope to offer solutions for the most frequent issues here. Please send us an email if you still get stuck: <support@getkirby.com>
+
+## Broken subpages
+
+Your homepage is working great, but subpages won't open or lead to a server error? Please try setting the RewriteBase in the .htaccess file: 
+
+```
+RewriteBase /
+```
+
+If you run Kirby in a subfolder, make sure to set the RewriteBase according to the name of your subfolder: 
+
+```
+RewriteBase /my-subfolder
+```
+
+
+## Broken data after saving
+
+Your content files seem to be corrupted after you tried to save a page in the panel? Make sure the PHP mbstring extension is installed on your server. A missing extension leads to broken data in text files.
+
+## Broken panel links
+
+The panel is not reachable? Make sure to use Kirby's default (link: https://github.com/getkirby/starterkit/blob/master/.htaccess text: .htaccess file). If the panel does still not work, please contact us: <support@getkirby.com>
+
+## More problems? 
+Don't hesitate to ask questions in the (link: http://forum.getkirby.com text: forum) or send us an email: <support@getkirby.com>
