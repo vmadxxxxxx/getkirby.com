@@ -104,3 +104,4 @@ fetch | children | See the list above for possible options
 value | {{uid}} | A string to be used for the value attribute. You can use {{varname}} for any object method from the passed object (page or file)
 text | {{title}} | A string to be used for the displayed option text. You can use {{varname}} for any object method from the passed object (page or file)
 flip | false | If true, the list of options will be reversed
+template | false | A template name that will filter out all items with a different intended template

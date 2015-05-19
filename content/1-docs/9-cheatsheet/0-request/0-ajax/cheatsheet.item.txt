@@ -17,6 +17,6 @@ Text:
 
 ```php
 if(kirby()->request()->ajax()) {
-  echo 'This is an ajax request'
+  echo 'This is an ajax request';
 }
 ```
