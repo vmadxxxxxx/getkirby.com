@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <?php echo css(array(
-    'assets/css/kirby.css',
-    'assets/css/site.css'
+    'http://assets.getkirby.com/assets/css/kirby.css',
+    'http://assets.getkirby.com/assets/css/site.css'
   )) ?>
 
   <?php if($page->isHomePage()): ?>
