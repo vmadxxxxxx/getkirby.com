@@ -96,3 +96,12 @@ Like pages, files can be entirely hidden in the panel as well. They won't appear
 files:
   hide: true
 ```
+
+## Sanitization
+
+Kirby's file uploader automatically sanitizes filenames to avoid broken links due to special characters in filenames. You can switch this off now in your blueprints with the sanitization option:
+
+```
+files: 
+  sanitize: false
+```
