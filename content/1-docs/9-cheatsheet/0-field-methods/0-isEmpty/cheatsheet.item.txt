@@ -1,0 +1,25 @@
+Title: $field->isEmpty()
+
+----
+
+Excerpt: Checks if the field is empty
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php if(!$page->address()->isEmpty()): ?>
+  <h2>Address</h2>
+  <?php echo $page->address()->kirbytext() ?>
+<?php endif ?>
+```

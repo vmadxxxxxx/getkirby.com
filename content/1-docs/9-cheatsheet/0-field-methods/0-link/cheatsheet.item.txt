@@ -1,0 +1,24 @@
+Title: $field->link()
+
+----
+
+Excerpt: Creates a link for any field value
+
+----
+
+Return:
+
+type: HTMl a-tag
+text:
+
+----
+
+Text:
+
+## Example
+
+The following create a link (a-tag) with the title as link text and the page url as url.
+
+```php
+<?php echo $page->title()->link() ?>
+```
