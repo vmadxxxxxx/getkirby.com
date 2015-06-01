@@ -1,4 +1,4 @@
-Title: js($path)
+Title: js($path, $async = false)
 
 ----
 
@@ -46,3 +46,11 @@ Template                    | JS file
 /site/templates/project.php | /assets/js/templates/project.js
 /site/templates/home.php    | /assets/js/templates/home.js
 /site/templates/blog.php    | /assets/js/templates/blog.js
+
+### Async
+
+If you want the js files to be loaded asynchronously (if supported by the browser), you can set a second parameter as true:
+
+```php
+<?php echo js('assets/js/site.js', true) ?>
+```

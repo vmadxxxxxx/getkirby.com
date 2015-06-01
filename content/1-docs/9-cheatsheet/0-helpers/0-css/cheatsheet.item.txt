@@ -1,4 +1,4 @@
-Title: css($path)
+Title: css($path, $media = null)
 
 ----
 
@@ -47,3 +47,11 @@ Template                    | CSS file
 /site/templates/project.php | /assets/css/templates/project.css
 /site/templates/home.php    | /assets/css/templates/home.css
 /site/templates/blog.php    | /assets/css/templates/blog.css
+
+### Media attribute
+
+You can also specify a media attribute for the link tags:
+
+```php
+<?php echo css('assets/css/print.css', 'print') ?>
+```
