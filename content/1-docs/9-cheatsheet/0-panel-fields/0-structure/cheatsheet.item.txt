@@ -55,9 +55,26 @@ addresses:
 
 ### Fields
 
-You can define any number of fields and use the same field types listed in the menu on the left. The only exception is a structure field nested in a structure field.
+You can define any number of fields and use the same (link: docs/cheatsheet#panel-fields text: field types listed). The only exception is a structure field nested in a structure field.
 
 ### Entry template
 
 You can use the `entry` option to define how the entries will be displayed in the list view. The syntax for entry templates is very simple. Double curly brackets define a variable and will be replaced with the appropriate content.
 
+### Default values
+
+You can set default values for structure fields which will prepopulate the field:
+
+```
+  emails: 
+    label: Emails
+    type: structure
+    default: 
+      - email: bastian@getkirby.com
+      - email: sascha@getkirby.com
+      - email: nico@getkirby.com
+    fields: 
+      email: 
+        label: Email
+        type: email
+```
