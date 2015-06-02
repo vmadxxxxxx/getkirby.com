@@ -8,7 +8,7 @@ Description: Learn the basics about Kirby's extensive API and how to use it to b
 
 Text:
 
-Kirby has a might API, which you can use in your snippets, templates and plugins to access each and every bit and piece of data and aspect of your site and system.
+Kirby has a mighty API, which you can use in your snippets, templates and plugins to access each and every bit and piece of data and aspect of your site and system.
 
 This section is about to give you a good overview of the most basic things you can do with the API. If you want to dive deeper you can find a full overview of all available API methods on the cheat sheet.
 
