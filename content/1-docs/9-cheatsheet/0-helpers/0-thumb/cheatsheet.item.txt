@@ -15,6 +15,8 @@ text:
 
 Text:
 
+You can also use the image (link: docs/cheatsheet/file/resize text: `resize`) or (link: docs/cheatsheet/file/crop text: `crop`) methods as wrappers for the thumb helper.
+
 ## Example
 
 ```php
