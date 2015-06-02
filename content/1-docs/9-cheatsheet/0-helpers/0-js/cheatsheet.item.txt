@@ -27,8 +27,8 @@ Text:
 
 ```php
 <?php echo js(array(
-  'assets/js/jquery.css',
-  'assets/js/jquery.ui.css',
+  'assets/js/jquery.js',
+  'assets/js/jquery.ui.js',
   'assets/js/site.js',
 )) ?>
 ```
