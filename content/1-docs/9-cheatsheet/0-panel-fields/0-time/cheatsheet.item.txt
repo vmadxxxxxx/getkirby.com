@@ -33,4 +33,28 @@ fields:
     interval: 30
 ```
 
+### Default
+
+The default value can either be set to a specific time (e.g. `17:00`) – and will be matched with the closest interval option – or as `now`.
+
+```
+fields:
+  time:
+    label: Time
+    type: time
+    default: now
+```
+
+### Override
+
+Setting the override option will always select the default instead of the already saved value, so that on saving the page again, it will be overridden with the default value.
+
+```
+fields:
+  time:
+    label: Time
+    type: time
+    default: now
+    override: true
+```
 

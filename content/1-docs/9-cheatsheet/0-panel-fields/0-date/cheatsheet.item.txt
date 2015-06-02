@@ -30,3 +30,16 @@ fields:
     type: date
     format: MM/DD/YYYY
 ```
+
+### Override
+
+Setting the override option will always select the default instead of the already saved value, so that on saving the page again, it will be overridden with the default value.
+
+```
+fields:
+  time:
+    label: Date
+    type: date
+    default: today
+    override: true
+```
