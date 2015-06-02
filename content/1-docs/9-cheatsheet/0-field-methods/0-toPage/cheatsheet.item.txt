@@ -1,0 +1,22 @@
+Title: $field->toPage()
+
+----
+
+Excerpt: Returns a page object from a uri in the field
+
+----
+
+Return:
+
+type: $page
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->relatedpage()->toPage()->title(); ?>
+```

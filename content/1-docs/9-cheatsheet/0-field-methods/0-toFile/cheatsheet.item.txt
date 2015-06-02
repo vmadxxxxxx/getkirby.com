@@ -1,0 +1,22 @@
+Title: $field->toFile()
+
+----
+
+Excerpt: Returns a file object from a filename in the field
+
+----
+
+Return:
+
+type: $file
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->documentation()->toFile()->filename(); ?>
+```

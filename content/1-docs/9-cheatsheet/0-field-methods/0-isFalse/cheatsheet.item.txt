@@ -1,0 +1,26 @@
+Title: $field->isFalse()
+
+----
+
+Excerpt: Converts the field value into a proper boolean and inverts it
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php if(!$page->hasHeader()->isFalse()): ?>
+<header>
+...
+</header>
+<?php endif ?>
+```
