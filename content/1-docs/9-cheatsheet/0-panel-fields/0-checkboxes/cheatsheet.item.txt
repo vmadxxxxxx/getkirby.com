@@ -126,6 +126,19 @@ text | {{title}} | A string to be used for the displayed option text. You can us
 flip | false | If true, the list of options will be reversed
 template | false | A template name that will filter out all items with a different intended template
 
+### Columns
+
+Specifying the `column` option lets you change the number of option items that are displayed per row in the panel (1 till 5, default: 2).
+
+```
+fields:
+  category:
+    label: Category
+    type: checkboxes
+    options: children
+    columns: 3
+```
+
 ## In templates/snippets
 
 A checkboxes field stores all selected categories in a comma separated list (value1, value2, value3) You can split this list in your templates and then work with the values like this:
