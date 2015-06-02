@@ -105,3 +105,16 @@ value | {{uid}} | A string to be used for the value attribute. You can use {{var
 text | {{title}} | A string to be used for the displayed option text. You can use {{varname}} for any object method from the passed object (page or file)
 flip | false | If true, the list of options will be reversed
 template | false | A template name that will filter out all items with a different intended template
+
+### Columns
+
+Specifying the `column` option lets you change the number of option items that are displayed per row in the panel (1 till 5, default: 2).
+
+```
+fields:
+  category:
+    label: Category
+    type: checkboxes
+    options: children
+    columns: 3
+```
