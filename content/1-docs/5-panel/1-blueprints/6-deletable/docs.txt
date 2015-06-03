@@ -2,7 +2,7 @@ Title: Deletable
 
 ----
 
-Text: 
+Text:
 
 By default pages can be deleted in the panel. In some cases you may want to protect important pages from deletion.
 
@@ -15,23 +15,3 @@ deletable: false
 ```
 
 Even when deleting is enabled, remember a page that has subpages cannot be deleted. You have to delete its subpages first.
-
-----
-
-Docs: 
-
-----
-
-Blogposts: 
-
-----
-
-Forumposts: 
-
-----
-
-Internals: 
-
-----
-
-Externals: 
