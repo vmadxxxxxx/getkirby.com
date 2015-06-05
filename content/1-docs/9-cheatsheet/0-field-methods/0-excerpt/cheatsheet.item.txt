@@ -1,4 +1,4 @@
-Title: $field->excerpt($chars = 140)
+Title: $field->excerpt($length = 140, $mode = 'chars')
 
 ----
 
@@ -25,4 +25,12 @@ Text:
   <p><a href="<?php echo $article->url() ?>">Read more…</a></p>
 </article>
 <?php endforeach ?>
+```
+
+### Modes
+
+The excerpt method supports to modes of creating an excerpt: The default one is based on a number of characters. The second mode is to create an excerpt based on the number of words:
+
+```php
+<?php echo $page->text()->excerpt(100, 'words'); ?>
 ```
