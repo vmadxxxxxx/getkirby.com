@@ -1,0 +1,28 @@
+Title:
+
+$user->hasPanelAccess()
+
+----
+
+Excerpt:
+
+Checks if the user is allowed to acces the panel based on its role.
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php if($user = $site->user() and $user->hasPanelAccess()): ?>
+This super secret content is only visible for users with panel access
+<?php endif ?>
+```
