@@ -6,7 +6,7 @@ $site->multilang()
 
 Excerpt:
 
-Checks if the site has multiple languages.
+Checks if there are one or more languages configured in the config.php
 
 ----
 
