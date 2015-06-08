@@ -54,3 +54,9 @@ c::set('routes', array(
     }
   ),
 ));
+
+
+
+c::set('cdn.assets', 'http://assets.getkirby.com/assets');
+c::set('cdn.content', 'http://assets.getkirby.com/content');
+c::set('cachebuster', true);
