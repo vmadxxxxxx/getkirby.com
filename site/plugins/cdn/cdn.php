@@ -4,6 +4,10 @@ if(c::get('cdn.content')) {
   kirby()->urls()->content = c::get('cdn.content');  
 }
 
+if(c::get('cdn.thumbs')) {  
+  thumb::$defaults['url'] = c::get('cdn.thumbs');
+}
+
 if(c::get('cdn.assets')) {
 
   $original = url::$to;
