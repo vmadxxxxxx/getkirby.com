@@ -1,0 +1,130 @@
+Title: Kirby <3 CDN
+
+----
+
+Date: 08.06.2015
+
+----
+
+Tags: tutorials
+
+----
+
+Text:
+
+Performance is not just another buzz word, a fast website is vital to keep your visitors happy. We do everything to make Kirby as fast as possible on the backend, but on the frontend it now also gets easier to deliver images, css and javascript files faster to your users around the world via a CDN. 
+
+CDN stands for content distribution network. Without such a CDN all your static files are being served by your web server from a single location. That's all fine until a visitor from the opposite side of the globe tries to open your site. The distance between your server and your visitor leads to a quite massive latency issue for all the assets, which have to be loaded. Even if your site is super fast on your end it might feel horribly slow on your visitor's end. 
+
+A CDN takes your assets and stores them on servers at strategic locations around the world. As soon as a visitor comes to your site, the CDN will then find the nearest possible server and load all assets from there. This significantly increases request times and your site will load faster no matter where your visitors come from. 
+
+
+## Push and Pull Zones
+
+CDNs usually work with so called push and pull zones. 
+
+### Push zones
+
+With a push zone, you upload all your assets via FTP or SSH to the CDN's origin server and the CDN will spread them from there for you. This is perfect for static assets that don't change too often or if you have some custom deploy script, which will handle the uploads for you when something changes. You will then get a public URL for your assets from the CDN. Something like
+`http://mypushzone.mycdn.com/myfile.jpg`
+
+It actually feels a lot like a simple static file server, but with magic superpowers.
+
+### Pull zones
+
+A pull zone is much easier to setup. Your original assets stay on your server and must be reachable there. You route every request through the Pull zone, which will then fetch the assets from your server according to the URL. 
+
+So for example when your logo is located at 
+`http://yourdomain.com/assets/images/logo.png` 
+
+you would simply request the logo from your pull zone like this: 
+`http://mypullzone.mycdn.com/assets/images/logo.png`
+
+The pull zone would then fetch the logo on the first request and spread it for you across the network. You can define an expiration date for your assets, so the CDN knows when to fetch the logo again.  
+
+## Lots of new URLs
+
+The push and pull zones are very easy to setup with most CDN providers. But the biggest problem is to change all those URLs on your site to match your shiny new CDN. 
+
+On a Kirby site there are three different types of static files, for which we would need to change the URL to point to a CDN. 
+
+- all your javascript files, graphics, fonts and css inside the assets folder
+- all your images, videos, pdfs, etc. inside the content folder
+- generated thumbnails inside the thumbs folder
+
+It would be really painful to do this by hand or create some rewrite rules for it. 
+
+## Enter: The Kirby CDN plugin
+
+To simplify those steps, I've written a plugin that takes care of modifying the URLs for you: 
+
+**<https://github.com/getkirby/plugins/tree/master/cdn>**
+
+### Installation 
+
+1. grab the (link: https://github.com/getkirby/plugins/archive/master.zip text: plugins zip)
+2. copy the cdn folder into site/plugins
+3. set your CDN urls in your config: 
+
+```php
+c::set('cdn.assets', 'http://cdn.yourdomain.com/assets');
+c::set('cdn.content', 'http://cdn.yourdomain.com/content');
+c::set('cdn.thumbs', 'http://cdn.yourdomain.com/thumbs');
+```
+
+Those three options make it possible to use the CDN just for one or two of them, by simply disabling parts with false: 
+
+```php
+c::set('cdn.assets', 'http://cdn.yourdomain.com/assets');
+c::set('cdn.content', false);
+c::set('cdn.thumbs', false);
+```
+
+Especially with lots of changing thumbnails, you must be careful with enabling the CDN option for thumbs. This can lead to quite some storage usage at your CDN provider. 
+
+With the plugin and those settings enabled you don't have to change anything in your templates or content files. The URLs for your assets, content files and thumbnails will automatically point to your CDN instead of your own server. 
+
+## Cachebusting
+
+One tricky part about CDNs is the lifespan of your assets on the network. When you upload a new css or javascript file it may take some time until the new file is updated across the network and this could lead to nasty effects. 
+
+This is where cache busting is being used to force the CDN to load a new version of your css or js file. The most common way here is to add a version number or timestamp to the filename: 
+
+```
+http://assets.getkirby.com/assets/css/kirby.1420209362.css
+```
+
+But instead of manually updating the timestamp or version number on each update Kirby has another plugin, which simply adds the modification time of a file to the filename of a css or js file automatically. 
+
+**<https://github.com/getkirby/plugins/tree/master/cachebuster>**
+
+## Installation 
+
+The steps to install the cachebuster plugin are very similar to the installation of the CDN plugin. 
+
+1. grab the (link: https://github.com/getkirby/plugins/archive/master.zip text: plugins zip)
+2. copy the cachebuster folder into site/plugins
+3. Add the following lines to your htaccess file right below the RewriteBase rule:
+
+  ```
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^assets/(.+)\.(\d+)\.(js|css|png|jpg|jpeg|gif|ico)$ assets/$1.$3 [L]
+  ```
+
+4. activate the cachebuster in your config
+
+  ```php
+  c::set('cachebuster', true);
+  ```
+
+With those changes the timestamp will be updated, each time you upload a new css or js file and the CDN will automatically pull a new version of it if you use a pull zone. 
+
+## A huge thank-you to KeyCDN
+
+I have to confess that I skipped CDN integration for Kirby on my todo list for too long. I'm super happy that the friendly folks at (link: http://keycdn.com text: KeyCDN) offered to support us with free CDN hosting for Kirby and thus finally convinced me to come up with this plugin. The positive effects on getkirby.com are already very noticable.
+
+To be clear, the plugin should work **with all CDN providers** and is not limited to KeyCDN, but if you are looking for a new one, make sure to give (link: http://keycdn.com text: KeyCDN) a spin. 
+
+
+
+
