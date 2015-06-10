@@ -1,6 +1,6 @@
 Title:
 
-Page Settings
+Subpages Settings
 
 ----
 
@@ -33,7 +33,7 @@ pages:
 
 ```
 …
-pages: 
+pages:
   template:
     - project
     - article
@@ -128,7 +128,7 @@ By default dates for numbers are taken from the `date` field. You can change tha
 ```
 …
 pages:
-  num: 
+  num:
     mode: date
     field: added
 …
@@ -139,7 +139,7 @@ Even the format can be changed. To set the format, use (link: http://php.net/man
 ```
 …
 pages:
-  num: 
+  num:
     mode: date
     field: added
     format: YmdHi
