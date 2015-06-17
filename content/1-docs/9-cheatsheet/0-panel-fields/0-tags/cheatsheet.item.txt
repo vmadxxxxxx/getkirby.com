@@ -25,14 +25,14 @@ fields:
 
 ### lowercase
 
-The lowercase option will make sure that every entered tag is automatically converted to lowercase.
+The `lower` option will make sure that every entered tag is automatically converted to lowercase.
 
 ```
 fields:
   tags:
     label: Tags
     type: tags
-    lowercase: true
+    lower: true
 ```
 
 ### Separator
