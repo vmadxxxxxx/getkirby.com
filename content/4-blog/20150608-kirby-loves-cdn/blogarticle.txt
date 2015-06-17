@@ -108,7 +108,7 @@ The steps to install the cachebuster plugin are very similar to the installation
 
   ```
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^assets/(.+)\.(\d+)\.(js|css|png|jpg|jpeg|gif|ico)$ assets/$1.$3 [L]
+  RewriteRule ^assets/(.+)\.(\\d+)\.(js|css|png|jpg|jpeg|gif|ico)$ assets/$1.$3 [L]
   ```
 
 4. activate the cachebuster in your config
