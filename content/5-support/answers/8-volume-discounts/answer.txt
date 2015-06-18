@@ -6,11 +6,11 @@ We offer the following volume discounts for the professional license. They are a
 
 Volume  | EUR     | Dollar
 -       | -
-1 - 4   | 79,00 € | $99.00
-5 - 9   | 69,00 € | $87.00
-10 - 24 | 59,00 € | $74.00
-25 - 49 | 49,00 € | $62.00
-50 - 99 | 40,00 € | $50.00
-100+    | 30,00 € | $37.00
+1 - 4   | 79,00 € | $89.00
+5 - 9   | 69,00 € | $78.00
+10 - 24 | 59,00 € | $67.00
+25 - 49 | 49,00 € | $56.00
+50 - 99 | 40,00 € | $45.00
+100+    | 30,00 € | $33.00
 
 We don't offer volume discounts for the personal license.
