@@ -1,0 +1,8 @@
+Title: Thumbnails
+
+----
+
+Description: How to use Kirby's thumbnail class and thumb() helper to resize and crop images.
+
+----
+
