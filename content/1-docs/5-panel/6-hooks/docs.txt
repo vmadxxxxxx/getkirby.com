@@ -47,3 +47,15 @@ kirby()->hook('panel.page.create', function($page) {
 ```
 
 A hook is not expected to return anything. You cannot control the user flow with hooks at this state. The are silently triggered. 
+
+
+## Accessing panel, kirby, site and user in a hook callback
+
+In a lot of use-cases it will be helpful or even necessary to access the kirby, panel, site and current user objects from within a hook callback. You can do that with the following methods: 
+
+```php
+$panel = panel();
+$kirby = kirby();
+$site  = site();
+$user  = site()->user();
+```
