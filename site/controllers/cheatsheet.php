@@ -2,13 +2,19 @@
 
 return function($site, $pages, $page) {
 
-  $cache   = new Cache\Driver\File(kirby()->roots()->cache());
-  $cacheId = $page->cacheId() . '.main';
-  $content = $cache->get($cacheId);
+  if(c::get('cache.cheatsheet')) {
+    $cache   = new Cache\Driver\File(kirby()->roots()->cache());
+    $cacheId = $page->cacheId() . '.main';
+    $content = $cache->get($cacheId);    
+  } else {
+    $content = null;
+  }
 
   if(empty($content)) {    
     $content = snippet('cheatsheet', array('page' => $page), true);
-    $cache->set($cacheId, $content);
+    if(c::get('cache.cheatsheet')) {
+      $cache->set($cacheId, $content);
+    }
   }
 
   return compact('content');

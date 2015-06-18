@@ -1,0 +1,68 @@
+Title:
+
+link
+
+----
+
+Excerpt: Creates a link
+
+----
+
+Text:
+
+## Examples and options:
+
+Link with link text
+
+```
+(\link: http://wikipedia.org text: Wikipedia)
+```
+
+Relative link
+
+```
+(\link: some/page text: Link to some internal page)
+```
+
+Link to an anchor
+
+```
+(\link: #some-section text: Link to some section on the same page)
+```
+
+Opening the link in a new window
+
+```
+(\link: http://wikipedia.org text: Wikipedia popup: yes)
+```
+
+Specifying the target for the link
+
+```
+(\link: http://wikipedia.org text: Wikipedia target: _blank)
+```
+
+Link with a title
+
+```
+(\link: http://wikipedia.org text: Wikipedia title: Go to Wikipedia)
+```
+
+Link with a custom CSS class
+
+```
+(\link: http://wikipedia.org text: Wikipedia class: mylink)
+```
+
+Link with a rel attribute
+
+```
+(\link: http://yourdomain.com text: My website rel: me)
+```
+
+Link to a page in another language (only on multi-language sites)
+
+```
+(\link: some/page text: Some page in German lang: de)
+```
+

@@ -1,0 +1,39 @@
+Title:
+
+youtube
+
+----
+
+Excerpt: Embeds a Youtube video by URL
+
+----
+
+Text:
+
+## Examples and options:
+
+Embedded Youtube video by video URL
+```
+(\youtube: http://www.youtube.com/watch?v=lLuc6rtWkrM)
+```
+
+The following link formats are being recognized: 
+
+- http://www.youtube.com/watch?v=lLuc6rtWkrM
+- http://www.youtube.com/embed/lLuc6rtWkrM
+- http://youtu.be/lLuc6rtWkrM
+
+Embedded Youtube video with caption
+```
+(\youtube: http://www.youtube.com/watch?v=lLuc6rtWkrM caption: This is a really nice video)
+```
+
+Embedded Youtube with specified width and height for the iframe
+```
+(\youtube: http://www.youtube.com/watch?v=lLuc6rtWkrM width: 300 height: 200)
+```
+
+Embedded Youtube with custom CSS class for the figure element
+```
+(\youtube: http://www.youtube.com/watch?v=lLuc6rtWkrM class: myvideo)
+```

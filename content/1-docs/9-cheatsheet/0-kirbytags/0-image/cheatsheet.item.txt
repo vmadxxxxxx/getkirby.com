@@ -1,0 +1,104 @@
+Title:
+
+image
+
+----
+
+Excerpt: Embeds an image
+
+----
+
+Text:
+
+## Examples and options:
+
+Image of the current page
+
+```
+(\image: myawesomepicture.jpg)
+```
+
+Image of another internal page
+
+```
+(\image: some/other/page/myawesomepicture.jpg)
+```
+
+External image
+
+```
+(\image: http://example.com/images/myawesomepicture.jpg)
+```
+
+Image with alternative text
+
+```
+(\image: myawesomepicture.jpg alt: This is an awesome picture)
+```
+
+Image with a caption
+
+```
+(\image: myawesomepicture.jpg caption: I took this image in the park)
+```
+
+Image with a title attribute
+
+```
+(\image: myawesomepicture.jpg title: I took this image in the park)
+```
+
+Image with a link
+
+```
+(\image: myawesomepicture.jpg link: http://flickr.com)
+```
+
+Image with a link to itself
+
+```
+(\image: myawesomepicture.jpg link: self)
+```
+
+Image with a link that opens in a new window
+
+```
+(\image: myawesomepicture.jpg link: http://flickr.com popup: yes)
+```
+
+Image with a link and a specified target
+
+```
+(\image: myawesomepicture.jpg link: http://flickr.com target: _blank)
+```
+
+Image with a link and a rel attribute
+
+```
+(\image: myphoto.jpg link: http://mywebsite.com rel: me)
+```
+
+Image with a custom CSS class applied to the figure element
+
+```
+(\image: myawesomepicture.jpg class: floated)
+```
+
+Image with a custom CSS class applied to the img element
+
+```
+(\image: myawesomepicture.jpg imgclass: myimage)
+```
+
+Image with a custom CSS class applied to the link element
+
+```
+(\image: myawesomepicture.jpg link: http://flickr.com linkclass: myimage)
+```
+
+Image with defined width and height attributes
+
+```
+(\image: myawesomepicture.jpg width: 500 height: 300)
+```
+

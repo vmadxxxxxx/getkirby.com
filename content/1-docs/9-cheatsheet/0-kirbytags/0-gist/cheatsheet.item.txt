@@ -1,0 +1,25 @@
+Title:
+
+gist
+
+----
+
+Excerpt: Embeds a Github Gist by URL
+
+----
+
+Text:
+
+## Examples and options:
+
+Gist by URL
+
+```
+(\gist: https://gist.github.com/2556891)
+```
+
+Only load a specific file of the Gist by URL
+
+```
+(\gist: https://gist.github.com/2556891 file: targetblank.js)
+```

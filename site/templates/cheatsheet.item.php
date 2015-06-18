@@ -33,8 +33,8 @@
       </ul>
       <?php endif ?>
 
+      <?php echo str_replace('(\\', '(', $page->text()->kt()) ?>
 
-      <?php echo kirbytext($page->text()) ?>
       <?php if($page->image()): ?>
       <h2 class="beta">Result</h2>
       <figure>

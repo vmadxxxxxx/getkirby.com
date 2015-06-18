@@ -1,0 +1,38 @@
+Title:
+
+email
+
+----
+
+Excerpt: Creates an email address link
+
+----
+
+Text:
+
+## Examples and options:
+
+Email without link text
+```
+(\email: bastian@getkirby.com)
+```
+
+Email with link text
+```
+(\email: bastian@getkirby.com text: Send me an email)
+```
+
+Email with a title
+```
+(\email: bastian@getkirby.com text: Send me an email title: Contact me)
+```
+
+Email with a custom CSS class
+```
+(\email: bastian@getkirby.com text: Send me an email class: email)
+```
+
+Email with a rel attribute
+```
+(\email: bastian@getkirby.com text: Send me an email rel: me)
+```

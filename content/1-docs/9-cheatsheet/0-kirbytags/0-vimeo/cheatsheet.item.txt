@@ -1,0 +1,33 @@
+Title:
+
+vimeo
+
+----
+
+Excerpt: Embeds a Vimeo video by URL
+
+----
+
+Text:
+
+## Examples and options:
+
+Embedded Vimeo video by video URL
+```
+(\vimeo: http://vimeo.com/3432886)
+```
+
+Embedded Vimeo video with caption
+```
+(\vimeo: http://vimeo.com/3432886 caption: This is a really nice video)
+```
+
+Embedded Vimeo with specified width and height for the iframe
+```
+(\vimeo: http://vimeo.com/3432886 width: 300 height: 200)
+```
+
+Embedded Vimeo with custom CSS class for the figure element
+```
+(\vimeo: http://vimeo.com/3432886 class: myvideo)
+```
