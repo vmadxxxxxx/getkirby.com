@@ -1,0 +1,21 @@
+Title: timezone
+
+----
+
+Excerpt: The PHP timezone setting for all date functions
+
+----
+
+Text: 
+
+## Default value
+
+```
+'UTC'
+```
+
+## Example
+
+```php
+c::set('timezone','UTC');
+```

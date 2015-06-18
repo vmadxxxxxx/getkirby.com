@@ -1,0 +1,21 @@
+Title: cache.autoupdate
+
+----
+
+Excerpt: If true, Kirby will scan the content folder for updates and refresh the cache automatically
+
+----
+
+Text: 
+
+## Default value
+
+```
+true
+```
+
+## Example
+
+```php
+c::set('cache.autoupdate',true);
+```

@@ -1,0 +1,21 @@
+Title: date.handler
+
+----
+
+Excerpt: Can be 'date' or 'strftime' to determine which PHP function is used to formate dates for pages and files.
+
+----
+
+Text: 
+
+## Default value
+
+```
+'date'
+```
+
+## Example
+
+```php
+c::set('date.handler','date');
+```

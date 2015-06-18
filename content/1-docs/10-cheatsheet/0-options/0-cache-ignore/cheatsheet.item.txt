@@ -1,0 +1,32 @@
+Title: cache.ignore
+
+----
+
+Excerpt: An array of URIs of pages, which should be ignored by the cache
+
+----
+
+Text: 
+
+## Default value
+
+```
+null
+```
+
+## Example
+
+```php
+c::set('cache.ignore', array(
+  'home'
+));
+```
+
+
+## Wildcards
+
+```php
+c::set('cache.ignore', array(
+  'projects/*'
+));
+```

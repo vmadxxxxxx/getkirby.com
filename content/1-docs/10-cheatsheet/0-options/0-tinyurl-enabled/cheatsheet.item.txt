@@ -1,0 +1,21 @@
+Title: tinyurl.enabled
+
+----
+
+Excerpt: Enables/disables tinyurls
+
+----
+
+Text: 
+
+## Default value
+
+```
+true
+```
+
+## Example
+
+```php
+c::set('tinyurl.enabled',true);
+```

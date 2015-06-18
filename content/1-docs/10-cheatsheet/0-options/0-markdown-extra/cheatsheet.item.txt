@@ -1,0 +1,21 @@
+Title: markdown.extra
+
+----
+
+Excerpt: Enables/disables the Markdown extra parser with additional Markdown features like footnotes and tables.
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('markdown.extra',false);
+```

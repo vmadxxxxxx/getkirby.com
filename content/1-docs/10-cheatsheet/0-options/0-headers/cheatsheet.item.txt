@@ -1,0 +1,21 @@
+Title: headers
+
+----
+
+Excerpt: An array with template names as keys and HTTP headers as values. Those headers will be sent before the template is rendered.
+
+----
+
+Text: 
+
+## Default value
+
+```
+array()
+```
+
+## Example
+
+```php
+c::set('headers',array());
+```

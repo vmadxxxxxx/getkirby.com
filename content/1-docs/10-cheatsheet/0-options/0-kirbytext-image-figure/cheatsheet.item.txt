@@ -1,0 +1,21 @@
+Title: kirbytext.image.figure
+
+----
+
+Excerpt: If false, the image Kirbytag will no longer wrap images in figure elements.
+
+----
+
+Text: 
+
+## Default value
+
+```
+true
+```
+
+## Example
+
+```php
+c::set('kirbytext.image.figure',true);
+```

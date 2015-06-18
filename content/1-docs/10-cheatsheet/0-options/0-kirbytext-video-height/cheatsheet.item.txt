@@ -1,0 +1,21 @@
+Title: kirbytext.video.height
+
+----
+
+Excerpt: The default height which is being added to Youtube and Vimeo iframes (false = no width)
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('kirbytext.video.height',false);
+```

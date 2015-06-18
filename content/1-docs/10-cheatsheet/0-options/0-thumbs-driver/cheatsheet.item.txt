@@ -1,0 +1,21 @@
+Title: thumbs.driver
+
+----
+
+Excerpt: The thumbnail library which is being used by Kirby's thumb function/class ('gd' or 'im')
+
+----
+
+Text: 
+
+## Default value
+
+```
+'gd'
+```
+
+## Example
+
+```php
+c::set('thumbs.driver','gd');
+```

@@ -1,0 +1,27 @@
+Title: markdown.parser
+
+----
+
+Excerpt: Set your own markdown parser handler
+
+----
+
+Text: 
+
+## Default
+
+Kirby uses (link: http://parsedown.org text: Parsedown) as its Markdown parser by default. If you switch on markdown.extra, it will use Parsedown Extra. 
+
+## Example
+
+```php
+c::set('markdown.parser', function($text) {
+  
+  // load your own markdown parser and 
+  // parse the text
+  // return the parsed text afterwards
+  return $text;
+
+});
+```
+

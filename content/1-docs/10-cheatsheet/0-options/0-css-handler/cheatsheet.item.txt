@@ -1,0 +1,18 @@
+Title: css.handler
+
+----
+
+Excerpt: Set your own handler for the css() helper function
+
+----
+
+Text: 
+
+## Example
+
+```php
+c::set('css.handler', function($href, $media = null) {
+  // your own handler of css links
+});
+```
+

@@ -1,0 +1,21 @@
+Title: panel.language
+
+----
+
+Excerpt: The code for the default interface language for the panel before the user's choice kicks in.
+
+----
+
+Text: 
+
+## Default value
+
+```
+'en'
+```
+
+## Example
+
+```php
+c::set('panel.language', 'en');
+```

@@ -1,0 +1,21 @@
+Title: markdown
+
+----
+
+Excerpt: If false, markdown parsing will be disabled in Kirbytext
+
+----
+
+Text: 
+
+## Default value
+
+```
+true
+```
+
+## Example
+
+```php
+c::set('markdown',true);
+```

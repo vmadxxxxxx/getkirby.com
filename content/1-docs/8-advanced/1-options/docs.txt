@@ -14,39 +14,7 @@ All available options can be set in your config file in `/site/config` like this
 c::set('option', 'value');
 ```
 
-There are a number of available options in Kirby, which help you to customize the system just the way you want it.
-
-Option | Default | Description
--        | -       | -
-license | null | Setup for the license key
-debug | false | Enables/disables PHP errors 
-routes | array() | Additional route setup for Kirby's internal router
-error | 'error' | The name of the error page folder
-home | 'home' | The name of the home page folder
-languages | array() | Language definition for multi-language sites
-language.detect | false | Enables/disables automatic language detection for multi-language sites
-locale | 'en_US.UTF8' | Sets the global locale setting for PHP
-roles | array() | Available user roles
-timezone | 'UTC' | The PHP timezone setting for all date functions
-tinyurl.enabled | true | Enables/disables tinyurls
-tinyurl.folder | 'x' | Tinyurl format: yourdomain/{folder}/{hash}
-rewrite | true | Enables/disables URL rewriting
-markdown.extra | false | Enables/disables the Markdown extra parser with additional Markdown features like footnotes and tables.
-markdown.breaks | true | Enables/disables automatic line breaks in Markdown like on Github. Otherwise line breaks must be confirmed with three spaces at the end of the line.
-smartypants | false | Enables/disables the smartypants plugin
-kirbytext.video.class | 'video' | The default class which is being added to Youtube and Vimeo iframes
-kirbytext.video.width | false | The default width which is being added to Youtube and Vimeo iframes (false = no width)
-kirbytext.video.height | false | The default height which is being added to Youtube and Vimeo iframes (false = no width)
-content.file.extension | 'txt' | The file extension for files in the content folder, which are detected as content files by Kirby's core
-content.file.ignore | array() | An array of file names / folder names, which are not being scanned by Kirby's core
-cache | false | Enables/disables Kirby's cache
-cache.driver | 'file' | Kirby has three built-in cache drivers: file, memcached and apc
-cache.ignore | null | An array of URIs of pages, which should be ignored by the cache
-cache.options | null | An array of options for the cache driver
-thumbs.driver | 'gd' | The thumbnail library which is being used by Kirby's thumb function/class ('gd' or 'im')
-thumbs.filename | '{safeName}-{hash}.{extension}' | The naming scheme for thumb files
-headers | array() | An array with template names as keys and HTTP headers as values. Those headers will be sent before the template is rendered.
-
+There are a number of available options in Kirby, which help you to customize the system just the way you want it. Check out the (link: docs/cheatsheet#options text: full list of options) in the cheat sheet. 
 
 ## Your own options
 

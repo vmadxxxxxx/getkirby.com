@@ -1,0 +1,21 @@
+Title: home
+
+----
+
+Excerpt: The name of the home page folder
+
+----
+
+Text: 
+
+## Default value
+
+```
+'home'
+```
+
+## Example
+
+```php
+c::set('home','home');
+```

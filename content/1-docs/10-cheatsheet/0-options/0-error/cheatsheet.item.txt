@@ -1,0 +1,21 @@
+Title: error
+
+----
+
+Excerpt: The name of the error page folder
+
+----
+
+Text: 
+
+## Default value
+
+```
+'error'
+```
+
+## Example
+
+```php
+c::set('error','error');
+```

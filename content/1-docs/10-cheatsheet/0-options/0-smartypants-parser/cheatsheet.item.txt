@@ -1,0 +1,27 @@
+Title: smartypants.parser
+
+----
+
+Excerpt: Set your own smartypants parser handler
+
+----
+
+Text: 
+
+## Default
+
+Kirby uses (link: https://michelf.ca/projects/php-smartypants/ text: Michel Fortin's Smartypants parser) by default. If you want to switch to your own parser you can create your own parser handler callback.
+
+## Example
+
+```php
+c::set('smartypants.parser', function($text) {
+  
+  // load your own smartypants parser and 
+  // parse the text
+  // return the parsed text afterwards
+  return $text;
+
+});
+```
+

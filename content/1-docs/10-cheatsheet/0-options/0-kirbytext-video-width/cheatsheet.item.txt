@@ -1,0 +1,21 @@
+Title: kirbytext.video.width
+
+----
+
+Excerpt: The default width which is being added to Youtube and Vimeo iframes (false = no width)
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('kirbytext.video.width',false);
+```

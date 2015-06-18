@@ -1,0 +1,21 @@
+Title: roles
+
+----
+
+Excerpt: Available user roles
+
+----
+
+Text: 
+
+## Default value
+
+```
+array()
+```
+
+## Example
+
+```php
+c::set('roles',array());
+```

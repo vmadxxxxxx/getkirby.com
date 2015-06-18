@@ -1,0 +1,21 @@
+Title: cache.driver
+
+----
+
+Excerpt: Kirby has three built-in cache drivers: file, memcached and apc
+
+----
+
+Text: 
+
+## Default value
+
+```
+'file'
+```
+
+## Example
+
+```php
+c::set('cache.driver','file');
+```

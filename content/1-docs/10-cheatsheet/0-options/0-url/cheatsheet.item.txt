@@ -1,0 +1,21 @@
+Title: url
+
+----
+
+Excerpt: The base URL for the site. When set to false, Kirby auto-detects the correct URL.
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('url',false);
+```

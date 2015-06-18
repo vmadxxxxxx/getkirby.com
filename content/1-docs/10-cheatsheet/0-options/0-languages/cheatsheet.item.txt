@@ -1,0 +1,21 @@
+Title: languages
+
+----
+
+Excerpt: Language definition for multi-language sites
+
+----
+
+Text: 
+
+## Default value
+
+```
+array()
+```
+
+## Example
+
+```php
+c::set('languages',array());
+```

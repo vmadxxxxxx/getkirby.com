@@ -1,0 +1,21 @@
+Title: locale
+
+----
+
+Excerpt: Sets the global locale setting for PHP
+
+----
+
+Text: 
+
+## Default value
+
+```
+'en_US.UTF8'
+```
+
+## Example
+
+```php
+c::set('locale','en_US.UTF8');
+```

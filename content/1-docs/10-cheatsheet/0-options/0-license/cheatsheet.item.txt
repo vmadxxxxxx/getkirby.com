@@ -1,0 +1,21 @@
+Title: license
+
+----
+
+Excerpt: Setup for the license key
+
+----
+
+Text: 
+
+## Default value
+
+```
+null
+```
+
+## Example
+
+```php
+c::set('license',null);
+```

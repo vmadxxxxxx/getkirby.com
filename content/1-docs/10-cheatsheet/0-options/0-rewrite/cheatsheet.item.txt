@@ -1,0 +1,21 @@
+Title: rewrite
+
+----
+
+Excerpt: Enables/disables URL rewriting
+
+----
+
+Text: 
+
+## Default value
+
+```
+true
+```
+
+## Example
+
+```php
+c::set('rewrite',true);
+```

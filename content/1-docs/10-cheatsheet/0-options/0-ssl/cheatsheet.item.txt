@@ -1,0 +1,21 @@
+Title: ssl
+
+----
+
+Excerpt: If true, Kirby will redirect all http requests to https.
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('ssl',false);
+```

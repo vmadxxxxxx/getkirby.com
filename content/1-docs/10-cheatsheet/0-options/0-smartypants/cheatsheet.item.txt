@@ -1,0 +1,21 @@
+Title: smartypants
+
+----
+
+Excerpt: Enables/disables the smartypants plugin
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('smartypants',false);
+```

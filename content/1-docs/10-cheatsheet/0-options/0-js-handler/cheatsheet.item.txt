@@ -1,0 +1,18 @@
+Title: js.handler
+
+----
+
+Excerpt: Set your own handler for the js() helper function
+
+----
+
+Text: 
+
+## Example
+
+```php
+c::set('js.handler', function($src, $async = false) {
+  // your own handler of js script tags
+});
+```
+

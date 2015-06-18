@@ -1,0 +1,21 @@
+Title: tinyurl.folder
+
+----
+
+Excerpt: Tinyurl format: yourdomain/{folder}/{hash}
+
+----
+
+Text: 
+
+## Default value
+
+```
+'x'
+```
+
+## Example
+
+```php
+c::set('tinyurl.folder','x');
+```

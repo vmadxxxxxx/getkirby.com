@@ -1,0 +1,21 @@
+Title: routes
+
+----
+
+Excerpt: Additional route setup for Kirby's internal router
+
+----
+
+Text: 
+
+## Default value
+
+```
+array()
+```
+
+## Example
+
+```php
+c::set('routes',array());
+```

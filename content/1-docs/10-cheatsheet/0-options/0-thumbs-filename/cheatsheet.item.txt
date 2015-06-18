@@ -1,0 +1,21 @@
+Title: thumbs.filename
+
+----
+
+Excerpt: The naming scheme for thumb files
+
+----
+
+Text: 
+
+## Default value
+
+```
+'{safeName}-{hash}.{extension}'
+```
+
+## Example
+
+```php
+c::set('thumbs.filename','{safeName}-{hash}.{extension}');
+```

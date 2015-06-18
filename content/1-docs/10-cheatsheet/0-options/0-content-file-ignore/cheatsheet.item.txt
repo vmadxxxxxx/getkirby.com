@@ -1,0 +1,21 @@
+Title: content.file.ignore
+
+----
+
+Excerpt: An array of file names / folder names, which are not being scanned by Kirby's core
+
+----
+
+Text: 
+
+## Default value
+
+```
+array()
+```
+
+## Example
+
+```php
+c::set('content.file.ignore',array());
+```

@@ -1,0 +1,21 @@
+Title: panel.kirbytext
+
+----
+
+Excerpt: If false, the Panel formatting buttons and drag and drop for files and links will create regular Markdown instead of Kirbytags.
+
+----
+
+Text: 
+
+## Default value
+
+```
+true
+```
+
+## Example
+
+```php
+c::set('panel.kirbytext', true);
+```

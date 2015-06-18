@@ -1,0 +1,21 @@
+Title: kirbytext.video.class
+
+----
+
+Excerpt: The default class which is being added to Youtube and Vimeo iframes
+
+----
+
+Text: 
+
+## Default value
+
+```
+'video'
+```
+
+## Example
+
+```php
+c::set('kirbytext.video.class','video');
+```

@@ -1,0 +1,21 @@
+Title: cache.options
+
+----
+
+Excerpt: An array of options for the cache driver
+
+----
+
+Text: 
+
+## Default value
+
+```
+null
+```
+
+## Example
+
+```php
+c::set('cache.options',null);
+```

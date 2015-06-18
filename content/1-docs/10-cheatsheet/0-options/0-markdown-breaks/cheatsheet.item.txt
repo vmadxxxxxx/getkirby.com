@@ -1,0 +1,21 @@
+Title: markdown.breaks
+
+----
+
+Excerpt: Enables/disables automatic line breaks in Markdown like on Github. Otherwise line breaks must be confirmed with three spaces at the end of the line.
+
+----
+
+Text: 
+
+## Default value
+
+```
+true
+```
+
+## Example
+
+```php
+c::set('markdown.breaks',true);
+```

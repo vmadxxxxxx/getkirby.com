@@ -1,0 +1,21 @@
+Title: language.detect
+
+----
+
+Excerpt: Enables/disables automatic language detection for multi-language sites
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('language.detect',false);
+```

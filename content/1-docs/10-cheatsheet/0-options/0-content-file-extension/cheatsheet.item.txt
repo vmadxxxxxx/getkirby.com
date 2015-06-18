@@ -1,0 +1,21 @@
+Title: content.file.extension
+
+----
+
+Excerpt: The file extension for files in the content folder, which are detected as content files by Kirby's core
+
+----
+
+Text: 
+
+## Default value
+
+```
+'txt'
+```
+
+## Example
+
+```php
+c::set('content.file.extension','txt');
+```

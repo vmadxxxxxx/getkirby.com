@@ -1,0 +1,21 @@
+Title: debug
+
+----
+
+Excerpt: Enables/disables PHP errors
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('debug',false);
+```

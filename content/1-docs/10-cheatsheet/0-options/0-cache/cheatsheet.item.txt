@@ -1,0 +1,21 @@
+Title: cache
+
+----
+
+Excerpt: Enables/disables Kirby's cache
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('cache',false);
+```
