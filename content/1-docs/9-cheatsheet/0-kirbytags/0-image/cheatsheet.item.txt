@@ -60,6 +60,18 @@ Image with a link to itself
 (\image: myawesomepicture.jpg link: self)
 ```
 
+Image with a link to an internal page
+
+```
+(\image: myawesomepicture.jpg link: some/page)
+```
+
+Image with a link to an internal file
+
+```
+(\image: myawesomepicture.jpg link: some/page/somedocument.pdf)
+```
+
 Image with a link that opens in a new window
 
 ```
