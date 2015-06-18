@@ -34,6 +34,42 @@ c::set('languages', array(
 
 As soon as more than one languages are setup in the languages array, multi-language support is switched on.
 
+### Detailed locale settings
+
+If you need more control over your locale settings for each language, you can pass an array of locales: 
+
+```php
+c::set('languages', array(
+  array(
+    'code'    => 'en',
+    'name'    => 'English',
+    'default' => true,
+    'url'     => '/',
+    'locale'  => array(
+      LC_COLLATE  => 'en_US.utf8',
+      LC_MONETARY => 'en_US.utf8',
+      LC_NUMERIC  => 'en_US.utf8',
+      LC_TIME     => 'en_US.utf8',
+      LC_MESSAGES => 'en_US.utf8',
+      LC_CTYPE    => 'en_US.utf8'
+    ),
+  ),
+  array(
+    'code'    => 'de',
+    'name'    => 'Deutsch',
+    'url'     => '/de',
+    'locale'  => array(
+      LC_COLLATE  => 'de_DE.utf8',
+      LC_MONETARY => 'de_DE.utf8',
+      LC_NUMERIC  => 'de_DE.utf8',
+      LC_TIME     => 'de_DE.utf8',
+      LC_MESSAGES => 'de_DE.utf8',
+      LC_CTYPE    => 'de_DE.utf8'
+    ),
+  ),
+));
+```
+
 ### Automatic Language Detection
 
 Kirby can detect the prefered language of the visitor. This has to be activated by adding:
@@ -53,6 +89,13 @@ i.e.
 **This process is not yet handled by Kirby and can lead to broken content.**
 
 
+### Date handlers
+
+By default Kirby is using PHP's `date` function to format dates for pages and files. `date()` does not respect locale settings though and always creates English month and day names. You can now switch to `strftime()` as your primary date handler, which uses a different format for dates, but also supports translated month and day names. To switch the handler, add the following to your config: 
+
+```php
+c::set('date.handler', 'strftime'); 
+```
 
 
 
