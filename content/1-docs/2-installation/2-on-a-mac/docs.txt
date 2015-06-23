@@ -51,7 +51,7 @@ MAMP:
 DesktopUtility:
 
   text: DesktopUtility
-  link: http://sweetpproductions.com/desktoputility/
+  link: http://sweetpproductions.com/
 
 
 
