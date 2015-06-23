@@ -49,7 +49,7 @@ The page model will make a method called `cover()` available for all your projec
 
 ```php
 <?php
-class ProjectModel extends Page {
+class ProjectPage extends Page {
   public function cover() {
     return $this->image('cover');
   }
