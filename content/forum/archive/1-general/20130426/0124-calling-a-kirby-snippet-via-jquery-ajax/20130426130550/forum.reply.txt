@@ -1,0 +1,9 @@
+User: BobRockefeller
+
+----
+
+Date: 2013-04-26 13:05:50
+
+----
+
+Text: Maybe full path. Is there a way to get that without hard coding a potentially changing root?

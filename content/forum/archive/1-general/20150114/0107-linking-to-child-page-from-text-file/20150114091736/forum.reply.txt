@@ -1,0 +1,16 @@
+Date: 2015-01-14 09:17:36
+
+----
+
+User: texnixe
+
+----
+
+Text: You could put a redirect in the parent template:
+
+```php
+<?php
+    go( 'projects/in-progress');
+    exit;
+?>
+```

@@ -6,7 +6,8 @@
 
   <?php echo css(array(
     'assets/css/kirby.css',
-    'assets/css/site.css'
+    'assets/css/site.css',
+    '@auto'
   )) ?>
 
   <?php if($page->isHomePage()): ?>
@@ -19,6 +20,10 @@
   <meta name="description" content="<?php echo html($page->description()) ?>" />
   <?php else: ?>
   <meta name="description" content="<?php echo html($site->description()) ?>" />
+  <?php endif ?>
+
+  <?php if(isset($noindex) and $noindex): ?>
+  <meta name="robots" content="noindex, nofollow, noarchive"> 
   <?php endif ?>
 
   <link rel="icon" href="<?php echo url('assets/images/favicon.png') ?>" type="image/png" />

@@ -1,0 +1,9 @@
+Date: 2015-01-15 21:40:13
+
+----
+
+User: yaccin
+
+----
+
+Text: This results in a redirect loop for /panel/login :(

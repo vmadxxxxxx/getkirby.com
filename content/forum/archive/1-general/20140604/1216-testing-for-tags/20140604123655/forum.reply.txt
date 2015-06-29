@@ -1,0 +1,14 @@
+User: conefreykoedam
+
+----
+
+Date: 2014-06-04 12:36:55
+
+----
+
+Text: Never mind:
+
+this works
+
+$tags = array_filter($tags); 
+if(!empty($tags)):

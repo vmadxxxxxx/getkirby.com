@@ -1,0 +1,9 @@
+User: UweGehring
+
+----
+
+Date: 2014-10-03 09:00:31
+
+----
+
+Text: It should be sufficient to check $page->depth() or, if that is not applicable, $page->IsChildOf().

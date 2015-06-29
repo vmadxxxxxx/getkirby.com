@@ -1,0 +1,16 @@
+User: andyjhall
+
+----
+
+Date: 2014-08-11 17:13:44
+
+----
+
+Text: ofcourse as soon as I posted on here i realise that if I enable:
+
+c::set('markdown.extra', true);
+
+in my sites config file everything magically works!
+
+
+Thanks anyway guys!

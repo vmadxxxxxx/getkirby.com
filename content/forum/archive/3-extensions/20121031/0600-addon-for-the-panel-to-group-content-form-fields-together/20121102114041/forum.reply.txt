@@ -1,0 +1,16 @@
+User: bydsply
+
+----
+
+Date: 2012-11-02 11:40:41
+
+----
+
+Text: Little error,
+```php
+return implode("n", $output);
+```
+Par :
+```php
+return implode("/n", $output);
+```

@@ -1,0 +1,30 @@
+/*
+ :::  Timestamps
+-------------------------------------------------- */
+.date {
+  color: #777;
+  font-style: italic;
+}
+.date a {
+  color: inherit;
+}
+.date a:hover {
+  color: #222;
+}
+
+.user {
+  color: #777;
+  font-style: italic;
+}
+.user:hover {
+  color: #222;
+}
+
+.site-footer {
+  margin-top: 6em;
+}
+
+.forum-disclaimer {
+  color: red;
+  margin-bottom: 3em;
+}

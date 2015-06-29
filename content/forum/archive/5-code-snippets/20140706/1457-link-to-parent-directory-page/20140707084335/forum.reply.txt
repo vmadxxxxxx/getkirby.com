@@ -1,0 +1,12 @@
+User: jobbies
+
+----
+
+Date: 2014-07-07 08:43:35
+
+----
+
+Text: Try ... 
+
+
+    $page->parent()->url()
