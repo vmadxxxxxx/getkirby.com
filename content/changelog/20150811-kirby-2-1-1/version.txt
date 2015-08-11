@@ -22,7 +22,7 @@ The second issue allows authenticated users to upload normally disallowed PHP sc
 
 **Every Kirby 2 website should be updated immediately to (link: http://download.getkirby.com text: 2.1.1) to fix the vulnerabilities.**
 
-You can find **(link: http://dev.getkirby.com/docs/installation/updates text: detailed instructions on how to update)** your current installation in our docs.
+You can find **(link: docs/installation/updates text: detailed instructions on how to update)** your current installation in our docs.
 
 ## Download Kirby 2.1.1
 <http://download.getkirby.com>
