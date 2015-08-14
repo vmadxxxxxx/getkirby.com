@@ -1,0 +1,131 @@
+Title: Security
+
+----
+
+Description: Learn about how to secure your Kirby installation on your server.
+
+----
+
+Text:
+
+(toc)
+
+## Always update your Kirby installation
+
+We constantly improve the code and security of Kirby with every update. Please always make sure to update to the latest version in order to fix possible issues and vulnerabilities.
+
+Please follow these (link: docs/installation/updates text: instructions how to update your installation). 
+
+### How to find your current version number
+
+Your Kirby installation has three components: 
+
+1. the core: `/kirby`
+2. the toolkit: `/kirby/toolkit`
+3. the panel: `/panel`
+
+If you use the panel and your version is 2.1 or newer you can find all the version numbers of the three components in your panel under `Site options`
+
+You can also find them in the core in the following files: 
+
+1. `/kirby/kirby.php`
+2. `/kirby/toolkit/lib/toolkit.php`
+3. `/panel/app/panel.php
+
+## Secure your server
+
+Your server's security is essential for the security of your website and data as well as Kirby's security. Please make sure that you work together with experienced system administrators and hosting partners who keep your server up to date and know how to protect it against external attacks. Don't try to setup your own server if you don't exactly know what you are doing. 
+
+### Connecting with your server
+
+Unfortunately many cheap hosting providers still offer normal FTP accounts for their customers. This is a horrible idea. Always make sure that you only connect to your server with a secured connection (SFTP, SSH) A regular FTP connection submits your password in plaintext over the network. It's very easy to get access to your password that way. 
+
+### HTTPS
+
+We can only encourage you to buy an SSL certificate for your domain. Many providers nowadays offer to set this up for you. Especially for the panel, an encrypted connection between your browser and your server is very important. Otherwise your login will be submitted in plain text to the server and can be intercepted. 
+
+### Use the latest stable PHP version
+
+Many providers unfortunately still offer very old PHP versions, which are no longer maintained. Do yourself and your site a favor and always update to the latest stable PHP version. This comes with additional security and often performance benefits. If your provider does not provide a new and stable PHP version it's a good sign to switch to a better provider. 
+
+## Passwords
+
+Use very long passwords for the connection to your server and for your panel logins! Try to convince your clients to use something more secure than `123456789` as well. Short passwords can be hacked by a brute-force attack within seconds. They are no longer a viable protection. Also make sure to use different passwords for different sites and tools. Never use the same password more than once. The panel helps you with long and secure password suggestion on installation and in the user account management. 
+
+## Blocked folders and files
+
+Kirby's default htaccess file for Apache comes with a set of predefined rules to block external access to certain files and folders in order to secure them. If you run your own htaccess file with your own set of rules, or you use another server architecture such as Nginx, make sure to block the same files and folders with your setup. 
+
+### Text files in your content folder
+
+All text files within the content folder should not be accessible from the outside. Kirby's `.htaccess file uses the following rule to achieve this: 
+
+```
+RewriteRule ^content/(.*)\.(txt|md|mdown)$ /error [R=301,L]
+```
+
+Check if this rule works on your setup, by try browsing to one of your content text files (i.e. http://yourdomain.com/content/site.txt) If your setup is correct, you should be redirected to the error page.
+
+### Your site folder
+
+All your files within the site folder must be protected as well. Kirby's rule for this is:
+
+```
+RewriteRule ^site/(.*) /error [R=301,L]
+```
+
+You can check if this block works by browsing to http://yourdomain.com/site/config/config.php. If everything is correct you will be redirected to the error page. 
+
+### Your kirby folder
+
+Last but not least your kirby folder must be protected as well. Here's the rule: 
+
+```
+RewriteRule ^kirby/(.*) /error [R=301,L]
+```
+
+By browsing to http://yourdomain.com/kirby/kirby.php you can make sure that you will be correctly redirected to the error page. 
+
+## File Permissions
+
+Never set the file permissions on your server too open (777). Especially on a shared hosting environment, other users could get access to important files of your site and overwrite or read them. 
+
+We are working on our own dedicated docs on secure file permissions, but you can find an excellent introduction into (link: http://www.smashingmagazine.com/2014/05/proper-wordpress-filesystem-permissions-ownerships text: secure file permissions for Wordpress on Smashing Magazine). Those instructions can be applied to a Kirby installation as well. 
+
+## Secure data in git repositories 
+
+### .gitgnore /site/accounts
+
+When you use a public repository for your website (for example on Github or Bitbucket) you must make sure to not check in your account files and push them to Github. Kirby's starterkits come with a .gitignore file, which automatically ignores the /site/accounts folder to avoid this. If you start your own repository from scratch, please double-check to add the same rule to your .gitignore file.
+
+### .gitignore /site/config/config.php
+
+We also encourage you to exclude your `config.php` to not make your license key available publicly or reveal any other sensible configuration data. A good way to set your project up, is to have general uncritical configuration in your main `config.php` and add an additional config with the license key and maybe other critical keys only on your server and your local machine, ignoring them in your .gitignore.
+
+Kirby makes this very easy with multi-environment config files. You can add a environment-specific file by adding the domain to the filename. I.e.:
+
+```
+config.dev.mysite.com.php
+config.mysite.com.php
+```
+
+## Input filtering and sanitization
+
+If you work with forms or any other kind of user-generated content on your site, you have to make sure to properly filter and sanitize any user input. Even though Kirby does not use a database system and sql injections are therefor not possible, an attacker could still add malicious input to your text files in order to try to manipulate your site. 
+
+You can find more about (link: docs/cheatsheet#validators text: Kirby's input validators) in the cheat sheet. They are a good start to check incoming user data. Additionally you should read more about PHP's (link: http://php.net/manual/en/book.filter.php text: input filtering functions)
+
+**Never directly add unfiltered/unvalidated user data to methods such as…**
+
+- `$page->children()->create()`
+- `$page->update()`
+- `$site->users()->create()`
+- `$user->update()`
+- `$file->update()`
+
+
+## Reporting security issues
+
+If you found a vulnerability in Kirby's core or the panel, please make sure to let us know immediately. We take any report very seriously. You can always write us directly at <support@getkirby.com>
+
+
