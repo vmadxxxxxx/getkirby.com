@@ -15,7 +15,13 @@ array()
 ```
 
 ## Example
+The array must contain a template as key. This is the actual used template and not the intended template (aka. content file name).
+The value must be callable, so it should be a function containing the php code you want to execute (as shown in the example).
 
 ```php
-c::set('headers',array());
+c::set('headers',array(
+  'home' => function() {
+    header('x-my-header: my-value');
+  }
+));
 ```
