@@ -46,7 +46,7 @@ kirby()->hook('panel.page.create', function($page) {
 });
 ```
 
-A hook is not expected to return anything. You cannot control the user flow with hooks at this state. The are silently triggered. 
+A hook is not expected to return anything. You cannot control the user flow with hooks at this state. They are silently triggered. 
 
 
 ## Accessing panel, kirby, site and user in a hook callback
