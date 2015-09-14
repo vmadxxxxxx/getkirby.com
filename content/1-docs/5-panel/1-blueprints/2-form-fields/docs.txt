@@ -191,7 +191,7 @@ fields:
 ```
 fields: 
   headline:
-    type: headline
+    label: headline
     text: 
       de: Optionen
       en: Options
