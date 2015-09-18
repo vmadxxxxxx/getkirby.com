@@ -22,7 +22,7 @@ Add the folder `/site/languages` and insert a PHP file with the specific languag
 
 Those files can contain as many custom variables as you need.
 
-#### /sites/languages/en.php
+#### /site/languages/en.php
 
 ```php
 <?php
@@ -33,7 +33,7 @@ l::set('cancel', 'Cancel');
 ?>
 ```
 
-#### /sites/languages/de.php
+#### /site/languages/de.php
 
 ```php
 <?php
