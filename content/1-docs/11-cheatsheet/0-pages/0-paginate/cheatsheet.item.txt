@@ -19,13 +19,16 @@ text:
 
 Text:
 
+
 ## Example
+
 
 Show 10 items per page:
 
 ```php
 $articles = $page->children()->paginate(10);
 ```
+
 
 ## Options:
 
