@@ -77,7 +77,7 @@
       <section class="intro">
         <h1 class="alpha with-beta">Kirby is a file&#8209;based&nbsp;CMS</h1>
         <p class="beta">Easy&nbsp;to&nbsp;setup. Easy&nbsp;to&nbsp;use. Flexible&nbsp;as&nbsp;hell.</p>
-        <a class="btn-white" href="<?php echo url('try') ?>">Download v2</a>
+        <a class="btn-white" href="<?php echo url('try') ?>">Download <?php echo kirby::version() ?></a>
       </section>
     </div>
   </header>

@@ -9,7 +9,7 @@
     <ul class="download-list"><!--
    --><li>
         <a href="http://download.getkirby.com">
-          <h3 class="gamma">kirby-2-starterkit.zip</h3>
+          <h3 class="gamma">kirby-<?php echo kirby::version() ?>-starterkit.zip</h3>
           <p>Download the latest version of Kirby's Starterkit</p>
         </a>
       </li><!--
