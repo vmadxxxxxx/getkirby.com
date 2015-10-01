@@ -63,7 +63,7 @@ Kirby's default htaccess file for Apache comes with a set of predefined rules to
 All text files within the content folder should not be accessible from the outside. Kirby's `.htaccess file uses the following rule to achieve this: 
 
 ```
-RewriteRule ^content/(.*)\.(txt|md|mdown)$ /error [R=301,L]
+RewriteRule ^content/(.*)\.(txt|md|mdown)$ index.php [L]
 ```
 
 Check if this rule works on your setup, by try browsing to one of your content text files (i.e. http://yourdomain.com/content/site.txt) If your setup is correct, you should be redirected to the error page.
@@ -73,7 +73,7 @@ Check if this rule works on your setup, by try browsing to one of your content t
 All your files within the site folder must be protected as well. Kirby's rule for this is:
 
 ```
-RewriteRule ^site/(.*) /error [R=301,L]
+RewriteRule ^site/(.*) index.php [L]
 ```
 
 You can check if this block works by browsing to http://yourdomain.com/site/config/config.php. If everything is correct you will be redirected to the error page. 
@@ -83,7 +83,7 @@ You can check if this block works by browsing to http://yourdomain.com/site/conf
 Last but not least your kirby folder must be protected as well. Here's the rule: 
 
 ```
-RewriteRule ^kirby/(.*) /error [R=301,L]
+RewriteRule ^kirby/(.*) index.php [L]
 ```
 
 By browsing to http://yourdomain.com/kirby/kirby.php you can make sure that you will be correctly redirected to the error page. 
