@@ -1,0 +1,55 @@
+Title: Security: Check your RewriteBase settings
+
+----
+
+Date: 01.10.2015
+
+----
+
+Tags: 
+
+----
+
+Text: 
+
+Kirby's default `.htaccess file includes a set of rewrite rules for Apache, which should block access to text files within the content folder and all other files in the kirby and site folders. This is a security measure to avoid unwanted access to sensible files. 
+
+Unfortunately it turns out that in various shared hosting environments, those blocks lead to unwanted redirects and can reveal the full path to the accessed file on the server. This only happens if you browse directly to one of the blocked files, but is still an issue. 
+
+In order to fix this immediately you should change the following lines in your `.htaccess` file:
+
+### Old setup
+
+    # block text files in the content folder from being accessed directly
+    RewriteRule ^content/(.*)\.(txt|md|mdown)$ /error [R=301,L]
+
+    # block all files in the site folder from being accessed directly
+    RewriteRule ^site/(.*) /error [R=301,L]
+
+    # block all files in the kirby folder from being accessed directly
+    # RewriteRule ^kirby/(.*) /error [R=301,L]
+
+
+### More secure new setup
+
+    # block text files in the content folder from being accessed directly
+    RewriteRule ^content/(.*)\.(txt|md|mdown)$ index.php [L]
+
+    # block all files in the site folder from being accessed directly
+    RewriteRule ^site/(.*) index.php [L]
+
+    # block all files in the kirby folder from being accessed directly
+    RewriteRule ^kirby/(.*) index.php [L]
+
+If you haven't modified your htaccess file at all, you can simply replace your existing file with this one: 
+
+**<https://raw.githubusercontent.com/getkirby/starterkit/master/.htaccess>**
+
+If you don't use Apache, you are not required to make any changes. Just make sure you have similar blocking rules in place and they work as expected.
+
+I've already updated all `.htaccess` files in all kits and downloads to avoid any future problems.
+
+For additional security instructions, please refer to: 
+**<http://getkirby.com/docs/security>**
+
+Please make sure to let me know if you have any questions: <support@getkirby.com>
