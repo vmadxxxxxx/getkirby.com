@@ -32,7 +32,7 @@ You will find the source of Kirby in your download folder, **but there's pitfall
 
 ## Show invisible files
 
-There's a nice free app, which you can use to show invisible files on your Mac called (link: http://sweetpproductions.com/desktoputility/ text: DesktopUtility). Once hidden files are visible in the Finder, your (unzipped) download of Kirby should look like this:
+There's a nice free app, which you can use to show invisible files on your Mac called (link: http://sweetpproductions.com/ text: DesktopUtility). Once hidden files are visible in the Finder, your (unzipped) download of Kirby should look like this:
 
 (image: mamp-03.png)
 
