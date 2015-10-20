@@ -1,0 +1,21 @@
+Title: panel.session.timeout
+
+----
+
+Excerpt: Set timeout for the Panel session.
+
+----
+
+Text: 
+
+## Default value
+
+```
+120
+```
+
+## Example
+
+```php
+c::set('panel.session.timeout', 3000);
+```
