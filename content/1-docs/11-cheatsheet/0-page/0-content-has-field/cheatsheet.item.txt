@@ -1,0 +1,28 @@
+Title:
+
+$page->content()->has('field')
+
+----
+
+Excerpt:
+
+Checks if the page has a certain field. 
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+##Example
+```php
+<?php
+if($page->content()->has('somefield')) {
+  echo $page->somefield()->kirbytext();
+}
+?>
+```  
