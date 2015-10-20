@@ -78,6 +78,8 @@ function() {
 
 ### Returning a page with additional data for the template
 
+#### Sites without multi-language setup
+
 ```php
 function() {
 
@@ -85,6 +87,23 @@ function() {
   $data = array(
     'foo' => 'bar'
   );
+
+  return array('some/page', $data);
+}
+```
+
+#### Multi-language sites
+
+```php
+function() {
+
+  // additional data for the page
+  $data = array(
+    'foo' => 'bar'
+  );
+
+  // activate the page and set the language
+  site()->visit('some/page', 'en');
 
   return array('some/page', $data);
 }

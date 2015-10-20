@@ -42,7 +42,9 @@ Unfortunately many cheap hosting providers still offer normal FTP accounts for t
 
 ### HTTPS
 
-We can only encourage you to buy an SSL certificate for your domain. Many providers nowadays offer to set this up for you. Especially for the panel, an encrypted connection between your browser and your server is very important. Otherwise your login will be submitted in plain text to the server and can be intercepted. 
+We can only encourage you to use an SSL certificate for your domain. Some certification authorities even offer free basic certificates, so you do not necessarily have to buy one.
+Many providers nowadays offer to set this up for you. Especially for the panel, an encrypted connection between your browser and your server is very important. If you configure it yourself, make sure to use a strong configuration. Tools and guides like the [Mozilla SSL Configuration Generator] (https://mozilla.github.io/server-side-tls/ssl-config-generator/) can help you with this.
+If you do not use HTTPS your login will be submitted in plain text to the server and can be intercepted. 
 
 ### Use the latest stable PHP version
 
@@ -61,7 +63,7 @@ Kirby's default htaccess file for Apache comes with a set of predefined rules to
 All text files within the content folder should not be accessible from the outside. Kirby's `.htaccess file uses the following rule to achieve this: 
 
 ```
-RewriteRule ^content/(.*)\.(txt|md|mdown)$ /error [R=301,L]
+RewriteRule ^content/(.*)\.(txt|md|mdown)$ index.php [L]
 ```
 
 Check if this rule works on your setup, by try browsing to one of your content text files (i.e. http://yourdomain.com/content/site.txt) If your setup is correct, you should be redirected to the error page.
@@ -71,7 +73,7 @@ Check if this rule works on your setup, by try browsing to one of your content t
 All your files within the site folder must be protected as well. Kirby's rule for this is:
 
 ```
-RewriteRule ^site/(.*) /error [R=301,L]
+RewriteRule ^site/(.*) index.php [L]
 ```
 
 You can check if this block works by browsing to http://yourdomain.com/site/config/config.php. If everything is correct you will be redirected to the error page. 
@@ -81,7 +83,7 @@ You can check if this block works by browsing to http://yourdomain.com/site/conf
 Last but not least your kirby folder must be protected as well. Here's the rule: 
 
 ```
-RewriteRule ^kirby/(.*) /error [R=301,L]
+RewriteRule ^kirby/(.*) index.php [L]
 ```
 
 By browsing to http://yourdomain.com/kirby/kirby.php you can make sure that you will be correctly redirected to the error page. 

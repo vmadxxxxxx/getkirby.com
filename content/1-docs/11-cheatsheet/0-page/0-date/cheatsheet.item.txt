@@ -1,6 +1,6 @@
 Title:
 
-$page->date($format = false, $field = 'date')
+$page->date($format = null, $field = 'date')
 
 ----
 
@@ -50,5 +50,5 @@ By default the date method will return the Unix timestamp. You can use that to m
 ```
 
 ```php
-<?php echo strftime('%d/%m/%Y', $page->date(false, 'createdAt')) ?>
+<?php echo strftime('%d/%m/%Y', $page->date(null, 'createdAt')) ?>
 ```

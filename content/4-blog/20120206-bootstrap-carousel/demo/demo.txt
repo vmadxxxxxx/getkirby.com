@@ -1,5 +1,0 @@
-Title: Kirby and the Bootstrap Carousel
-
-----
-
-Text: 
