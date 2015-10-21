@@ -32,3 +32,11 @@ Text:
   <?php endforeach ?>
 </ul>
 ```
+
+It's also possible to sort by more than one field like this:
+
+```php
+<?php
+$articles = page('blog')->children()->sortBy('date', 'desc', 'time', 'asc');
+?>
+```
