@@ -1,0 +1,22 @@
+Title: $field->value()
+
+----
+
+Excerpt: Returns the value of a field as string.
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->text()->value()  ?>
+```
