@@ -41,6 +41,9 @@ pages:
 …
 ```
 
+To restrict templates available when adding a top-level page, you can do the same in the site options blueprint at `site/blueprints/site.php`.
+
+
 ## Maximum number of subpages
 
 You can set the maximum number of subpages, which will hide the "Add" button as soon as the maximum is reached. This can help avoid unwanted effects in a template, when the page has too many subpages.
