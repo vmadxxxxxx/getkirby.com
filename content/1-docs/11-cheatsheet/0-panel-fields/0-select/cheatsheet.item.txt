@@ -107,3 +107,35 @@ value | {{uid}} | A string to be used for the value attribute. You can use {{var
 text | {{title}} | A string to be used for the displayed option text. You can use {{varname}} for any object method from the passed object (page or file)
 flip | false | If true, the list of options will be reversed
 template | false | A template name that will filter out all items with a different intended template
+
+### Dynamic options via JSON API
+
+Sometimes you need more control to fetch information from external sources. You can achieve this by providing a valid URL to an API, which returns a JSON object with keys and values for the select field
+
+#### Example
+
+```
+fields:
+  category:
+    label: Category
+    type: select
+    default: architecture
+    options: http://example.com/api/categories.json
+```
+
+The json must be have the following format: 
+
+```
+{
+  "design": "Design",
+  "architecture": "Architecture",
+  "photography": "Photography",
+  "3d": "3D",
+  "web": "Web"
+}
+```
+
+
+
+
+
