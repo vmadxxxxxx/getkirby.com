@@ -26,7 +26,7 @@ There's one file which must be present in a field folder and it must be named li
 
 This file must contain a class following the class name convention for fields:
 
-`{Fieldname}Class`
+`{Fieldname}Field`
 
 ### Examples
 
