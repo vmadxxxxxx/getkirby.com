@@ -15,7 +15,9 @@ text:
 
 ----
 
-Params: - 
+Params: 
+
+- 
   name: $url
   type: string
   text:
