@@ -20,3 +20,17 @@ fields:
     label: Number
     type: number
 ```
+
+### Decimals
+
+Decimals can be used by adding the **step** option.
+
+```
+fields:
+  price:
+    label: Price
+    type: number
+    step: .01
+```
+
+

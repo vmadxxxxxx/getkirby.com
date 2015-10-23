@@ -42,9 +42,9 @@ Unfortunately many cheap hosting providers still offer normal FTP accounts for t
 
 ### HTTPS
 
-We can only encourage you to use an SSL certificate for your domain. Some certification authorities even offer free basic certificates, so you do not necessarily have to buy one.
-Many providers nowadays offer to set this up for you. Especially for the panel, an encrypted connection between your browser and your server is very important. If you configure it yourself, make sure to use a strong configuration. Tools and guides like the [Mozilla SSL Configuration Generator] (https://mozilla.github.io/server-side-tls/ssl-config-generator/) can help you with this.
-If you do not use HTTPS your login will be submitted in plain text to the server and can be intercepted. 
+We can only encourage you to use an SSL certificate for your domain. Some certification authorities even offer free basic certificates, so you do not necessarily have to buy one. For example you can get a free certificate from [StartSSL](https://startssl.com/), [WoSign](https://buy.wosign.com/free/#apply) and even a free automated installation with [Let's Encrypt](https://letsencrypt.org/) (available in November 2015).
+Many providers nowadays offer to set this up for you. Especially for the panel, an encrypted connection between your browser and your server is very important. If you configure it yourself, make sure to use a strong configuration. Tools and guides like the [Mozilla SSL Configuration Generator](https://mozilla.github.io/server-side-tls/ssl-config-generator/) can help you with this. At the end you can test your configuration at [SSLLabs](https://www.ssllabs.com/)
+If you do not use HTTPS your login information and all other data will be submitted in plain text to the server and can be intercepted. 
 
 ### Use the latest stable PHP version
 

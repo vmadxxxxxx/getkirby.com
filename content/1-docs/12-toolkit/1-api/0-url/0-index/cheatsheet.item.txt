@@ -1,0 +1,24 @@
+Title: url::index
+
+----
+
+Excerpt: Returns the absolute URL for the index.php
+
+----
+
+Call: url::index($url = null)
+
+----
+
+Return: 
+
+type: string
+
+----
+
+Params: 
+
+- 
+  name: $url
+  type: mixed
+  text:
