@@ -69,3 +69,18 @@ The `e()` helper is a Kirby shortcuts to a more complex way of writing an inline
 ```
 
 The entire code will attach `class="active"` to the list element if the languages match. This makes it possible to style the currently active language in a different way.
+
+## Switch C
+You can use this third option if you want to redirect the user to the error page or any other page you define, e.g. home or search, in case there is no content available in the target language:
+
+```php
+<nav class="languages" role="navigation'">
+  <ul>
+  <?php foreach($site->languages() as $language): ?>
+        <li<?php e($site->language() == $language, ' class="active"') ?>>
+          <a href="<?php e($page->content($language->code())->language() != $site->language($language->code()), page('error')->url($language->code()), $page->url($language->code()))?>"><?php echo $language->code(); ?></a> 
+        </li> 
+  <?php endforeach ?>
+  </ul>
+</nav>
+```
