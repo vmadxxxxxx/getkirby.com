@@ -13,7 +13,7 @@ Download: http://download.getkirby.com/kirby-2.1.2.zip
 Text:
 
 ## Security Update
-(link: https://www.jpcert.or.jp/english/ text: JPCertCC) from Japan has reported a smaller vulnerabilty in the Panel today.
+Yuji Tounai of NTT Com Security(Japan)KK has reported a smaller vulnerabilty in the Panel today (CVE-2015-7773)
 
 A logged in user can upload a PHP file without extension, when their browser or server does not handle mime type detection correctly. The uploaded file cannot do any harm yet, but the editor can then rename the file and attach the .php extension in the file editor of the Panel afterwards. Such a PHP file in your content folder could be abused to execute any sort of PHP code on your server. 
 
