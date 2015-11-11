@@ -1,0 +1,19 @@
+Title: Translations
+
+----
+
+Description: Help to internationalize the Kirby panel and learn how to add a translation in your language
+
+----
+Text: 
+
+We are using a platform called (link: https://www.transifex.com/getkirby/panel/ text: Transifex) to translate the Kirby Panel interface. It's a fantastic collaborative tool, which makes it easy for a group of translators to work on translations in different languages at the same time and keep them up to date quickly. 
+
+## Everyone can become a translator! 
+
+All you need to do is to sign up on our Transifex page: 
+**<https://www.transifex.com/getkirby/panel/>**
+
+We will accept new translators as quickly as possible. Afterwards you can instantly get started and help improve translations or contribute new ones for missing languages. 
+
+See you on Transifex! 
