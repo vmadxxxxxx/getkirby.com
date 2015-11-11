@@ -73,8 +73,8 @@ The entire code will attach `class="active"` to the list element if the language
 ## Switch C
 You can use this third option if you want to redirect the user to the error page or any other page you define, e.g. home or search, in case there is no content available in the target language:
 
-```
-<nav class="languages" role="navigation'"> 
+```php
+<nav class="languages" role="navigation'">
   <ul>
   <?php foreach($site->languages() as $language): ?>
         <li<?php e($site->language() == $language, ' class="active"') ?>>
