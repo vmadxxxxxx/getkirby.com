@@ -1,12 +1,8 @@
 <?php
 
 c::set('stage', false);
-
 c::set('markdown.extra', true);
-
 c::set('cache.driver', 'file');
-
-c::set('debug', true);
 
 c::set('routes', array(
   array(
