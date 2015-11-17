@@ -18,3 +18,18 @@ text:
 ----
 
 Text:
+
+## Example:
+
+```php
+<?php
+$years = page('projects')->children()->groupBy('year');
+foreach($years as $year => $items): ?>
+    <h2><?php echo $year ?><h2>
+    <ul>
+      <?php foreach($items as $item) : ?>
+      <li><?php echo $item->title() ?></li>
+      <?php endforeach; ?>
+    </ul>
+<?php endforeach ?>
+```

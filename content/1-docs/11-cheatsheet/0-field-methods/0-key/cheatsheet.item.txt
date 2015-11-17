@@ -1,0 +1,29 @@
+Title: $field->key()
+
+----
+
+Excerpt: Returns the name of the field.
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php 
+echo $page->title()->key() . ': ' . $page->title()->html()
+ ?>
+```
+This will return an output like this:
+
+```
+Title: Project A
+```

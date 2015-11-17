@@ -27,6 +27,8 @@ fields:
 
 ### Example with a single default value
 
+By default, the first item in the list of options is preselected. To change the default value:
+
 ```
 fields:
   category:
@@ -40,6 +42,7 @@ fields:
       3d: 3D
       web: Web
 ```
+To prevent preselection of a value, set `default: false`.
 
 ### Dynamic options
 

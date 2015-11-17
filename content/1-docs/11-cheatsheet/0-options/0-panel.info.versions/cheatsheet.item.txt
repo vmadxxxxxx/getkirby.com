@@ -1,0 +1,21 @@
+Title: panel.info.versions
+
+----
+
+Excerpt: Show/hide Kirby/Panel/Toolkit version information in the panel.
+
+----
+
+Text: 
+
+## Default value
+
+```
+'true'
+```
+
+## Example
+
+```php
+c::set('panel.info.versions', false);
+```

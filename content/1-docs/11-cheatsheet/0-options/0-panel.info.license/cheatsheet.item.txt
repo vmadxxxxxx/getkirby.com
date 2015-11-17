@@ -1,0 +1,21 @@
+Title: panel.info.license
+
+----
+
+Excerpt: Show/Hide Kirby license information in the Panel.
+
+----
+
+Text: 
+
+## Default value
+
+```
+'true'
+```
+
+## Example
+
+```php
+c::set('panel.info.license', false);
+```

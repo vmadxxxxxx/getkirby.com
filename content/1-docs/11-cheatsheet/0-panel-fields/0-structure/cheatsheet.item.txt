@@ -78,3 +78,24 @@ You can set default values for structure fields which will prepopulate the field
         label: Email
         type: email
 ```
+
+###Options:
+
+Display entries in a table layout:
+
+```
+emails:
+  label: Emails
+  type: structure
+  style: table
+  ```
+  
+Control the width of the structure modals ("small", "medium" or "large"). 
+  
+ ```
+emails:
+  label: Emails
+  type: structure
+  modalsize: small
+  ```
+  

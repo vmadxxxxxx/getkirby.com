@@ -1,0 +1,27 @@
+Title: $field->exists()
+
+----
+
+Excerpt:
+
+Checks if the field exists.
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
+## Example
+```php
+<?php
+if($page->text()->exists())  {
+  echo $page->text()->kirbytext();
+}
+?>
+```
