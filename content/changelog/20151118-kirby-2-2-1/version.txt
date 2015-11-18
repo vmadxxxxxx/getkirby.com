@@ -19,6 +19,7 @@ This bugfix release fixes all known bugs that unfortunately slipped into the 2.2
 - The Panel installation bug has been fixed.
 - A possible issue with the `$page->date()` method has been fixed.
 - Fixed a small bug in the new datetime field
+- A bug with translatable labels and help text for panel fields is fixed.
 
 ## Small additions
 
