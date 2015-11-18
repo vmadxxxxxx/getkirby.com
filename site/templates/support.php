@@ -3,21 +3,8 @@
 <main class="main" role="main">
 
   <section class="support-items">
-
     <h1 class="vh"><?php echo html($page->title()) ?></h1>
-
-    <ul class="list-4">
-      <?php foreach($page->children()->visible() as $item): ?><!--
-   --><li>
-        <a href="<?php echo $item->link() ?>"><img src="<?php echo $item->image()->url() ?>" alt="<?php echo $item->title() ?>"></a>
-        <div class="text">
-          <h2 class="beta"><?php echo $item->title() ?></h2>
-          <?php echo kirbytext($item->text()) ?>
-        </div>
-        <a class="btn" href="<?php echo $item->link() ?>"><?php echo $item->linktext() ?></a>
-      </li><!--
-   --><?php endforeach ?>
-    </ul>
+    <?php snippet('supportbar') ?>
   </section>
 
   <section class="answers">
