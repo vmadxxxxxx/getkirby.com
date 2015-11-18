@@ -18,7 +18,7 @@
       <?php echo str_replace('(\\', '(', kirbytext($page->text())) ?>
 
       <?php if(server::get('SERVER_NAME') == 'getkirby.com'): ?>
-        <?php if($page->date()->int() > strtotime('2015-03-16')): ?>
+        <?php if($page->date() > strtotime('2015-03-16')): ?>
         <div id="discourse-comments"></div>
         <script>
 
