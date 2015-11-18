@@ -112,7 +112,7 @@ No matter if you add additional information about Twitter accounts, a biography 
 Another often requested feature was a better way to add the same form fields in different blueprints without repeating yourself over and over again. The solution: field snippets. Field snippets can now be stored in `/site/blueprint/fields` You can reuse such a snippet afterwards in any blueprint — even for structure fields: 
 
 ```
-# /site/blueprints/fields/twitter.yml
+# /site/blueprints/fields/date.yml
 label: Date
 type: date
 default: now
