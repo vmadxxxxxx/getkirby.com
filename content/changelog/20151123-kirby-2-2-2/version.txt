@@ -14,9 +14,7 @@ Text:
 
 This release contains bug fixes and improvements for the new 2.2 release.  
 
-## Bugfixes
-
-### Panel
+## Panel
 
 - Fixed a bug for servers without GLOB_BRACE support, which broke loading blueprints
 - Fixed account folder permission issue during logins, which led to an endless redirect loop
@@ -32,13 +30,13 @@ This release contains bug fixes and improvements for the new 2.2 release.
 - Fixed loading of the correct panel.min.css instead of the uncompressed file. 
 - Updated translations: Swedish, Spanish (Latin America), Bulgarian, Hungarian, Japanese, Indonesian, Norwegian and Dutch
 
-### Core
+## Core
 
 - Fixed bugs in prev/next methods for pages
 - Fixed a possible issue with recursion in hooks
 - Added detection for dimensions, (width, height, ratio, etc.) in SVG files
 
-### Toolkit
+## Toolkit
 
 - New f::resolve method, which replaces GLOB_BRACE functionality
 - Better mime type detection, which solves upload issues on servers without fileinfo extension
