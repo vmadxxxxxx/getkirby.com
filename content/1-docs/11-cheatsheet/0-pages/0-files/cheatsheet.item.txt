@@ -1,0 +1,29 @@
+Title:
+
+$pages->files()
+
+----
+
+Excerpt:
+
+Returns a $files collection with all files of each page in the $pages collection.
+
+----
+
+Return:
+
+type: $files
+text: 
+
+----
+
+Text:
+
+```php
+
+<?php foreach($pages->files() as $file) : ?>
+<img src="<?php echo $file->url() ?>">
+<?php endforeach ?>
+```
+
+
