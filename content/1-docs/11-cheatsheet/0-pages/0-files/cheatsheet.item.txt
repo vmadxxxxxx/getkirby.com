@@ -6,13 +6,13 @@ $pages->files()
 
 Excerpt:
 
-Returns a $files collection with all files of each page in the $pages collection.
+Returns a $files collection with all files of each page in the collection.
 
 ----
 
 Return:
 
-type: $files
+type: $files object
 text: 
 
 ----
@@ -20,10 +20,15 @@ text:
 Text:
 
 ```php
-
 <?php foreach($pages->files() as $file) : ?>
 <img src="<?php echo $file->url() ?>">
 <?php endforeach ?>
 ```
 
+To only get files of a certain type, you can filter by type, e.g.
 
+```php
+$pages->files()->filterBy('type', 'image');
+$pages->files()->filterBy('type', 'video');
+//etc.
+```
