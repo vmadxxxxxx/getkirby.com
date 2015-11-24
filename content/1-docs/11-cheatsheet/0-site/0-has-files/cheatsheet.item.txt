@@ -6,7 +6,7 @@ $site->hasFiles()
 
 Excerpt:
 
-Checks if there are any files in /content
+Checks if there are any files placed directly in /content
 
 ----
 

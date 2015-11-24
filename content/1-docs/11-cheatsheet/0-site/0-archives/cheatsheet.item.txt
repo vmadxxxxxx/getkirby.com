@@ -6,7 +6,7 @@ $site->archives()
 
 Excerpt:
 
-Returns a $files collection with all archive files (zip, gzip, tar) in /content
+Returns a $files collection with all archive files (zip, gzip, tar) placed directly in /content
 
 ----
 

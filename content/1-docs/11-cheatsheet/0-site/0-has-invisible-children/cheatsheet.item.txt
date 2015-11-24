@@ -6,7 +6,7 @@ $site->hasInvisibleChildren()
 
 Excerpt:
 
-Checks if there are any invisible children in /content
+Checks if there are any invisible children placed directly in /content
 
 ----
 

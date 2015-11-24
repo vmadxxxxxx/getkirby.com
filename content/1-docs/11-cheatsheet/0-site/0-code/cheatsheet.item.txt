@@ -6,7 +6,7 @@ $site->code()
 
 Excerpt:
 
-Returns a $files collection with all code files (css, js, html) in /content
+Returns a $files collection with all code files (css, js, html) placed directly in /content
 
 ----
 

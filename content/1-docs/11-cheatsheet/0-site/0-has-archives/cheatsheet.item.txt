@@ -6,7 +6,7 @@ $site->hasArchives()
 
 Excerpt:
 
-Checks if there are any archive files (zip, gzip, tar) in /content
+Checks if there are any archive files (zip, gzip, tar) placed directly in /content
 
 ----
 

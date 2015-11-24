@@ -6,7 +6,7 @@ $site->documents()
 
 Excerpt:
 
-Returns a $files collection with all documents (pdf, doc, xls, etc.) in /content
+Returns a $files collection with all documents (pdf, doc, xls, etc.) placed directly in /content
 
 ----
 

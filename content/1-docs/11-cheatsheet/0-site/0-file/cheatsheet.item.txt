@@ -6,7 +6,7 @@ $site->file($filename)
 
 Excerpt:
 
-Searches for a specific file in /content by filename
+Searches for a specific file placed directly in /content by filename
 
 ----
 

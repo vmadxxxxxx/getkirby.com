@@ -6,7 +6,7 @@ $site->videos()
 
 Excerpt:
 
-Returns a $files collection with all video files in /content
+Returns a $files collection with all video files placed directly in /content
 
 ----
 

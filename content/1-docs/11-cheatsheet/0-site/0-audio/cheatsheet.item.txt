@@ -6,7 +6,7 @@ $site->audio()
 
 Excerpt:
 
-Returns a $files collection with all audio files in /content
+Returns a $files collection with all audio files placed directly in /content
 
 ----
 

@@ -6,7 +6,7 @@ $site->hasAudio()
 
 Excerpt:
 
-Checks if there are any audio files in /content
+Checks if there are any audio files placed directly in /content
 
 ----
 

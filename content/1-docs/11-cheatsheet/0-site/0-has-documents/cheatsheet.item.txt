@@ -6,7 +6,7 @@ $site->hasDocuments()
 
 Excerpt:
 
-Checks if there are any documents (pdf, doc, xls, etc.) in /content
+Checks if there are any documents (pdf, doc, xls, etc.) placed directly in /content
 
 ----
 

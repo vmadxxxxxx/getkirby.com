@@ -6,7 +6,7 @@ $site->hasVisibleChildren()
 
 Excerpt:
 
-Checks if there are any visible children in /content
+Checks if there are any visible children placed directly in /content
 
 ----
 

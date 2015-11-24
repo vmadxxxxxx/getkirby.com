@@ -6,7 +6,7 @@ $site->images()
 
 Excerpt:
 
-Returns a $files collection with all images (jpg, png, gif, etc.) in /content
+Returns a $files collection with all images (jpg, png, gif, etc.) placed directly in /content
 
 ----
 

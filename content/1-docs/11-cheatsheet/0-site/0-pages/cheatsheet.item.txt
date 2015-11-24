@@ -6,7 +6,7 @@ $site->pages()
 
 Excerpt:
 
-Returns a $pages collection for all children in /content. It's an old version of $site->children()
+Returns a $pages collection for all direct children in /content. It's an old version of $site->children()
 
 ----
 
