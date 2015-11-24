@@ -26,6 +26,34 @@ On the "Users" page either click directly on the little profile picture in the l
 
 The uploader only accepts JPG, PNG and GIF files for profile pictures. A square picture will give the best results. Otherwise the uploader will crop the profile picture from the center.
 
+##Custom user form fields (since Kirby 2.2)
+You can create custom fields for the user management section on a per role basis by defining a user blueprint. Those form fields can be added by creating blueprints for user roles in `site/blueprints/users`. For example:
+
+```
+# site/blueprints/users/admin.yml
+fields: 
+  twitter: 
+    label: Twitter
+    type: text
+    placeholder: @username
+    icon: twitter
+    width: 1/2
+  github: 
+    label: Github
+    type: text
+    placeholder: Github username
+    icon: github
+    width: 1/2  
+```    
+
+You can easily access you new custom fields in your templates:
+
+```php
+<?php echo $site->user('peter')->twitter() ?>
+```
+
+**Note**: Custom user fields are only editable once a user has been created because you need to have the user object first.
+
 ## Users API
 
 **You can find out more about (link: docs/cheatsheet/#user text: Kirby's user API) on the cheat sheet.**
