@@ -8,21 +8,8 @@
   </section>
 
   <section class="support-items">
-
     <h2 class="alpha">Need support?</h2>
-
-    <ul class="list-4">
-      <?php foreach(page('support')->children()->visible() as $item): ?><!--
-   --><li>
-        <img src="<?php echo $item->image()->url() ?>" alt="<?php echo $item->title() ?>">
-        <div class="text">
-          <h2 class="beta"><?php echo $item->title() ?></h2>
-          <?php echo kirbytext($item->text()) ?>
-        </div>
-        <?php echo kirbytext($item->link()) ?>
-      </li><!--
-   --><?php endforeach ?>
-    </ul>
+    <?php snippet('supportbar') ?>
   </section>
 
   <section>

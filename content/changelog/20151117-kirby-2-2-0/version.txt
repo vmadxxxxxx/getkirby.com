@@ -12,7 +12,13 @@ Download: http://download.getkirby.com/kirby-2.2.0.zip
 
 Text:
 
-(toc)
+## Update (17.11.2015)
+
+Unfortunately we got reports for a few more bugs after the release. A new bugfix release is now ready to be downloaded or can be pulled from Github. 
+
+(link: changelog/kirby-2-2-1 text: See changelog for 2.2.1)
+
+****
 
 ## Release article
 You can (link: blog/kirby-2-2-0 text: read more about this release) in our blog. 

@@ -42,7 +42,7 @@ fields:
     validate:
       min: 4
       max: 140
-      alphanum
+      - alphanum
 ```
 
 **You can find a (link: docs/cheatsheet/#validators text: list of all available validation methods) in the cheat sheet.**
