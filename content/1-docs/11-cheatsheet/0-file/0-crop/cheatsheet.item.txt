@@ -19,7 +19,7 @@ text: Returns a Kirby media object with the given parameters.
 
 Text:
 
-The new syntax replaces the old thumb() syntax. See `$file->resize()` for resizing images on the fly.
+The new syntax is a shorthand for the old thumb() syntax. See `$file->resize()` for resizing images on the fly.
 
 ## Example
 
