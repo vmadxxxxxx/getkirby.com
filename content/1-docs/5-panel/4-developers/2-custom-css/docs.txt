@@ -1,0 +1,23 @@
+Title: Custom Panel CSS
+
+----
+
+Description: Learn how to change the default styles of the Panel with your own CSS file.
+
+----
+
+Text:
+
+The design of the panel is as reduced as possible to focus on the content of you and your clients. If you want to spice it up a little or adjust it to your own branding, you can do that by adding your own CSS rules in a custom stylesheet file. 
+
+Any external stylesheet can be linked in your config file
+
+```php
+// absolute links
+c::set('panel.stylesheet', 'http://example.com/assets/css/panel.css');
+
+// relative links
+c::set('panel.stylesheet', '/assets/css/panel.css');
+```
+
+For security reasons it is not possible to include a custom javascript file.

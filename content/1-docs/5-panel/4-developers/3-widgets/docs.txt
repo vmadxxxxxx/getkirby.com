@@ -1,0 +1,292 @@
+Title: Dashboard Widgets
+
+----
+
+Description: Learn how to extend the Panel dashboard with your own Widget boxes. 
+
+----
+
+Text: 
+
+(toc)
+
+You can extend the Panel dashboard with your own widgets. Widgets are installed in the `/site/widgets` folder. The widgets folder is not present by default and should be created manually on demand.
+
+****
+
+## Anatomy of a Widget
+
+A widget must be installed in its own folder. Each widget has a main widget file, which must have the widget name. 
+
+### Examples: 
+
+```
+/site/widgets/mywidget/mywidget.php
+/site/widgets/analytics/analytics.php
+/site/widgets/backup/backup.php
+```
+
+Additionally any number of files can be installed in the widget folder and included in the main widget file. 
+
+****
+
+## The Widget array
+
+The main widget file must return an array with the following parts that build the widget box:
+
+```php
+<?php 
+
+return array(
+  'title' => 'My widget',
+  'options' => array(
+    array(
+      'text' => 'Optional option',
+      'icon' => 'pencil',
+      'link' => 'link/to/option'
+    )
+  ),
+  'html' => function() {
+    return 'widget content';
+  }  
+);
+```
+
+****
+
+## Widget title
+
+The Widget array must contain a title field. The title will form the headline of the widget box. There are multiple options to create a title:
+
+### Simple string
+
+```php 
+return array(
+  'title' => 'My widget',
+  // …
+);
+```
+
+This will create a simple headline without a link.
+
+### Title with link
+
+```php
+return array(
+  'title' => array(
+    'text' => 'My widget',
+    'link' => 'http://example.com'
+  ),
+  // …
+);
+```
+
+### Additional title options
+
+#### Link with target attribute
+
+```php
+return array(
+  'title' => array(
+    'text'   => 'My widget',
+    'link'   => 'http://example.com',
+    'target' => '_blank',
+  ),
+  // …
+);
+```
+
+#### Compressed headline
+
+```php
+return array(
+  'title' => array(
+    'text'       => 'My widget',
+    'link'       => 'http://example.com',
+    'compressed' => true
+  ),
+  // …
+);
+```
+
+This will remove the bottom margin of the headline. 
+
+****
+
+## Widget options
+
+A widget can optionally have one ore more option links with icon in the top right corner of the widget box. It's not recommended to add more than two options though. 
+
+```php 
+return array(
+  'title' => 'My widget',
+  'options' => array(
+    array(
+      'text' => 'Edit',
+      'icon' => 'pencil',
+      'link' => 'link/to/option'
+    ),
+    array(
+      'text' => 'Delete',
+      'icon' => 'trash-o',
+      'link' => 'link/to/option'
+    )
+  ),
+  // …
+);
+```
+
+The option icon name can be chosen from the FontAwesome icon set. The link can lead to an internal panel page or to an external URL. 
+
+****
+
+## Widget HTML
+
+The widget must return an html field, which must be defined as a valid callback function.
+
+```php
+return array(
+  'title'   => 'My widget',
+  'options' => array(),
+  'html'    => function() {
+    return 'the content';
+  }
+);
+```
+
+You can either directly create the HTML within the callback function or you can defer this to a template. 
+
+### Templates
+
+To create your own template for the widget URL, place a php file in your widget folder. The suggested name should be:
+
+```
+/site/widgets/mywidget/mywidget.html.php
+```
+
+The template can then be loaded in your callback function with the `tpl::load()` method from the Kirby toolkit.
+
+```php
+return array(
+  'title'   => 'My widget',
+  'options' => array(),
+  'html'    => function() {
+    return tpl::load(__DIR__ . DS . 'mywidget.html.php');
+  }
+);
+```
+
+The `__DIR__` constant in this example contains the current Widget directory. It's defined by PHP. 
+
+The second constant `DS` is defined by Kirby and contains the correct path separator depending on the operating system. It's a shortcut for PHP's `DIRECTORY_SEPARATOR`. On Windows `DS` contains `\`, on Unix-based systems `DS` contains `/`. It's recommended to use `DS` instead of a slash if you want to make sure that your widget runs correctly on Windows. 
+
+In your template file you can now create all the HTML you want to display in the widget box below the headline. 
+
+### Passing variables to the template
+
+To pass variables from your callback method to the template, you can define them in an associative array as the second parameter of the `tpl::load` function. 
+
+```php
+return array(
+  'title'   => 'My widget',
+  'options' => array(),
+  'html'    => function() {
+
+    return tpl::load(__DIR__ . DS . 'mywidget.html.php', array(
+      'text' => 'This is some text for the widget template'
+    ));
+
+  }
+);
+```
+
+In your template you can use the variable like this:
+
+```php
+<?php echo $text ?>
+```
+
+****
+
+## Accessing important objects
+
+You have full access to the most important objects in your widget code through the panel object. To fetch the panel you can use the `panel()` helper.
+
+```php
+// accessing the panel object
+$panel = panel();
+
+// accessing the kirby object
+$kirby = panel()->kirby();
+
+// accessing the current user
+$user = panel()->user();
+
+// accessing all users
+$users = panel()->users();
+
+// accessing the site 
+$site = panel()->site();
+
+// fetching a certain page
+$page = panel()->page('some/page');
+
+// of course you can also go the normal way via the site object
+$page = panel()->site()->page('some/page');
+
+```
+
+****
+
+## Hiding Widgets dynamically
+
+Sometimes it might make sense to display a widget only to a certain user or a user group or to hide it by other parameters. 
+
+You can do that by returning false instead of a valid widget array.
+
+```php
+<?php 
+
+if(panel()->user()->username() == 'peter') {
+  return array(
+    // valid widget array
+  );
+} else {
+  return false;
+}
+
+```
+
+****
+
+## Styling your Widget
+
+In the current version of the dashboard, you cannot load external CSS files for your widgets. We recommend to add an inline style tag to your widget content code.
+
+#### /site/widgets/mywidget/mywidget.html.php
+```php
+<style>
+/* your widget css */
+</style>
+
+<!-- your widget content -->
+```
+
+We are planning to provide a way to store CSS files directly in the widget folder and let the panel load them automatically just like for custom form fields. 
+
+
+****
+
+## Sorting Widgets
+
+Since version 2.2 you can sort and hide widgets in your config file. 
+
+```php
+c::set('panel.widgets', array(
+  'mywidget' => true,
+  'pages'    => true,
+  'site'     => true,
+  'account'  => true,
+  'history'  => true
+));
+```

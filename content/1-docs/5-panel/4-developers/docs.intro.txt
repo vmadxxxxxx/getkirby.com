@@ -1,0 +1,12 @@
+Title: Developer Guide
+
+----
+
+Description: Learn how to extend the Panel with your own fields, widgets and more.
+
+----
+
+Text: 
+
+## 
+

@@ -2,7 +2,7 @@ Title: Roles
 
 ----
 
-Description: Learn how to setup different user roles
+Description: Learn how to setup different user roles for your users.
 
 ----
 
