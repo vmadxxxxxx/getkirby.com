@@ -36,6 +36,10 @@ text       | /site/fields/text/text.php   | class TextField {}
 phone      | /site/fields/phone/phone.php | class PhoneField {}
 url        | /site/fields/url/url.php     | class UrlField {}
 
+## Accessing data of the current page
+
+Just like you can use the `$page` variable in your templates to access the current page, you can access the page the field belongs to using `$this->page()` in your field's methods.
+
 ## HTML anatomy of a field
 
 ```markup

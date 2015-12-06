@@ -1,0 +1,35 @@
+Title:
+
+$file->crop($width, $height = null, $quality = null)
+
+----
+
+Excerpt:
+
+Crops the file according to the given parameters.
+
+----
+
+Return:
+
+type: object
+text: Returns a Kirby media object with the given parameters.
+
+----
+
+Text:
+
+The new syntax is a shorthand for the old thumb() syntax. See `$file->resize()` for resizing images on the fly.
+
+## Example
+
+```php
+// crop an image: by defining only the width the crop will be square
+$image->crop($width)->url();
+// specificy a width and height to get non-square crops
+$image->crop($width, $height)->url();
+// adjust the jpeg compression 
+$image->crop($width, $height, $quality)->url();
+// pass null again for the height if you want a square crop but also adjust the quality
+$image->crop($width, null, $quality)->url();
+```

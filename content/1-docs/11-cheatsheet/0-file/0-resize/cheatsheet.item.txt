@@ -1,0 +1,49 @@
+Title:
+
+$file->resize($width, $height = null, $quality = null)
+
+----
+
+Excerpt:
+
+Resizes the file according to the given parameters.
+
+----
+
+Return:
+
+type: object
+text: Returns a Kirby media object with the given parameters
+
+----
+
+Text:
+
+The new syntax is a shorthand for the old thumb() syntax. See `$file->crop()` for cropping images on the fly.
+
+## Example
+
+```php
+// resize an image by width
+$image->resize($width)->url();
+// resize by width and height. The bigger one will be downscaled
+$image->resize($width, $height)->url();
+// adjust the jpeg compression
+$image->resize($width, $height, $quality)->url();
+// pass null as second argument if you only want to specify the width but also change the quality
+$image->resize($width, null, $quality)->url();
+```
+
+Both methods return a Kirby media object which has tons of additional methods. So you can also do stuff like this:
+
+```php
+echo $image->resize(300)->height();
+
+echo $image->resize(300)->niceSize();
+
+echo $image->resize(300)->ratio();
+
+echo $image->resize(300)->orientation();
+
+// etc. 
+```
