@@ -1,6 +1,6 @@
 Title:
 
-$pages->sortBy($field, $direction = 'desc', $method = SORT_REGULAR)
+$pages->sortBy($field, $direction = 'asc', $method = SORT_REGULAR)
 
 ----
 
