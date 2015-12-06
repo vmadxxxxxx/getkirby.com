@@ -10,7 +10,7 @@ class Documentor {
   public function __construct() {
     require(__DIR__ . DS . 'vendor' . DS . 'autoload.php');
 
-    $this->uri  = 'docs/toolkit';
+    $this->uri  = 'docs/toolkit/api';
     $this->root = kirby()->roots()->kirby() . DS . 'toolkit' . DS . 'lib';
 
   }

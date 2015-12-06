@@ -1,0 +1,25 @@
+Title: escape::js
+
+----
+
+Excerpt: Escape JavaScript data values
+
+----
+
+Call: escape::js($string)
+
+----
+
+Return: 
+
+type: string
+text: ""
+
+----
+
+Params: 
+
+- 
+  name: $string
+  type: string
+  text: ""

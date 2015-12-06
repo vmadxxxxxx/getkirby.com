@@ -1,0 +1,17 @@
+Title: timer::start
+
+----
+
+Excerpt: 
+
+----
+
+Call: timer::start()
+
+----
+
+Return: 
+
+----
+
+Params: 

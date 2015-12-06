@@ -1,0 +1,25 @@
+Title: escape::css
+
+----
+
+Excerpt: Escape HTML style property values
+
+----
+
+Call: escape::css($string)
+
+----
+
+Return: 
+
+type: string
+text: ""
+
+----
+
+Params: 
+
+- 
+  name: $string
+  type: string
+  text: ""

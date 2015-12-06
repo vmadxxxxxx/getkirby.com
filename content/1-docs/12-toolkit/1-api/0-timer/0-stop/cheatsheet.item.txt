@@ -1,0 +1,17 @@
+Title: timer::stop
+
+----
+
+Excerpt: 
+
+----
+
+Call: timer::stop()
+
+----
+
+Return: 
+
+----
+
+Params: 

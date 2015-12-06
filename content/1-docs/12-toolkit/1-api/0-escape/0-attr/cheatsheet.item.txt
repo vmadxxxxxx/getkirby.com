@@ -1,0 +1,31 @@
+Title: escape::attr
+
+----
+
+Excerpt: Escape common HTML attributes data
+
+----
+
+Call: escape::attr($string, $strict = false)
+
+----
+
+Return: 
+
+type: string
+text: ""
+
+----
+
+Params: 
+
+- 
+  name: $string
+  type: string
+  text: ""
+- 
+  name: $strict
+  type: string
+  text: |
+    Whether to escape characters like [space] % * + , - / ; < = > ^ and |
+    which is necessary in case of unquoted HTML attributes.

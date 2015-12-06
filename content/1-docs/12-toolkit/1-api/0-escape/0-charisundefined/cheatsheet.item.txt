@@ -1,0 +1,25 @@
+Title: escape::charIsUndefined
+
+----
+
+Excerpt: Check if a character is undefined in HTML
+
+----
+
+Call: escape::charIsUndefined($char)
+
+----
+
+Return: 
+
+type: boolean
+text: ""
+
+----
+
+Params: 
+
+- 
+  name: $char
+  type: string
+  text: ""

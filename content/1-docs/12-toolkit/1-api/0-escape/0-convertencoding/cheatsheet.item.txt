@@ -1,0 +1,25 @@
+Title: escape::convertEncoding
+
+----
+
+Excerpt: Convert a character from UTF-8 to UTF-16BE
+
+----
+
+Call: escape::convertEncoding($char)
+
+----
+
+Return: 
+
+type: string
+text: ""
+
+----
+
+Params: 
+
+- 
+  name: $char
+  type: string
+  text: ""

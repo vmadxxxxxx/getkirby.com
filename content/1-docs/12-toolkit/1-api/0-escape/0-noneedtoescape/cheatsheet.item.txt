@@ -1,0 +1,25 @@
+Title: escape::noNeedToEscape
+
+----
+
+Excerpt: Check if a string needs to be escaped or not
+
+----
+
+Call: escape::noNeedToEscape($string)
+
+----
+
+Return: 
+
+type: boolean
+text: ""
+
+----
+
+Params: 
+
+- 
+  name: $string
+  type: string
+  text: ""

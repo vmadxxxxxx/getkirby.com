@@ -1,0 +1,25 @@
+Title: escape::html
+
+----
+
+Excerpt: Escape HTML element content
+
+----
+
+Call: escape::html($string)
+
+----
+
+Return: 
+
+type: string
+text: ""
+
+----
+
+Params: 
+
+- 
+  name: $string
+  type: string
+  text: ""

@@ -1,0 +1,25 @@
+Title: escape::xml
+
+----
+
+Excerpt: Escape XML element content
+
+----
+
+Call: escape::xml($string)
+
+----
+
+Return: 
+
+type: string
+text: ""
+
+----
+
+Params: 
+
+- 
+  name: $string
+  type: string
+  text: ""

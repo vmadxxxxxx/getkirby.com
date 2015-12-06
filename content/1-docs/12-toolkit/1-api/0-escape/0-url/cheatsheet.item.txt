@@ -1,0 +1,25 @@
+Title: escape::url
+
+----
+
+Excerpt: Escape URL parameter values
+
+----
+
+Call: escape::url($string)
+
+----
+
+Return: 
+
+type: string
+text: ""
+
+----
+
+Params: 
+
+- 
+  name: $string
+  type: string
+  text: ""
