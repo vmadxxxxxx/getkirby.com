@@ -1,0 +1,206 @@
+Title: Panel JS APIs
+
+----
+
+Description: 
+
+----
+Text: 
+
+(toc)
+
+## app
+
+### app.hasModal()
+
+Checks if a modal is currently open.
+
+```javascript
+if(app.hasModal()) {
+  // don't open another one for example :)
+}
+```
+
+### app.load(url, type, callback)
+
+Low-level method to load Panel URLs via Ajax. This is used by the content object as well as the modal object to replace the current content or load a new modal. 
+
+```javascript
+app.load('/panel/pages/about/edit', 'content', function(response) {
+  // do something with the response here.     
+});
+```
+
+### app.csrf()
+
+Low-level method that returns the current cross-site request forgery protection token and can be used to sign an API call correctly. 
+
+```javascript
+$.post('/custom/api', {csrf: app.csrf()}, function() {});
+```
+
+### app.isLoading()
+
+This method can be used to start and stop the loading indicator / progress bar.
+
+```javascript
+// start the loader
+app.isLoading(true);
+
+// stop the loader
+app.isLoading(false);
+```
+
+### app.delay.start(id, callback, time)
+
+Register a new delayed function
+
+```javascript
+app.delay.start('myDelay', function() {
+  // do something after 3 seconds
+}, 3000);
+```
+
+### app.delay.stop(id)
+
+Stop a delayed function before it is being called
+
+```javascript
+app.delay.stop('myDelay');
+```
+
+## app.content
+
+### app.content.root
+
+Returns the root content jQuery element.
+
+```javascript
+app.content.root.find('.input').first().focus();
+```
+
+### app.content.element(selector)
+
+Fetches an element within content by query selector.
+
+```javascript
+app.content.element('.input').first().focus();
+```
+
+### app.content.scroll.save()
+
+Saves the current scroll position of the content 
+
+### app.content.scroll.restore()
+
+Restores the last scroll position of the content
+
+### app.content.on()
+
+Registers all content events
+
+### app.content.off()
+
+Unbinds all content events
+
+### app.content.open(url)
+
+Opens a panel URL and loads the response into the content element
+
+```javascript
+app.content.open('/panel/pages/about/edit');
+```
+
+### app.content.replace(content, url)
+
+Replaces the current content of the content element with the new given content. The URL needs to be specified in order to store the history correctly. 
+
+```javascript
+var url = '/panel/pages/about/edit';
+
+$.get(url, function(response) {
+  app.content.replace(response, url);  
+});
+```
+
+### app.content.reload()
+
+Reloads the current content 
+
+```javascript
+app.content.reload();  
+```
+
+### app.content.shortcuts()
+
+Auto-registers all shortcuts within the content element
+
+### app.content.form()
+
+Returns the jQuery form element of the main form within content.
+
+```javascript
+app.content.form().find('.input').focus();
+```
+
+### app.content.focus.store()
+
+Stores the last focused element from the content
+
+### app.content.focus.recall()
+
+Recalls/refocuses the last stored element
+
+## app.modal
+
+### app.modal.root
+
+Returns the root modal jQuery element 
+
+```javascript
+app.modal.root.find('.form .input').first().focus();
+```
+
+### app.modal.on()
+
+Registers all modal events
+
+### app.modal.off()
+
+Unbinds all modal events
+
+### app.modal.open(url, callback)
+
+Opens a new modal by URL
+
+```javascript
+app.modal.open('/panel/pages/about/url', function() {
+  alert('The modal has been loaded')
+});
+```
+
+### app.modal.replace(content)
+
+Replaces the modal content with the new given content
+
+```javascript
+$.get('/panel/pages/about/url', function(response) {
+  app.modal.replace(response);  
+});
+```
+
+### app.modal.close()
+
+Closes the current modal
+
+```javascript
+app.modal.close();
+```
+
+### app.modal.form()
+
+Returns the main modal jQuery form element
+
+```javascript
+app.modal.form().find('.input').first().focus();
+```
