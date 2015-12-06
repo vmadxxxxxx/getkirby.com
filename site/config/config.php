@@ -44,6 +44,21 @@ c::set('routes', array(
     }
   ),
   array(
+    'pattern' => 'docs/inspect', 
+    'action'  => function() {
+
+      if(c::get('inspector')) {
+
+        $inspector = new Inspector();
+        var_dump($inspector->results());
+
+      } else {
+        go();
+      }
+
+    }
+  ),
+  array(
     'pattern' => 'blog/feed', 
     'action'  => function() {
       go('feed');
