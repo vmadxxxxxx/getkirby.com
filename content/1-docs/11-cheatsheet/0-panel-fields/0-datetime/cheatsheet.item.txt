@@ -1,0 +1,37 @@
+Title: Datetime
+
+----
+
+Excerpt:
+
+A date and time picker field
+
+----
+
+Text:
+
+The datetime field generates two simple inputs consisting of the [date field](date) and the [time field](time).
+
+## Example
+
+```
+fields:
+  datetime:
+    label: Date and Time
+    type:  datetime
+```
+
+
+## Format and interval
+You can change the date format (default: YYYY-MM-DD), the time format (12/24) and the interval (set in minutes):
+
+```
+fields:
+  datetime:
+    type:  datetime
+    date:
+      format: DD-MM-YYYY
+    time:
+      format: 12
+      interval: 15
+```
