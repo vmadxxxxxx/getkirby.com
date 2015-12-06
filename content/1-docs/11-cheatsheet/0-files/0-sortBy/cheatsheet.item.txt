@@ -1,6 +1,6 @@
 Title:
 
-$files->sortBy($field, $direction = 'desc', $method = SORT_REGULAR)
+$files->sortBy($field, $direction = 'asc', $method = SORT_REGULAR)
 
 ----
 
