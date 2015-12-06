@@ -6,7 +6,7 @@ Excerpt: Set a new cookie
 
 ----
 
-Call: cookie::set($key, $value, $expires = 0, $path = '/', $domain = null, $secure = false)
+Call: cookie::set($key, $value, $expires = 0, $path = '/', $domain = null, $secure = false, $httpOnly = true)
 
 ----
 
@@ -43,3 +43,7 @@ Params: -
   name: $secure
   type: boolean
   text: only sets the cookie over https
+- 
+  name: $httpOnly
+  type: boolean
+  text: Sets a cookie only for regular HTTP requests. JavaScript will not be able to access the cookie.
