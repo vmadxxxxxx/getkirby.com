@@ -1,0 +1,18 @@
+Title: dimensions::toArray
+
+----
+
+Excerpt: Returns an array represenation of the dimensions object
+
+----
+
+Call: dimensions::toArray()
+
+----
+
+Return: type: array
+text:
+
+----
+
+Params: 
