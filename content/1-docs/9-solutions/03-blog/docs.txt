@@ -184,7 +184,7 @@ This is where we need the `blogarticle.php` template, which we will build nextâ€
 
 ### blogarticle.php
 
-This is going to be super easy. Open `blogarticle.php` in your editor. It will be repsonsible for displaying the detailed view of articles.
+This is going to be super easy. Open `blogarticle.php` in your editor. It will be responsible for displaying the detailed view of articles.
 
 The template code for this is very short and easy to understand.
 
