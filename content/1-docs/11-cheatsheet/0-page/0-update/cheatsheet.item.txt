@@ -1,6 +1,6 @@
 Title:
 
-$page->update($data = array())
+$page->update($data = array() [, $lang = null)])
 
 ----
 
@@ -29,6 +29,28 @@ try {
     'text'         => 'Some text',
     'anotherfield' => 'Some more data'
   ));
+
+  echo 'The page has been updated';
+
+} catch(Exception $e) {
+
+  echo $e->getMessage();
+
+}
+
+```
+
+## Multi-language site
+Use the optional `$lang` parameter to specify the language you want to update.
+
+```php
+try {
+
+  page('mypage')->update(array(
+    'title'        => 'A new title',
+    'text'         => 'Some text',
+    'anotherfield' => 'Some more data'
+  ), 'en');
 
   echo 'The page has been updated';
 
