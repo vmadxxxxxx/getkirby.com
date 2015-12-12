@@ -1,6 +1,6 @@
 Title:
 
-$page->update($data = array() [, $lang = null)])
+$page->update($data = array() [, $lang = null])
 
 ----
 
