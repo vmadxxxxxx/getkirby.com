@@ -33,7 +33,11 @@ Your content files seem to be corrupted after you tried to save a page in the pa
 
 ## Broken panel links
 
-The panel is not reachable? Make sure to use Kirby's default (link: https://github.com/getkirby/starterkit/blob/master/.htaccess text: .htaccess file). If the panel does still not work, please contact us: <support@getkirby.com>
+The panel is not reachable? Make sure to use Kirby's default (link: https://github.com/getkirby/starterkit/blob/master/.htaccess text: .htaccess file). 
+
+Pls. make sure that you are using the minimum required version of PHP, which is 5.4 since Kirby 2.2. We recommend using the most recent PHP version that is available to you, preferably PHP 7, but at least 5.6 or 5.5.
+
+If the panel does still not work, please contact us: <support@getkirby.com>
 
 ## More problems? 
 Don't hesitate to ask questions in the (link: http://forum.getkirby.com text: forum) or send us an email: <support@getkirby.com>
