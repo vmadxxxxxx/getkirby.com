@@ -22,7 +22,7 @@
         <div id="discourse-comments"></div>
         <script>
 
-          var discourseUrl      = 'http://forum.getkirby.com/';
+          var discourseUrl      = 'https://forum.getkirby.com/';
           var discourseEmbedUrl = '<?php echo $page->url() ?>';
 
           (function() {
