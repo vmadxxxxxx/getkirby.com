@@ -1,0 +1,21 @@
+Title:
+
+$page->kirby()
+
+----
+
+Excerpt:
+
+Returns the kirby object
+
+----
+
+Return:
+
+type: object
+text:
+
+----
+
+Text:
+

@@ -1,0 +1,20 @@
+Title:
+
+$page->hasPrevInvisible()
+
+----
+
+Excerpt:
+
+Checks if the page has a previous invisible sibling
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:

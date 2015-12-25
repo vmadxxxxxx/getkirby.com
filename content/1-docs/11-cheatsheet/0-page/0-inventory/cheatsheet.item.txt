@@ -1,0 +1,20 @@
+Title:
+
+$page->inventory()
+
+----
+
+Excerpt:
+
+Reads the directory and returns an inventory array
+
+----
+
+Return:
+
+type: array
+text:
+
+----
+
+Text:

@@ -1,0 +1,21 @@
+Title:
+
+$page->isCacheable()
+
+----
+
+Excerpt:
+Checks if the page can be cached
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
+
