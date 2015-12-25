@@ -41,6 +41,9 @@ echo thumb($image, array('height' => 300));
 echo thumb($image, array('width' => 300, 'height' => 200));
 ```
 
+### New in Kirby 2.2:
+Since Kirby Version 2.2, you can also use the shorthand `resize()` method. Checkout the Cheat Sheet at http://getkirby.com/docs/cheatsheet/file/resize
+
 ## Cropping images
 
 ### Squares
@@ -56,6 +59,9 @@ echo thumb($image, array('width' => 300, 'crop' => true));
 ```php
 echo thumb($image, array('width' => 300, 'height' => 400, 'crop' => true));
 ```
+
+### New in Kirby 2.2
+Since Kirby version 2.2, you can also use the shorthand `crop()` method. Check out the Cheat Sheet at http://getkirby.com/docs/cheatsheet/file/crop
 
 ## Setting the quality
 
