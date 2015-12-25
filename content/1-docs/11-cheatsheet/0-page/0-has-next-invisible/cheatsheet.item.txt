@@ -1,0 +1,20 @@
+Title:
+
+$page->hasNextInvisible()
+
+----
+
+Excerpt:
+
+Checks if the page has a next invisible sibling
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+

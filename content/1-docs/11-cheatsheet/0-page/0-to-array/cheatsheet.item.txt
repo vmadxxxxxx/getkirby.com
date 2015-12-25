@@ -1,0 +1,21 @@
+Title:
+
+$page->toArray()
+
+----
+
+Excerpt:
+
+Converts the entire page object into a plain PHP array
+
+----
+
+Return:
+
+type: array
+text:
+
+----
+
+Text:
+
