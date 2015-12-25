@@ -1,0 +1,20 @@
+Title:
+
+$page->hasCode()
+
+----
+
+Excerpt:
+
+Checks if there are any audio files in the page's directory
+
+----
+
+Return:
+
+type: integer
+text:
+
+----
+
+Text:

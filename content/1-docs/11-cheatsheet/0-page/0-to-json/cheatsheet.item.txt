@@ -1,0 +1,22 @@
+Title:
+
+$page->toJson()
+
+----
+
+Excerpt:
+
+Converts the entire page array into a json string
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example

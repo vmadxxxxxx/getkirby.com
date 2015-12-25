@@ -1,0 +1,20 @@
+Title:
+
+$page->reset()
+
+----
+
+Excerpt:
+
+Cleans the temporary page cache and the cache of all parent pages
+
+----
+
+Return:
+
+type: 
+text:
+
+----
+
+Text:

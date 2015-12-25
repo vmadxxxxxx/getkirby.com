@@ -1,0 +1,21 @@
+Title:
+
+$page->create($uri, $template, $data = array())
+
+----
+
+Excerpt:
+
+Creates a new page object
+
+----
+
+Return:
+
+type: $page
+text:
+
+----
+
+Text:
+

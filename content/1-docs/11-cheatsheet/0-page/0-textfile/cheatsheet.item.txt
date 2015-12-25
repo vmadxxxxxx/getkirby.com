@@ -1,0 +1,21 @@
+Title:
+
+$page->textfile()
+
+----
+
+Excerpt:
+
+Returns the root for the content file
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
