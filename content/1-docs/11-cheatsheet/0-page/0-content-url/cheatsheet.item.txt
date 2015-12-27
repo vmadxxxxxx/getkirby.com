@@ -1,0 +1,20 @@
+Title:
+
+$page->contentURL()
+
+----
+
+Excerpt:
+
+Returns the full URL for the content folder
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
