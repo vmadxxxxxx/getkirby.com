@@ -1,0 +1,32 @@
+Title:
+
+$pages->merge($collection2)
+
+----
+
+Excerpt:
+
+Returns a new combined collection
+
+----
+
+Return:
+
+type: $pages
+text: 
+
+----
+
+Text:
+
+## Example:
+
+
+```php
+<?php
+$collection1 = page('exhibitions')->children()->visible();
+$collection2 = page('news')->children()->visible());
+$newCollection = $collection1->merge($collection2);
+?>
+```
+
