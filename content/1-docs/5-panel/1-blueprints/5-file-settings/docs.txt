@@ -50,6 +50,15 @@ files:
 …
 ```
 
+You can also set the maximum number of files (of any type), which will hide the "Add" button as soon as the maximum is reached.
+
+ ```
+…
+files:
+    max: 5
+…
+```
+
 To limit the file size on a per template basis you have to add a `size` field to the file's meta data, specifying the maximum file size in bytes.
 
 ```
