@@ -33,4 +33,15 @@ fields:
     step: .01
 ```
 
+### Minimum and maximum value
 
+The **min** and **max** options define which numbers can be selected with the browser-specific up/down arrows and are also used to validate the input.
+
+```
+fields:
+  temperature:
+    label: Temperature
+    type: number
+    min: -50
+    max: 250
+```
