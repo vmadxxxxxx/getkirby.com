@@ -1,0 +1,29 @@
+Title:
+
+$user->exists()
+
+----
+
+Excerpt:
+
+Checks if the user exists
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
+##Example
+
+```php
+<?php if($site->user('bastian')->exists()) {
+	echo $site->user('bastian')->role();
+}
+?>
+```
