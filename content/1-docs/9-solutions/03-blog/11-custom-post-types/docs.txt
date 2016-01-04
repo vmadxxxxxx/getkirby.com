@@ -57,7 +57,7 @@ site/templates/article.quote.php
 
 ### Use Snippets!
 
-In each template you are probably going to use almost the same HTML with a few exceptions, like embedding the video or image or showing the quote. To make your life easier, make sure that you (link: docs/snippets text: use snippets) wherever you can to re-use common pieces of code instead of adding them to each of the templates. This will make your templates much easier to maintain later.
+In each template you are probably going to use almost the same HTML with a few exceptions, like embedding the video or image or showing the quote. To make your life easier, make sure that you (link: docs/templates/snippets text: use snippets) wherever you can to re-use common pieces of code instead of adding them to each of the templates. This will make your templates much easier to maintain later.
 
 ## The Blog Template
 
