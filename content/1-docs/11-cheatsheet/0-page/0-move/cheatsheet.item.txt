@@ -1,0 +1,21 @@
+Title:
+
+$page->move($uid)
+
+----
+
+Excerpt:
+
+Changes the uid for the page
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+

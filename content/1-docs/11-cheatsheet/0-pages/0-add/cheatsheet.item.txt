@@ -1,0 +1,35 @@
+Title:
+
+$pages->add($page)
+
+----
+
+Excerpt:
+
+Adds a single page object to the collection by id, or another page collection
+
+----
+
+Return:
+
+type: $pages
+text: 
+
+----
+
+Text:
+
+## Examples:
+```php
+<?php
+$collection = page('exhibitions')->children()->visible();
+$collection->add('somepage');
+?>
+
+```php
+<?php
+$collection = page('exhibitions')->children()->visible();
+$collection->add(page('news')->children()->visible());
+?>
+```
+

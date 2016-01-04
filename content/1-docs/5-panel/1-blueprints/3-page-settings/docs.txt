@@ -69,3 +69,14 @@ deletable: false
 ```
 
 Even when deleting is enabled, a page with subpages cannot be deleted. You have to delete its subpages first.
+
+## Set custom icon
+
+You can set a custom icon for pages that will be shown in the sidebar. You can reference all Fontawesome icons by their name without "fa-".
+
+```
+…
+icon: suitcase
+…
+```
+

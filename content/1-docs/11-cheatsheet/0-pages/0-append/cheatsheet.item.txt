@@ -1,0 +1,21 @@
+Title:
+
+$pages->append($key, $object)
+
+----
+
+Excerpt:
+
+Appends an element to the data array
+
+----
+
+Return:
+
+type: collection
+text: 
+
+----
+
+Text:
+

@@ -1,0 +1,23 @@
+Title: $field->float()
+
+----
+
+Excerpt: Converts the field value into a proper float
+
+----
+
+Return:
+
+type: float
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->mynumber()->float() ?>
+```
+

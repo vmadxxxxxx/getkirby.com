@@ -1,0 +1,21 @@
+Title:
+
+$page->isSite()
+
+----
+
+Excerpt:
+
+Checks if this page object is the main site
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
