@@ -1,0 +1,22 @@
+Title: $roots->languages()
+
+----
+
+Excerpt: Returns the root of the languages folder for custom site localizations
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->roots()->languages() ?>
+```

@@ -1,0 +1,22 @@
+Title: $roots->widgets()
+
+----
+
+Excerpt: Returns the root of the Panel widgets folder.
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->roots()->widgets() ?>
+```

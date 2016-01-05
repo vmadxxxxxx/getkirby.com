@@ -1,0 +1,22 @@
+Title: $roots->autojs()
+
+----
+
+Excerpt: Returns the root of the autojs folder for the `js('@auto')` rule.
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->roots()->autojs() ?>
+```

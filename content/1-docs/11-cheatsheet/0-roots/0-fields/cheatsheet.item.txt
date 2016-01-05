@@ -2,7 +2,7 @@ Title: $roots->fields()
 
 ----
 
-Excerpt: Returns the root of the fields folder.
+Excerpt: Returns the root of the Panel fields folder.
 
 ----
 

@@ -1,0 +1,22 @@
+Title: $roots->avatars()
+
+----
+
+Excerpt: Returns the root of the avatars folder.
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->roots()->avatars() ?>
+```

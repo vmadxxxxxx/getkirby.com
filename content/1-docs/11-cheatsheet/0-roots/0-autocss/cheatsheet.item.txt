@@ -1,0 +1,22 @@
+Title: $roots->autocss()
+
+----
+
+Excerpt: Returns the root of the autocss folder for the `css('@auto')` rule.
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->roots()->autocss() ?>
+```
