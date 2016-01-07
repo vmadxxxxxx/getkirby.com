@@ -8,7 +8,7 @@
     <h1 class="alpha"><?php echo $page->title()->html() ?></h1>
     <?php endif ?>
 
-    <p class="zeta subtitle margin-bottom"><?php echo $page->excerpt() ?></p>
+    <div class="zeta subtitle margin-bottom"><?php echo $page->excerpt()->kt() ?></div>
 
     <section class="text col-4-6">
 
