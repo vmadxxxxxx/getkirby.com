@@ -1,0 +1,32 @@
+Title: call
+
+----
+
+Excerpt: Calls a function with a given set of arguments
+
+----
+
+Text:
+
+## Example
+
+### Without function arguments
+
+```php
+call('foo'); // Equivalent to foo()
+call(array($foo, 'bar')); // Equivalent to $foo->bar()
+```
+
+### With one function argument
+
+```php
+call('foo', 'bar'); // Equivalent to foo('bar')
+call(array($foo, 'bar'), 'baz'); // Equivalent to $foo->bar('baz')
+```
+
+### With more than one function argument
+
+```php
+call('foo', array('bar', 'baz')); // Equivalent to foo('bar', 'baz')
+call(array($foo, 'bar'), array('baz', 'foobar')); // Equivalent to $foo->bar('baz', 'foobar')
+```

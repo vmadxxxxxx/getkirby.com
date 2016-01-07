@@ -1,0 +1,28 @@
+Title: csrf
+
+----
+
+Excerpt: Generates and checks CSRF tokens
+
+----
+
+Text:
+
+## Example
+
+### Token generation
+
+```php
+<input type="hidden" name="csrf" value="<?php echo csrf() ?>">
+```
+
+### Checking the token
+
+```php
+$token = get('csrf');
+if(csrf($token)) {
+  // Success
+} else {
+  // Token doesn't match
+}
+```

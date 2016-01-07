@@ -1,0 +1,30 @@
+Title: params
+
+----
+
+Excerpt: Fetches all Kirby URL parameters
+
+----
+
+Text:
+
+Additional to URL query variables you can set parameters via URL in Kirby in a more human readable way:
+
+```
+http://yourdomain.com/blog/tag:mytag/year:2014
+```
+
+Those parameters are very handy when you want to build URL-based filters for your content.
+
+Such parameters will be ignored by the router so the URL which will be fetched by Kirby in this case is `http://yourdomain.com/blog`
+
+The `params` function returns all detected params:
+
+```php
+// http://yourdomain.com/blog/tag:mytag/year:2014
+
+$params = params();
+// $params is array('tag' => 'mytag', 'year' => '2014')
+```
+
+You can also get a single param with the (link: docs/toolkit/api/helpers/param text: `param` function).

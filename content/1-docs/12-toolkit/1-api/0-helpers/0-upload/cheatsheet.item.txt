@@ -1,0 +1,19 @@
+Title: upload
+
+----
+
+Excerpt: Shortcut for the Upload class
+
+----
+
+Text:
+
+## Example
+
+```php
+// Uses the file from the input field with `name="file"`
+upload(__DIR__ . DS . '{{safeName}}.jpg');
+
+// Uses the file from the input field with `name="image"`
+upload(__DIR__ . DS . '{{safeName}}.jpg', array('input' => 'image'));
+```

@@ -10,6 +10,14 @@ Text:
 
 ## Example
 
+### With a single option
+
 ```php
 <?php echo html($page->title()) ?>
+```
+
+### Don't preserve HTML tags
+
+```php
+<?php echo html($page->title(), false) ?>
 ```

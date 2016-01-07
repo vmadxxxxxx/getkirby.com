@@ -1,0 +1,15 @@
+Title: memory
+
+----
+
+Excerpt: Returns the current memory usage in a human-readable format
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo memory() ?>
+```

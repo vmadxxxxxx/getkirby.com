@@ -1,0 +1,19 @@
+Title: esc
+
+----
+
+Excerpt: Escapes strings based on the output context
+
+----
+
+Text:
+
+## Example
+
+```php
+echo esc($page->title(), 'html');
+
+echo esc($page->link(), 'url');
+```
+
+Please check the (link: docs/toolkit/api#escape text: Escape class documentation) and its source code for more details and the available methods.
