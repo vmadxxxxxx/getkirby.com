@@ -1,0 +1,22 @@
+Title: $urls->assets()
+
+----
+
+Excerpt: Returns the url of the assets folder
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->urls()->assets() ?>
+```

@@ -1,0 +1,22 @@
+Title: $roots->kirby()
+
+----
+
+Excerpt: Returns the root of the Kirby core folder
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->roots()->kirby() ?>
+```

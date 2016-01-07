@@ -1,0 +1,22 @@
+Title: $roots->blueprints()
+
+----
+
+Excerpt: Returns the root of the blueprints folder
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->roots()->blueprints() ?>
+```

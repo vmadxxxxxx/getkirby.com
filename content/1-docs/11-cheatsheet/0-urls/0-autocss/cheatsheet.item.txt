@@ -1,0 +1,22 @@
+Title: $urls->autocss()
+
+----
+
+Excerpt: Returns the url of the autocss folder for the `css('@auto')` rule.
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->urls()->autocss() ?>
+```

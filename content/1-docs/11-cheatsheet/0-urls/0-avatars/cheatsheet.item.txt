@@ -1,0 +1,22 @@
+Title: $urls->avatars()
+
+----
+
+Excerpt: Returns the url of the avatars folder
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->urls()->avatars() ?>
+```

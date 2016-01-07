@@ -1,0 +1,22 @@
+Title: $roots->assets()
+
+----
+
+Excerpt: Returns the root of the assets folder.
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->roots()->assets() ?>
+```

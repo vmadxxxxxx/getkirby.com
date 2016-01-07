@@ -1,0 +1,22 @@
+Title: $urls->autojs()
+
+----
+
+Excerpt: Returns the url of the autojs folder for the `js('@auto')` rule.
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->urls()->autojs() ?>
+```

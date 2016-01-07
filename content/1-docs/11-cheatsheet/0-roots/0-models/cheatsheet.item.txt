@@ -1,0 +1,22 @@
+Title: $roots->models()
+
+----
+
+Excerpt: Returns the root of the folder for page models
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo kirby()->roots()->models() ?>
+```
