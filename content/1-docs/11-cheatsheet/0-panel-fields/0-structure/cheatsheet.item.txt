@@ -99,3 +99,6 @@ emails:
   modalsize: small
   ```
   
+## Accessing structure fields in your templates
+ 
+To access a structure field in your templates, you can use the (link: docs/cheatsheet/field-methods/yaml text: `$field->yaml()`) and (link: docs/cheatsheet/field-methods/toStructure text: `$field->toStructure()`) methods.
