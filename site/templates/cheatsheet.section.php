@@ -1,1 +1,1 @@
-<?php go(url('docs/cheatsheet#' . $page->uid())) ?>
+<?php go(url($page->parent()->url() . '#' . $page->uid())) ?>
