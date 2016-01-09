@@ -14,7 +14,13 @@ We try our best to make the installation of Kirby as effortless as possible, but
 
 ## Broken subpages
 
-Your homepage is working great, but subpages won't open or lead to a server error? Please try setting the RewriteBase in the .htaccess file: 
+Your homepage is working great, but subpages won't open or lead to a server error? 
+
+1. Make sure that the .htaccess file that ships with Kirby is present in your Kirby folder.
+2. Check if mod_rewrite is enabled on your server. 
+3. Check if the .htaccess file get loaded. You can test this by putting some nonsense characters into your .htaccess. If this triggers an "Internal Server Error", the file gets loaded. Otherwise, you need to enable `AllowOverride all` in your Apache configuration.
+
+4. Please try setting the RewriteBase in the .htaccess file: 
 
 ```
 RewriteBase /
@@ -33,7 +39,7 @@ Your content files seem to be corrupted after you tried to save a page in the pa
 
 ## Broken panel links
 
-The panel is not reachable? Make sure to use Kirby's default (link: https://github.com/getkirby/starterkit/blob/master/.htaccess text: .htaccess file). 
+The panel is not reachable? Make sure to use Kirby's default (link: https://github.com/getkirby/starterkit/blob/master/.htaccess text: .htaccess file).
 
 Pls. make sure that you are using the minimum required version of PHP, which is 5.4 since Kirby 2.2. We recommend using the most recent PHP version that is available to you, preferably PHP 7, but at least 5.6 or 5.5.
 
