@@ -1,8 +1,15 @@
-Title: csrf
+Title: csrf($check = null)
 
 ----
 
 Excerpt: Generates and checks CSRF tokens
+
+----
+
+Return:
+
+type: string | boolean
+text:
 
 ----
 

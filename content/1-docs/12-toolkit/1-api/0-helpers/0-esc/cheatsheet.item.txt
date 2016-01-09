@@ -1,8 +1,15 @@
-Title: esc
+Title: esc($string, $context = 'html', $strict = false)
 
 ----
 
 Excerpt: Escapes strings based on the output context
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 

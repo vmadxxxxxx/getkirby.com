@@ -1,8 +1,15 @@
-Title: params
+Title: params()
 
 ----
 
 Excerpt: Fetches all Kirby URL parameters
+
+----
+
+Return:
+
+type: array
+text:
 
 ----
 

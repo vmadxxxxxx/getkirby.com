@@ -1,4 +1,4 @@
-Title: call
+Title: call($function, $arguments = array())
 
 ----
 

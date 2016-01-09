@@ -1,8 +1,15 @@
-Title: upload
+Title: upload($to, $params = array())
 
 ----
 
 Excerpt: Shortcut for the Upload class
+
+----
+
+Return:
+
+type: $upload
+text:
 
 ----
 
@@ -12,8 +19,8 @@ Text:
 
 ```php
 // Uses the file from the input field with `name="file"`
-upload(__DIR__ . DS . '{{safeName}}.jpg');
+$upload = upload(__DIR__ . DS . '{{safeName}}.jpg');
 
 // Uses the file from the input field with `name="image"`
-upload(__DIR__ . DS . '{{safeName}}.jpg', array('input' => 'image'));
+$upload = upload(__DIR__ . DS . '{{safeName}}.jpg', array('input' => 'image'));
 ```

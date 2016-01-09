@@ -1,8 +1,15 @@
-Title: memory
+Title: memory()
 
 ----
 
 Excerpt: Returns the current memory usage in a human-readable format
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 
