@@ -46,8 +46,9 @@
     </section>
 
     <nav class="sidebar col-2-6 last">
+      <?php $overviewPage = $page->parent()->parent(); ?>
       <ul>
-        <li><a href="<?php echo url((string)kirby()->request()->path()->slice(0, 2)) ?>"><small>&uarr;</small>Cheat Sheet overview</a></li>
+        <li><a href="<?php echo $overviewPage->url() ?>"><small>&uarr;</small><?php echo $overviewPage->title() ?> overview</a></li>
 
         <?php if($prev = $page->prevVisible()): ?>
         <li><a href="<?php echo $prev->url() ?>"><small>&larr;</small> <?php echo html($prev->title()) ?></a></li>
@@ -57,7 +58,7 @@
         <li><a href="<?php echo $next->url() ?>"><small>&rarr;</small> <?php echo html($next->title()) ?></a></li>
         <?php endif ?>
 
-        <li><a href="<?php echo url((string)kirby()->request()->path()->slice(0, 2)) ?>#<?php echo $page->parent()->uid() ?>"><small>&darr;</small>Back to Cheat Sheet section</a></li>
+        <li><a href="<?php echo $overviewPage->url() ?>#<?php echo $page->parent()->uid() ?>"><small>&darr;</small>Back to <?php echo $overviewPage->title() ?> section</a></li>
       </ul>
     </nav>
 
