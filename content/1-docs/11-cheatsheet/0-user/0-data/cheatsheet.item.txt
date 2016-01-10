@@ -1,0 +1,26 @@
+Title:
+
+$user->data()
+
+----
+
+Excerpt:
+
+Returns an array with all user data
+
+----
+
+Return:
+
+type: array
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $site->user('bastian')->data() ?>
+```

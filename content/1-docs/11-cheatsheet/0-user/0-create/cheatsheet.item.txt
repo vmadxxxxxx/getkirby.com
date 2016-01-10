@@ -1,0 +1,22 @@
+Title:
+
+$user->create()
+
+----
+
+Excerpt:
+
+Creates a new user
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
+
