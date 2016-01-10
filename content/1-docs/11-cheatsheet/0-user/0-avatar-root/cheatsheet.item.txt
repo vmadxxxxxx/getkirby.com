@@ -1,0 +1,25 @@
+Title:
+
+$user->avatarRoot()
+
+----
+
+Excerpt: Returns the full root for the user avatar image
+
+
+----
+
+Return:
+
+type: 
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $site->user('bastian')->avatarRoot() ?>
+```
