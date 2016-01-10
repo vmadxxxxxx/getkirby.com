@@ -1,0 +1,23 @@
+Title: $field->toURL()
+
+----
+
+Excerpt: Creates an URL for any field value
+
+----
+
+Return:
+
+type: $structure
+text:
+
+----
+
+Text:
+
+
+## Example
+
+```php
+<?php echo $page->title()->toURL() ?>
+```
