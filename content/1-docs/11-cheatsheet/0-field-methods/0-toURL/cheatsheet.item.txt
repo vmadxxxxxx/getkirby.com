@@ -8,7 +8,7 @@ Excerpt: Creates an URL for any field value
 
 Return:
 
-type: $structure
+type: string
 text:
 
 ----
