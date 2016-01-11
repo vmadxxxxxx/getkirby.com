@@ -4,7 +4,7 @@ return function($site, $pages, $page) {
 
   if(c::get('cache.cheatsheet')) {
     $cache   = new Cache\Driver\File(kirby()->roots()->cache());
-    $cacheId = $page->cacheId() . '.main';
+    $cacheId = sha1($page->id()) . '.main';
     $content = $cache->get($cacheId);    
   } else {
     $content = null;
