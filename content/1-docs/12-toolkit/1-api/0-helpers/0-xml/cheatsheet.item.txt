@@ -1,8 +1,15 @@
-Title: xml
+Title: xml($text)
 
 ----
 
 Excerpt: Converts any text to valid XML
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 

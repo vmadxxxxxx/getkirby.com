@@ -1,8 +1,15 @@
-Title: multiline
+Title: multiline($text)
 
 ----
 
 Excerpt: Converts new lines in text to html breaks.
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 

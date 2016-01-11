@@ -1,8 +1,15 @@
-Title: gravatar
+Title: gravatar($email, $size = 256)
 
 ----
 
 Excerpt: Builds the Gravatar URL by email
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 

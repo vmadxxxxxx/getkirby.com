@@ -1,8 +1,15 @@
-Title: widont
+Title: widont($text)
 
 ----
 
 Excerpt: Avoids typographical widows in strings by replacing the last space with `&nbsp;`
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 

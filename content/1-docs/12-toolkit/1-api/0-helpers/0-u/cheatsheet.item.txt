@@ -1,8 +1,15 @@
-Title: u
+Title: u($path = '/')
 
 ----
 
 Excerpt: Shortcut for url()
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 

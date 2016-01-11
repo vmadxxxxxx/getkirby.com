@@ -1,8 +1,15 @@
-Title: yaml
+Title: yaml($string)
 
 ----
 
 Excerpt: Parses any string as YAML
+
+----
+
+Return:
+
+type: array
+text:
 
 ----
 
