@@ -3,6 +3,7 @@
 header('X-Frame-Options: SAMEORIGIN');
 header('X-XSS-Protection: 1; mode=block');
 header('X-Content-Type-Options: nosniff');
+header('Content-Security-Policy: default-src https: \'unsafe-inline\' \'unsafe-eval\'');
 
 c::set('stage', false);
 c::set('markdown.extra', true);
