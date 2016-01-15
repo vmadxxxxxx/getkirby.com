@@ -4,7 +4,7 @@
 
   <form class="search-form" role="search">
     <input type="search" autofocus data-limit="10" data-fuzzy="true" data-template="#autocomplete-template" data-fuzzy="false" data-field="title" data-url="<?php echo url('docs.json') ?>" class="searchword" name="q" id="q" placeholder="Search the docs…" value="<?php echo html($query, false) ?>">
-    <script id="autocomplete-template">
+    <script id="autocomplete-template" type="text/html">
       <strong>{{title}}</strong>
       <small>{{uri}}</small>
     </script>

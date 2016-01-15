@@ -3,28 +3,42 @@
 -------------------------------------------------- */
 .date {
   color: #777;
-  font-style: italic;
-}
+  font-style: italic; }
+
 .date a {
-  color: inherit;
-}
+  color: inherit; }
+
 .date a:hover {
-  color: #222;
-}
+  color: #222; }
 
 .user {
   color: #777;
-  font-style: italic;
-}
+  font-style: italic; }
+
 .user:hover {
-  color: #222;
-}
+  color: #222; }
 
 .site-footer {
-  margin-top: 6em;
-}
+  margin-top: 6em; }
 
 .forum-disclaimer {
   color: red;
+  margin-bottom: 3em; }
+
+.topic-header {
   margin-bottom: 3em;
-}
+  line-height: 1.5em; }
+
+.replies {
+  padding: 6em 0; }
+
+.replies-header {
+  margin-bottom: 3em; }
+
+.reply {
+  border-top: 1px solid #ddd;
+  margin-top: 3em;
+  padding-top: 3em; }
+
+.reply-header {
+  margin-bottom: 1.5em; }

@@ -2,3 +2,4 @@
 /site/cache
 /thumbs
 /site/config/config.dev.getkirby.com.php
+/node_modules

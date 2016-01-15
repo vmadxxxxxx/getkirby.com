@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <?php echo css(array(
-    'assets/css/kirby.css',
-    'assets/css/site.css',
-    '@auto'
-  )) ?>
+  <?php echo css('assets/css/site.min.css') ?>
+
+  <?php if(isset($forum) and $forum): ?>
+  <?php echo css('assets/css/forum.min.css') ?>
+  <?php endif ?>
 
   <?php if($page->isHomePage()): ?>
   <title><?php echo html($page->headline()) ?> | <?php echo html($site->title()) ?></title>
@@ -32,7 +32,7 @@
   <link rel="alternate" type="application/rss+xml" href="<?php echo url('feed') ?>" title="<?php echo html($site->title()) ?> Blog Feed" />
 
 </head>
-<body class="<?php e(c::get('stage'), 'stage ') ?><?php echo str_replace('.', '-', $page->template()) ?>" id="top">
+<body class="<?php echo str_replace('.', '-', $page->template()) ?>" id="top">
 
   <?php if(server::get('SERVER_NAME') == 'getkirby.com'): ?>
   <script>
@@ -52,8 +52,6 @@
     You are using an obsolete browser which can harm your experience and cause security trouble. Please <a href="http://browsehappy.com/" target="_blank">update your browser!</a>
   </div>
   <![endif]-->
-
-  <?php if(c::get('stage')) snippet('message') ?>
 
   <?php if($page->isHomePage()): ?>
 
