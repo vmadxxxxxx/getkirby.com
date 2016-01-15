@@ -73,16 +73,10 @@ c::set('routes', array(
 
 
 
-c::set('cdn.assets', 'http://assets.getkirby.com/assets');
-c::set('cdn.content', 'http://assets.getkirby.com/content');
-c::set('cdn.thumbs', 'http://assets.getkirby.com/thumbs');
+c::set('cdn.assets', 'https://assets.getkirby.com/assets');
+c::set('cdn.content', 'https://assets.getkirby.com/content');
+c::set('cdn.thumbs', 'https://assets.getkirby.com/thumbs');
 c::set('cachebuster', true);
-
-
-c::set('cdn.assets', false);
-c::set('cdn.content', false);
-c::set('cdn.thumbs', false);
-c::set('cachebuster', false);
 
 
 c::set('cache.cheatsheet', true);
