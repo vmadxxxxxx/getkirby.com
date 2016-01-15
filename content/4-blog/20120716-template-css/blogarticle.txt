@@ -1,4 +1,4 @@
-﻿Title: How to add template-specific CSS files
+Title: How to add template-specific CSS files
 
 ----
 
