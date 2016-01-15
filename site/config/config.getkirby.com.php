@@ -4,6 +4,7 @@ header('X-Frame-Options: SAMEORIGIN');
 header('X-XSS-Protection: 1; mode=block');
 header('X-Content-Type-Options: nosniff');
 header('Content-Security-Policy: default-src https: \'unsafe-inline\' \'unsafe-eval\'');
+header('strict-transport-security: max-age=31536000; includeSubdomains');
 
 c::set('cdn.assets', 'https://assets.getkirby.com/assets');
 c::set('cdn.content', 'https://assets.getkirby.com/content');
