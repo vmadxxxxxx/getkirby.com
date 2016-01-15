@@ -98,7 +98,7 @@
     <ul class="list-2"><!--
    --><li>
         <a class="cf" href="http://twitter.com/getkirby">
-          <img src="<?php echo url() ?>/assets/images/twitter.svg" alt="Twitter icon">
+          <img src="<?php echo url('assets/images/twitter.svg') ?>" alt="Twitter icon">
           <div>
             <h3 class="gamma">Follow Kirby on Twitter</h3>
             <p class="zeta">@getkirby</p>
@@ -107,7 +107,7 @@
       </li><!--
    --><li>
         <a class="grid" href="http://forum.getkirby.com">
-          <img src="<?php echo url() ?>/assets/images/forum.svg" alt="Community icon">
+          <img src="<?php echo url('assets/images/forum.svg') ?>" alt="Community icon">
           <div>
             <h3 class="gamma">Visit the Kirby forum</h3>
             <p class="zeta">forum.getkirby.com</p>
