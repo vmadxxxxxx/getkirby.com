@@ -39,7 +39,7 @@ Placeholder | Matches
 (:num)  | Matches any number and stops at the next /
 (:all)  | Matches everything from here on until the end or the next placeholder
 
-Placeholders can also contain expressions. I.e. `([a-z]+)`
+Placeholders can also contain expressions. i.e. `([a-z]+)`
 Placeholders will be passed as arguments in the order they appear.
 
 ```php
@@ -47,6 +47,20 @@ Placeholders will be passed as arguments in the order they appear.
 function($anyPlaceholder, $numPlaceholder, $allPlaceholder) {
 
 };
+```
+
+If you want to use the same action for multiple patterns, you can either use regex expressions or pass an array to the pattern:
+
+```php
+c::set('routes', array(
+  array(
+    'pattern' => array('blog/(:any)', 'events/(:any)'),
+    'action'  => function() {
+      // do something here when the URL matches the pattern above
+    }
+  )
+));
+
 ```
 
 ## Multi-language setup
