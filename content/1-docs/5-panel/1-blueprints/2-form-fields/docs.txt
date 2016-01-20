@@ -18,8 +18,10 @@ Kirby comes with a huge set of custom form fields, which you can use in your blu
 
 ## Field names
 
-In general, you are free to name your fields like you want to. However, if you use field names that are also used by native Kirby methods, your field names will conflict with Kirby's existing methods, e.g. if you give your field a name "image", it will conflict with Kirby's `$page->image()` method. You can do this, but you will have to call these fields differently in your templates, for details please refer to (link: docs/templates/hello-world text: the template docs)
+In general, you are free to name your fields like you want to, but there are two limitations:
 
+1. You can only use alphanumeric characters and underscores in field names.
+2. If you use field names that are also used by native Kirby methods, your field names will conflict with Kirby's existing methods, e.g. if you give your field a name "image", it will conflict with Kirby's `$page->image()` method. You can do this, but you will have to call these fields differently in your templates, for details please refer to (link: docs/templates/hello-world text: the template docs)
 
 ## Required fields
 
