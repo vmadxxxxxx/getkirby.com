@@ -63,7 +63,7 @@
         <div class="slider-track">
           <?php foreach($page->children()->find('hero')->images() as $slide): ?>
           <figure title="<?php echo $slide->caption() ?>">
-            <img src="<?php echo $slide->url() ?>" alt="Screenshot: <?php echo $slide->caption() ?>">
+            <img src="<?php echo imgix($slide) ?>" alt="Screenshot: <?php echo $slide->caption() ?>">
           </figure>
           <?php endforeach ?>
         </div>
