@@ -1,8 +1,15 @@
-Title: invalid
+Title: invalid($data, $rules, $messages = array())
 
 ----
 
 Excerpt: Runs a number of validators on a set of data and checks if the data is invalid
+
+----
+
+Return:
+
+type: array
+text:
 
 ----
 

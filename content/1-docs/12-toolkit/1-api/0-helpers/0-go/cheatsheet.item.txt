@@ -1,4 +1,4 @@
-Title: go
+Title: go($url = '/')
 
 ----
 

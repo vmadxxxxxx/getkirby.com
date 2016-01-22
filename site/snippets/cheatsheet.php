@@ -19,11 +19,14 @@
 
   <?php foreach($page->children()->visible() as $child): ?>
   <section class="text" id="<?php echo $child->uid() ?>">
-    <h2 class="beta"><?php echo html($child->title()) ?></h2>
+    <h2 class="beta no-margin-bottom"><?php echo html($child->title()) ?></h2>
+    <?php if($extendingMode = $child->extendingMode()): ?>
+      <div class="zeta subtitle"><?php echo $extendingMode ?></div>
+    <?php endif ?>
     <?php echo kirbytext($child->text()) ?>
 
     <div class="cheatsheet-grid">
-      <?php foreach($child->children() as $doc): ?>
+      <?php foreach($child->inheritedChildren() as $doc): ?>
       <div class="cheatsheet-grid-item">
         <a href="<?php echo $doc->url() ?>">
           <h3 class="gamma"><?php echo html($doc->title()) ?></h3>

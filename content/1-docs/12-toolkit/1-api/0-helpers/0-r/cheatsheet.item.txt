@@ -1,8 +1,15 @@
-Title: r
+Title: r($condition, $a, $b)
 
 ----
 
 Excerpt: Returns either $a or $b by the given condition
+
+----
+
+Return:
+
+type: mixed
+text:
 
 ----
 

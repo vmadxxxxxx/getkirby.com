@@ -1,8 +1,15 @@
-Title: brick
+Title: brick($tag, $html = false, $attr = array())
 
 ----
 
 Excerpt: Creates an HTML Element (Brick object)
+
+----
+
+Return:
+
+type: $brick
+text:
 
 ----
 

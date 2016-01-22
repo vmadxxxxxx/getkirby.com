@@ -4,6 +4,14 @@ Helpers
 
 ----
 
+Extends: docs/toolkit/api/helpers
+
+----
+
+ExtendingMode: other
+
+----
+
 Text:
 
 

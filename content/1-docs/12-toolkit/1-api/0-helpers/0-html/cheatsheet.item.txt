@@ -1,8 +1,15 @@
-Title: html
+Title: html($text, $keepTags = true)
 
 ----
 
 Excerpt: Converts any text to valid HTML
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 
