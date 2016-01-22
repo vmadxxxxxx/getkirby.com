@@ -1,8 +1,15 @@
-Title: dump
+Title: dump($variable)
 
 ----
 
 Excerpt: Dumps the content of any variable in a human readable way for debugging
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 
@@ -18,7 +25,7 @@ $foo = array(
 
 dump($foo);
 
-/*
+/* 
 array(
   'a',
   'b',
@@ -26,4 +33,6 @@ array(
 )
 */
 
+// Returns the value
+$dump = dump($foo, false);
 ```

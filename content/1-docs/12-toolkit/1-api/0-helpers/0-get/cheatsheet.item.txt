@@ -1,8 +1,15 @@
-Title: get
+Title: get($key)
 
 ----
 
 Excerpt: Fetches a POST or GET parameter by key
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 

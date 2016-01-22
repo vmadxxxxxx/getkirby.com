@@ -1,8 +1,15 @@
-Title: l
+Title: l($key)
 
 ----
 
 Excerpt: Fetches a language variable for multi-language sites
+
+----
+
+Return:
+
+type: mixed
+text:
 
 ----
 

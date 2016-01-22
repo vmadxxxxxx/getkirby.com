@@ -691,6 +691,9 @@ h2.delta {
 .margin-bottom {
   margin-bottom: 1em; }
 
+.no-margin-bottom {
+  margin-bottom: 0 !important; }
+
 .center {
   text-align: center; }
 
@@ -1560,6 +1563,9 @@ input[type="search"]::-webkit-search-cancel-button {
 .cheatsheet .text h3 {
   font-size: 1rem;
   font-weight: 600; }
+
+.cheatsheet-grid {
+  margin-top: 1em; }
 
 .cheatsheet-grid-item {
   -webkit-column-break-inside: avoid;

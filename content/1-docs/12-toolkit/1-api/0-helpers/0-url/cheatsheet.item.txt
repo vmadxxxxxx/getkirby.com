@@ -1,8 +1,15 @@
-Title: url
+Title: url($path = '/')
 
 ----
 
 Excerpt: Builds an absolute URL for a given path
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 

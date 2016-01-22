@@ -1,4 +1,4 @@
-Title: ecco
+Title: ecco($condition, $a, $b)
 
 ----
 

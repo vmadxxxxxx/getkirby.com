@@ -1,8 +1,15 @@
-Title: attr
+Title: attr($name, $value = null)
 
 ----
 
 Excerpt: Creates attributes for an html tag
+
+----
+
+Return:
+
+type: string
+text:
 
 ----
 

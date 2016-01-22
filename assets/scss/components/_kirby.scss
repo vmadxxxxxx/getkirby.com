@@ -807,6 +807,9 @@ h2.delta {
 .margin-bottom {
   margin-bottom: 1em;
 }
+.no-margin-bottom {
+  margin-bottom: 0 !important;
+}
 .center {
   text-align: center;
 }

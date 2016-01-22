@@ -1,8 +1,15 @@
-Title: email
+Title: email($params)
 
 ----
 
 Excerpt: Sends an email
+
+----
+
+Return:
+
+type: $email
+text:
 
 ----
 
