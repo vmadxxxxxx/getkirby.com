@@ -11,7 +11,7 @@
    --><li>
         <?php if($image = $feature->image()): ?>
         <a href="<?php echo $feature->link() ?>">
-          <img src="<?php echo imgix($image) ?>" alt="Screenshot: <?php echo $feature->title() ?>" />
+          <img src="<?php echo imgix($image, array('w' => 300)) ?>" alt="Screenshot: <?php echo $feature->title() ?>" />
         </a>
         <?php endif ?>
         <div class="text smaller">
