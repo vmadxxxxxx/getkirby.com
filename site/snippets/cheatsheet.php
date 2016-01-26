@@ -28,8 +28,8 @@
     <div class="cheatsheet-grid">
       <?php foreach($child->inheritedChildren() as $doc): ?>
       <div class="cheatsheet-grid-item">
-        <a href="<?php echo $doc->url() ?>">
-          <h3 class="gamma"><?php echo html($doc->title()) ?></h3>
+        <a href="<?php echo $doc->url($child) ?>">
+          <h3 class="gamma"><?php echo html($doc->title($child)) ?></h3>
           <?php echo kirbytext($doc->excerpt()) ?>
         </a>
       </div>

@@ -32,6 +32,10 @@
         <?php endif ?>
       </ul>
       <?php endif ?>
+      
+      <?php if(get('section')): ?>
+      <p class="zeta">This documentation entry is inherited from the <a href="<?php echo $page->parent()->url() ?>"><?php echo $page->parent()->title() ?> class</a>.</p>
+      <?php endif ?>
 
       <?php echo str_replace('(\\', '(', $page->text()->kt()) ?>
 
