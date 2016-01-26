@@ -1,4 +1,4 @@
-Title: collection::groupBy
+Title: {{class.instance}}->groupBy
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Groups the collection by a given field
 
 ----
 
-Call: collection::groupBy($field, $i = true)
+Call: {{class.instance}}->groupBy($field, $i = true)
 
 ----
 

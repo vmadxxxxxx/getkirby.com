@@ -1,4 +1,4 @@
-Title: collection::nth
+Title: {{class.instance}}->nth
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the nth element from the array
 
 ----
 
-Call: collection::nth($n)
+Call: {{class.instance}}->nth($n)
 
 ----
 

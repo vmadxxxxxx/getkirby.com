@@ -1,4 +1,4 @@
-Title: collection::filterBy
+Title: {{class.instance}}->filterBy
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Filters the current collection by a field, operator and search value
 
 ----
 
-Call: collection::filterBy()
+Call: {{class.instance}}->filterBy()
 
 ----
 

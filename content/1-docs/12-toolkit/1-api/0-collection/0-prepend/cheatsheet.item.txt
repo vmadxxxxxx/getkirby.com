@@ -1,4 +1,4 @@
-Title: collection::prepend
+Title: {{class.instance}}->prepend
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Prepends an element to the data array
 
 ----
 
-Call: collection::prepend($key, $object)
+Call: {{class.instance}}->prepend($key, $object)
 
 ----
 

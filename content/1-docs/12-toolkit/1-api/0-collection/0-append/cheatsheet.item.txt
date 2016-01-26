@@ -1,4 +1,4 @@
-Title: collection::append
+Title: {{class.instance}}->append
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Appends an element to the data array
 
 ----
 
-Call: collection::append($key, $object)
+Call: {{class.instance}}->append($key, $object)
 
 ----
 

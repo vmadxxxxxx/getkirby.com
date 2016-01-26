@@ -1,4 +1,4 @@
-Title: collection::indexOf
+Title: {{class.instance}}->indexOf
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Tries to find the index number for the given element
 
 ----
 
-Call: collection::indexOf($needle)
+Call: {{class.instance}}->indexOf($needle)
 
 ----
 

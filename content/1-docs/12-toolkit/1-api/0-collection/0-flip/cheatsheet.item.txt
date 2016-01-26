@@ -1,4 +1,4 @@
-Title: collection::flip
+Title: {{class.instance}}->flip
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the array in reverse order
 
 ----
 
-Call: collection::flip()
+Call: {{class.instance}}->flip()
 
 ----
 

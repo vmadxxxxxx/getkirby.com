@@ -1,4 +1,4 @@
-Title: collection::__construct
+Title: {{class.instance}}->__construct
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Constructor
 
 ----
 
-Call: collection::__construct($data = array())
+Call: {{class.instance}}->__construct($data = array())
 
 ----
 

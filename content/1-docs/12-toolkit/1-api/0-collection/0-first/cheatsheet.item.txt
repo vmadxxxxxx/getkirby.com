@@ -1,4 +1,4 @@
-Title: collection::first
+Title: {{class.instance}}->first
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the first element from the array
 
 ----
 
-Call: collection::first()
+Call: {{class.instance}}->first()
 
 ----
 

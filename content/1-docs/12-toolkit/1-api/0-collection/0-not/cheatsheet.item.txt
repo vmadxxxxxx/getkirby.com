@@ -1,4 +1,4 @@
-Title: collection::not
+Title: {{class.instance}}->not
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns a new collection without the given element(s)
 
 ----
 
-Call: collection::not()
+Call: {{class.instance}}->not()
 
 ----
 

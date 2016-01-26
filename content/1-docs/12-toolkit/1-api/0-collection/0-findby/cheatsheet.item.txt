@@ -1,4 +1,4 @@
-Title: collection::findBy
+Title: {{class.instance}}->findBy
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Find a single item by a key and value pair
 
 ----
 
-Call: collection::findBy($key, $value)
+Call: {{class.instance}}->findBy($key, $value)
 
 ----
 

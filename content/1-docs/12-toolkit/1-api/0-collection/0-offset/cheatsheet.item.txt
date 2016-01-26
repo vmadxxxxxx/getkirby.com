@@ -1,4 +1,4 @@
-Title: collection::offset
+Title: {{class.instance}}->offset
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns a new collection starting from the given offset
 
 ----
 
-Call: collection::offset($offset)
+Call: {{class.instance}}->offset($offset)
 
 ----
 

@@ -1,4 +1,4 @@
-Title: collection::__isset
+Title: {{class.instance}}->__isset
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Checks if the current key is set
 
 ----
 
-Call: collection::__isset($key)
+Call: {{class.instance}}->__isset($key)
 
 ----
 

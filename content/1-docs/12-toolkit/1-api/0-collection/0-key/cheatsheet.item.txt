@@ -1,4 +1,4 @@
-Title: collection::key
+Title: {{class.instance}}->key
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the current key from the array
 
 ----
 
-Call: collection::key()
+Call: {{class.instance}}->key()
 
 ----
 

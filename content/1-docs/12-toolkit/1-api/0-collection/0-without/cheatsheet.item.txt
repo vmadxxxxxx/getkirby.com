@@ -1,4 +1,4 @@
-Title: collection::without
+Title: {{class.instance}}->without
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns a new collection without the given element(s)
 
 ----
 
-Call: collection::without()
+Call: {{class.instance}}->without()
 
 ----
 
