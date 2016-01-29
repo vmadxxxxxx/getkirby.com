@@ -1,8 +1,23 @@
-Title: gravatar($email, $size = 256)
+Title: gravatar($email, $size = 256, $default = 'mm')
 
 ----
 
 Excerpt: Builds the Gravatar URL by email
+
+----
+
+Params: - 
+  name: $email
+  type: string
+  text:
+-
+  name: $size
+  type: int
+  text:
+-
+  name: $default
+  type: string
+  text: Default image (default: "mystery-man")
 
 ----
 

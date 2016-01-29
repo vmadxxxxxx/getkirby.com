@@ -6,6 +6,13 @@ Excerpt: Generates and checks CSRF tokens
 
 ----
 
+Params: - 
+  name: $check
+  type: string
+  text: Token to check, will return boolean if set
+
+----
+
 Return:
 
 type: string | boolean

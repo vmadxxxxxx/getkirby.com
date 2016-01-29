@@ -6,6 +6,17 @@ Excerpt: Shortcut for the Upload class
 
 ----
 
+Params: - 
+  name: $to
+  type: string
+  text: Destination path
+-
+  name: $params
+  type: array
+  text: Additional options
+
+----
+
 Return:
 
 type: $upload

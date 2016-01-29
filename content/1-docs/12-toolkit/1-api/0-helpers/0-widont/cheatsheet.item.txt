@@ -6,6 +6,13 @@ Excerpt: Avoids typographical widows in strings by replacing the last space with
 
 ----
 
+Params: - 
+  name: $text
+  type: string
+  text:
+
+----
+
 Return:
 
 type: string

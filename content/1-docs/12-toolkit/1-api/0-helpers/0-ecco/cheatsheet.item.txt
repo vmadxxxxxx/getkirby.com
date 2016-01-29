@@ -1,8 +1,23 @@
-Title: ecco($condition, $a, $b)
+Title: ecco($condition, $a, $b = null)
 
 ----
 
 Excerpt: Echos one of two alternatives depending on a condition
+
+----
+
+Params: - 
+  name: $condition
+  type: mixed
+  text:
+-
+  name: $a
+  type: mixed
+  text: Echoed if $condition is true
+-
+  name: $b
+  type: mixed
+  text: Echoed if $condition is false
 
 ----
 

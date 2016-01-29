@@ -1,8 +1,19 @@
-Title: dump($variable)
+Title: dump($variable, $echo = true)
 
 ----
 
 Excerpt: Dumps the content of any variable in a human readable way for debugging
+
+----
+
+Params: - 
+  name: $variable
+  type: mixed
+  text:
+-
+  name: $echo
+  type: boolean
+  text: Whether to echo the dump
 
 ----
 

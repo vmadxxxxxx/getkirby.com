@@ -6,6 +6,13 @@ Excerpt: Builds an absolute URL for a given path
 
 ----
 
+Params: - 
+  name: $path
+  type: string
+  text: Absolute or relative URL
+
+----
+
 Return:
 
 type: string

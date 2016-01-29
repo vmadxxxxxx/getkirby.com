@@ -1,8 +1,19 @@
-Title: l($key)
+Title: l($key, $default = null)
 
 ----
 
 Excerpt: Fetches a language variable for multi-language sites
+
+----
+
+Params: - 
+  name: $key
+  type: string
+  text:
+-
+  name: $default
+  type: mixed
+  text: Default value if empty
 
 ----
 

@@ -6,6 +6,13 @@ Excerpt: Converts new lines in text to html breaks.
 
 ----
 
+Params: - 
+  name: $text
+  type: string
+  text:
+
+----
+
 Return:
 
 type: string

@@ -6,6 +6,13 @@ Excerpt: Parses any string as YAML
 
 ----
 
+Params: - 
+  name: $string
+  type: string
+  text:
+
+----
+
 Return:
 
 type: array

@@ -6,6 +6,21 @@ Excerpt: Creates an HTML Element (Brick object)
 
 ----
 
+Params: - 
+  name: $tag
+  type: string
+  text: HTML tag
+-
+  name: $html
+  type: string
+  text: HTML content
+-
+  name: $attr
+  type: array
+  text: HTML attributes
+
+----
+
 Return:
 
 type: $brick

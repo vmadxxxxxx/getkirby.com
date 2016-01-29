@@ -1,8 +1,23 @@
-Title: r($condition, $a, $b)
+Title: r($condition, $a, $b = null)
 
 ----
 
 Excerpt: Returns either $a or $b by the given condition
+
+----
+
+Params: - 
+  name: $condition
+  type: mixed
+  text:
+-
+  name: $a
+  type: mixed
+  text: Returned if $condition is true
+-
+  name: $b
+  type: mixed
+  text: Returned if $condition is false
 
 ----
 

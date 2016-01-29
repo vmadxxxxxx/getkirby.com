@@ -6,6 +6,13 @@ Excerpt: Shortcut for url()
 
 ----
 
+Params: - 
+  name: $path
+  type: string
+  text: Absolute or relative URL
+
+----
+
 Return:
 
 type: string

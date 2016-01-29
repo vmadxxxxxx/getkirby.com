@@ -1,4 +1,4 @@
-Title: thumb($image, $params = array())
+Title: thumb($image, $params = array(), $obj = true)
 
 ----
 
@@ -6,9 +6,24 @@ Excerpt: Creates a thumbnail for a given image object
 
 ----
 
+Params: - 
+  name: $image
+  type: string or Media
+  text:
+-
+  name: $params
+  type: array
+  text: Additional options
+-
+  name: $obj
+  type: boolean
+  text: Whether to return a thumb object or the URL to the thumb only
+
+----
+
 Return:
 
-type: $thumb
+type: $thumb or URL string
 text:
 
 ----

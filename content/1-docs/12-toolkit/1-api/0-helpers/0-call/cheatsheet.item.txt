@@ -6,6 +6,18 @@ Excerpt: Calls a function with a given set of arguments
 
 ----
 
+Params: - 
+  name: $function
+  type: callable
+  text:
+-
+  name: $arguments
+  type: mixed
+  text: One argument or array of arguments
+
+
+----
+
 Text:
 
 ## Example

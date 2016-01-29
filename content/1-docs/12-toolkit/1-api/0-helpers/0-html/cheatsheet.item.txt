@@ -6,6 +6,17 @@ Excerpt: Converts any text to valid HTML
 
 ----
 
+Params: - 
+  name: $text
+  type: string
+  text:
+-
+  name: $keepTags
+  type: boolean
+  text: Preserve HTML tags
+
+----
+
 Return:
 
 type: string

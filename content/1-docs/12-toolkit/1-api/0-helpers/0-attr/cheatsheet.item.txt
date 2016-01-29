@@ -2,7 +2,18 @@ Title: attr($name, $value = null)
 
 ----
 
-Excerpt: Creates attributes for an html tag
+Excerpt: Creates attributes for an HTML tag
+
+----
+
+Params: - 
+  name: $name
+  type: string or array
+  text: One attr name or an associative array with multiple attr names and values
+-
+  name: $value
+  type: string
+  text: Value if $name is a string
 
 ----
 

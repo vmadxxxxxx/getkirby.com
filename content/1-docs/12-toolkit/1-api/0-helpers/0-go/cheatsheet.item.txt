@@ -6,6 +6,13 @@ Excerpt: Redirects to a different URL
 
 ----
 
+Params: - 
+  name: $url
+  type: string
+  text: Absolute or relative URL
+
+----
+
 Text:
 
 ## Example

@@ -6,6 +6,13 @@ Excerpt: Converts any text to valid XML
 
 ----
 
+Params: - 
+  name: $text
+  type: string
+  text:
+
+----
+
 Return:
 
 type: string

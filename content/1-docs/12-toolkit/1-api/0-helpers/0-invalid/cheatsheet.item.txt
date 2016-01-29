@@ -6,6 +6,21 @@ Excerpt: Runs a number of validators on a set of data and checks if the data is 
 
 ----
 
+Params: - 
+  name: $data
+  type: array
+  text: 
+-
+  name: $rules
+  type: array
+  text: Validation rules per data field
+-
+  name: $messages
+  type: array
+  text: Error messages per data field
+
+----
+
 Return:
 
 type: array

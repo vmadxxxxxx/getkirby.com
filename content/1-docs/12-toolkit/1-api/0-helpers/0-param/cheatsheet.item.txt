@@ -1,8 +1,19 @@
-Title: param($key)
+Title: param($key = null, $default = null)
 
 ----
 
 Excerpt: Fetches a Kirby URL parameter
+
+----
+
+Params: - 
+  name: $key
+  type: string
+  text: null returns an array of all values
+-
+  name: $default
+  type: mixed
+  text: Default value if empty
 
 ----
 

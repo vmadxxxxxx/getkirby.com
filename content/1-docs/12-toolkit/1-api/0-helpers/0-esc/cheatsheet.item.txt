@@ -6,6 +6,21 @@ Excerpt: Escapes strings based on the output context
 
 ----
 
+Params: - 
+  name: $string
+  type: string
+  text:
+-
+  name: $context
+  type: string
+  text: Location of output of the string
+-
+  name: $context
+  type: string
+  text: Whether to escape an extended set of characters (HTML attributes only)
+
+----
+
 Return:
 
 type: string

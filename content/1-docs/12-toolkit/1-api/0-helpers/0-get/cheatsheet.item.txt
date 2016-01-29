@@ -1,8 +1,19 @@
-Title: get($key)
+Title: get($key = null, $default = null)
 
 ----
 
 Excerpt: Fetches a POST or GET parameter by key
+
+----
+
+Params: - 
+  name: $key
+  type: string
+  text: null returns an array of all values
+-
+  name: $default
+  type: mixed
+  text: Default value if empty
 
 ----
 

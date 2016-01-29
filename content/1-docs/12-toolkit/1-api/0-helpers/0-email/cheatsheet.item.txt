@@ -6,6 +6,13 @@ Excerpt: Sends an email
 
 ----
 
+Params: - 
+  name: $params
+  type: array
+  text:
+
+----
+
 Return:
 
 type: $email

@@ -6,6 +6,13 @@ Excerpt: Returns the size of strings, numbers, files and arrays.
 
 ----
 
+Params: - 
+  name: $input
+  type: mixed
+  text:
+
+----
+
 Return:
 
 type: integer
