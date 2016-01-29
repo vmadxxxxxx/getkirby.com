@@ -8,7 +8,10 @@ class CheatsheetItemPage extends Page {
    * @return Field          Title field with replaced strings
    */
   public function title($section = null) {
-    return $this->replaceClass('title', $section);
+    // if a "Call" field is still set, use that for now
+    $field = (!parent::call()->empty())? 'call' : 'title';
+    
+    return $this->replaceClass($field, $section);
   }
   
   /**
