@@ -6,6 +6,17 @@ Excerpt: Creates a script tag to load a javascript file
 
 ----
 
+Params: - 
+  name: $path
+  type: string
+  text: Relative or absolute URL
+- 
+  name: $async
+  type: boolean
+  text: Whether to load file asynchronously
+
+----
+
 Return:
 
 type: string

@@ -6,6 +6,13 @@ Excerpt: Parses any text with Markdown and Kirbytext
 
 ----
 
+Params: - 
+  name: $text
+  type: string or Field
+  text:
+
+----
+
 Return:
 
 type: string

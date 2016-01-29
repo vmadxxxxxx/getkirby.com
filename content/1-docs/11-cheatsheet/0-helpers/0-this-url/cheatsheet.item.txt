@@ -1,0 +1,22 @@
+Title: thisUrl()
+
+----
+
+Excerpt: Returns the current url
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php $url = thisUrl() ?>
+```

@@ -2,7 +2,14 @@ Title: kirbytag($attr)
 
 ----
 
-Excerpt: Makes it possible to use any defined kirbytag as standalone function
+Excerpt: Makes it possible to use any defined Kirbytag as standalone function
+
+----
+
+Params: - 
+  name: $attr
+  type: array
+  text: Arguments for the Kirbytag
 
 ----
 

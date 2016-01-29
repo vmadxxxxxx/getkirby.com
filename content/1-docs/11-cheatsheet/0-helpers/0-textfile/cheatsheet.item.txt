@@ -1,0 +1,40 @@
+Title: textfile($uri, $template, $lang = null)
+
+----
+
+Excerpt: Helper to create correct text file names for content files
+
+----
+
+Params: - 
+  name: $uri
+  type: string
+  text:
+- 
+  name: $template
+  type: string
+  text:
+- 
+  name: $lang
+  type: string
+  text: Language code
+
+----
+
+Return:
+
+type: string
+text: Absolute path to the content file based on the params
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php $path = textfile('blog/test-article', 'blog.article') ?>
+
+// With language code
+<?php $path = textfile('blog/test-article', 'blog.article', 'en') ?>
+```

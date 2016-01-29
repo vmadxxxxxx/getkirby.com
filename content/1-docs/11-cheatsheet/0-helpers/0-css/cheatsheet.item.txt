@@ -2,7 +2,18 @@ Title: css($path, $media = null)
 
 ----
 
-Excerpt: Creates one or multiple css link tags
+Excerpt: Creates one or multiple CSS link tags
+
+----
+
+Params: - 
+  name: $path
+  type: string
+  text: Relative or absolute URL
+- 
+  name: $media
+  type: string
+  text: CSS media value
 
 ----
 

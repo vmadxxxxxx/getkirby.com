@@ -1,8 +1,19 @@
-Title: gist($url)
+Title: gist($url, $file = null)
 
 ----
 
 Excerpt: Embeds a Gist from Github by URL
+
+----
+
+Params: - 
+  name: $url
+  type: string
+  text:
+- 
+  name: $file
+  type: string
+  text: Which file to embed
 
 ----
 

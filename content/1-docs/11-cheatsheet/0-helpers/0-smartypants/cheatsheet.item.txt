@@ -1,8 +1,8 @@
-Title: markdown($text)
+Title: smartypants($text)
 
 ----
 
-Excerpt: Parses the text as Markdown
+Excerpt: Applies the SmartyPants Typographer on an HTML string
 
 ----
 
@@ -25,5 +25,5 @@ Text:
 ## Example
 
 ```php
-<?php echo markdown($page->text()) ?>
+<?php echo smartypants($page->title()) ?>
 ```

@@ -1,8 +1,27 @@
-Title: twitter($username, $text = '')
+Title: twitter($username, $text = null, $title = null, $class = null)
 
 ----
 
 Excerpt: Builds a Twitter profile link by username
+
+----
+
+Params: - 
+  name: $username
+  type: string
+  text:
+- 
+  name: $text
+  type: string
+  text:
+- 
+  name: $title
+  type: string
+  text:
+- 
+  name: $class
+  type: string
+  text:
 
 ----
 
