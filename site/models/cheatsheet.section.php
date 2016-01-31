@@ -33,13 +33,13 @@ class CheatsheetSectionPage extends Page {
    *
    * @return string
    */
-  public function extendingMode() {
+  public function extendingModeLink() {
     if(!($parent = page($this->extends()))) return null;
     $url = $parent->url();
     $title = $parent->title();
     
     $return = null;
-    switch(parent::extendingMode()) {
+    switch($this->extendingMode()) {
       case 'inherits':
         $return = 'Inherits from <a href="' . $url . '">' . $title . '</a>';
         break;

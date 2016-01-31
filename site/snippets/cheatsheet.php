@@ -20,7 +20,7 @@
   <?php foreach($page->children()->visible() as $child): ?>
   <section class="text" id="<?php echo $child->uid() ?>">
     <h2 class="beta no-margin-bottom"><?php echo html($child->title()) ?></h2>
-    <?php if($extendingMode = $child->extendingMode()): ?>
+    <?php if($extendingMode = $child->extendingModeLink()): ?>
       <div class="zeta subtitle"><?php echo $extendingMode ?></div>
     <?php endif ?>
     <?php echo kirbytext($child->text()) ?>
