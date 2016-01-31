@@ -1,4 +1,4 @@
-Title: collection::slice
+Title: {{class.instance}}->slice
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns a slice of the collection
 
 ----
 
-Call: collection::slice($offset = null, $limit = null)
+Call: {{class.instance}}->slice($offset = null, $limit = null)
 
 ----
 

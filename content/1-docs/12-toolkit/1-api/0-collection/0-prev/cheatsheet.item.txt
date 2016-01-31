@@ -1,4 +1,4 @@
-Title: collection::prev
+Title: {{class.instance}}->prev
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Moves the cursor to the previous element in the array and returns it
 
 ----
 
-Call: collection::prev()
+Call: {{class.instance}}->prev()
 
 ----
 

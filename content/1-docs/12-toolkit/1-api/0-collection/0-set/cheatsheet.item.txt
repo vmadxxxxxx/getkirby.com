@@ -1,4 +1,4 @@
-Title: collection::set
+Title: {{class.instance}}->set
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt:
 
 ----
 
-Call: collection::set($key, $value)
+Call: {{class.instance}}->set($key, $value)
 
 ----
 

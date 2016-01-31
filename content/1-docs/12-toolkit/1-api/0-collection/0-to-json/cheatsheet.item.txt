@@ -1,4 +1,4 @@
-Title: collection::toJson
+Title: {{class.instance}}->toJson
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Converts the current object into a json string
 
 ----
 
-Call: collection::toJson()
+Call: {{class.instance}}->toJson()
 
 ----
 

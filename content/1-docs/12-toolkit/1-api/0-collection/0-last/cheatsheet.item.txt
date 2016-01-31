@@ -1,4 +1,4 @@
-Title: collection::last
+Title: {{class.instance}}->last
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the last element from the array
 
 ----
 
-Call: collection::last()
+Call: {{class.instance}}->last()
 
 ----
 

@@ -1,4 +1,4 @@
-Title: collection::__unset
+Title: {{class.instance}}->__unset
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Removes an element from the array by key
 
 ----
 
-Call: collection::__unset($key)
+Call: {{class.instance}}->__unset($key)
 
 ----
 

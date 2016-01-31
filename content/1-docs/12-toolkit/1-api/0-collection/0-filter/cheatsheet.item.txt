@@ -1,4 +1,4 @@
-Title: collection::filter
+Title: {{class.instance}}->filter
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Filter the elements in the array by a callback function
 
 ----
 
-Call: collection::filter($callback)
+Call: {{class.instance}}->filter($callback)
 
 ----
 

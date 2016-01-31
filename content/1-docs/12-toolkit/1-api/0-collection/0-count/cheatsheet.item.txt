@@ -1,4 +1,4 @@
-Title: collection::count
+Title: {{class.instance}}->count
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Counts all elements in the array
 
 ----
 
-Call: collection::count()
+Call: {{class.instance}}->count()
 
 ----
 

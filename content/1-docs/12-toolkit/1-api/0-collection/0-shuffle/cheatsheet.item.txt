@@ -1,4 +1,4 @@
-Title: collection::shuffle
+Title: {{class.instance}}->shuffle
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Shuffle all elements in the array
 
 ----
 
-Call: collection::shuffle()
+Call: {{class.instance}}->shuffle()
 
 ----
 

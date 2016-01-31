@@ -1,4 +1,4 @@
-Title: collection::get
+Title: {{class.instance}}->get
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt:
 
 ----
 
-Call: collection::get($key, $default = null)
+Call: {{class.instance}}->get($key, $default = null)
 
 ----
 

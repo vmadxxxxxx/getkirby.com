@@ -1,4 +1,4 @@
-Title: collection::paginate
+Title: {{class.instance}}->paginate
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Add pagination
 
 ----
 
-Call: collection::paginate($limit, $options = array())
+Call: {{class.instance}}->paginate($limit, $options = array())
 
 ----
 

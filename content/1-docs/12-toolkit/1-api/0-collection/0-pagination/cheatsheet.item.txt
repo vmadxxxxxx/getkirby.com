@@ -1,4 +1,4 @@
-Title: collection::pagination
+Title: {{class.instance}}->pagination
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Get the previously added pagination object
 
 ----
 
-Call: collection::pagination()
+Call: {{class.instance}}->pagination()
 
 ----
 

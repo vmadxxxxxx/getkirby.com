@@ -1,4 +1,4 @@
-Title: collection::limit
+Title: {{class.instance}}->limit
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns a new collection with a limited number of elements
 
 ----
 
-Call: collection::limit($limit)
+Call: {{class.instance}}->limit($limit)
 
 ----
 

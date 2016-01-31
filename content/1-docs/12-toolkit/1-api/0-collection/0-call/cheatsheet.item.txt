@@ -1,4 +1,4 @@
-Title: collection::__call
+Title: {{class.instance}}->__call
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt:
 
 ----
 
-Call: collection::__call($key, $arguments)
+Call: {{class.instance}}->__call($key, $arguments)
 
 ----
 

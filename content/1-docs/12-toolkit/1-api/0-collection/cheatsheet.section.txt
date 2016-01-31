@@ -1,1 +1,5 @@
-Title: collection
+Title: Collection
+
+----
+
+Class: Collection

@@ -1,4 +1,4 @@
-Title: collection::pluck
+Title: {{class.instance}}->pluck
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Extracts all values for a single field into a new array
 
 ----
 
-Call: collection::pluck($field, $split = null, $unique = false)
+Call: {{class.instance}}->pluck($field, $split = null, $unique = false)
 
 ----
 

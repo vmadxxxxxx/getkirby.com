@@ -1,4 +1,4 @@
-Title: collection::map
+Title: {{class.instance}}->map
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Map a function to each item in the collection
 
 ----
 
-Call: collection::map($callback)
+Call: {{class.instance}}->map($callback)
 
 ----
 

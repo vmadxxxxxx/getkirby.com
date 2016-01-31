@@ -1,4 +1,4 @@
-Title: collection::toArray
+Title: {{class.instance}}->toArray
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Converts the current object into an array
 
 ----
 
-Call: collection::toArray($callback = null)
+Call: {{class.instance}}->toArray($callback = null)
 
 ----
 

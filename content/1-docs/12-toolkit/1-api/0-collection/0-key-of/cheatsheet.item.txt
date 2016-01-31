@@ -1,4 +1,4 @@
-Title: collection::keyOf
+Title: {{class.instance}}->keyOf
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Tries to find the key for the given element
 
 ----
 
-Call: collection::keyOf($needle)
+Call: {{class.instance}}->keyOf($needle)
 
 ----
 

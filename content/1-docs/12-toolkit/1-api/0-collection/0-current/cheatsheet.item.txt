@@ -1,4 +1,4 @@
-Title: collection::current
+Title: {{class.instance}}->current
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the current element of the array
 
 ----
 
-Call: collection::current()
+Call: {{class.instance}}->current()
 
 ----
 

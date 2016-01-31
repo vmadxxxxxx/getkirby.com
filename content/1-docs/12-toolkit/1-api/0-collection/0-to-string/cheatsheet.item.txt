@@ -1,4 +1,4 @@
-Title: collection::__toString
+Title: {{class.instance}}->__toString
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Makes it possible to echo the entire object
 
 ----
 
-Call: collection::__toString()
+Call: {{class.instance}}->__toString()
 
 ----
 

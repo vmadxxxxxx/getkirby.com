@@ -1,4 +1,4 @@
-Title: collection::sortBy
+Title: {{class.instance}}->sortBy
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Sorts the collection by any number of fields
 
 ----
 
-Call: collection::sortBy()
+Call: {{class.instance}}->sortBy()
 
 ----
 

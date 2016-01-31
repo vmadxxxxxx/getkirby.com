@@ -1,4 +1,4 @@
-Title: collection::rewind
+Title: {{class.instance}}->rewind
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Moves the cusor to the first element of the array
 
 ----
 
-Call: collection::rewind()
+Call: {{class.instance}}->rewind()
 
 ----
 
