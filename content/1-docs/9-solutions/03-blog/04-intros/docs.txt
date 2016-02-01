@@ -24,10 +24,10 @@ To add an article intro which you can display and maybe style differently from t
 Now we gonna implement the intro in the blog's overview loop (instead of an excerpt) like this:
 
 ```php
-<?php snippet(‘header’) ?>
-<?php snippet(‘menu’) ?>
+<?php snippet('header') ?>
+<?php snippet('menu') ?>
 
-<main class=“blog” role=“main”>
+<main class="blog" role="main">
 
   <h1><?php echo html($page->title()) ?></h1>
   <?php echo kirbytext($page->text()) ?>
@@ -37,34 +37,32 @@ Now we gonna implement the intro in the blog's overview loop (instead of an exce
   <article>
     <h1><?php echo html($article->title()) ?></h1>
     <?php echo kirbytext($article->intro()) ?>
-    <a href=“<?php echo $article->url() ?>”>Read more…</a>
+    <a href="<?php echo $article->url() ?>">Read more…</a>
   </article>
 
   <?php endforeach ?>
 
 </main>
 
-<?php snippet(‘footer’) ?>
+<?php snippet('footer') ?>
 ```
 
 Your article template would look like this:
 
 ```php
-<?php snippet(‘header’) ?>
-<?php snippet(‘menu’) ?>
+<?php snippet('header') ?>
+<?php snippet('menu') ?>
 
-<main class=“blogarticle” role=“main”>
+<main class="blogarticle" role="main">
   <article>
     <h1><?php echo html($page->title()) ?></h1>
     <?php echo kirbytext($page->intro()) ?>
     <?php echo kirbytext($page->text()) ?>
 
-    <a href=“<?php echo url(‘blog’) ?>”>Back…</a>
+    <a href="<?php echo url('blog') ?>">Back…</a>
 
   </article>
 </main>
 
-<?php snippet(‘footer’) ?>
+<?php snippet('footer') ?>
 ```
-
-
