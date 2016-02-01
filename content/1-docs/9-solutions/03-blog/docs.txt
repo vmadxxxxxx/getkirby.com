@@ -287,4 +287,4 @@ related:
 
 import:
     text: How to import articles to your Kirby blog
-    link: docs/solutions/blog/dates
+    link: docs/solutions/blog/import-articles
