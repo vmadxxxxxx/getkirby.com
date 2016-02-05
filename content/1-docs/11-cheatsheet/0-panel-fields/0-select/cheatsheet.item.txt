@@ -120,7 +120,7 @@ Dynamic options can also be generated from the content of another field (source 
 fields:
   favorite_drink:
     label: Favorite Drink
-    type: checkboxes
+    type: select
     options: field
     field:
       page: menu
