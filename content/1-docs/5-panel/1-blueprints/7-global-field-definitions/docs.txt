@@ -1,0 +1,69 @@
+Title:
+
+Global Field Definitions
+
+----
+
+Text:
+
+If you have a lot of blueprints that often use the same fields, you will love Kirby's new global field definitions aka blueprint snippets. Once defined, global field definitions can be reused in all of your blueprints, and their instances can even be extended.
+
+## Defining a new field
+
+Create a new `fields` folder inside `/site/blueprints/`. All your field definitions go into this folder.
+
+Create a field definition, e.g. a date field and save as `date.yml`:
+
+```text
+# /site/blueprints/fields/date.yml
+label: Date
+type: date
+default: now
+```
+
+or an image select field:
+
+```text
+# /site/blueprints/fields/imageselect.yml
+label: Select an image
+type: select
+options: images
+```
+
+## Using a field definition
+
+Now you can reference your field definitions in your blueprints like so:
+
+```text
+# /site/blueprints/mypage.yml
+…
+fields: 
+  title: 
+    label: Title
+    type: text
+  date: date
+  myimage: imageselect
+…  
+```
+
+This gives you full control over your field names.
+
+## Extending a field definition
+
+You can easily extend a field definition if you want to overwrite the default behaviour, for example, give the field another label or set another default. Here is an example:
+
+```text
+# /site/blueprints/mypage.yml
+…
+fields: 
+  title: 
+    label: Title
+    type: text
+  date: 
+    extends: date
+    label: Published
+    default: false
+  myimage: 
+   extends: imageselect
+   label: Cover Image
+```
