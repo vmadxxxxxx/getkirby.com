@@ -6,7 +6,7 @@ Excerpt: Auto-generates an HTML tag for images
 
 ----
 
-Call: {{class.instance}}->html()
+Call: {{class.instance}}->html($attr = array())
 
 ----
 
@@ -15,7 +15,10 @@ text:
 
 ----
 
-Params: 
+Params: - 
+  name: $attr
+  type: array
+  text:
 
 
 
