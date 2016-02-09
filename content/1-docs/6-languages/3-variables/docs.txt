@@ -44,6 +44,18 @@ l::set('cancel', 'Abbrechen');
 ?>
 ```
 
+`l::set` also accepts an associative array:
+
+```php
+<?php
+l::set(array(
+	'submit' => 'Submit',
+	'cancel' => 'Cancel',
+	'next' => 'next',
+	'previous' => 'previous',
+));
+```
+
 Those translated variables can be used in any template, plugin or snippet:
 
 ```php
