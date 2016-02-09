@@ -1,4 +1,4 @@
-Title: media::write
+Title: {{class.instance}}->write
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Alternative for save
 
 ----
 
-Call: media::write($content = null, $format = null)
+Call: {{class.instance}}->write($content = null, $format = null)
 
 ----
 

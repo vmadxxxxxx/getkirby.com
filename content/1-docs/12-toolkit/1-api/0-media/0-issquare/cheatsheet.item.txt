@@ -1,4 +1,4 @@
-Title: media::isSquare
+Title: {{class.instance}}->isSquare
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Checks if the dimensions of the asset are square
 
 ----
 
-Call: media::isSquare()
+Call: {{class.instance}}->isSquare()
 
 ----
 

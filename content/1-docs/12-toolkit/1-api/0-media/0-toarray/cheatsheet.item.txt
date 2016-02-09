@@ -1,4 +1,4 @@
-Title: media::toArray
+Title: {{class.instance}}->toArray
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns an array represenation of the media object
 
 ----
 
-Call: media::toArray()
+Call: {{class.instance}}->toArray()
 
 ----
 

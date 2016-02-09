@@ -1,4 +1,4 @@
-Title: media::append
+Title: {{class.instance}}->append
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Appends the content and saves the file
 
 ----
 
-Call: media::append($content)
+Call: {{class.instance}}->append($content)
 
 ----
 

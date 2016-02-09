@@ -1,4 +1,4 @@
-Title: media::url
+Title: {{class.instance}}->url
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the url
 
 ----
 
-Call: media::url()
+Call: {{class.instance}}->url()
 
 ----
 

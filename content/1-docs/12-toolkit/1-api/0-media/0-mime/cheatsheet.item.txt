@@ -1,4 +1,4 @@
-Title: media::mime
+Title: {{class.instance}}->mime
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the mime type of a file
 
 ----
 
-Call: media::mime()
+Call: {{class.instance}}->mime()
 
 ----
 

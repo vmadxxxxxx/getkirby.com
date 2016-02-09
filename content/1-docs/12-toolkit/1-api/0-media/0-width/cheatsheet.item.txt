@@ -1,4 +1,4 @@
-Title: media::width
+Title: {{class.instance}}->width
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the width of the asset
 
 ----
 
-Call: media::width()
+Call: {{class.instance}}->width()
 
 ----
 

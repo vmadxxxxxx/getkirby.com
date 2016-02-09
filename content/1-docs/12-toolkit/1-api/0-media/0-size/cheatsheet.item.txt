@@ -1,4 +1,4 @@
-Title: media::size
+Title: {{class.instance}}->size
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the file size as integer
 
 ----
 
-Call: media::size()
+Call: {{class.instance}}->size()
 
 ----
 

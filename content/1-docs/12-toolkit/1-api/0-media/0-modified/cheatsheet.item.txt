@@ -1,4 +1,4 @@
-Title: media::modified
+Title: {{class.instance}}->modified
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Get the file's last modification time.
 
 ----
 
-Call: media::modified($format = null)
+Call: {{class.instance}}->modified($format = null)
 
 ----
 

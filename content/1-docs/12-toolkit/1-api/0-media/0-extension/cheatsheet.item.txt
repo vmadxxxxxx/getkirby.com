@@ -1,4 +1,4 @@
-Title: media::extension
+Title: {{class.instance}}->extension
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the extension of the file i.e. jpg
 
 ----
 
-Call: media::extension()
+Call: {{class.instance}}->extension()
 
 ----
 

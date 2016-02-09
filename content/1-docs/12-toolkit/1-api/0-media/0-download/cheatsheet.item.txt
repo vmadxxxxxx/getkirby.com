@@ -1,4 +1,4 @@
-Title: media::download
+Title: {{class.instance}}->download
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt:
 
 ----
 
-Call: media::download($filename = null)
+Call: {{class.instance}}->download($filename = null)
 
 ----
 

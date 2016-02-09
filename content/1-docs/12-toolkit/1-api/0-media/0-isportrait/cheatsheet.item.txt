@@ -1,4 +1,4 @@
-Title: media::isPortrait
+Title: {{class.instance}}->isPortrait
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Checks if the dimensions of the asset are portrait
 
 ----
 
-Call: media::isPortrait()
+Call: {{class.instance}}->isPortrait()
 
 ----
 

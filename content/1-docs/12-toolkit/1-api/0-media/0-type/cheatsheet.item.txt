@@ -1,4 +1,4 @@
-Title: media::type
+Title: {{class.instance}}->type
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Categorize the file
 
 ----
 
-Call: media::type()
+Call: {{class.instance}}->type()
 
 ----
 

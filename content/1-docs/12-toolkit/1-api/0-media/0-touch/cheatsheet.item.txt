@@ -1,4 +1,4 @@
-Title: media::touch
+Title: {{class.instance}}->touch
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Change the file's modification date to now and create it with an empty 
 
 ----
 
-Call: media::touch()
+Call: {{class.instance}}->touch()
 
 ----
 

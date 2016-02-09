@@ -1,4 +1,4 @@
-Title: media::move
+Title: {{class.instance}}->move
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Moves the file to a new location
 
 ----
 
-Call: media::move($to)
+Call: {{class.instance}}->move($to)
 
 ----
 

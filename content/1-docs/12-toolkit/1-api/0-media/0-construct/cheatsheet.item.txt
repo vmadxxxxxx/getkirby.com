@@ -1,4 +1,4 @@
-Title: media::__construct
+Title: {{class.instance}}->__construct
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Constructor
 
 ----
 
-Call: media::__construct($root, $url = null)
+Call: {{class.instance}}->__construct($root, $url = null)
 
 ----
 

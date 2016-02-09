@@ -1,4 +1,4 @@
-Title: media::is
+Title: {{class.instance}}->is
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Checks if a file is of a certain type
 
 ----
 
-Call: media::is($value)
+Call: {{class.instance}}->is($value)
 
 ----
 

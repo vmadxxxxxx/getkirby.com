@@ -1,4 +1,4 @@
-Title: media::remove
+Title: {{class.instance}}->remove
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Alternative for delete
 
 ----
 
-Call: media::remove()
+Call: {{class.instance}}->remove()
 
 ----
 

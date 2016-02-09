@@ -1,4 +1,4 @@
-Title: media::niceSize
+Title: {{class.instance}}->iceSize
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the human readable version of the file size
 
 ----
 
-Call: media::niceSize()
+Call: {{class.instance}}->niceSize()
 
 ----
 

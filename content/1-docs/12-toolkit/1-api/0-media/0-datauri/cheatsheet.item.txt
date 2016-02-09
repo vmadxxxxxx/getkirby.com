@@ -1,4 +1,4 @@
-Title: media::dataUri
+Title: {{class.instance}}->dataUri
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the file as data uri
 
 ----
 
-Call: media::dataUri()
+Call: {{class.instance}}->dataUri()
 
 ----
 

@@ -1,4 +1,4 @@
-Title: media::dir
+Title: {{class.instance}}->dir
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the parent directory path
 
 ----
 
-Call: media::dir()
+Call: {{class.instance}}->dir()
 
 ----
 

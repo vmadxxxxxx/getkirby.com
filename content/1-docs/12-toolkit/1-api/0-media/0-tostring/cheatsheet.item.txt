@@ -1,4 +1,4 @@
-Title: media::__toString
+Title: {{class.instance}}->__toString
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns a full link to this file Perfect for debugging in connection wi
 
 ----
 
-Call: media::__toString()
+Call: {{class.instance}}->__toString()
 
 ----
 

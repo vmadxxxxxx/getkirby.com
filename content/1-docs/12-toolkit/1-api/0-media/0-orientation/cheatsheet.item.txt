@@ -1,4 +1,4 @@
-Title: media::orientation
+Title: {{class.instance}}->orientation
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the orientation as string landscape | portrait | square
 
 ----
 
-Call: media::orientation()
+Call: {{class.instance}}->orientation()
 
 ----
 

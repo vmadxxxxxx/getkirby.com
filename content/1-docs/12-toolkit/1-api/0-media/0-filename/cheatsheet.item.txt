@@ -1,4 +1,4 @@
-Title: media::filename
+Title: {{class.instance}}->filename
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the filename of the file i.e. somefile.jpg
 
 ----
 
-Call: media::filename()
+Call: {{class.instance}}->filename()
 
 ----
 

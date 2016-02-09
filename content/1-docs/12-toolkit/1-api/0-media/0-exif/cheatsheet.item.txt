@@ -1,4 +1,4 @@
-Title: media::exif
+Title: {{class.instance}}->exif
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the exif object for this file (if image)
 
 ----
 
-Call: media::exif()
+Call: {{class.instance}}->exif()
 
 ----
 
