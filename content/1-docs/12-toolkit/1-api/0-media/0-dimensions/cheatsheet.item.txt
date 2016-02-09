@@ -1,4 +1,4 @@
-Title: media::dimensions
+Title: {{class.instance}}->dimensions
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the dimensions of the file if possible
 
 ----
 
-Call: media::dimensions()
+Call: {{class.instance}}->dimensions()
 
 ----
 

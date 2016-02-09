@@ -1,4 +1,4 @@
-Title: media::isExecutable
+Title: {{class.instance}}->isExecutable
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Checks if the file is executable
 
 ----
 
-Call: media::isExecutable()
+Call: {{class.instance}}->isExecutable()
 
 ----
 

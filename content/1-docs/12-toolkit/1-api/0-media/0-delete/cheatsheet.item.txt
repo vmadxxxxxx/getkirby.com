@@ -1,4 +1,4 @@
-Title: media::delete
+Title: {{class.instance}}->delete
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Deletes the file
 
 ----
 
-Call: media::delete()
+Call: {{class.instance}}->delete()
 
 ----
 

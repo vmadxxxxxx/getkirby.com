@@ -1,4 +1,4 @@
-Title: media::save
+Title: {{class.instance}}->save
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Saves the file
 
 ----
 
-Call: media::save($content = null, $format = null)
+Call: {{class.instance}}->save($content = null, $format = null)
 
 ----
 

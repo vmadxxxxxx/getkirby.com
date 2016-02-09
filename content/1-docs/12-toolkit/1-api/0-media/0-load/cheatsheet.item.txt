@@ -1,4 +1,4 @@
-Title: media::load
+Title: {{class.instance}}->load
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Safely requires a file if it exists
 
 ----
 
-Call: media::load($data = array())
+Call: {{class.instance}}->load($data = array())
 
 ----
 

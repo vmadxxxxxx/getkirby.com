@@ -1,4 +1,4 @@
-Title: media::isLandscape
+Title: {{class.instance}}->isLandscape
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Checks if the dimensions of the asset are landscape
 
 ----
 
-Call: media::isLandscape()
+Call: {{class.instance}}->isLandscape()
 
 ----
 

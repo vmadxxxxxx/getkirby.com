@@ -1,4 +1,4 @@
-Title: media::hash
+Title: {{class.instance}}->hash
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns a md5 hash of the root
 
 ----
 
-Call: media::hash()
+Call: {{class.instance}}->hash()
 
 ----
 

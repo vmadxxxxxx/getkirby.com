@@ -1,4 +1,4 @@
-Title: media::imagesize
+Title: {{class.instance}}->imagesize
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the PHP imagesize array
 
 ----
 
-Call: media::imagesize()
+Call: {{class.instance}}->imagesize()
 
 ----
 

@@ -1,4 +1,4 @@
-Title: media::ratio
+Title: {{class.instance}}->ratio
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the ratio of the asset
 
 ----
 
-Call: media::ratio()
+Call: {{class.instance}}->ratio()
 
 ----
 

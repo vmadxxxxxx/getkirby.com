@@ -1,4 +1,4 @@
-Title: media::base64
+Title: {{class.instance}}->base64
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the file content as base64 encoded string
 
 ----
 
-Call: media::base64()
+Call: {{class.instance}}->base64()
 
 ----
 

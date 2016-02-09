@@ -1,4 +1,4 @@
-Title: media::isWritable
+Title: {{class.instance}}->isWritable
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Checks if the file is writable
 
 ----
 
-Call: media::isWritable()
+Call: {{class.instance}}->isWritable()
 
 ----
 

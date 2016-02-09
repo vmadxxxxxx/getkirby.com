@@ -1,4 +1,4 @@
-Title: media::safeName
+Title: {{class.instance}}->safeName
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the filename as safe name
 
 ----
 
-Call: media::safeName()
+Call: {{class.instance}}->safeName()
 
 ----
 

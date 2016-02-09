@@ -1,4 +1,4 @@
-Title: media::header
+Title: {{class.instance}}->header
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Sends an appropriate header for the asset
 
 ----
 
-Call: media::header($send = true)
+Call: {{class.instance}}->header($send = true)
 
 ----
 

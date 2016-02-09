@@ -1,4 +1,4 @@
-Title: media::root
+Title: {{class.instance}}->root
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the full root of the asset
 
 ----
 
-Call: media::root()
+Call: {{class.instance}}->root()
 
 ----
 

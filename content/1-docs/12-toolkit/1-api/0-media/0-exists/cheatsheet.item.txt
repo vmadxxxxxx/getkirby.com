@@ -1,4 +1,4 @@
-Title: media::exists
+Title: {{class.instance}}->exists
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Checks if the file exists
 
 ----
 
-Call: media::exists()
+Call: {{class.instance}}->exists()
 
 ----
 

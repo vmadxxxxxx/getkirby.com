@@ -1,4 +1,4 @@
-Title: media::isReadable
+Title: {{class.instance}}->isReadable
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Checks if the file is readable
 
 ----
 
-Call: media::isReadable()
+Call: {{class.instance}}->isReadable()
 
 ----
 

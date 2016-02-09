@@ -1,4 +1,4 @@
-Title: media::read
+Title: {{class.instance}}->read
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Reads the file content and parses it
 
 ----
 
-Call: media::read($format = null)
+Call: {{class.instance}}->read($format = null)
 
 ----
 

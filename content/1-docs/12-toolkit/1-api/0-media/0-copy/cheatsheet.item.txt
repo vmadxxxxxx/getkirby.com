@@ -1,4 +1,4 @@
-Title: media::copy
+Title: {{class.instance}}->copy
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Copies the file to a new location
 
 ----
 
-Call: media::copy($to)
+Call: {{class.instance}}->copy($to)
 
 ----
 

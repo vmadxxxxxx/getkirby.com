@@ -1,4 +1,4 @@
-Title: media::content
+Title: {{class.instance}}->content
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Setter and getter for the file content
 
 ----
 
-Call: media::content($content = null, $format = null)
+Call: {{class.instance}}->content($content = null, $format = null)
 
 ----
 

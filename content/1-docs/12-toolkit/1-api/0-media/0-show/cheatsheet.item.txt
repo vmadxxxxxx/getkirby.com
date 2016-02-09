@@ -1,4 +1,4 @@
-Title: media::show
+Title: {{class.instance}}->show
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Read and send the file with the correct headers
 
 ----
 
-Call: media::show()
+Call: {{class.instance}}->show($file)
 
 ----
 

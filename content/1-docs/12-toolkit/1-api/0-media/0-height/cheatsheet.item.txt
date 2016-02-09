@@ -1,4 +1,4 @@
-Title: media::height
+Title: {{class.instance}}->height
 
 ----
 
@@ -6,7 +6,7 @@ Excerpt: Returns the height of the asset
 
 ----
 
-Call: media::height()
+Call: {{class.instance}}->height()
 
 ----
 
