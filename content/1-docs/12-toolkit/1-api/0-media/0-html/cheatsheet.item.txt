@@ -1,0 +1,21 @@
+Title: {{class.instance}}->html()
+
+----
+
+Excerpt: Auto-generates an HTML tag for images
+
+----
+
+Call: {{class.instance}}->html()
+
+----
+
+Return: type: string
+text:
+
+----
+
+Params: 
+
+
+
