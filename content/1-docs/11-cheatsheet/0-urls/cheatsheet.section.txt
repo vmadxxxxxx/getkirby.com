@@ -2,9 +2,4 @@ Title: $urls
 
 ----
 
-Excerpt: 
-
-----
-
-Text: 
-
+Class: Urls

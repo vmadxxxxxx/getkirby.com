@@ -1,4 +1,4 @@
-Title: $urls->thumbs()
+Title: {{class.instance}}->thumbs()
 
 ----
 

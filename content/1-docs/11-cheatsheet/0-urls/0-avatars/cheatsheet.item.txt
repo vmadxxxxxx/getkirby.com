@@ -1,4 +1,4 @@
-Title: $urls->avatars()
+Title: {{class.instance}}->avatars()
 
 ----
 

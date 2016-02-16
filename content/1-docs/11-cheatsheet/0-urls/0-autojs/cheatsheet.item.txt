@@ -1,4 +1,4 @@
-Title: $urls->autojs()
+Title: {{class.instance}}->autojs()
 
 ----
 
