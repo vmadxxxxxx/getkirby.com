@@ -1,6 +1,6 @@
 Title:
 
-$file->dataUri()
+{{class.instance}}->dataUri()
 
 ----
 

@@ -1,6 +1,6 @@
 Title:
 
-$file->crop($width, $height = null, $quality = null)
+{{class.instance}}->crop($width, $height = null, $quality = null)
 
 ----
 

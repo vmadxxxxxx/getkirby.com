@@ -1,19 +1,12 @@
 Title:
 
-$file->download()
+{{class.instance}}->download($filename = null)
 
 ----
 
 Excerpt:
 
-Sends all needed headers and the content to force the browser to download the file.
-
-----
-
-Return:
-
-type:
-text:
+Sends all needed headers and the content to force the browser to download the file
 
 ----
 

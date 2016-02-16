@@ -1,12 +1,12 @@
 Title:
 
-$file->base64()
+{{class.instance}}->base64()
 
 ----
 
 Excerpt:
 
-Returns the content of the file as base64 encoded string.
+Returns the content of the file as base64 encoded string
 
 ----
 

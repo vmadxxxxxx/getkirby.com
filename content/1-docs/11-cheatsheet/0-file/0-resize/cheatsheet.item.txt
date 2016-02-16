@@ -1,6 +1,6 @@
 Title:
 
-$file->resize($width, $height = null, $quality = null)
+{{class.instance}}->resize($width, $height = null, $quality = null)
 
 ----
 

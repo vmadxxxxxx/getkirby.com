@@ -1,6 +1,6 @@
 Title:
 
-$file->size()
+{{class.instance}}->size()
 
 ----
 

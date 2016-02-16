@@ -1,6 +1,6 @@
 Title:
 
-$file->name()
+{{class.instance}}->name()
 
 ----
 

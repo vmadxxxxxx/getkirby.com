@@ -1,6 +1,6 @@
 Title:
 
-$file->root()
+{{class.instance}}->root()
 
 ----
 
@@ -23,5 +23,5 @@ Text:
 
 ```php
 echo $page->file()->root();
-i.e. /var/www/yourdomain.com/html/content/some-page/some-file.jpg
+// i.e. /var/www/yourdomain.com/html/content/some-page/some-file.jpg
 ```
