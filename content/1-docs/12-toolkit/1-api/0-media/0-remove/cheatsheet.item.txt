@@ -1,4 +1,4 @@
-Title: {{class.instance}}->remove
+Title: {{class.instance}}->remove()
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Alternative for delete
 
 ----
 
-Call: {{class.instance}}->remove()
+Return:
 
-----
-
-Return: type: boolean
+type: boolean
 text:
 
 ----

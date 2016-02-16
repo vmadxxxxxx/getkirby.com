@@ -1,4 +1,4 @@
-Title: {{class.instance}}->content
+Title: {{class.instance}}->content($content = null, $format = null)
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Setter and getter for the file content
 
 ----
 
-Call: {{class.instance}}->content($content = null, $format = null)
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----

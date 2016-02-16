@@ -1,4 +1,4 @@
-Title: {{class.instance}}->html()
+Title: {{class.instance}}->html($attr = array())
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Auto-generates an HTML tag for images
 
 ----
 
-Call: {{class.instance}}->html($attr = array())
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----

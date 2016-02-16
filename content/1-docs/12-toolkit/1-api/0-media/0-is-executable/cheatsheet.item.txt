@@ -1,0 +1,16 @@
+Title: {{class.instance}}->isExecutable()
+
+----
+
+Excerpt: Checks if the file is executable
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Params: 

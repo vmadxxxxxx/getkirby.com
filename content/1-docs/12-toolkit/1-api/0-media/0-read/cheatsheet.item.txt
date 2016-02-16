@@ -1,4 +1,4 @@
-Title: {{class.instance}}->read
+Title: {{class.instance}}->read($format = null)
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Reads the file content and parses it
 
 ----
 
-Call: {{class.instance}}->read($format = null)
+Return:
 
-----
-
-Return: type: mixed
+type: mixed
 text:
 
 ----

@@ -1,0 +1,16 @@
+Title: {{class.instance}}->isLandscape()
+
+----
+
+Excerpt: Checks if the dimensions of the asset are landscape
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Params: 

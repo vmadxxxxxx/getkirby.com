@@ -1,12 +1,8 @@
-Title: {{class.instance}}->hash
+Title: {{class.instance}}->hash()
 
 ----
 
 Excerpt: Returns a md5 hash of the root
-
-----
-
-Call: {{class.instance}}->hash()
 
 ----
 

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->width
+Title: {{class.instance}}->width()
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Returns the width of the asset
 
 ----
 
-Call: {{class.instance}}->width()
+Return:
 
-----
-
-Return: type: int
+type: int
 text:
 
 ----

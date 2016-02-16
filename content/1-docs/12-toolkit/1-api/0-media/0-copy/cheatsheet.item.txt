@@ -1,4 +1,4 @@
-Title: {{class.instance}}->copy
+Title: {{class.instance}}->copy($to)
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Copies the file to a new location
 
 ----
 
-Call: {{class.instance}}->copy($to)
+Return:
 
-----
-
-Return: type: boolean
+type: boolean
 text:
 
 ----

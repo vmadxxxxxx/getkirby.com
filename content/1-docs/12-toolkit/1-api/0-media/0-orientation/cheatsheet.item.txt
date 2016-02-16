@@ -1,4 +1,4 @@
-Title: {{class.instance}}->orientation
+Title: {{class.instance}}->orientation()
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Returns the orientation as string landscape | portrait | square
 
 ----
 
-Call: {{class.instance}}->orientation()
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----

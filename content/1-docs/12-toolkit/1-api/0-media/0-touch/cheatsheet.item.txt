@@ -1,4 +1,4 @@
-Title: {{class.instance}}->touch
+Title: {{class.instance}}->touch()
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Change the file's modification date to now and create it with an empty 
 
 ----
 
-Call: {{class.instance}}->touch()
+Return:
 
-----
-
-Return: type: boolean
+type: boolean
 text:
 
 ----

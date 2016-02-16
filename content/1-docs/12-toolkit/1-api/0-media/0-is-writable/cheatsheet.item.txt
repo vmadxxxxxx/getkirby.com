@@ -1,0 +1,16 @@
+Title: {{class.instance}}->isWritable()
+
+----
+
+Excerpt: Checks if the file is writable
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Params: 

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->dimensions
+Title: {{class.instance}}->dimensions()
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Returns the dimensions of the file if possible
 
 ----
 
-Call: {{class.instance}}->dimensions()
+Return:
 
-----
-
-Return: type: \Dimensions
+type: $dimensions
 text:
 
 ----

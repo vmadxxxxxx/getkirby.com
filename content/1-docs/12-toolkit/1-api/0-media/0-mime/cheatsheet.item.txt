@@ -1,4 +1,4 @@
-Title: {{class.instance}}->mime
+Title: {{class.instance}}->mime()
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Returns the mime type of a file
 
 ----
 
-Call: {{class.instance}}->mime()
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----

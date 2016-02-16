@@ -1,12 +1,8 @@
-Title: {{class.instance}}->download
+Title: {{class.instance}}->download($filename = null)
 
 ----
 
 Excerpt: 
-
-----
-
-Call: {{class.instance}}->download($filename = null)
 
 ----
 

@@ -1,1 +1,5 @@
-Title: media
+Title: Media
+
+----
+
+Class: Media

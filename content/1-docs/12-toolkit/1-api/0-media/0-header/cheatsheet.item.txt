@@ -1,4 +1,4 @@
-Title: {{class.instance}}->header
+Title: {{class.instance}}->header($send = true)
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Sends an appropriate header for the asset
 
 ----
 
-Call: {{class.instance}}->header($send = true)
+Return:
 
-----
-
-Return: type: mixed
+type: mixed
 text:
 
 ----

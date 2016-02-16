@@ -1,0 +1,16 @@
+Title: {{class.instance}}->toArray()
+
+----
+
+Excerpt: Returns an array represenation of the media object
+
+----
+
+Return:
+
+type: array
+text:
+
+----
+
+Params: 

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->write
+Title: {{class.instance}}->write($content = null, $format = null)
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Alternative for save
 
 ----
 
-Call: {{class.instance}}->write($content = null, $format = null)
+Return:
 
-----
-
-Return: type: boolean
+type: boolean
 text:
 
 ----

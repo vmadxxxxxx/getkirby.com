@@ -1,0 +1,16 @@
+Title: {{class.instance}}->safeName()
+
+----
+
+Excerpt: Returns the filename as safe name
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Params: 

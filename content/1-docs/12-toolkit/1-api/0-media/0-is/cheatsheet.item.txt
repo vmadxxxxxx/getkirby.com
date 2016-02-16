@@ -1,4 +1,4 @@
-Title: {{class.instance}}->is
+Title: {{class.instance}}->is($value)
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Checks if a file is of a certain type
 
 ----
 
-Call: {{class.instance}}->is($value)
+Return:
 
-----
-
-Return: type: boolean
+type: boolean
 text:
 
 ----

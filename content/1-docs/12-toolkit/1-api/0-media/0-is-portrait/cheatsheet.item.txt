@@ -1,0 +1,16 @@
+Title: {{class.instance}}->isPortrait()
+
+----
+
+Excerpt: Checks if the dimensions of the asset are portrait
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Params: 

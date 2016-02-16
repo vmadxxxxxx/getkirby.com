@@ -1,0 +1,16 @@
+Title: {{class.instance}}->isSquare()
+
+----
+
+Excerpt: Checks if the dimensions of the asset are square
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Params: 

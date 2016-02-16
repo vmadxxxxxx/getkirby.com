@@ -1,4 +1,4 @@
-Title: {{class.instance}}->type
+Title: {{class.instance}}->type()
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Categorize the file
 
 ----
 
-Call: {{class.instance}}->type()
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----

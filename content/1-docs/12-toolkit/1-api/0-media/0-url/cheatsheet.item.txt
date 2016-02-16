@@ -1,4 +1,4 @@
-Title: {{class.instance}}->url
+Title: {{class.instance}}->url()
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Returns the url
 
 ----
 
-Call: {{class.instance}}->url()
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----

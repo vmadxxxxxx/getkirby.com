@@ -1,0 +1,16 @@
+Title: {{class.instance}}->niceSize()
+
+----
+
+Excerpt: Returns the human readable version of the file size
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Params: 
