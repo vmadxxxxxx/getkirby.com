@@ -1,6 +1,6 @@
 Title:
 
-$file->url()
+{{class.instance}}->url()
 
 ----
 

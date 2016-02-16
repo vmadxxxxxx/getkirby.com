@@ -1,6 +1,6 @@
 Title:
 
-$file->siblings()
+{{class.instance}}->siblings()
 
 ----
 

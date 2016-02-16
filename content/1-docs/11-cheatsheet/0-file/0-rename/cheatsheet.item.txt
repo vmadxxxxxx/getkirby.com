@@ -1,6 +1,6 @@
 Title:
 
-$file->rename($to)
+{{class.instance}}->rename($name, $safeName = true)
 
 ----
 
@@ -35,6 +35,4 @@ try {
   // optional reason: echo $e->getMessage();
 
 }
-
-
 ```

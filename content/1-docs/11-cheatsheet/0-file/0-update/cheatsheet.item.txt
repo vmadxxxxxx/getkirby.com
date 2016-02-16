@@ -1,6 +1,6 @@
 Title:
 
-$file->update($data = array()[, $language])
+{{class.instance}}->update($data = array()[, $language])
 
 ----
 

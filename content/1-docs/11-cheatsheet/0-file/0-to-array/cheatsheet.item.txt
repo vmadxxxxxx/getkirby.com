@@ -1,0 +1,21 @@
+Title:
+
+{{class.instance}}->toArray()
+
+----
+
+Excerpt:
+
+Converts the entire file object into a plain PHP array
+
+----
+
+Return:
+
+type: array
+text:
+
+----
+
+Text:
+

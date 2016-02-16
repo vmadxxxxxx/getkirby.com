@@ -1,6 +1,6 @@
 Title:
 
-$file->modified($format = false)
+{{class.instance}}->modified($format = false, $handler = null)
 
 ----
 
@@ -27,4 +27,7 @@ echo $page->file()->modified();
 
 // formatted date
 echo $page->file()->modified('d/m/Y');
+
+// formatted date using strftime
+echo $page->file()->modified('%d/%m/%Y', 'strftime');
 ```
