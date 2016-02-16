@@ -1,4 +1,4 @@
-Title: $roots->accounts()
+Title: {{class.instance}}->accounts()
 
 ----
 

@@ -1,4 +1,4 @@
-Title: $roots->cache()
+Title: {{class.instance}}->cache()
 
 ----
 

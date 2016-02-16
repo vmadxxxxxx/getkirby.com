@@ -1,4 +1,4 @@
-Title: $roots->widgets()
+Title: {{class.instance}}->widgets()
 
 ----
 

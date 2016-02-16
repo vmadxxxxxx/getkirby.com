@@ -1,4 +1,4 @@
-Title: $roots->kirby()
+Title: {{class.instance}}->kirby()
 
 ----
 

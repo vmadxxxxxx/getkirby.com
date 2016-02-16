@@ -1,4 +1,4 @@
-Title: $roots->blueprints()
+Title: {{class.instance}}->blueprints()
 
 ----
 

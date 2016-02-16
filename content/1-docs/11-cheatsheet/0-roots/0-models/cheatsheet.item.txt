@@ -1,4 +1,4 @@
-Title: $roots->models()
+Title: {{class.instance}}->models()
 
 ----
 

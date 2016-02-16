@@ -1,4 +1,4 @@
-Title: $roots->plugins()
+Title: {{class.instance}}->plugins()
 
 ----
 

@@ -1,4 +1,4 @@
-Title: $roots->autocss()
+Title: {{class.instance}}->autocss()
 
 ----
 

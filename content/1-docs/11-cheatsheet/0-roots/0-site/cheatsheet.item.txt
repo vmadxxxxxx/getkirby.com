@@ -1,4 +1,4 @@
-Title: $roots->site()
+Title: {{class.instance}}->site()
 
 ----
 
