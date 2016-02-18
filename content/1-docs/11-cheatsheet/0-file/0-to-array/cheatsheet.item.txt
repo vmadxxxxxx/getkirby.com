@@ -10,6 +10,13 @@ Converts the entire file object into a plain PHP array
 
 ----
 
+Params: - 
+  name: $callback
+  type: callable
+  text: Mapping callback
+
+----
+
 Return:
 
 type: array

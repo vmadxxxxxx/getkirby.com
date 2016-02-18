@@ -10,6 +10,12 @@ Reads the content of the file and returns it
 
 ----
 
+Params: -
+  name: $format
+  type: string
+  text: File format to parse as
+----
+
 Return:
 
 type: string

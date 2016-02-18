@@ -6,14 +6,29 @@ Title:
 
 Excerpt:
 
-Crops the file according to the given parameters.
+Crops the file according to the given parameters
+
+----
+
+Params: - 
+  name: $width
+  type: integer
+  text:
+- 
+  name: $height
+  type: integer
+  text:
+- 
+  name: $quality
+  type: integer
+  text: JPEG quality from 0 to 100
 
 ----
 
 Return:
 
 type: object
-text: Returns a Kirby media object with the given parameters.
+text: Kirby media object with the given parameters
 
 ----
 

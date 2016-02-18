@@ -10,6 +10,17 @@ Returns the unix timestamp or a formatted date for when the file has been modifi
 
 ----
 
+Params: -
+  name: $format
+  type: string
+  text: Date format
+- 
+  name: $handler
+  type: string
+  text: Formatting function (date or strftime)
+
+----
+
 Return:
 
 type: integer | string

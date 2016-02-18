@@ -6,7 +6,18 @@ Title:
 
 Excerpt:
 
-Returns a unix timestamp or formatted date string from the file's meta date field or any other field containing a parsable date.
+Returns a unix timestamp or formatted date string from the file's meta date field or any other field containing a parsable date
+
+----
+
+Params: -
+  name: $format
+  type: string
+  text: Date format
+- 
+  name: $field
+  type: string
+  text: Field from the meta file
 
 ----
 

@@ -10,6 +10,21 @@ Resizes the file according to the given parameters.
 
 ----
 
+Params: - 
+  name: $width
+  type: integer
+  text:
+- 
+  name: $height
+  type: integer
+  text:
+- 
+  name: $quality
+  type: integer
+  text: JPEG quality from 0 to 100
+
+----
+
 Return:
 
 type: object
