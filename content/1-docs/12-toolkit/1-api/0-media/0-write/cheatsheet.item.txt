@@ -17,3 +17,22 @@ Params: -
   name: $content
   type: string
   text:
+-
+  name: $format
+  type: string
+  text: json or yaml (defaults to PHP serialization)
+
+----
+
+Text:
+
+## Example
+
+```
+$media->write(array(
+	'foo' => 'bar',
+	'bar' => 'foo'
+), 'json');
+
+$media->write('this is an arbitrary string');
+```

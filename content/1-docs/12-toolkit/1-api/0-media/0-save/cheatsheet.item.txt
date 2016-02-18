@@ -2,7 +2,7 @@ Title: {{class.instance}}->save($content = null, $format = null)
 
 ----
 
-Excerpt: Saves the file
+Excerpt: Saves new content to the file
 
 ----
 
@@ -17,3 +17,22 @@ Params: -
   name: $content
   type: string
   text:
+-
+  name: $format
+  type: string
+  text: json or yaml (defaults to PHP serialization)
+
+----
+
+Text:
+
+## Example
+
+```
+$media->save(array(
+	'foo' => 'bar',
+	'bar' => 'foo'
+), 'json');
+
+$media->save('this is an arbitrary string');
+```

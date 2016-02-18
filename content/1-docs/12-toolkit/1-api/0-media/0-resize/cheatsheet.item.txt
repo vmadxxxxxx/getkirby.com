@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Resizes the file according to the given parameters.
+Resizes the file according to the given parameters
 
 ----
 

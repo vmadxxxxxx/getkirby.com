@@ -8,6 +8,9 @@ Excerpt: Safely requires a file if it exists
 
 Return: 
 
+type: mixed
+text: Return value from the PHP file
+
 ----
 
 Params: - 

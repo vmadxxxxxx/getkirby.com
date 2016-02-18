@@ -27,7 +27,7 @@ Params: -
 
 Return:
 
-type: object
+type: $media
 text: Kirby media object with the given parameters
 
 ----

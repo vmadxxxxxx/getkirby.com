@@ -10,7 +10,3 @@ Return:
 
 type: boolean
 text:
-
-----
-
-Params: 

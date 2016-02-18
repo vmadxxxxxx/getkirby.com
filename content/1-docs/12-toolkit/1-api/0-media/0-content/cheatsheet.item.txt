@@ -17,3 +17,27 @@ Params: -
   name: $content
   type: string
   text:
+-
+  name: $format
+  type: string
+  text: json or yaml (defaults to PHP serialization)
+
+----
+
+Text:
+
+## Example
+
+```
+$media->content(array(
+	'foo' => 'bar',
+	'bar' => 'foo'
+), 'json');
+
+$media->content('this is an arbitrary string');
+
+// get the data
+$content = $media->content();
+```
+
+**Note**: This method does not save the file, it only stores the new string in memory. You need to use `$media->save()` to save the file.
