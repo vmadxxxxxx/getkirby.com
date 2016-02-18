@@ -62,12 +62,13 @@ class CheatsheetItemPage extends Page {
     $class = ($section->class()->exists())? $section->class() : $section->title();
     
     // trim dollar symbols at the beginning
-    $class = ltrim($class, '$');
+    // make sure the class starts with a lowercase letter
+    $class = lcfirst(ltrim($class, '$'));
     
     // replace the values in the field
     $replacements = array(
-      '{{class.instance}}' => '$' . lcfirst($class),
-      '{{class.static}}'   => ucfirst($class)
+      '{{class.instance}}' => '$' . $class,
+      '{{class.static}}'   => $class
     );
     $value = str_replace(array_keys($replacements), $replacements, parent::$field());
     
