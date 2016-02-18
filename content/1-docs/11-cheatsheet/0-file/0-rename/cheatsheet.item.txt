@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Renames the file and all the meta text files.
+Renames the file and all the meta text files
 
 ----
 

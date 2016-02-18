@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Returns the size of the file in a human readable format.
+Returns the size of the file in a human readable format
 
 ----
 
