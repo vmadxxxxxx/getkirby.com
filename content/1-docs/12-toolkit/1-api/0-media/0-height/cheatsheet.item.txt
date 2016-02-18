@@ -1,16 +1,26 @@
-Title: {{class.instance}}->height()
+Title:
+
+{{class.instance}}->height()
 
 ----
 
-Excerpt: Returns the height of the asset
+Excerpt:
+
+Returns the height of image files in pixels
 
 ----
 
 Return:
 
-type: int
+type: integer
 text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php echo $media->height(); ?>
+```

@@ -1,8 +1,12 @@
-Title: {{class.instance}}->isSquare()
+Title:
+
+{{class.instance}}->isSquare()
 
 ----
 
-Excerpt: Checks if the dimensions of the asset are square
+Excerpt:
+
+Checks if the image is square
 
 ----
 
@@ -13,4 +17,12 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php if($media->isSquare()): ?>
+This image is square
+<?php endif ?>
+```

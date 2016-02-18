@@ -1,8 +1,12 @@
-Title: {{class.instance}}->exif()
+Title:
+
+{{class.instance}}->exif()
 
 ----
 
-Excerpt: Returns the exif object for this file (if image)
+Excerpt:
+
+Returns the $exif object for the file, which can be used to fetch information such as the camera model or GPS data
 
 ----
 
@@ -13,4 +17,24 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+$exif = $media->exif();
+
+if($exif) {
+  echo $exif->aperture();
+  echo $exif->focalLength();
+  echo $exif->exposure();
+  echo $exif->isBW();
+  echo $exif->isColor();
+  echo $exif->iso();
+  echo $exif->location()->lat();
+  echo $exif->location()->lng();
+  echo $exif->timestamp();
+  echo $exif->camera()->model();
+  echo $exif->camera()->make();
+}
+```

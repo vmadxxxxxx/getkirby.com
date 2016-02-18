@@ -1,8 +1,12 @@
-Title: {{class.instance}}->orientation()
+Title:
+
+{{class.instance}}->orientation()
 
 ----
 
-Excerpt: Returns the orientation as string landscape | portrait | square
+Excerpt:
+
+Returns the orientation of image files as a string (landscape, portrait, square)
 
 ----
 
@@ -13,4 +17,11 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+echo $media->orientation();
+// landscape, portrait or square
+```

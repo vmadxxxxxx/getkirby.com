@@ -1,13 +1,26 @@
-Title: {{class.instance}}->hash()
+Title:
+
+{{class.instance}}->hash()
 
 ----
 
-Excerpt: Returns a md5 hash of the root
+Excerpt:
+
+Returns an md5 hash for the root of the file
 
 ----
 
-Return: 
+Return:
+
+type: string
+text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php echo $media->hash() ?>
+```

@@ -1,8 +1,12 @@
-Title: {{class.instance}}->dataUri()
+Title:
+
+{{class.instance}}->dataUri()
 
 ----
 
-Excerpt: Returns the file as data uri
+Excerpt:
+
+Returns a full base64 encoded data uri with a proper mime type
 
 ----
 
@@ -13,4 +17,10 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php echo $media->dataUri() ?>
+```

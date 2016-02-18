@@ -1,8 +1,12 @@
-Title: {{class.instance}}->isPortrait()
+Title:
+
+{{class.instance}}->isPortrait()
 
 ----
 
-Excerpt: Checks if the dimensions of the asset are portrait
+Excerpt:
+
+Checks if an image file has been taken in portrait mode
 
 ----
 
@@ -13,4 +17,12 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php if($media->isPortrait()): ?>
+This image has been taken in portrait mode
+<?php endif ?>
+```

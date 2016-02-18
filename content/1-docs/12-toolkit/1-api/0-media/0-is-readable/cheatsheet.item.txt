@@ -1,8 +1,12 @@
-Title: {{class.instance}}->isReadable()
+Title:
+
+{{class.instance}}->isReadable()
 
 ----
 
-Excerpt: Checks if the file is readable
+Excerpt:
+
+Checks if the file is readable
 
 ----
 
@@ -13,4 +17,12 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php if($media->isReadable()): ?>
+The file is readable
+<?php endif ?>
+```

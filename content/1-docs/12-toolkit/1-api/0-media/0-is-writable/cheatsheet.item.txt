@@ -1,8 +1,12 @@
-Title: {{class.instance}}->isWritable()
+Title:
+
+{{class.instance}}->isWritable()
 
 ----
 
-Excerpt: Checks if the file is writable
+Excerpt:
+
+Checks if the file is writable
 
 ----
 
@@ -13,4 +17,12 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php if($media->isWritable()): ?>
+The file is writable
+<?php endif ?>
+```

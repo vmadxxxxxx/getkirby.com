@@ -1,8 +1,12 @@
-Title: {{class.instance}}->isLandscape()
+Title:
+
+{{class.instance}}->isLandscape()
 
 ----
 
-Excerpt: Checks if the dimensions of the asset are landscape
+Excerpt:
+
+Checks if an image file has been taken in landscape mode
 
 ----
 
@@ -13,4 +17,12 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php if($media->isLandscape()): ?>
+This image has been taken in landscape mode
+<?php endif ?>
+```

@@ -1,8 +1,12 @@
-Title: {{class.instance}}->niceSize()
+Title:
+
+{{class.instance}}->niceSize()
 
 ----
 
-Excerpt: Returns the human readable version of the file size
+Excerpt:
+
+Returns the size of the file in a human readable format.
 
 ----
 
@@ -13,4 +17,11 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+echo $media->niceSize();
+// i.e. 1.2 mb
+```

@@ -1,16 +1,27 @@
-Title: {{class.instance}}->ratio()
+Title:
+
+{{class.instance}}->ratio()
 
 ----
 
-Excerpt: Returns the ratio of the asset
+Excerpt:
+
+Returns the ratio of an image file
 
 ----
 
 Return:
 
-type: int
+type: float
 text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+echo $media->ratio();
+// i.e. 1.345232
+```

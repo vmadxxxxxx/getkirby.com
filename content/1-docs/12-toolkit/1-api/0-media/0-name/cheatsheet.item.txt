@@ -1,8 +1,12 @@
-Title: {{class.instance}}->name()
+Title:
+
+{{class.instance}}->name()
 
 ----
 
-Excerpt: Returns the name of the file without extension
+Excerpt:
+
+Returns the name of the file without extension
 
 ----
 
@@ -13,4 +17,11 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+echo $media->name();
+// my-image
+```

@@ -1,13 +1,20 @@
-Title: {{class.instance}}->download($filename = null)
+Title:
+
+{{class.instance}}->download($filename = null)
 
 ----
 
-Excerpt: 
+Excerpt:
+
+Sends all needed headers and the content to force the browser to download the file
 
 ----
 
-Return: 
+Params: -
+  name: $filename
+  type: string
+  text: Filename after download
 
 ----
 
-Params: 
+Text:

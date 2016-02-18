@@ -1,16 +1,29 @@
-Title: {{class.instance}}->dimensions()
+Title:
+
+{{class.instance}}->dimensions()
 
 ----
 
-Excerpt: Returns the dimensions of the file if possible
+Excerpt:
+
+Returns the $dimensions object for the file. This is only available for images (jpg, png, gif)
 
 ----
 
 Return:
 
-type: $dimensions
+type: $dimension
 text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+$dimensions = $media->dimensions();
+
+echo $dimensions->width();
+echo $dimensions->height();
+```

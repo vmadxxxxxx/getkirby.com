@@ -1,8 +1,12 @@
-Title: {{class.instance}}->filename()
+Title:
+
+{{class.instance}}->filename()
 
 ----
 
-Excerpt: Returns the filename of the file i.e. somefile.jpg
+Excerpt:
+
+Returns the full filename including extension
 
 ----
 
@@ -13,4 +17,10 @@ text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php echo $media->filename(); ?>
+```

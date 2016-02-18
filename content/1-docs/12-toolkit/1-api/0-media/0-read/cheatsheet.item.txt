@@ -1,19 +1,36 @@
-Title: {{class.instance}}->read($format = null)
+Title:
+
+{{class.instance}}->read($format = null)
 
 ----
 
-Excerpt: Reads the file content and parses it
+Excerpt:
 
+Reads the content of the file and returns it
+
+----
+
+Params: -
+  name: $format
+  type: string
+  text: File format to parse as
 ----
 
 Return:
 
-type: mixed
+type: string
 text:
 
 ----
 
-Params: - 
-  name: $format
-  type: string
-  text:
+Text:
+
+## Example
+
+```php
+// returns the content of the file
+echo $media->read();
+
+// parses the content as JSON
+dump($media->read('json'));
+```
