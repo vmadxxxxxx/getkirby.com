@@ -1,12 +1,12 @@
 Title:
 
-$file->isPortrait()
+{{class.instance}}->isPortrait()
 
 ----
 
 Excerpt:
 
-Checks if an image file has been taken in portrait mode.
+Checks if an image file has been taken in portrait mode
 
 ----
 

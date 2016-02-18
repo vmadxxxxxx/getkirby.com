@@ -1,6 +1,6 @@
 Title:
 
-$file->delete()
+{{class.instance}}->delete()
 
 ----
 
@@ -35,6 +35,4 @@ try {
   // optional reason: echo $e->getMessage();
 
 }
-
-
 ```

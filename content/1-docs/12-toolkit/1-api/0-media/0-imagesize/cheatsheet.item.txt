@@ -1,4 +1,4 @@
-Title: {{class.instance}}->imagesize
+Title: {{class.instance}}->imagesize()
 
 ----
 
@@ -6,13 +6,7 @@ Excerpt: Returns the PHP imagesize array
 
 ----
 
-Call: {{class.instance}}->imagesize()
+Return:
 
-----
-
-Return: type: array
+type: array
 text:
-
-----
-
-Params: 

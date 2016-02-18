@@ -1,0 +1,65 @@
+Title:
+
+{{class.instance}}->date($format = null, $field = 'date')
+
+----
+
+Excerpt:
+
+Returns a unix timestamp or formatted date string from the file's meta date field or any other field containing a parsable date
+
+----
+
+Params: -
+  name: $format
+  type: string
+  text: Date format
+- 
+  name: $field
+  type: string
+  text: Field from the meta file
+
+----
+
+Return:
+
+type: integer | string
+text:
+
+----
+
+Text:
+
+## Example
+
+### with date field
+
+By default the date method assumes that there's a `date` field in the text file.
+
+```php
+<time datetime="<?php echo $file->date('c') ?>">
+  <?php echo $file->date('d/m/Y') ?>
+</time>
+```
+
+### with a custom field
+
+If you want to use the date method with a custom field, you can pass the name of the field as second parameter
+
+```php
+<time datetime="<?php echo $file->date('c', 'createdAt') ?>">
+  <?php echo $file->date('d/m/Y', 'createdAt') ?>
+</time>
+```
+
+### working with the timestamp
+
+By default the date method will return the Unix timestamp. You can use that to make date calculations or format dates with strftime.
+
+```php
+<?php echo strftime('%d/%m/%Y', $file->date()) ?>
+```
+
+```php
+<?php echo strftime('%d/%m/%Y', $file->date(null, 'createdAt')) ?>
+```

@@ -1,6 +1,6 @@
 Title:
 
-$file->isReadable()
+{{class.instance}}->isReadable()
 
 ----
 

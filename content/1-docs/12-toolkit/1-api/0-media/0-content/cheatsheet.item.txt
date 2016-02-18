@@ -1,4 +1,4 @@
-Title: {{class.instance}}->content
+Title: {{class.instance}}->content($content = null, $format = null)
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Setter and getter for the file content
 
 ----
 
-Call: {{class.instance}}->content($content = null, $format = null)
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----
@@ -19,3 +17,27 @@ Params: -
   name: $content
   type: string
   text:
+-
+  name: $format
+  type: string
+  text: json or yaml (defaults to PHP serialization)
+
+----
+
+Text:
+
+## Example
+
+```
+$media->content(array(
+	'foo' => 'bar',
+	'bar' => 'foo'
+), 'json');
+
+$media->content('this is an arbitrary string');
+
+// get the data
+$content = $media->content();
+```
+
+**Note**: This method does not save the file, it only stores the new string in memory. You need to use `$media->save()` to save the file.

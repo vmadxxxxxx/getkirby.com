@@ -1,4 +1,4 @@
-Title: $file->dir()
+Title: {{class.instance}}->dir()
 
 ----
 

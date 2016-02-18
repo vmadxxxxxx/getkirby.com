@@ -1,4 +1,4 @@
-Title: {{class.instance}}->write
+Title: {{class.instance}}->write($content = null, $format = null)
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Alternative for save
 
 ----
 
-Call: {{class.instance}}->write($content = null, $format = null)
+Return:
 
-----
-
-Return: type: boolean
+type: boolean
 text:
 
 ----
@@ -19,3 +17,22 @@ Params: -
   name: $content
   type: string
   text:
+-
+  name: $format
+  type: string
+  text: json or yaml (defaults to PHP serialization)
+
+----
+
+Text:
+
+## Example
+
+```
+$media->write(array(
+	'foo' => 'bar',
+	'bar' => 'foo'
+), 'json');
+
+$media->write('this is an arbitrary string');
+```

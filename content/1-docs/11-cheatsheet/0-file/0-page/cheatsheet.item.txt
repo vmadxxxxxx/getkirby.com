@@ -1,6 +1,6 @@
 Title:
 
-$file->page()
+{{class.instance}}->page()
 
 ----
 
@@ -22,5 +22,5 @@ Text:
 ## Example
 
 ```php
-echo 'Document of: ' . file->page()->title();
+echo 'Document of: ' . $file->page()->title();
 ```

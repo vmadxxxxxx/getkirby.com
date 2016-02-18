@@ -1,18 +1,26 @@
-Title: {{class.instance}}->width
+Title:
+
+{{class.instance}}->width()
 
 ----
 
-Excerpt: Returns the width of the asset
+Excerpt:
+
+Returns the width of image files in pixels
 
 ----
 
-Call: {{class.instance}}->width()
+Return:
 
-----
-
-Return: type: int
+type: integer
 text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php echo $media->width(); ?>
+```

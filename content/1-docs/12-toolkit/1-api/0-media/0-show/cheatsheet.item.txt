@@ -1,20 +1,5 @@
-Title: {{class.instance}}->show
+Title: {{class.instance}}->show()
 
 ----
 
 Excerpt: Read and send the file with the correct headers
-
-----
-
-Call: {{class.instance}}->show($file)
-
-----
-
-Return: 
-
-----
-
-Params: - 
-  name: $file
-  type: string
-  text:

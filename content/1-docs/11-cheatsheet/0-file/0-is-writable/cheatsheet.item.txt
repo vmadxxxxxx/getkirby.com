@@ -1,6 +1,6 @@
 Title:
 
-$file->isWritable()
+{{class.instance}}->isWritable()
 
 ----
 

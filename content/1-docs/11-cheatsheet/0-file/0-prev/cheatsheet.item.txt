@@ -1,6 +1,6 @@
 Title:
 
-$file->prev()
+{{class.instance}}->prev()
 
 ----
 
@@ -25,5 +25,4 @@ Text:
 if($prev = $page->file('myfile.pdf')->prev()) {
   echo 'Previous file: ' . $prev->filename();
 }
-
 ```

@@ -1,18 +1,26 @@
-Title: {{class.instance}}->extension
+Title:
+
+{{class.instance}}->extension()
 
 ----
 
-Excerpt: Returns the extension of the file i.e. jpg
+Excerpt:
+
+Returns the file extension
 
 ----
 
-Call: {{class.instance}}->extension()
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php echo $media->extension(); ?>
+```

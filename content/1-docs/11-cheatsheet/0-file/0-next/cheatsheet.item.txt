@@ -1,6 +1,6 @@
 Title:
 
-$file->next()
+{{class.instance}}->next()
 
 ----
 
@@ -25,5 +25,4 @@ Text:
 if($next = $page->file('myfile.pdf')->next()) {
   echo 'Next file: ' . $next->filename();
 }
-
 ```

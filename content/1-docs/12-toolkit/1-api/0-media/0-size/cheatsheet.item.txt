@@ -1,18 +1,27 @@
-Title: {{class.instance}}->size
+Title:
+
+{{class.instance}}->size()
 
 ----
 
-Excerpt: Returns the file size as integer
+Excerpt:
+
+Returns the raw file size
 
 ----
 
-Call: {{class.instance}}->size()
+Return:
 
-----
-
-Return: type: int
+type: integer
 text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+echo $media->size();
+// i.e. 123293829
+```

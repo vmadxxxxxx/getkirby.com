@@ -1,12 +1,12 @@
 Title:
 
-$file->dataUri()
+{{class.instance}}->dataUri()
 
 ----
 
 Excerpt:
 
-Returns a full base64 encoded data uri with a proper mime type.
+Returns a full base64 encoded data uri with a proper mime type
 
 ----
 

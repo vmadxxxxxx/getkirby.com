@@ -1,21 +1,27 @@
-Title: {{class.instance}}->mime
+Title:
+
+{{class.instance}}->mime()
 
 ----
 
-Excerpt: Returns the mime type of a file
+Excerpt:
+
+Returns the file's mime type
 
 ----
 
-Call: {{class.instance}}->mime()
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----
 
-Params: - 
-  name: $file
-  type: string
-  text:
+Text:
+
+## Example
+
+```php
+echo $media->mime();
+// echos image/jpeg
+```
