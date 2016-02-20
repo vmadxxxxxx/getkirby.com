@@ -1,18 +1,28 @@
-Title: {{class.instance}}->filterBy
+Title: {{class.instance}}->filterBy($field [,operator], $value)
 
 ----
 
 Excerpt: Filters the current collection by a field, operator and search value
 
 ----
-
-Call: {{class.instance}}->filterBy()
+Params: -
+  name: $field
+  type: string
+  text: Any field or method
+-
+  name: $operator
+  type: string
+  text: A filter method
+-
+  name: $value
+  type: string
+  text:
 
 ----
 
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----
-
-Params: 
+Text:

@@ -1,12 +1,8 @@
-Title: {{class.static}}::extractValue
+Title: {{class.static}}::extractValue($item, $field)
 
 ----
 
 Excerpt: Makes sure to provide a valid value for each filter method no matter if an object or an array is given
-
-----
-
-Call: {{class.static}}::extractValue($item, $field)
 
 ----
 
@@ -15,11 +11,11 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $item
   type: mixed
   text:
-- 
+-
   name: $field
   type: string
   text:

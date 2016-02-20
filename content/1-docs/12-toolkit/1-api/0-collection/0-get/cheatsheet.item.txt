@@ -1,17 +1,16 @@
-Title: {{class.instance}}->get
+Title: {{class.instance}}->get($key, $default = null)
 
 ----
 
-Excerpt: 
+Excerpt:
 
 ----
 
-Call: {{class.instance}}->get($key, $default = null)
+Return:
 
 ----
 
-Return: 
-
-----
-
-Params: 
+Params: -
+  name: $key
+  type: string
+  text:

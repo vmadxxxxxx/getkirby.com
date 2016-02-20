@@ -1,12 +1,8 @@
-Title: {{class.instance}}->toJson
+Title: {{class.instance}}->toJson()
 
 ----
 
 Excerpt: Converts the current object into a json string
-
-----
-
-Call: {{class.instance}}->toJson()
 
 ----
 
@@ -15,4 +11,4 @@ text:
 
 ----
 
-Params: 
+Params:

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->map
+Title: {{class.instance}}->map($callback)
 
 ----
 
@@ -6,16 +6,13 @@ Excerpt: Map a function to each item in the collection
 
 ----
 
-Call: {{class.instance}}->map($callback)
-
-----
-
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----
 
-Params: - 
+Params: -
   name: $callback
-  type: \function
+  type: function
   text:

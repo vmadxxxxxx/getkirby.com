@@ -1,4 +1,4 @@
-Title: {{class.instance}}->current
+Title: {{class.instance}}->current()
 
 ----
 
@@ -6,13 +6,10 @@ Excerpt: Returns the current element of the array
 
 ----
 
-Call: {{class.instance}}->current()
-
-----
-
-Return: type: mixed
+Return:
+type: mixed
 text:
 
 ----
 
-Params: 
+Params:

@@ -1,12 +1,8 @@
-Title: {{class.instance}}->pluck
+Title: {{class.instance}}->pluck($field, $split = null, $unique = false)
 
 ----
 
 Excerpt: Extracts all values for a single field into a new array
-
-----
-
-Call: {{class.instance}}->pluck($field, $split = null, $unique = false)
 
 ----
 
@@ -15,7 +11,7 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $field
   type: string
   text:
