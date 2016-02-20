@@ -1,4 +1,4 @@
-Title: {{class.instance}}->paginate
+Title: {{class.instance}}->paginate($limit, $options = array())
 
 ----
 
@@ -15,11 +15,11 @@ text: a sliced set of data
 
 ----
 
-Params: - 
+Params: -
   name: $limit
   type: int
   text: the number of items per page
-- 
+-
   name: $options
   type: array
   text: >

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->next
+Title: {{class.instance}}->next()
 
 ----
 
@@ -6,13 +6,10 @@ Excerpt: Moves the cursor to the next element in the array and returns it
 
 ----
 
-Call: {{class.instance}}->next()
-
-----
-
-Return: type: mixed
+Return:
+type: mixed
 text:
 
 ----
 
-Params: 
+Params:

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->nth
+Title: {{class.instance}}->nth($n)
 
 ----
 
@@ -6,13 +6,13 @@ Excerpt: Returns the nth element from the array
 
 ----
 
-Call: {{class.instance}}->nth($n)
-
-----
-
-Return: type: mixed
+Return:
+type: mixed
 text:
 
 ----
 
-Params: 
+Params: -
+  name: $n
+  type: int
+  text:

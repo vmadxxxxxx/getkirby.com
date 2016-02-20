@@ -1,4 +1,4 @@
-Title: {{class.instance}}->rewind
+Title: {{class.instance}}->rewind()
 
 ----
 
@@ -6,12 +6,8 @@ Excerpt: Moves the cusor to the first element of the array
 
 ----
 
-Call: {{class.instance}}->rewind()
-
-----
-
 Return: 
 
 ----
 
-Params: 
+Params:

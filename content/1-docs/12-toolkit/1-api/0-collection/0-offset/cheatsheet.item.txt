@@ -1,12 +1,8 @@
-Title: {{class.instance}}->offset
+Title: {{class.instance}}->offset($offset)
 
 ----
 
 Excerpt: Returns a new collection starting from the given offset
-
-----
-
-Call: {{class.instance}}->offset($offset)
 
 ----
 
@@ -15,7 +11,7 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $offset
   type: int
   text: The index to start from
