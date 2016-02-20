@@ -1,6 +1,6 @@
 Title:
 
-$pages->filterBy()
+{{class.instance}}->filterBy($key [,$operator], $value)
 
 ----
 
@@ -10,10 +10,25 @@ Filters the collection by any field and value and with a set of filtering operat
 
 ----
 
+Params: -
+  name: $key
+  type: string
+  text: A field name or a method of the page, e.g. template
+-
+  name: $operator
+  type: string
+  text: See list of filter methods below
+-
+  name: $value
+  type: string
+  text:
+
+----
+
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 

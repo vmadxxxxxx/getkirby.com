@@ -1,6 +1,6 @@
 Title:
 
-$pages->create($uid, $template, $data = array())
+{{class.instance}}->create($uid, $template, $data = array())
 
 ----
 
@@ -10,10 +10,27 @@ Creates a new subpage.
 
 ----
 
+Params: -
+  name: $uid
+  type: string
+  text: The UID of the new page
+-
+  name: $template
+  type: string
+  text: The template name for the new page
+-
+  name: $data
+  type: array
+  text:
+
+
+----
+
+
 Return:
 
 type: $page
-text: 
+text:
 
 ----
 

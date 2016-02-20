@@ -1,19 +1,25 @@
 Title:
 
-$pages->add($page)
+{{class.instance}}->add($page)
 
 ----
 
 Excerpt:
 
-Adds a single page object to the collection by id, or another page collection
+Adds a single page object or a collection to a collection
+
+----
+Params: -
+  name: $page
+  type: mixed
+  text: The id of a page, a page object or a $pages object
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 
@@ -32,4 +38,3 @@ $collection = page('exhibitions')->children()->visible();
 $collection->add(page('news')->children()->visible());
 ?>
 ```
-

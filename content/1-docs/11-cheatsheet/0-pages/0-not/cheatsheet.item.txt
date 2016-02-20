@@ -1,19 +1,26 @@
 Title:
 
-$pages->not()
+{{class.instance}}->not($page)
 
 ----
 
 Excerpt:
 
-Returns the collection without any given pages. Excluded pages can be specified by passing the entire $page object, the UID or full URI.
+Returns the collection without any given pages.
+
+----
+
+Params: -
+  name: $page
+  type: Page | string
+  text: Excluded pages can be specified by passing the entire $page object, the UID or full URI.
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 

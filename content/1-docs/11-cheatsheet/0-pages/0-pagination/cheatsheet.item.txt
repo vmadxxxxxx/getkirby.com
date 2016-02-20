@@ -1,6 +1,6 @@
 Title:
 
-$pages->pagination()
+{{class.instance}}->pagination()
 
 ----
 

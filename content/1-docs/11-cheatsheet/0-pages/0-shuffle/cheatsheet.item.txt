@@ -1,6 +1,6 @@
 Title:
 
-$pages->shuffle()
+{{class.instance}}->shuffle()
 
 ----
 

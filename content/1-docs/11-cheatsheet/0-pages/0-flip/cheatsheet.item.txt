@@ -1,6 +1,6 @@
 Title:
 
-$pages->flip()
+{{class.instance}}->flip()
 
 ----
 

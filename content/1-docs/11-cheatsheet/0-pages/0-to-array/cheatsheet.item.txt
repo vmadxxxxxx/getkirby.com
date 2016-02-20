@@ -1,6 +1,6 @@
 Title:
 
-$pages->toArray($callback = null)
+{{class.instance}}->toArray($callback = null)
 
 ----
 
@@ -10,10 +10,16 @@ Converts the collection to a good old array. You can pass a callback which will 
 
 ----
 
+Params: -
+  name: $callback
+  type: callable
+  text: Mapping callback
+
+----
 Return:
 
 type: array
-text: 
+text:
 
 ----
 

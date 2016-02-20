@@ -1,6 +1,6 @@
 Title:
 
-$pages->visible()
+{{class.instance}}->visible()
 
 ----
 

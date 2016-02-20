@@ -1,6 +1,6 @@
 Title:
 
-$pages->files()
+{{class.instance}}->files()
 
 ----
 
@@ -20,7 +20,7 @@ text:
 Text:
 
 ```php
-<?php foreach($pages->files() as $file) : ?>
+<?php foreach({{class.instance}}->files() as $file) : ?>
 <img src="<?php echo $file->url() ?>">
 <?php endforeach ?>
 ```
@@ -28,7 +28,7 @@ Text:
 To only get files of a certain type, you can filter by type, e.g.
 
 ```php
-$pages->files()->filterBy('type', 'image');
-$pages->files()->filterBy('type', 'video');
+{{class.instance}}->files()->filterBy('type', 'image');
+{{class.instance}}->files()->filterBy('type', 'video');
 //etc.
 ```

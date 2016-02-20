@@ -1,6 +1,6 @@
 Title:
 
-$pages->search($query, $params = array())
+{{class.instance}}->search($query, $params = array())
 
 ----
 
@@ -10,16 +10,27 @@ Searches all pages in the collection and all descendants
 
 ----
 
+Params: -
+  name: $query
+  type: string
+  text: The search term
+-
+  name: $params
+  type: string | array
+  text: See examples below
+
+----
+
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 
 Text:
 
-## Example
+## Examples
 
 ```php
 // search all pages and descendants

@@ -1,6 +1,6 @@
 Title:
 
-$pages->offset($offset)
+{{class.instance}}->offset($offset)
 
 ----
 
@@ -9,11 +9,17 @@ Excerpt:
 Returns the collection starting from the given offset.
 
 ----
+Params: -
+  name: $offset
+  type: int
+  text: 
+
+----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 

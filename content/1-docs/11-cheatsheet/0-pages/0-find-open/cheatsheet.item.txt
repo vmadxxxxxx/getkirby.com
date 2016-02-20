@@ -1,6 +1,6 @@
 Title:
 
-$pages->findOpen()
+{{class.instance}}->findOpen()
 
 ----
 

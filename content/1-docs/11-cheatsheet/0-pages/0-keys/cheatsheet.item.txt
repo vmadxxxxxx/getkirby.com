@@ -1,6 +1,6 @@
 Title:
 
-$pages->keys()
+{{class.instance}}->keys()
 
 ----
 

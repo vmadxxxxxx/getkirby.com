@@ -1,6 +1,6 @@
 Title:
 
-$pages->invisible()
+{{class.instance}}->invisible()
 
 ----
 

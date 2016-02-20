@@ -1,6 +1,6 @@
 Title:
 
-$pages->filter($callback)
+{{class.instance}}->filter($callback)
 
 ----
 
@@ -10,10 +10,17 @@ Filters the collection with a custom filter callback.
 
 ----
 
+Params: -
+  name: $callback
+  type: func
+  text: The callback function
+
+----
+
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 
