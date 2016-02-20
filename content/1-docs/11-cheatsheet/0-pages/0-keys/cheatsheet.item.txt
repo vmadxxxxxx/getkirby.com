@@ -1,19 +1,19 @@
 Title:
 
-$pages->keys()
+{{class.instance}}->keys()
 
 ----
 
 Excerpt:
 
-Returns all keys/URIs from the collection.
+Returns all keys/URIs from the collection
 
 ----
 
 Return:
 
 type: array
-text: 
+text:
 
 ----
 

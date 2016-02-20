@@ -1,6 +1,6 @@
 Title:
 
-$pages->count()
+{{class.instance}}->count()
 
 ----
 
@@ -25,7 +25,7 @@ Text:
 
 ```php
 The site has
-<?php echo $pages->count() ?>
+<?php echo {{class.instance}}->count() ?>
 main pages
 ```
 

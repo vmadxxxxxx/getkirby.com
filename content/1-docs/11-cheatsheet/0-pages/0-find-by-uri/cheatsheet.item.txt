@@ -1,19 +1,25 @@
 Title:
 
-$pages->findByURI()
+{{class.instance}}->findByURI($uri)
 
 ----
 
 Excerpt:
 
-Finds a $page object in the collection by its full URI.
+Finds a $page object in the collection by its full URI
+
+----
+Params: -
+  name: $uri
+  type: string
+  text: The full URI of a page
 
 ----
 
 Return:
 
 type: $page
-text: 
+text:
 
 ----
 

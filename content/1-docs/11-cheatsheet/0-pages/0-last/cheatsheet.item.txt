@@ -1,6 +1,6 @@
 Title:
 
-$pages->last()
+{{class.instance}}->last()
 
 ----
 

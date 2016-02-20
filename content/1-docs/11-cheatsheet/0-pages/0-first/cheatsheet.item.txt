@@ -1,6 +1,6 @@
 Title:
 
-$pages->first()
+{{class.instance}}->first()
 
 ----
 

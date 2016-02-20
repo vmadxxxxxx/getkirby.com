@@ -1,25 +1,30 @@
 Title:
 
-$pages->children()
+{{class.instance}}->children()
 
 ----
 
 Excerpt:
 
-Returns a $pages collection with all children of each page in the collection.
+Returns a $pages collection with all children of each page in the collection
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 
 Text:
 
 ```php
-// fetching the grandchildren of a page
-<?php echo $page->children()->children() ?>
+// fetch the children of all pages in the collection
+<?php
+
+foreach($pages->children()->visible() as $child) {
+  echo $child->title()->html();
+
+?>
 ```

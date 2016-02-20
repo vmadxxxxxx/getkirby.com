@@ -1,19 +1,19 @@
 Title:
 
-$pages->shuffle()
+{{class.instance}}->shuffle()
 
 ----
 
 Excerpt:
 
-Shuffles all items in the collection.
+Shuffles all items in the collection
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 
