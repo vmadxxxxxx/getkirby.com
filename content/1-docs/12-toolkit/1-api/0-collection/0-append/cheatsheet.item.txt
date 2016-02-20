@@ -20,3 +20,17 @@ Params: -
   name: $object
   type: mixed
   text:
+
+----
+Text:
+
+## Example
+
+```
+<?php
+$collection = $pages;
+$collection2 = $pages->children();
+foreach($collection2 as $key => $item) {
+  $collection->append($key, $item);
+}
+```
