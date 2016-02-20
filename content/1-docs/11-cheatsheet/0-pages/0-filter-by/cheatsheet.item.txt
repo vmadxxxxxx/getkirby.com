@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Filters the collection by any field and value and with a set of filtering operators.
+Filters the collection by any field and value and with a set of filtering operators
 
 ----
 

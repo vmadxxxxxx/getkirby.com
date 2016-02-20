@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Filters the collection with a custom filter callback.
+Filters the collection with a custom filter callback
 
 ----
 

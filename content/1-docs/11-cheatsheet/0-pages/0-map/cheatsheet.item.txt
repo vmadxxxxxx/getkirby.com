@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Returns a new collection and applies the mapping callback to all pages.
+Returns a new collection and applies the mapping callback to all pages
 
 ----
 Params: -

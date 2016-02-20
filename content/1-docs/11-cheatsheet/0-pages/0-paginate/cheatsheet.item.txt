@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Adds a $pagination object to the collection, which makes it easy to page through items.
+Adds a $pagination object to the collection, which makes it easy to page through items
 
 ----
 
@@ -17,7 +17,7 @@ Params: -
 -
   name: $options
   type: array
-  text: See below 
+  text: See below
 
 ----
 

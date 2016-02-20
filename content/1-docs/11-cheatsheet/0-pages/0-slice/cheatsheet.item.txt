@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Returns a sliced version of the collection defined by offset and limit.
+Returns a sliced version of the collection defined by offset and limit
 
 ----
 

@@ -6,14 +6,14 @@ Title:
 
 Excerpt:
 
-Returns the $pagination object if available.
+Returns the $pagination object if available
 
 ----
 
 Return:
 
 type: $pagination
-text: 
+text:
 
 ----
 

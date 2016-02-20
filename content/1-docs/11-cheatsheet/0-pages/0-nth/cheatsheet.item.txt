@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Returns the nth page in the collection.
+Returns the nth page in the collection
 
 ----
 

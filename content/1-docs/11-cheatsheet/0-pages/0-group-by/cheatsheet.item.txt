@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Groups $page objects in the collection by any field and returns them in a new collection.
+Groups $page objects in the collection by any field and returns them in a new collection
 
 ----
 Params: -
@@ -16,7 +16,7 @@ Params: -
 -
   name: $caseInsensitive
   type: boolean
-  text: Whether grouping by field should be case sensitive or not  
+  text: Whether grouping by field should be case sensitive or not
 
 ----
 Return:

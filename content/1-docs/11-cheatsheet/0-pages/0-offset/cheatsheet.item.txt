@@ -6,13 +6,13 @@ Title:
 
 Excerpt:
 
-Returns the collection starting from the given offset.
+Returns the collection starting from the given offset
 
 ----
 Params: -
   name: $offset
   type: int
-  text: 
+  text:
 
 ----
 

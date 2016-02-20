@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Returns a $pages collection with all children of each page in the collection.
+Returns a $pages collection with all children of each page in the collection
 
 ----
 

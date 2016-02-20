@@ -6,21 +6,21 @@ Title:
 
 Excerpt:
 
-Returns a $files collection with all files of each page in the collection.
+Returns a $files collection with all files of each page in the collection
 
 ----
 
 Return:
 
 type: $files object
-text: 
+text:
 
 ----
 
 Text:
 
 ```php
-<?php foreach({{class.instance}}->files() as $file) : ?>
+<?php foreach($pages->files() as $file) : ?>
 <img src="<?php echo $file->url() ?>">
 <?php endforeach ?>
 ```

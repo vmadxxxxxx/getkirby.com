@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Creates a new subpage.
+Creates a new subpage
 
 ----
 

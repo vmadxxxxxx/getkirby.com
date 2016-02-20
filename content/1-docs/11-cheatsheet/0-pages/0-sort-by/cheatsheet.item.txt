@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Returns a sorted version of the collection.
+Returns a sorted version of the collection
 
 ----
 

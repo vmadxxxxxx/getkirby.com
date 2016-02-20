@@ -6,14 +6,14 @@ Title:
 
 Excerpt:
 
-Recursively creates a full index from all pages and subpages in the collection and returns it as a new flat $pages collection.
+Recursively creates a full index from all pages and subpages in the collection and returns it as a new flat $pages collection
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 

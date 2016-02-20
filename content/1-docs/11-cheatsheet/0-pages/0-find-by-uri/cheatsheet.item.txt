@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Finds a $page object in the collection by its full URI.
+Finds a $page object in the collection by its full URI
 
 ----
 Params: -
