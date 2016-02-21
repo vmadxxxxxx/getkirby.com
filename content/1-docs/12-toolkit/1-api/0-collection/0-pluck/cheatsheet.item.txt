@@ -6,7 +6,8 @@ Excerpt: Extracts all values for a single field into a new array
 
 ----
 
-Return: type: array
+Return:
+type: array
 text:
 
 ----
@@ -14,4 +15,12 @@ text:
 Params: -
   name: $field
   type: string
-  text:
+  text: The name of the field
+-
+  name: $split
+  type: string
+  text: The separator to split by
+-
+  name: $unique
+  type: boolean
+  text: If set to true, only unique values will be fetched, default is false.

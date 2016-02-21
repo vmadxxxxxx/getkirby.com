@@ -1,12 +1,8 @@
-Title: i::key
+Title: {{class.instance}}->key()
 
 ----
 
 Excerpt: Returns the current key from the array
-
-----
-
-Call: i::key()
 
 ----
 
@@ -15,4 +11,4 @@ text:
 
 ----
 
-Params: 
+Params:

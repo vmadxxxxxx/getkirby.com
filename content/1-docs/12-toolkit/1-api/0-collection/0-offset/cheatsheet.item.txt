@@ -6,7 +6,8 @@ Excerpt: Returns a new collection starting from the given offset
 
 ----
 
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----

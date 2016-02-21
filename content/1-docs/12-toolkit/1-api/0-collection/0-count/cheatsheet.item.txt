@@ -13,3 +13,15 @@ text:
 ----
 
 Params:
+
+----
+Text:
+
+## Examples:
+
+
+```php
+This collection has
+<?php echo $collection->count() ?>
+items
+```

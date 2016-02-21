@@ -6,7 +6,8 @@ Excerpt: Prepends an element to the data array
 
 ----
 
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----

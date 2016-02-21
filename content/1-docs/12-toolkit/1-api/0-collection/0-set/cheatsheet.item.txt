@@ -10,4 +10,11 @@ Return:
 
 ----
 
-Params:
+Params:-
+  name: $key
+  type: string | array
+  text:
+-
+  name: $value
+  type:
+  text:
