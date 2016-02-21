@@ -19,14 +19,3 @@ Params: -
 
 ----
 Text:
-```php
-// fetch children with a title starting with 'Project'
-$projects = $page->children()->filter(function($child) {
-  return str::startsWith($child->title(), 'Project');
-});
-
-//fetch all images execept thoses that contain 'cover'
-$images = $page->images()->filter(function($image) {
-  return !str::contains($image->filename(), 'cover');
-});
-```

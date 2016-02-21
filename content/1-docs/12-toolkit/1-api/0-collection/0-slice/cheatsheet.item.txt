@@ -24,3 +24,13 @@ Params: -
   text: >
     The optional number of elements to
     return
+
+----
+Text:
+
+## Example
+
+```php
+// get three elements starting with the fifth
+$collection->slice(5, 3);
+```
