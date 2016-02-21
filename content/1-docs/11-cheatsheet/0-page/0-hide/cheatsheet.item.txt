@@ -1,12 +1,12 @@
 Title:
 
-$page->hide()
+{{class.instance}}->hide()
 
 ----
 
 Excerpt:
 
-Removes the sorting number from the page directory to switch it to invisible.
+Removes the sorting number from the page directory to switch it to invisible
 
 ----
 

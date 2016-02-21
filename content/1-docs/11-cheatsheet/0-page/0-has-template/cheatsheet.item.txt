@@ -1,12 +1,12 @@
 Title:
 
-$page->hasTemplate()
+{{class.instance}}->hasTemplate()
 
 ----
 
 Excerpt:
 
-Checks if the page has its own template or if it uses the default template.
+Checks if the page has its own template or if it uses the default template
 
 ----
 

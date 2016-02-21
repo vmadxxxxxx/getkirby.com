@@ -1,6 +1,6 @@
 Title:
 
-$page->templateData()
+{{class.instance}}->templateData()
 
 ----
 
@@ -18,4 +18,3 @@ text:
 ----
 
 Text:
-

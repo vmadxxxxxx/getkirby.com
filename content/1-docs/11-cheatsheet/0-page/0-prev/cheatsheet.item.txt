@@ -1,12 +1,12 @@
 Title:
 
-$page->prev()
+{{class.instance}}->prev()
 
 ----
 
 Excerpt:
 
-Returns the previous sibling.
+Returns the previous sibling
 
 ----
 

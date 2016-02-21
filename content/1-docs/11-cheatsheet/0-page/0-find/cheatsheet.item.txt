@@ -1,6 +1,4 @@
-Title:
-
-$page->find($uri)
+Title: {{class.instance}}->find($uri)
 
 ----
 
@@ -10,9 +8,16 @@ Returns the $page object of a specific subpage by URI. If multiple URIs are give
 
 ----
 
+Params: -
+  name: $uri
+  type: args
+  text: The URI(s) of a subpage or multiple subpages
+
+----
+
 Return:
 
-type: $page
+type: $page | $pages
 text:
 
 ----

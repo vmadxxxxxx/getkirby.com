@@ -1,12 +1,12 @@
 Title:
 
-$page->hasVideos()
+{{class.instance}}->hasVideos()
 
 ----
 
 Excerpt:
 
-Checks if there are any video files in the page directory.
+Checks if there are any video files in the page directory
 
 ----
 
@@ -18,3 +18,15 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->hasVideos(); //returns the number of videos in the folder
+
+if($page->hasImages()) {
+  $videos = $page->videos();
+}
+?>
+```

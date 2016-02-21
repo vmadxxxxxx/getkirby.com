@@ -1,6 +1,6 @@
 Title:
 
-$page->index()
+{{class.instance}}->index()
 
 ----
 

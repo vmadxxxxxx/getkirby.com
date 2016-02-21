@@ -1,12 +1,12 @@
 Title:
 
-$page->isChildOf($parent)
+{{class.instance}}->isChildOf($parent)
 
 ----
 
 Excerpt:
 
-Checks if the page is a child of the given page.
+Checks if the page is a child of the given page
 
 ----
 

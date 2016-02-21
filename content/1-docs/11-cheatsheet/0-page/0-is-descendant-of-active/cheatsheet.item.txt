@@ -1,12 +1,12 @@
 Title:
 
-$page->isDescendantOfActive()
+{{class.instance}}->isDescendantOfActive()
 
 ----
 
 Excerpt:
 
-Checks if the page is a descendant of the currently active page.
+Checks if the page is a descendant of the currently active page
 
 ----
 

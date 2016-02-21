@@ -1,6 +1,6 @@
 Title:
 
-$page->hasPrevInvisible()
+{{class.instance}}->hasPrevInvisible()
 
 ----
 
@@ -18,3 +18,11 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->hasPrevInvisible(); //will echo 1 if true, nothing if false.
+?>
+```

@@ -1,6 +1,6 @@
 Title:
 
-$page->delete($force = false)
+{{class.instance}}->delete($force = false)
 
 ----
 

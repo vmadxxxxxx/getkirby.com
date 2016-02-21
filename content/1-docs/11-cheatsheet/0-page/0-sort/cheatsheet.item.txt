@@ -1,6 +1,6 @@
 Title:
 
-$page->sort($num)
+{{class.instance}}->sort($num)
 
 ----
 

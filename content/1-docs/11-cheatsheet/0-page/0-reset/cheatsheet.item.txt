@@ -1,6 +1,6 @@
 Title:
 
-$page->reset()
+{{class.instance}}->reset()
 
 ----
 
@@ -12,7 +12,7 @@ Cleans the temporary page cache and the cache of all parent pages
 
 Return:
 
-type: 
+type:
 text:
 
 ----

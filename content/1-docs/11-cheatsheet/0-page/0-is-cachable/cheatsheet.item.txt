@@ -1,6 +1,6 @@
 Title:
 
-$page->isCacheable()
+{{class.instance}}->isCacheable()
 
 ----
 
@@ -17,5 +17,3 @@ text:
 ----
 
 Text:
-
-

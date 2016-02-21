@@ -1,12 +1,10 @@
-Title:
-
-$page->parents()
+Title: {{class.instance}}->parents()
 
 ----
 
 Excerpt:
 
-Returns a $pages collection of all parents.
+Returns a $pages collection of all parents
 
 ----
 

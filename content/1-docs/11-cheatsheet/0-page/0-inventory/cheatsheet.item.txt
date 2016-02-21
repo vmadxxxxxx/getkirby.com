@@ -1,6 +1,6 @@
 Title:
 
-$page->inventory()
+{{class.instance}}->inventory()
 
 ----
 
@@ -18,3 +18,5 @@ text:
 ----
 
 Text:
+
+## Example

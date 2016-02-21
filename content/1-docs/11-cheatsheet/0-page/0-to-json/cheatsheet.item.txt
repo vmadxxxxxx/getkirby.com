@@ -1,6 +1,6 @@
 Title:
 
-$page->toJson()
+{{class.instance}}->toJson()
 
 ----
 

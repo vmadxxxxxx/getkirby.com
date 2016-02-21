@@ -1,6 +1,4 @@
-Title:
-
-$page->children()
+Title: {{class.instance}}->children()
 
 ----
 

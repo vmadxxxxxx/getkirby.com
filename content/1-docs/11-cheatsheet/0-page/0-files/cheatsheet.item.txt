@@ -1,12 +1,12 @@
 Title:
 
-$page->files()
+{{class.instance}}->files()
 
 ----
 
 Excerpt:
 
-Returns a $files collection with all files in the page's directory.
+Returns a $files collection with all files in the page's directory
 
 ----
 

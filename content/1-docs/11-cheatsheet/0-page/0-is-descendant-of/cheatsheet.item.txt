@@ -1,12 +1,12 @@
 Title:
 
-$page->isDescendantOf($parent)
+{{class.instance}}->isDescendantOf($parent)
 
 ----
 
 Excerpt:
 
-Checks if the page is a descendant of the given page.
+Checks if the page is a descendant of the given page
 
 ----
 

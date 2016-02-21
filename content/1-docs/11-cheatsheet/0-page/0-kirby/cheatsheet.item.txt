@@ -1,6 +1,6 @@
 Title:
 
-$page->kirby()
+{{class.instance}}->kirby()
 
 ----
 
@@ -18,4 +18,3 @@ text:
 ----
 
 Text:
-

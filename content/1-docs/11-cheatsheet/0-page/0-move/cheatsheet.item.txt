@@ -1,6 +1,6 @@
 Title:
 
-$page->move($uid)
+{{class.instance}}->move($uid)
 
 ----
 
@@ -18,4 +18,3 @@ text:
 ----
 
 Text:
-

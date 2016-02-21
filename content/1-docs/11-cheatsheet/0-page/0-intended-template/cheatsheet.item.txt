@@ -1,6 +1,6 @@
 Title:
 
-$page->intendedTemplate()
+{{class.instance}}->intendedTemplate()
 
 ----
 
@@ -18,3 +18,11 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->intendedTemplate();
+?>
+```

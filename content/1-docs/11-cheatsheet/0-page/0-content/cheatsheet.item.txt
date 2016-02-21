@@ -1,6 +1,4 @@
-Title:
-
-$page->content()
+Title: {{class.instance}}->content()
 
 ----
 

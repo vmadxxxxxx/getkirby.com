@@ -1,12 +1,12 @@
 Title:
 
-$page->intendedTemplateFile()
+{{class.instance}}->intendedTemplateFile()
 
 ----
 
 Excerpt:
 
-Returns the path for the intended template file.
+Returns the path for the intended template file
 
 ----
 
@@ -18,3 +18,11 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->intendedTemplateFile();
+?>
+```

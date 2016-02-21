@@ -1,6 +1,6 @@
 Title:
 
-$page->isWritable()
+{{class.instance}}->isWritable()
 
 ----
 

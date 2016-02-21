@@ -1,12 +1,12 @@
 Title:
 
-$page->hasDocuments()
+{{class.instance}}->hasDocuments()
 
 ----
 
 Excerpt:
 
-Checks if there are any documents (pdf, doc, xls, etc.) in the page's directory.
+Checks if there are any documents (pdf, doc, xls, etc.) in the page's directory
 
 ----
 
@@ -18,3 +18,15 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->hasDocuments(); //returns the number of documents in the folder
+
+if($page->hasDocuments()) {
+  $documents = $page->documents();
+}
+?>
+```
