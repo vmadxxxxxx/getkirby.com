@@ -1,6 +1,6 @@
 Title:
 
-{{class.instance}}->not($page)
+{{class.instance}}->not($args)
 
 ----
 
@@ -11,7 +11,7 @@ Returns the collection without any given pages.
 ----
 
 Params: -
-  name: $page
+  name: $args
   type: Page | string
   text: Excluded pages can be specified by passing the entire $page object, the UID or full URI
 
