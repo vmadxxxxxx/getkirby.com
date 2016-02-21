@@ -1,12 +1,8 @@
-Title: i::current
+Title: {{class.instance}}->current()
 
 ----
 
 Excerpt: Returns the current element of the array
-
-----
-
-Call: i::current()
 
 ----
 
@@ -15,4 +11,4 @@ text:
 
 ----
 
-Params: 
+Params:

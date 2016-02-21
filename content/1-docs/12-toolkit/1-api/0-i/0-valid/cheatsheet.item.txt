@@ -1,12 +1,8 @@
-Title: i::valid
+Title: {{class.instance}}->valid()
 
 ----
 
-Excerpt: Checks if an element is valid This is needed for the Iterator implementation
-
-----
-
-Call: i::valid()
+Excerpt: Checks if an element is valid. This is needed for the Iterator implementation
 
 ----
 
@@ -15,4 +11,4 @@ text:
 
 ----
 
-Params: 
+Params:
