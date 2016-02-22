@@ -12,8 +12,8 @@ Converts the collection to a good old array. You can pass a callback which will 
 
 Params: -
   name: $callback
-  type: callable
-  text: Mapping callback
+  type: closure
+  text: Filter callback for each item
 
 ----
 Return:

@@ -13,7 +13,7 @@ Returns all visible items in the collection
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 
