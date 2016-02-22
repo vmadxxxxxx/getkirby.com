@@ -1,12 +1,12 @@
 Title:
 
-$page->dirname()
+{{class.instance}}->dirname()
 
 ----
 
 Excerpt:
 
-Returns the full name of the page's directory.
+Returns the full name of the page's directory
 
 ----
 

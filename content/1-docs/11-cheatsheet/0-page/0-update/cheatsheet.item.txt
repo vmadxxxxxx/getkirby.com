@@ -1,12 +1,22 @@
 Title:
 
-$page->update($data = array() [, $lang = null])
+{{class.instance}}->update($data = array() [, $lang = null])
 
 ----
 
 Excerpt:
 
 Updates the page content with all passed variables.
+
+----
+Params: -
+  name: $data
+  type: array
+  text: The page data to be updated
+-
+  name: $language
+  type: string
+  text: Optional, language code (only in case of a multi-language site)
 
 ----
 

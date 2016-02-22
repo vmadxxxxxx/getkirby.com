@@ -1,6 +1,6 @@
 Title:
 
-$page->prevInvisible()
+{{class.instance}}->prevInvisible()
 
 ----
 

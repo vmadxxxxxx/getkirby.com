@@ -1,6 +1,6 @@
 Title:
 
-$page->hasInvisibleChildren()
+{{class.instance}}->hasInvisibleChildren()
 
 ----
 
@@ -18,3 +18,15 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->hasInvisibleChildren(); //returns the number of invisible children in the folder
+
+if($page->hasInvisibleChildren()) {
+  $invisibleChildren = $page->children()->invisible();
+}
+?>
+```

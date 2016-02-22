@@ -1,6 +1,6 @@
 Title:
 
-$page->diruri()
+{{class.instance}}->diruri()
 
 ----
 

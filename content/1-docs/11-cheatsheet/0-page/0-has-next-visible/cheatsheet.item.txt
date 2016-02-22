@@ -1,6 +1,6 @@
 Title:
 
-$page->hasNextVisible()
+{{class.instance}}->hasNextVisible()
 
 ----
 
@@ -18,3 +18,11 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->hasNextVisible(); //will echo 1 if true, nothing if false.
+?>
+```

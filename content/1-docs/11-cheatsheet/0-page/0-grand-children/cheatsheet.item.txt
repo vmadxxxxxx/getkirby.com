@@ -1,12 +1,10 @@
-Title:
-
-$page->grandChildren()
+Title: {{class.instance}}->grandChildren()
 
 ----
 
 Excerpt:
 
-Returns a $pages collection with all children of children in the page's directory.
+Returns a $pages collection with all children of children in the page's directory
 
 ----
 

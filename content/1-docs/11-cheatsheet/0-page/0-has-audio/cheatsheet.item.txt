@@ -1,6 +1,6 @@
 Title:
 
-$page->hasAudio()
+{{class.instance}}->hasAudio()
 
 ----
 
@@ -18,3 +18,15 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->hasAudio(); //returns the number of audio files in the folder
+
+if($page->hasAudio()) {
+  $audio = $page->audio();
+}
+?>
+```

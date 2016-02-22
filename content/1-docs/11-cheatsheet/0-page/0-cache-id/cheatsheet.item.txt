@@ -1,0 +1,34 @@
+Title:
+
+{{class.instance}}->cacheId($lang = null)
+
+----
+
+Excerpt:
+
+Returns the cache id
+
+----
+
+Params: -
+  name: $lang
+  type: string
+  text:
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->cacheId() ?>
+
+```

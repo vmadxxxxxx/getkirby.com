@@ -1,6 +1,6 @@
 Title:
 
-$page->headers()
+{{class.instance}}->headers()
 
 ----
 
@@ -18,4 +18,3 @@ text:
 ----
 
 Text:
-

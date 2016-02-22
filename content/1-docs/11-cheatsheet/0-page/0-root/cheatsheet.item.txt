@@ -1,6 +1,6 @@
 Title:
 
-$page->root()
+{{class.instance}}->root()
 
 ----
 

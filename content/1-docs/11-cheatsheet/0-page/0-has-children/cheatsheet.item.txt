@@ -1,12 +1,12 @@
 Title:
 
-$page->hasChildren()
+{{class.instance}}->hasChildren()
 
 ----
 
 Excerpt:
 
-Checks if the page has children.
+Checks if the page has children
 
 ----
 
@@ -18,3 +18,15 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->hasChildren(); //returns the number of children in the folder
+
+if($page->hasChildren()) {
+  $children = $page->children();
+}
+?>
+```

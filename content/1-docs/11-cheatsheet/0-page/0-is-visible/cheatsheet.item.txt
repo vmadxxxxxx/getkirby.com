@@ -1,6 +1,6 @@
 Title:
 
-$page->isVisible()
+{{class.instance}}->isVisible()
 
 ----
 
