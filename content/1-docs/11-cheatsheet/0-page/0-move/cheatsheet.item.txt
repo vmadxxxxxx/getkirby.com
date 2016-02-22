@@ -10,6 +10,13 @@ Changes the uid for the page
 
 ----
 
+Params: -
+  name: $uid
+  type: string
+  text: A UID
+
+----
+
 Return:
 
 type: boolean
@@ -18,3 +25,17 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+try {
+  $page->move('a-new-uid') ?>
+
+} catch(Exception $e) {
+
+  echo $e->getMessage();
+
+}
+```

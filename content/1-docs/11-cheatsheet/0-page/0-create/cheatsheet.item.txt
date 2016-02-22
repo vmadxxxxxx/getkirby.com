@@ -19,6 +19,8 @@ Params: -
   type: array
   text: The data for the page as $key => $value pairs
 
+----
+
 Return:
 
 type: $page
@@ -32,9 +34,16 @@ Text:
 
 ```php
 <?php
-$page->create('projects/project-d', 'project', data(
-  'title' => 'A page title',
-  'date' => '2016-02-21'
-  'text' => 'Lorem ipsum dolor set amet ...'
-));
+try {
+  $page->create('projects/project-d', 'project', data(
+    'title' => 'A page title',
+    'date' => '2016-02-21'
+    'text' => 'Lorem ipsum dolor set amet ...'
+  ));
+} catch(Exception $e) {
+
+  echo $e->getMessage();
+
+}
+?>
 ```

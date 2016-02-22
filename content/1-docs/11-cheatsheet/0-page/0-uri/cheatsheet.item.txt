@@ -1,6 +1,6 @@
 Title:
 
-{{class.instance}}->uri()
+{{class.instance}}->uri([$lang = null])
 
 ----
 
@@ -9,7 +9,12 @@ Excerpt:
 Returns the URI. The URI is the relative URL without the host or any subfolders.
 
 ----
+Params:-
+  name: $lang
+  type: string
+  text: Optional, in case of a multi-language site; returns the translated URI
 
+----
 Return:
 
 type: string

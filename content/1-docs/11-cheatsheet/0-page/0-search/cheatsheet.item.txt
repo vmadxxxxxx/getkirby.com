@@ -9,6 +9,16 @@ Excerpt:
 Searches all descendants
 
 ----
+Params: -
+  name: $query
+  type: string
+  text: The search term
+-
+  name: $params
+  type: string | array
+  text:
+
+----    
 
 Return:
 

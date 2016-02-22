@@ -10,6 +10,13 @@ Returns the unix timestamp or a formatted date string of the last modification d
 
 ----
 
+Params: -
+  name: $format
+  type: string
+  text: A date format
+
+----
+
 Return:
 
 type: integer | string

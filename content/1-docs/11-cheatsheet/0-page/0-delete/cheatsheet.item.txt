@@ -12,7 +12,7 @@ Deletes the $page object and all its data and files. This cannot be undone!
 
 Return:
 
-type: $boolean
+type: boolean
 text:
 
 ----

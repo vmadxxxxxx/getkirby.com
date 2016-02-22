@@ -12,7 +12,7 @@ Returns the kirby object
 
 Return:
 
-type: object
+type: $kirby
 text:
 
 ----

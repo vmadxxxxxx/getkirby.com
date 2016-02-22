@@ -19,6 +19,8 @@ text:
 
 Text:
 
+## Example
+
 ```php
 <?php if($page->isDeletable()): ?>
 This page could be deleted,

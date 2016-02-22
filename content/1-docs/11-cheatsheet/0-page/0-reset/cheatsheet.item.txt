@@ -18,3 +18,10 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+$page->reset();
+?>
