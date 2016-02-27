@@ -28,7 +28,7 @@ Text:
 
 ## Example
 
-```
+```php
 $media->save(array(
 	'foo' => 'bar',
 	'bar' => 'foo'
