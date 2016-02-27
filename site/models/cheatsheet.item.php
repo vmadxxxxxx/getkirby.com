@@ -33,7 +33,7 @@ class CheatsheetItemPage extends Page {
   public function url($section = null) {
     if(!is_a($section, 'Page') || $section === $this->parent()) return parent::url();
     
-    return parent::url() . '?section=' . $section->uri();
+    return $section->url() . '/' . $this->uid();
   }
   
   /**

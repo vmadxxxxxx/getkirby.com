@@ -26,6 +26,29 @@ c::set('routes', array(
     }
   ),
   array(
+    'pattern' => array('(docs/cheatsheet)/(:any)/(:any)', '(docs/toolkit/api)/(:any)/(:any)'),
+    'action'  => function($cheatsheet, $section, $item) {
+      // check if the page with the exact URL exists
+      if($page = page($cheatsheet . '/' . $section . '/' . $item)) {
+        return $page;
+      }
+      
+      // try to get the cheat sheet section
+      $sectionPage = page($cheatsheet . '/' . $section);
+      if(!$sectionPage) return site()->errorPage();
+      
+      // try to get the inherited child
+      $itemPage = $sectionPage->inheritedChildren()->find($item);
+      if(!$itemPage) return site()->errorPage();
+      
+      // set the section GET param
+      // used for titles, inheritance warnings and the sidebar
+      r::set('section', $cheatsheet . '/' . $section);
+      
+      return $itemPage;
+    }
+  ),
+  array(
     'pattern' => 'docs/toolkit/generate', 
     'action'  => function() {
       
