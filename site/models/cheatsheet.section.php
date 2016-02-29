@@ -1,18 +1,20 @@
 <?php
 
 class CheatsheetSectionPage extends Page {
+  protected $inheritedChildren = null;
+  
   /**
    * Returns the children of the category and the inherited children
    *
    * @return Pages
    */
   public function inheritedChildren() {
-    if($this->extends()->empty()) return $this->children();
-    if(!($parent = page($this->extends()))) return $this->children();
+    if($this->extends()->empty()) return $this->inheritedChildren = $this->children();
+    if(!($parent = page($this->extends()))) return $this->inheritedChildren = $this->children();
     
     // get the inherited children of the parent class
     $children = $parent->inheritedChildren();
-    if(!is_a($children, 'Pages')) return $this->children();
+    if(!is_a($children, 'Pages')) return $this->inheritedChildren = $this->children();
     
     foreach($this->children() as $p) {
       // remove the inherited page first
@@ -22,7 +24,7 @@ class CheatsheetSectionPage extends Page {
       $children->append($p->id(), $p);
     }
     
-    return $children->sortBy('uid');
+    return $this->inheritedChildren = $children->sortBy('uid');
   }
   
   /**
