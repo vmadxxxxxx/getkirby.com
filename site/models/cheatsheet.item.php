@@ -37,6 +37,108 @@ class CheatsheetItemPage extends Page {
   }
   
   /**
+   * Returns the inheriting parent based on the section parameter
+   *
+   * @return Page
+   */
+  public function inheritingParent() {
+    return ($section = get('section'))? page($section) : $this->parent();
+  }
+  
+  /**
+   * Checks if the inheriting parent is different from the actual parent
+   *
+   * @return boolean
+   */
+  public function hasInheritingParent() {
+    return $this->parent() !== $this->inheritingParent();
+  }
+  
+  /**
+   * Returns the next page element
+   * Respects the inherited children
+   *
+   * @return Page
+   */
+  public function next() {
+    return $this->_next($this->inheritingParent()->inheritedChildren(), func_get_args());
+  }
+  
+  /**
+   * Returns the next visible page in the current collection if available
+   * Respects the inherited children
+   *
+   * @param string $sort An optional sort field for the siblings
+   * @param string $direction An optional sort direction
+   * @return mixed Page or null
+   */
+  public function nextVisible() {
+    if(!$this->inheritingParent()) {
+      return null;
+    } else {
+      return $this->_next($this->inheritingParent()->inheritedChildren(), func_get_args(), 'visible');
+    }
+  }
+  
+  /**
+   * Returns the next invisible page in the current collection if available
+   * Respects the inherited children
+   *
+   * @param string $sort An optional sort field for the siblings
+   * @param string $direction An optional sort direction
+   * @return mixed Page or null
+   */
+  public function nextInvisible() {
+    if(!$this->inheritingParent()) {
+      return null;
+    } else {
+      return $this->_next($this->inheritingParent()->inheritedChildren(), func_get_args(), 'invisible');
+    }
+  }
+  
+  /**
+   * Returns the previous page element
+   * Respects the inherited children
+   *
+   * @return Page
+   */
+  public function prev() {
+    return $this->_prev($this->inheritingParent()->inheritedChildren(), func_get_args());
+  }
+  
+  /**
+   * Returns the previous visible page in the current collection if available
+   * Respects the inherited children
+   *
+   * @param string $sort An optional sort field for the siblings
+   * @param string $direction An optional sort direction
+   * @return mixed Page or null
+   */
+  public function prevVisible() {
+    if(!$this->inheritingParent()) {
+      return null;
+    } else {
+      return $this->_prev($this->inheritingParent()->inheritedChildren(), func_get_args(), 'visible');
+    }
+  }
+  
+  /**
+   * Returns the previous invisible page in the current collection if available
+   * Respects the inherited children
+   *
+   * @param string $sort An optional sort field for the siblings
+   * @param string $direction An optional sort direction
+   * @return mixed Page or null
+   */
+  public function prevInvisible() {
+    if(!$this->inheritingParent()) {
+      return null;
+    } else {
+      return $this->_prev($this->inheritingParent()->inheritedChildren(), func_get_args(), 'invisible');
+    }
+  }
+  
+  /**
    * Replaces the class placeholders in a given field
    *
    * @param  String $field   Field name to replace the class in

@@ -33,7 +33,7 @@
       </ul>
       <?php endif ?>
       
-      <?php if($inherited && $sectionPage->extendingMode() == 'inherits'): ?>
+      <?php if($page->hasInheritingParent() && $page->inheritingParent()->extendingMode() == 'inherits'): ?>
       <p class="zeta">This documentation entry is inherited from the <a href="<?php echo $page->parent()->url() ?>"><?php echo ($class = $page->parent()->class())? $class : $page->parent()->title() ?> class</a>.</p>
       <?php endif ?>
 
@@ -50,18 +50,19 @@
     </section>
 
     <nav class="sidebar col-2-6 last">
+      <?php $overviewPage = $page->inheritingParent()->parent(); ?>
       <ul>
         <li><a href="<?php echo $overviewPage->url() ?>"><small>&uarr;</small><?php echo $overviewPage->title() ?> overview</a></li>
 
-        <?php if($prev = $inheritedPage->prevVisible()): ?>
-        <li><a href="<?php echo $prev->url($sectionPage) ?>"><small>&larr;</small> <?php echo html($prev->title()) ?></a></li>
+        <?php if($prev = $page->prevVisible()): ?>
+        <li><a href="<?php echo $prev->url($page->inheritingParent()) ?>"><small>&larr;</small> <?php echo html($prev->title()) ?></a></li>
         <?php endif ?>
 
-        <?php if($next = $inheritedPage->nextVisible()): ?>
-        <li><a href="<?php echo $next->url($sectionPage) ?>"><small>&rarr;</small> <?php echo html($next->title()) ?></a></li>
+        <?php if($next = $page->nextVisible()): ?>
+        <li><a href="<?php echo $next->url($page->inheritingParent()) ?>"><small>&rarr;</small> <?php echo html($next->title()) ?></a></li>
         <?php endif ?>
 
-        <li><a href="<?php echo $overviewPage->url() ?>#<?php echo $sectionPage->uid() ?>"><small>&darr;</small>Back to <?php echo $overviewPage->title() ?> section</a></li>
+        <li><a href="<?php echo $overviewPage->url() ?>#<?php echo $page->inheritingParent()->uid() ?>"><small>&darr;</small>Back to <?php echo $overviewPage->title() ?> section</a></li>
       </ul>
     </nav>
 
