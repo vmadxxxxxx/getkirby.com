@@ -1925,15 +1925,23 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 3.5em;
   z-index: 0; }
 
-.cdn {
-  display: block;
+.sponsors {
+  text-align: center; }
+
+.sponsors a {
+  display: inline-block;
+  margin: .5em 1.5rem;
   text-align: center;
   color: #777;
   font-style: italic;
+  vertical-align: middle;
   line-height: 1em; }
 
-.cdn img {
-  width: 7em;
+.sponsors img {
+  height: 2.5em;
   vertical-align: middle;
   margin-left: .5em;
   padding-bottom: .35em; }
+
+.sponsors-imgix img {
+  height: 2.05em; }

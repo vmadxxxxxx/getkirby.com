@@ -1,10 +1,17 @@
 
     <?php snippet('footer.menu') ?>
 
-    <a class="cdn" href="https://www.keycdn.com/?a=5715">
-      CDN sponsored by 
-      <img src="<?php echo url('assets/images/keycdn.svg') ?>" alt="KeyCDN">
-    </a>
+    <div class="sponsors">
+      <a class="sponsors-imgix" href="https://www.imgix.com/?utm_source=kirby">
+        Image hosting by 
+        <img src="<?php echo url('assets/images/imgix.svg') ?>" alt="imgIX">
+      </a>
+
+      <a class="sponsors-keycdn" href="https://www.keycdn.com/?a=5715">
+        CDN by 
+        <img src="<?php echo url('assets/images/keycdn.svg') ?>" alt="KeyCDN">
+      </a>
+    </div>
 
   </div><!-- [.site] end -->
 
