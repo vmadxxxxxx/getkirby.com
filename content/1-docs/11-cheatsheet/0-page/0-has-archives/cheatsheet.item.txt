@@ -1,6 +1,4 @@
-Title:
-
-$page->hasArchives()
+Title: {{class.instance}}->hasArchives()
 
 ----
 
@@ -18,3 +16,15 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->hasArchives(); //returns the number of archive files in the folder
+
+if($page->hasArchives()) {
+  $archives = $page->archives();
+}
+?>
+```

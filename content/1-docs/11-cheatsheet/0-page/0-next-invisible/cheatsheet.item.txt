@@ -1,6 +1,4 @@
-Title:
-
-$page->nextInvisible()
+Title: {{class.instance}}->nextInvisible()
 
 ----
 

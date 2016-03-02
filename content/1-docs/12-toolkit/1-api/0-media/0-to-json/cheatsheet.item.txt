@@ -1,0 +1,23 @@
+Title:
+
+{{class.instance}}->toJson($callback = null)
+
+----
+
+Excerpt:
+
+Converts the entire media object into a JSON string
+
+----
+
+Params: - 
+  name: $callback
+  type: callable
+  text: Mapping callback
+
+----
+
+Return:
+
+type: string
+text:

@@ -11,7 +11,3 @@ Extends: docs/toolkit/api/media
 ----
 
 ExtendingMode: inherits
-
-----
-
-Text:

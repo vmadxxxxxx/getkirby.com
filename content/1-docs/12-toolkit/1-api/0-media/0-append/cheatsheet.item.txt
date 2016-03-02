@@ -1,4 +1,4 @@
-Title: {{class.instance}}->append
+Title: {{class.instance}}->append($content)
 
 ----
 
@@ -6,11 +6,9 @@ Excerpt: Appends the content and saves the file
 
 ----
 
-Call: {{class.instance}}->append($content)
+Return:
 
-----
-
-Return: type: boolean
+type: boolean
 text:
 
 ----
@@ -19,3 +17,13 @@ Params: -
   name: $content
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+$media->append('[' . date('r') . "] Something interesting happened to this log.\n");
+```

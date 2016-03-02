@@ -1,4 +1,4 @@
-Title: {{class.instance}}->limit
+Title: {{class.instance}}->limit($limit)
 
 ----
 
@@ -6,16 +6,13 @@ Excerpt: Returns a new collection with a limited number of elements
 
 ----
 
-Call: {{class.instance}}->limit($limit)
-
-----
-
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----
 
-Params: - 
+Params: -
   name: $limit
   type: int
   text: The number of elements to return

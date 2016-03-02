@@ -1,6 +1,6 @@
 Title:
 
-$page->tinyurl()
+{{class.instance}}->tinyurl()
 
 ----
 

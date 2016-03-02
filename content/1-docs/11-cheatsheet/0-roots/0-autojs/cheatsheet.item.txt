@@ -1,4 +1,4 @@
-Title: $roots->autojs()
+Title: {{class.instance}}->autojs()
 
 ----
 

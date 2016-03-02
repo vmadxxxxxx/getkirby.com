@@ -1,18 +1,12 @@
-Title: {{class.instance}}->url
+Title: {{class.instance}}->url()
 
 ----
 
-Excerpt: Returns the url
+Excerpt: Returns the url to the file
 
 ----
 
-Call: {{class.instance}}->url()
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
-
-----
-
-Params: 

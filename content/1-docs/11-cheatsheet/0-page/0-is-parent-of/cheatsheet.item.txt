@@ -1,12 +1,19 @@
 Title:
 
-$page->isParentOf($child)
+{{class.instance}}->isParentOf($child)
 
 ----
 
 Excerpt:
 
-Checks if the page is the parent of the given page.
+Checks if the page is the parent of the given page
+
+----
+
+Params: -
+  name: $child
+  type: Page | string
+  text: A page URI or page object.
 
 ----
 

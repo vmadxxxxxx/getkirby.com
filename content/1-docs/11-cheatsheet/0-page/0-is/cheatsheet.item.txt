@@ -1,12 +1,19 @@
 Title:
 
-$page->is($other)
+{{class.instance}}->is($other)
 
 ----
 
 Excerpt:
 
-Compares the page with another $page object and checks if they are the same.
+Compares the page with another $page object and checks if they are the same
+
+----
+
+Params: -
+  name: $other
+  type: Page
+  text: Another page object
 
 ----
 

@@ -1,0 +1,5 @@
+Title: {{class.instance}}->reset()
+
+----
+
+Excerpt: Resets the internal memory data cache

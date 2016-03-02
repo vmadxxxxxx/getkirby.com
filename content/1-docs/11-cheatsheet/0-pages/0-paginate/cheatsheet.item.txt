@@ -1,19 +1,30 @@
 Title:
 
-$pages->paginate($limit, $options = array())
+{{class.instance}}->paginate($limit, $options = array())
 
 ----
 
 Excerpt:
 
-Adds a $pagination object to the collection, which makes it easy to page through items.
+Adds a $pagination object to the collection, which makes it easy to page through items
+
+----
+
+Params: -
+  name: $limit
+  type: int
+  text: Number of items per page
+-
+  name: $options
+  type: array
+  text: See below
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 
@@ -37,7 +48,7 @@ $articles = $page->children()->paginate(10);
 Change the name of the parameter variable, e.g. in a multi-lingual site. The following example will result in `/seite:n` for the German site and `/page:n` for the rest.
 
 ```php
-$articles = $page->children()->paginate(20, array( 'variable' => $site->language()->code() == 'de' ? 'seite' : 'page' )); 
+$articles = $page->children()->paginate(20, array( 'variable' => $site->language()->code() == 'de' ? 'seite' : 'page' ));
 ```
 
 **method**: default: "param"

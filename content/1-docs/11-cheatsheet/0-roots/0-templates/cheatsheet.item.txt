@@ -1,4 +1,4 @@
-Title: $roots->templates()
+Title: {{class.instance}}->templates()
 
 ----
 

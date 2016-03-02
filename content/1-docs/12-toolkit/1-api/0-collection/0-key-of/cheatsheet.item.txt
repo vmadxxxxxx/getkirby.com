@@ -1,4 +1,4 @@
-Title: {{class.instance}}->keyOf
+Title: {{class.instance}}->keyOf($needle)
 
 ----
 
@@ -6,16 +6,13 @@ Excerpt: Tries to find the key for the given element
 
 ----
 
-Call: {{class.instance}}->keyOf($needle)
-
-----
-
-Return: type: mixed
+Return:
+type: mixed
 text: the name of the key or false
 
 ----
 
-Params: - 
+Params: -
   name: $needle
   type: mixed
   text: the element to search for

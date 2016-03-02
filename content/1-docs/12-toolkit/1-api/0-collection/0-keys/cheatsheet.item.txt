@@ -1,4 +1,4 @@
-Title: {{class.instance}}->keys
+Title: {{class.instance}}->keys()
 
 ----
 
@@ -6,13 +6,10 @@ Excerpt: Returns an array of all keys in the collection
 
 ----
 
-Call: {{class.instance}}->keys()
-
-----
-
-Return: type: array
+Return:
+type: array
 text:
 
 ----
 
-Params: 
+Params:

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->toJson
+Title: {{class.instance}}->toJson()
 
 ----
 
@@ -6,13 +6,10 @@ Excerpt: Converts the current object into a json string
 
 ----
 
-Call: {{class.instance}}->toJson()
-
-----
-
-Return: type: string
+Return:
+type: string
 text:
 
 ----
 
-Params: 
+Params:

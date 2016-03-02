@@ -1,4 +1,4 @@
-Title: $roots->content()
+Title: {{class.instance}}->content()
 
 ----
 

@@ -1,12 +1,12 @@
 Title:
 
-$file->hash()
+{{class.instance}}->hash()
 
 ----
 
 Excerpt:
 
-Returns an md5 hash for the root of the file.
+Returns an md5 hash for the root of the file
 
 ----
 

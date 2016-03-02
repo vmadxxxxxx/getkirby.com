@@ -1,6 +1,6 @@
 Title:
 
-$page->uid()
+{{class.instance}}->uid()
 
 ----
 

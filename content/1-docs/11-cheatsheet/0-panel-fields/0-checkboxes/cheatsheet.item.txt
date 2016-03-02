@@ -81,6 +81,7 @@ fields:
 Option | Description 
 - | -
 children | List of options with all children
+grandchildren | List of options with all grandchildren
 visibleChildren | List of options with all visible children
 invisibleChildren | List of options with all invisible children
 visibleSiblings | List of options with all visible siblings

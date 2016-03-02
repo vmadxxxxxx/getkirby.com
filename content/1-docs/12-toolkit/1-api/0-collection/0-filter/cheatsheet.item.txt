@@ -1,4 +1,4 @@
-Title: {{class.instance}}->filter
+Title: {{class.instance}}->filter($callback)
 
 ----
 
@@ -6,16 +6,16 @@ Excerpt: Filter the elements in the array by a callback function
 
 ----
 
-Call: {{class.instance}}->filter($callback)
-
-----
-
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----
 
-Params: - 
+Params: -
   name: $callback
-  type: \func
+  type: function
   text: the callback function
+
+----
+Text:

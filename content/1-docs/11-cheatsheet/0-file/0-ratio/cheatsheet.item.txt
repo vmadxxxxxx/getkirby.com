@@ -1,6 +1,6 @@
 Title:
 
-$file->ratio()
+{{class.instance}}->ratio()
 
 ----
 

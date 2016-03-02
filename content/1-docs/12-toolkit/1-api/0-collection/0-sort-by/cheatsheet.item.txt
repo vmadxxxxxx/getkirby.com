@@ -1,4 +1,4 @@
-Title: {{class.instance}}->sortBy
+Title: {{class.instance}}->sortBy($field, $direction='asc')
 
 ----
 
@@ -6,13 +6,10 @@ Excerpt: Sorts the collection by any number of fields
 
 ----
 
-Call: {{class.instance}}->sortBy()
-
-----
-
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----
 
-Params: 
+Params:

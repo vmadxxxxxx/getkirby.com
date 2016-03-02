@@ -1,4 +1,4 @@
-Title: $roots->assets()
+Title: {{class.instance}}->assets()
 
 ----
 

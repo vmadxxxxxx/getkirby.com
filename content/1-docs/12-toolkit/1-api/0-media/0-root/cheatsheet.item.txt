@@ -1,18 +1,27 @@
-Title: {{class.instance}}->root
+Title:
+
+{{class.instance}}->root()
 
 ----
 
-Excerpt: Returns the full root of the asset
+Excerpt:
+
+Returns the full root for a file
 
 ----
 
-Call: {{class.instance}}->root()
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+echo $media->root();
+// i.e. /var/www/yourdomain.com/html/content/some-page/some-file.jpg
+```

@@ -1,12 +1,19 @@
 Title:
 
-$page->isDescendantOf($parent)
+{{class.instance}}->isDescendantOf($parent)
 
 ----
 
 Excerpt:
 
-Checks if the page is a descendant of the given page.
+Checks if the page is a descendant of the given page
+
+----
+
+Params: -
+  name: $parent
+  type: Page | string
+  text: A page URI or page object.
 
 ----
 
@@ -18,3 +25,11 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php if($page->isDescendantOf('some-page')): ?>
+This page is a descendant of the given page.
+<?php endif ?>
+```

@@ -1,4 +1,4 @@
-Title: {{class.static}}::extractValue
+Title: {{class.static}}::extractValue($item, $field)
 
 ----
 
@@ -6,20 +6,46 @@ Excerpt: Makes sure to provide a valid value for each filter method no matter if
 
 ----
 
-Call: {{class.static}}::extractValue($item, $field)
-
-----
-
-Return: type: mixed
+Return:
+type: mixed
 text:
 
 ----
 
-Params: - 
+Params: -
   name: $item
   type: mixed
   text:
-- 
+-
   name: $field
   type: string
   text:
+  
+----
+Text:
+
+(For the Kirby CMS, this is an internal method, which is used by the collection filter methods. You can use it when defining your own collection filter methods.)
+
+## Example
+
+Filter method:
+
+```php
+// get all matching elements
+collection::$filters['=='] = function($collection, $field, $value, $split = false) {
+
+  foreach($collection->data as $key => $item) {
+
+    if($split) {
+      $values = str::split((string)collection::extractValue($item, $field), $split);
+      if(!in_array($value, $values)) unset($collection->$key);
+    } else if(collection::extractValue($item, $field) != $value) {
+      unset($collection->$key);
+    }
+
+  }
+
+  return $collection;
+
+};
+```

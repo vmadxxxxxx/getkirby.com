@@ -1,6 +1,6 @@
 Title:
 
-$page->inventory()
+{{class.instance}}->inventory()
 
 ----
 
@@ -18,3 +18,13 @@ text:
 ----
 
 Text:
+
+The inventory array contains a list of all inventory items of the page, like the content files, children, files, meta files, etc.
+
+## Example
+
+```php
+<?php
+a::show($page->inventory());
+?>
+```

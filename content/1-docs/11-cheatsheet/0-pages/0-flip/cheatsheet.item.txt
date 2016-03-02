@@ -1,19 +1,19 @@
 Title:
 
-$pages->flip()
+{{class.instance}}->flip()
 
 ----
 
 Excerpt:
 
-Returns the collection in reverse order.
+Returns the collection in reverse order
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 

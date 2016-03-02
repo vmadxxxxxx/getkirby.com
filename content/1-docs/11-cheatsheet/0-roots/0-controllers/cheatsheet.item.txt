@@ -1,4 +1,4 @@
-Title: $roots->controllers()
+Title: {{class.instance}}->controllers()
 
 ----
 

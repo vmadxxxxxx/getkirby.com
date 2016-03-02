@@ -1,17 +1,20 @@
-Title: {{class.instance}}->set
+Title: {{class.instance}}->set($key, $value)
 
 ----
 
-Excerpt: 
+Excerpt:
 
 ----
 
-Call: {{class.instance}}->set($key, $value)
+Return:
 
 ----
 
-Return: 
-
-----
-
-Params: 
+Params:-
+  name: $key
+  type: string | array
+  text:
+-
+  name: $value
+  type:
+  text:

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->findBy
+Title: {{class.instance}}->findBy($key, $value)
 
 ----
 
@@ -6,20 +6,17 @@ Excerpt: Find a single item by a key and value pair
 
 ----
 
-Call: {{class.instance}}->findBy($key, $value)
-
-----
-
-Return: type: mixed
+Return:
+type: mixed
 text:
 
 ----
 
-Params: - 
+Params: -
   name: $key
   type: string
   text:
-- 
+-
   name: $value
   type: mixed
   text:

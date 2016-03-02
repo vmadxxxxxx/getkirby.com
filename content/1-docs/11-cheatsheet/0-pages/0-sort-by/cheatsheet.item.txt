@@ -1,19 +1,34 @@
 Title:
 
-$pages->sortBy($field, $direction = 'asc', $method = SORT_REGULAR)
+{{class.instance}}->sortBy($field, $direction = 'asc', $method = SORT_REGULAR)
 
 ----
 
 Excerpt:
 
-Returns a sorted version of the collection.
+Returns a sorted version of the collection
+
+----
+
+Params: -
+  name: $field
+  type: string
+  text: The field from the content file
+-
+  name: $direction
+  type: string
+  text: "The sort direction: ascending (asc) or descending (desc)"
+-
+  name: $method
+  type: int
+  text: The sort flag, e.g. SORT_REGULAR, SORT_NUMERIC etc.
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 

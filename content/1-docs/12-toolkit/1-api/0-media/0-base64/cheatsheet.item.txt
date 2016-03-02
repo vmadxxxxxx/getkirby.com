@@ -1,18 +1,22 @@
-Title: {{class.instance}}->base64
+Title: {{class.instance}}->base64()
 
 ----
 
-Excerpt: Returns the file content as base64 encoded string
+Excerpt: Returns the content of the file as base64 encoded string
 
 ----
 
-Call: {{class.instance}}->base64()
+Return:
 
-----
-
-Return: type: string
+type: string
 text:
 
 ----
 
-Params: 
+Text:
+
+## Example
+
+```php
+<?php echo $media->base64() ?>
+```

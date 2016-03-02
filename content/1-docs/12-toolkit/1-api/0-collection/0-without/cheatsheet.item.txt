@@ -1,4 +1,4 @@
-Title: {{class.instance}}->without
+Title: {{class.instance}}->without($args)
 
 ----
 
@@ -6,18 +6,19 @@ Excerpt: Returns a new collection without the given element(s)
 
 ----
 
-Call: {{class.instance}}->without()
-
-----
-
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----
 
-Params: - 
-  name:
-  type: \args
+Params: -
+  name: $args
+  type: args
   text: >
     any number of keys, passed as individual
     arguments
+----
+Text:
+
+Alternative to `$collection->not()`.

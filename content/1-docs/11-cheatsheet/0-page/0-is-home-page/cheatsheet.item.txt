@@ -1,12 +1,12 @@
 Title:
 
-$page->isHomePage()
+{{class.instance}}->isHomePage()
 
 ----
 
 Excerpt:
 
-Checks if the page is the home page.
+Checks if the page is the home page
 
 ----
 

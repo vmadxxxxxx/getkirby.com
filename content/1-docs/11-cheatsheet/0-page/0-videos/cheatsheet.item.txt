@@ -1,6 +1,6 @@
 Title:
 
-$page->videos()
+{{class.instance}}->videos()
 
 ----
 

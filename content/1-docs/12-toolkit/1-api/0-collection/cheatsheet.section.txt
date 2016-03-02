@@ -3,3 +3,15 @@ Title: Collection
 ----
 
 Class: Collection
+
+----
+
+Extends: docs/toolkit/api/i
+
+----
+
+ExtendingMode: inherits
+
+----
+
+Text:

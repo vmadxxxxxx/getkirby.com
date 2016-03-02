@@ -1,4 +1,4 @@
-Title: {{class.instance}}->prev
+Title: {{class.instance}}->prev()
 
 ----
 
@@ -6,13 +6,10 @@ Excerpt: Moves the cursor to the previous element in the array and returns it
 
 ----
 
-Call: {{class.instance}}->prev()
-
-----
-
-Return: type: mixed
+Return:
+type: mixed
 text:
 
 ----
 
-Params: 
+Params:

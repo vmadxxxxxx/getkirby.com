@@ -1,19 +1,27 @@
 Title:
 
-$pages->nth($n)
+{{class.instance}}->nth($n)
 
 ----
 
 Excerpt:
 
-Returns the nth page in the collection.
+Returns the nth page in the collection
 
 ----
+
+Params: -
+  name: $n
+  type: int
+  text: The number of the item to be returned
+
+----
+
 
 Return:
 
 type: $page
-text: 
+text:
 
 ----
 

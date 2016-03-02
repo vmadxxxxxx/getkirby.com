@@ -1,4 +1,4 @@
-Title: $roots->tags()
+Title: {{class.instance}}->tags()
 
 ----
 

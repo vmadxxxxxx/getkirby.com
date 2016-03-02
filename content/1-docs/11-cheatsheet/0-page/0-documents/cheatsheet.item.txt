@@ -1,6 +1,6 @@
 Title:
 
-$page->documents()
+{{class.instance}}->documents()
 
 ----
 

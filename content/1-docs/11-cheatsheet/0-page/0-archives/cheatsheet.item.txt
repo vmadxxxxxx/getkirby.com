@@ -1,6 +1,4 @@
-Title:
-
-$page->archives()
+Title: {{class.instance}}->archives()
 
 ----
 

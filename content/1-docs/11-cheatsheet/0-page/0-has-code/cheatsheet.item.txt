@@ -1,6 +1,6 @@
 Title:
 
-$page->hasCode()
+{{class.instance}}->hasCode()
 
 ----
 
@@ -18,3 +18,15 @@ text:
 ----
 
 Text:
+
+## Example
+
+```php
+<?php
+echo $page->hasCode(); //returns the number of code files in the folder
+
+if($page->hasCode()) {
+  $codeFiles = $page->code();
+}
+?>
+```

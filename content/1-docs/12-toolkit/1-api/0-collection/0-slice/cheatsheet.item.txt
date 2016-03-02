@@ -1,4 +1,4 @@
-Title: {{class.instance}}->slice
+Title: {{class.instance}}->slice($offset = null, $limit = null)
 
 ----
 
@@ -6,24 +6,31 @@ Excerpt: Returns a slice of the collection
 
 ----
 
-Call: {{class.instance}}->slice($offset = null, $limit = null)
-
-----
-
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----
 
-Params: - 
+Params: -
   name: $offset
   type: int
   text: >
     The optional index to start the slice
     from
-- 
+-
   name: $limit
   type: int
   text: >
     The optional number of elements to
     return
+
+----
+Text:
+
+## Example
+
+```php
+// get three elements starting with the fifth
+$collection->slice(5, 3);
+```

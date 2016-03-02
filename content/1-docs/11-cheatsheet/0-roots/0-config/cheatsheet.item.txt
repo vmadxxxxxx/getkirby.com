@@ -1,4 +1,4 @@
-Title: $roots->config()
+Title: {{class.instance}}->config()
 
 ----
 

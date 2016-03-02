@@ -1,4 +1,4 @@
-Title: $roots->index()
+Title: {{class.instance}}->index()
 
 ----
 

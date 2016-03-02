@@ -1,6 +1,6 @@
 Title:
 
-$page->isCacheable()
+{{class.instance}}->isCacheable()
 
 ----
 
@@ -18,4 +18,10 @@ text:
 
 Text:
 
+## Example
 
+```php
+<?php if($page->isChildOf('some-parent-page')): ?>
+Great, this page can be cached.
+<?php endif ?>
+```

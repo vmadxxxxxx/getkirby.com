@@ -1,0 +1,23 @@
+Title:
+
+{{class.instance}}->toArray($callback = null)
+
+----
+
+Excerpt:
+
+Converts the entire media object into a plain PHP array
+
+----
+
+Params: - 
+  name: $callback
+  type: callable
+  text: Mapping callback
+
+----
+
+Return:
+
+type: array
+text:

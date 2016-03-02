@@ -1,4 +1,4 @@
-Title: $roots->snippets()
+Title: {{class.instance}}->snippets()
 
 ----
 

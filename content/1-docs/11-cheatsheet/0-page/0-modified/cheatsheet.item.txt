@@ -1,12 +1,19 @@
 Title:
 
-$page->modified($format = false)
+{{class.instance}}->modified($format = false)
 
 ----
 
 Excerpt:
 
-Returns the unix timestamp or a formatted date string of the last modification date of the page.
+Returns the unix timestamp or a formatted date string of the last modification date of the page
+
+----
+
+Params: -
+  name: $format
+  type: string
+  text: A date format
 
 ----
 

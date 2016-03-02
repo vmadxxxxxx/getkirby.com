@@ -1,4 +1,4 @@
-Title: $urls->assets()
+Title: {{class.instance}}->assets()
 
 ----
 

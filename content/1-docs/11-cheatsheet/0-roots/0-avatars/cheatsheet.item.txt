@@ -1,4 +1,4 @@
-Title: $roots->avatars()
+Title: {{class.instance}}->avatars()
 
 ----
 

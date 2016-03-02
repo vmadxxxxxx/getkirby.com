@@ -1,4 +1,4 @@
-Title: {{class.instance}}->count
+Title: {{class.instance}}->count()
 
 ----
 
@@ -6,13 +6,22 @@ Excerpt: Counts all elements in the array
 
 ----
 
-Call: {{class.instance}}->count()
-
-----
-
-Return: type: int
+Return:
+type: int
 text:
 
 ----
 
-Params: 
+Params:
+
+----
+Text:
+
+## Examples:
+
+
+```php
+This collection has
+<?php echo $collection->count() ?>
+items
+```

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->pagination
+Title: {{class.instance}}->pagination()
 
 ----
 
@@ -6,13 +6,10 @@ Excerpt: Get the previously added pagination object
 
 ----
 
-Call: {{class.instance}}->pagination()
-
-----
-
-Return: type: object
+Return:
+type: object
 text:
 
 ----
 
-Params: 
+Params:

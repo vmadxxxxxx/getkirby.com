@@ -1,4 +1,4 @@
-Title: {{class.instance}}->pluck
+Title: {{class.instance}}->pluck($field, $split = null, $unique = false)
 
 ----
 
@@ -6,16 +6,21 @@ Excerpt: Extracts all values for a single field into a new array
 
 ----
 
-Call: {{class.instance}}->pluck($field, $split = null, $unique = false)
-
-----
-
-Return: type: array
+Return:
+type: array
 text:
 
 ----
 
-Params: - 
+Params: -
   name: $field
   type: string
-  text:
+  text: The name of the field
+-
+  name: $split
+  type: string
+  text: The separator to split by
+-
+  name: $unique
+  type: boolean
+  text: If set to true, only unique values will be fetched, default is false.

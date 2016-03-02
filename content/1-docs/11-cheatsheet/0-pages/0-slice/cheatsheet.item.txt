@@ -1,19 +1,31 @@
 Title:
 
-$pages->slice($offset = null, $limit = null)
+{{class.instance}}->slice($offset = null, $limit = null)
 
 ----
 
 Excerpt:
 
-Returns a sliced version of the collection defined by offset and limit.
+Returns a sliced version of the collection defined by offset and limit
+
+----
+
+Params: -
+  name: $offset
+  type: int
+  text: The offset number
+-
+  name: $limit
+  type: int
+  text: The number of items to be returned
+
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 

@@ -1,4 +1,4 @@
-Title: {{class.instance}}->load
+Title: {{class.instance}}->load($data = array())
 
 ----
 
@@ -6,11 +6,10 @@ Excerpt: Safely requires a file if it exists
 
 ----
 
-Call: {{class.instance}}->load($data = array())
-
-----
-
 Return: 
+
+type: mixed
+text: Return value from the PHP file
 
 ----
 

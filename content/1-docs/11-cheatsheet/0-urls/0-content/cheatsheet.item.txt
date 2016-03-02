@@ -1,4 +1,4 @@
-Title: $urls->content()
+Title: {{class.instance}}->content()
 
 ----
 

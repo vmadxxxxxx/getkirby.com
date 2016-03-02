@@ -1,4 +1,4 @@
-Title: $urls->autocss()
+Title: {{class.instance}}->autocss()
 
 ----
 

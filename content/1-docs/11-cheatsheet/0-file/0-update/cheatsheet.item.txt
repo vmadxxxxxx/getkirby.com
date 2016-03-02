@@ -1,12 +1,23 @@
 Title:
 
-$file->update($data = array()[, $language])
+{{class.instance}}->update($data = array()[, $language])
 
 ----
 
 Excerpt:
 
 Updates the meta information for a file
+
+----
+
+Params: -
+  name: $data
+  type: array
+  text:
+-
+  name: $language
+  type: string
+  text: Language code
 
 ----
 

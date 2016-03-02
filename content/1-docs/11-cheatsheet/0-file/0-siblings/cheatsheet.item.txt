@@ -1,12 +1,12 @@
 Title:
 
-$file->siblings()
+{{class.instance}}->siblings()
 
 ----
 
 Excerpt:
 
-Returns all siblings of the file.
+Returns all siblings of the file
 
 ----
 

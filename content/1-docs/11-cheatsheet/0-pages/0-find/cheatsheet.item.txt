@@ -1,6 +1,6 @@
 Title:
 
-$pages->find()
+{{class.instance}}->find($page)
 
 ----
 
@@ -10,10 +10,17 @@ Finds a $page object in the collection by UID or relative URI
 
 ----
 
+Params: -
+  name: $page
+  type: string
+  text: The id of a page, or a comma separated list of ids
+
+----
+
 Return:
 
 type: $pages | $page
-text: 
+text:
 
 ----
 

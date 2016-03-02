@@ -1,19 +1,25 @@
 Title:
 
-$pages->limit($limit)
+{{class.instance}}->limit($limit)
 
 ----
 
 Excerpt:
 
-Returns the collection with a limited amount of pages.
+Returns the collection with a limited amount of pages
+
+----
+Params: -
+  name: $limit
+  type: int
+  text: The number of items to be returned
 
 ----
 
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 

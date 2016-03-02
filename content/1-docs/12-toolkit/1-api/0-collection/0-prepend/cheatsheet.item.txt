@@ -1,4 +1,4 @@
-Title: {{class.instance}}->prepend
+Title: {{class.instance}}->prepend($key, $object)
 
 ----
 
@@ -6,20 +6,17 @@ Excerpt: Prepends an element to the data array
 
 ----
 
-Call: {{class.instance}}->prepend($key, $object)
-
-----
-
-Return: type: \Collection
+Return:
+type: $collection
 text:
 
 ----
 
-Params: - 
+Params: -
   name: $key
   type: string
   text:
-- 
+-
   name: $object
   type: mixed
   text:

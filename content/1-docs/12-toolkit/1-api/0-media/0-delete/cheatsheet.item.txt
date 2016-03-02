@@ -1,4 +1,4 @@
-Title: {{class.instance}}->delete
+Title: {{class.instance}}->delete()
 
 ----
 
@@ -6,13 +6,7 @@ Excerpt: Deletes the file
 
 ----
 
-Call: {{class.instance}}->delete()
+Return:
 
-----
-
-Return: type: boolean
+type: boolean
 text:
-
-----
-
-Params: 

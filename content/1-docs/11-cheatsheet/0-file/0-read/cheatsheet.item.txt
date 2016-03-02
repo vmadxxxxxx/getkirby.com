@@ -1,13 +1,19 @@
 Title:
 
-$file->read()
+{{class.instance}}->read($format = null)
 
 ----
 
 Excerpt:
 
-Reads the content of a file and returns it
+Reads the content of the file and returns it
 
+----
+
+Params: -
+  name: $format
+  type: string
+  text: File format to parse as
 ----
 
 Return:
@@ -22,6 +28,9 @@ Text:
 ## Example
 
 ```php
-echo $page->file('readme.md')->read();
 // returns the content of the file
+echo $page->file('readme.md')->read();
+
+// parses the content as JSON
+dump($page->file('data.json')->read('json'));
 ```

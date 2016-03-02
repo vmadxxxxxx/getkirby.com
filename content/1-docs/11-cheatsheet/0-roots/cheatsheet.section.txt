@@ -2,9 +2,4 @@ Title: $roots
 
 ----
 
-Excerpt: 
-
-----
-
-Text: 
-
+Class: Roots

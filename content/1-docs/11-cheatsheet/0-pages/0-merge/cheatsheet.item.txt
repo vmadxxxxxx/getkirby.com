@@ -1,6 +1,6 @@
 Title:
 
-$pages->merge($collection2)
+{{class.instance}}->merge($collection2)
 
 ----
 
@@ -10,10 +10,15 @@ Returns a new combined collection
 
 ----
 
+Params: -
+  name: $collection2
+  type: $pages
+  text: The second $pages collection
+----
 Return:
 
 type: $pages
-text: 
+text:
 
 ----
 
@@ -29,4 +34,3 @@ $collection2 = page('news')->children()->visible());
 $newCollection = $collection1->merge($collection2);
 ?>
 ```
-

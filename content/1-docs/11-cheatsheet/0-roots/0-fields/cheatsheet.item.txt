@@ -1,4 +1,4 @@
-Title: $roots->fields()
+Title: {{class.instance}}->fields()
 
 ----
 
