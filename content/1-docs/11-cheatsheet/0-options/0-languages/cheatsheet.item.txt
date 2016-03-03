@@ -17,7 +17,7 @@ array()
 ## Example
 
 ```php
-c::set('languages',array(
+c::set('languages', array(
   array(
     'code'    => 'en',
     'name'    => 'English',
