@@ -1,6 +1,6 @@
 Title:
 
-$site->hasArchives()
+{{class.instance}}->hasArchives()
 
 ----
 

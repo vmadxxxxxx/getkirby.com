@@ -1,6 +1,6 @@
 Title:
 
-$site->locale()
+{{class.instance}}->locale()
 
 ----
 

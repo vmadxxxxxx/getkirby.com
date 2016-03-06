@@ -1,4 +1,4 @@
-Title: $site->language($code = null)
+Title: {{class.instance}}->language($code = null)
 
 ----
 

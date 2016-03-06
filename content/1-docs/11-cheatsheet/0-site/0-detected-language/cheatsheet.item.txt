@@ -1,6 +1,6 @@
 Title:
 
-$site->detectedLanguage()
+{{class.instance}}->detectedLanguage()
 
 ----
 
@@ -18,5 +18,3 @@ text:
 ----
 
 Text:
-
-

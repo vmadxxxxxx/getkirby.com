@@ -1,6 +1,4 @@
-Title:
-
-$site->activePage()
+Title: {{class.instance}}->activePage()
 
 ----
 

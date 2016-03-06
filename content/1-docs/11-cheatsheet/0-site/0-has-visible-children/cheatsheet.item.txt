@@ -1,6 +1,6 @@
 Title:
 
-$site->hasVisibleChildren()
+{{class.instance}}->hasVisibleChildren()
 
 ----
 

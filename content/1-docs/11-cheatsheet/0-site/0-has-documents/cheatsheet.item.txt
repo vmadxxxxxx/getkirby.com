@@ -1,6 +1,6 @@
 Title:
 
-$site->hasDocuments()
+{{class.instance}}->hasDocuments()
 
 ----
 
