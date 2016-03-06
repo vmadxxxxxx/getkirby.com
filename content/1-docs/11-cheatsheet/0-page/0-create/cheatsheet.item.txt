@@ -35,9 +35,9 @@ Text:
 ```php
 <?php
 try {
-  $page->create('projects/project-d', 'project', data(
+  $page->create('projects/project-d', 'project', array(
     'title' => 'A page title',
-    'date' => '2016-02-21'
+    'date' => '2016-02-21',
     'text' => 'Lorem ipsum dolor set amet ...'
   ));
 } catch(Exception $e) {
