@@ -29,7 +29,7 @@ Text:
 ## Example
 
 ```php
-<?php if($user = $site->user() and $user->hasPermission('panel')): ?>
+<?php if($user = $site->user() and $user->hasPermission('panel.access')): ?>
 This super secret content is only visible for users with panel access
 <?php endif ?>
 ```

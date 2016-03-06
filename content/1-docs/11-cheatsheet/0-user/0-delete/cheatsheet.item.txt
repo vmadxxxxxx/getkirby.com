@@ -1,6 +1,6 @@
 Title:
 
-$user->delete()
+{{class.instance}}->delete()
 
 ----
 

@@ -1,6 +1,6 @@
 Title:
 
-$user->exists()
+{{class.instance}}->exists()
 
 ----
 

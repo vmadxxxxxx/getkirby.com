@@ -1,6 +1,6 @@
 Title:
 
-$user->logout()
+{{class.instance}}->logout()
 
 ----
 
