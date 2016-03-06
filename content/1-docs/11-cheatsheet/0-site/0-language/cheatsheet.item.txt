@@ -8,6 +8,13 @@ Returns the current language by default or any other language when a language co
 
 ----
 
+Params:-
+  name: $code
+  type: string
+  text:
+
+----
+
 Return:
 
 type: $language

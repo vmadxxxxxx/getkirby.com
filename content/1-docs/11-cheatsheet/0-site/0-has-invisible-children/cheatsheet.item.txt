@@ -18,3 +18,11 @@ text:
 ----
 
 Text:
+
+## Example
+
+```
+<?php if($site->hasInvisibleChildren()): ?>
+There are invisible children in /content.
+<?php endif ?>
+```

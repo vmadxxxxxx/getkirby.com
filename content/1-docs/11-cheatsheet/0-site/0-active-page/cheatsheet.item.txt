@@ -17,7 +17,7 @@ text:
 
 Text:
 
-This is the equivalent to the `$page` variable availabel in templates and snippets and the new `$site->page()` method.
+This is the equivalent to the `$page` variable available in templates and snippets and the new `$site->page()` method.
 
 ## Example
 
