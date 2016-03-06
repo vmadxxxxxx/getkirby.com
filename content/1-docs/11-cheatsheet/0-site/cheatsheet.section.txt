@@ -6,7 +6,7 @@ Class: Site
 
 ----
 
-Extends: docs/cheatsheet/page
+Extends:
 
 ----
 
