@@ -9,6 +9,8 @@ class CheatsheetSectionPage extends Page {
    * @return Pages
    */
   public function inheritedChildren() {
+    if($this->inheritedChildren) return $this->inheritedChildren;
+    
     if($this->extends()->empty()) return $this->inheritedChildren = $this->children();
     if(!($parent = page($this->extends()))) return $this->inheritedChildren = $this->children();
     
