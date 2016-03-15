@@ -42,7 +42,7 @@ c::set('routes', array(
       if(!$sectionPage) return site()->errorPage();
       
       // try to get the inherited child
-      $itemPage = $sectionPage->inheritedChildren()->find($item);
+      $itemPage = $sectionPage->inheritedChildren()->findBy('uid', $item);
       if(!$itemPage) return site()->errorPage();
       
       return $itemPage;
