@@ -1,6 +1,6 @@
 Title:
 
-$site->index()
+{{class.instance}}->index()
 
 ----
 

@@ -1,6 +1,6 @@
 Title:
 
-$site->sessionLanguage()
+{{class.instance}}->sessionLanguage()
 
 ----
 
@@ -18,5 +18,3 @@ text:
 ----
 
 Text:
-
-

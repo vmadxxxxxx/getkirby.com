@@ -1,15 +1,20 @@
-Title: 
-
-$site
+Title: $site
 
 ----
 
-Text: 
+Class: Site
 
+----
+
+Extends:
+
+----
+
+ExtendingMode: inherits
 
 
 ----
 
-Excerpt: 
+Excerpt:
 
 Contains all relevant information about the site

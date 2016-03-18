@@ -1,6 +1,6 @@
 Title:
 
-$site->breadcrumb()
+{{class.instance}}->breadcrumb()
 
 ----
 

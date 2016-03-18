@@ -1,6 +1,6 @@
 Title:
 
-$site->users()
+{{class.instance}}->users()
 
 ----
 

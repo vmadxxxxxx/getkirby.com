@@ -1,4 +1,4 @@
-Title: $site->languages()
+Title: {{class.instance}}->languages()
 
 ----
 

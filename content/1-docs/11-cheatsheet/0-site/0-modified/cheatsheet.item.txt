@@ -1,6 +1,6 @@
 Title:
 
-$site->modified($format = false)
+{{class.instance}}->modified($format = false)
 
 ----
 

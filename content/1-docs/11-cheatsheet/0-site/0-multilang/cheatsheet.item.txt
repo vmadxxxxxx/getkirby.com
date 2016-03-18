@@ -1,6 +1,6 @@
 Title:
 
-$site->multilang()
+{{class.instance}}->multilang()
 
 ----
 

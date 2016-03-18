@@ -1,6 +1,6 @@
 Title:
 
-$site->homePage()
+{{class.instance}}->homePage()
 
 ----
 

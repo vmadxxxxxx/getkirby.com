@@ -1,6 +1,6 @@
 Title:
 
-$site->update($data = array())
+{{class.instance}}->update($data = array())
 
 ----
 

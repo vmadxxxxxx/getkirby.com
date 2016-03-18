@@ -1,6 +1,6 @@
 Title:
 
-$site->hasDocuments()
+{{class.instance}}->hasDocuments()
 
 ----
 
@@ -18,3 +18,10 @@ text:
 ----
 
 Text:
+
+## Example
+```
+<?php if($site->hasDocuments()): ?>
+The /content folder contains documents.
+<?php endif ?>
+```

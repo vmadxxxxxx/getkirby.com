@@ -1,6 +1,6 @@
 Title:
 
-$site->hasFiles()
+{{class.instance}}->hasFiles()
 
 ----
 
@@ -18,3 +18,11 @@ text:
 ----
 
 Text:
+
+## Example
+
+```
+<?php if($site->hasFiles()): ?>
+The /content folder contains files.
+<?php endif ?>
+```

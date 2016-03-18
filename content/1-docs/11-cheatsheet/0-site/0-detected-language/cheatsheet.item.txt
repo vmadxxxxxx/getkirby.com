@@ -1,6 +1,6 @@
 Title:
 
-$site->detectedLanguage()
+{{class.instance}}->detectedLanguage()
 
 ----
 
@@ -12,11 +12,9 @@ Returns the detected language
 
 Return:
 
-type: language
+type: $language
 text:
 
 ----
 
 Text:
-
-
