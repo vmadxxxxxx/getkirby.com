@@ -1,6 +1,6 @@
 Title:
 
-$user->avatar()
+{{class.instance}}->avatar()
 
 ----
 

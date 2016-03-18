@@ -1,6 +1,6 @@
 Title:
 
-$user->isAdmin()
+{{class.instance}}->isAdmin()
 
 ----
 
@@ -18,5 +18,3 @@ text:
 ----
 
 Text:
-
-

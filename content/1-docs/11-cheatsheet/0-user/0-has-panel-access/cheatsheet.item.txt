@@ -1,6 +1,6 @@
 Title:
 
-$user->hasPanelAccess()
+{{class.instance}}->hasPanelAccess()
 
 ----
 

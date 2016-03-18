@@ -1,6 +1,6 @@
 Title:
 
-$user->gravatar($size = 256)
+{{class.instance}}->gravatar($size = 256)
 
 ----
 

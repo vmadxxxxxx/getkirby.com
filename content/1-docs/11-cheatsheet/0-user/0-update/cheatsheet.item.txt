@@ -1,6 +1,6 @@
 Title:
 
-$user->update($data = array())
+{{class.instance}}->update($data = array())
 
 ----
 

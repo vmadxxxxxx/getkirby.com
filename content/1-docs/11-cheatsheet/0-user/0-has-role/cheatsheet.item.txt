@@ -1,6 +1,6 @@
 Title:
 
-$user->hasRole($role)
+{{class.instance}}->hasRole($role)
 
 ----
 
