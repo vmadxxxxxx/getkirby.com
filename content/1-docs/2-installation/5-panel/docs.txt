@@ -11,7 +11,7 @@ Text:
 The panel is included in Kirby's starterkit and boilerplate. The application is located on your server in the **/panel** folder. Please read the installation guide if the panel folder does not exist yet.
 
 ## Rename panel folder
-Since version 2.2.0 you can rename the panel folder to a custom name. To make this work, all you need to do is modify your rewrite rules in the .htaccess file:
+Since version 2.2.0 you can rename the panel folder to a custom name. To make this work, rename the panel folder and then modify your rewrite rules in the .htaccess file. Let's suppose you have renamed the panel folder to "controlpanel", then you need to change your .htaccess file like this:
 
 ```
 //default panel folder
