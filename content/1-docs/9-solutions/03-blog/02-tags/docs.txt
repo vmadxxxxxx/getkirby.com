@@ -112,13 +112,15 @@ $tags = $page->children()->visible()->pluck('tags', ',', true);
 <ul class="tags">
   <?php foreach($tags as $tag): ?>
   <li>
-    <a href="<?php echo url('blog/tag:' . $tag)?>">
+    <a href="<?php echo url('blog/' . url::paramsToString(['tag' => $tag])) ?>">
       <?php echo html($tag) ?>
     </a>
   </li>
   <?php endforeach ?>
 </ul>
 ```
+
+The `url::paramsToString` method will make sure that the resulting URL is compatible with both Linux and Windows servers.
 
 ## Blog Controller
 
@@ -168,7 +170,7 @@ The `blog.php` template has no logic in it afterwards, which makes it very simpl
   <ul class="tags">
     <?php foreach($tags as $tag): ?>
     <li>
-      <a href="<?php echo $page->url() . '/tag:' . $tag ?>">
+      <a href="<?php echo url($page->url() . '/' . url::paramsToString(['tag' => $tag])) ?>">
         <?php echo html($tag) ?>
       </a>
     </li>
