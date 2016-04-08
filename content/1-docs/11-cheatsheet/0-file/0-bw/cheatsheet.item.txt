@@ -1,0 +1,30 @@
+Title:
+
+{{class.instance}}->bw($bw)
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt:
+
+Enables or disables grayscale mode for images
+
+----
+
+Return:
+
+type: $file
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->image()->bw()->html() ?>
+```

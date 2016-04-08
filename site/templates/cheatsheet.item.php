@@ -12,10 +12,18 @@
 
     <section class="text col-4-6">
 
+      <?php snippet('upcoming') ?>
+
       <?php if(!$page->params()->isEmpty() or !$page->return()->isEmpty()): ?>
       <?php $params = $page->params()->yaml() ?>
       <?php $return = $page->return()->yaml() ?>
       <ul>
+        <?php if($page->since()->isNotEmpty()): ?>
+        <li>
+          <strong>since:</strong>
+          <?php echo $page->since()->version('Kirby %s') ?>
+        </li>
+        <?php endif ?>
         <?php foreach($params as $param): ?>
         <li>
           <strong><?php echo $param['name'] ?></strong> (<?php echo $param['type'] ?>)<br />

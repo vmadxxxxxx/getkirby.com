@@ -4,7 +4,7 @@
 
   <div class="col-4-6 last">
 
-    <article class="text">
+    <article class="text relative">
       <h1><?php echo html($page->title()) ?></h1>
 
       <?php if($page->text() == ''): /* Check if content is available */ ?>
@@ -15,6 +15,12 @@
 
 
       <?php else: ?>
+
+      <?php if($page->since()->isNotEmpty()): ?>
+      <p class="version"><?php echo $page->since()->version('%s +') ?></p>
+      <?php endif ?>
+
+      <?php snippet('upcoming') ?>
 
       <?php echo str_replace('(\\', '(', kirbytext($page->text())) ?>
 

@@ -1250,3 +1250,38 @@ input[type="search"]::-webkit-search-cancel-button {
 .sponsors-imgix img {
   height: 2.05em;
 }
+
+
+/*
+ :::  Info box
+-------------------------------------------------- */
+.info {
+  border: 2px solid #ddd;
+  margin-bottom: 1.5rem;
+  padding: .75rem 1rem;
+  font-size: .9em;
+  font-style: italic;
+}
+
+
+/*
+ :::  Version Badges
+-------------------------------------------------- */
+.relative {
+  position: relative;
+}
+.version {
+  position: absolute;
+  top: .5rem;
+  line-height: 1;
+  right: 0;
+  font-size: .7em;
+}
+.version a, 
+.version span {
+  border: 0;
+  color: #777;
+}
+.version a:hover {
+  color: #000;
+}
