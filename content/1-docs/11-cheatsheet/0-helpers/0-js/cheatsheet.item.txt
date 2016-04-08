@@ -65,3 +65,17 @@ If you want the js files to be loaded asynchronously (if supported by the browse
 ```php
 <?php echo js('assets/js/site.js', true) ?>
 ```
+
+<since v="2.2.3">
+
+This also works with an array of paths:
+
+```php
+<?php echo js(array(
+  'assets/js/jquery.js',
+  'assets/js/jquery.ui.js',
+  'assets/js/site.js',
+), true) ?>
+```
+
+</since>

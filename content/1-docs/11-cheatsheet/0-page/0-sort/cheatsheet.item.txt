@@ -1,6 +1,6 @@
 Title:
 
-{{class.instance}}->sort($num)
+{{class.instance}}->sort($num = null)
 
 ----
 
@@ -41,3 +41,9 @@ try {
 }
 
 ```
+
+<since v="2.3.0">
+## No parameter
+
+If the parameter `$num` is not specified, the result of $page->num() will be returned instead.
+</since>

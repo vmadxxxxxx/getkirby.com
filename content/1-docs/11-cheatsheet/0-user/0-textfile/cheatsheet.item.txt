@@ -1,0 +1,30 @@
+Title:
+
+{{class.instance}}->textfile()
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt:
+
+Returns the root for the account file
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $site->user('bastian')->textfile() ?>
+```

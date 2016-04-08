@@ -22,6 +22,11 @@ Template | Controller
 
 Kirby will automatically load the controller for your template if it can find one.
 
+<since v="2.3.0">
+## Default controller
+You can also have a default page controller: It works like a normal page controller. You only have to add it as `site/controllers/site.php`. Be aware that the default controller only works as a fallback if no specific page controller for the template exists. It is not loaded in addition to the template-specific one.
+</since>
+
 ## Creating a controller
 
 The basic code for a controller is very simple. It's an anonymous function, which receives the $site, $pages and $page variables as arguments and should return any number of variables as associative array, which you want to pass to the template.

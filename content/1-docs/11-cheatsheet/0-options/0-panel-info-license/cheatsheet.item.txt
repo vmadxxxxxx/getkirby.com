@@ -2,6 +2,10 @@ Title: panel.info.license
 
 ----
 
+Since: 2.2.3
+
+----
+
 Excerpt: Show/Hide Kirby license information in the Panel.
 
 ----

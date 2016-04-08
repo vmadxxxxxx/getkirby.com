@@ -1,0 +1,39 @@
+Title: {{class.instance}}->isTranslated($lang = null)
+
+----
+
+Excerpt: Checks if the field is translated in the current/specified language
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Since: 2.3.0
+
+----
+
+Text:
+
+A field value is considered as translated if it is not empty and is not equal to the field value of the default language. `$field->isTranslated()` will always return `true` for the default language as well as for single language setups.
+
+## Example
+
+```php
+<?php if($page->description()->isTranslated()): ?>
+  <h2>Description</h2>
+  <?php echo $page->description()->kirbytext() ?>
+<?php endif ?>
+```
+
+## Check for a specific language
+By passing a language code as the `$lang` parameter, you can check for a translation in that language:
+```php
+<?php if($page->description()->isTranslated('de')): ?>
+  // Field 'description' is translated in German
+<?php endif ?>
+```
