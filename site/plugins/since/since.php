@@ -16,7 +16,7 @@ kirbytext::$pre[] = function($kirbytext, $text) {
 
   $text = preg_replace_callback('!<since v="([0-9.]+)"\>!', function($match) {
     $block  = '<div class="relative" markdown="1">';
-    $block .= '<p class="version">' . version($match[1], '%s +') . '</p>';
+    $block .= '<p class="version-badge">' . version($match[1], '%s +') . '</p>';
     return $block;
   }, $text);
 

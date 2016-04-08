@@ -17,7 +17,7 @@
       <?php else: ?>
 
       <?php if($page->since()->isNotEmpty()): ?>
-      <p class="version"><?php echo $page->since()->version('%s +') ?></p>
+      <p class="version-badge"><?php echo $page->since()->version('%s +') ?></p>
       <?php endif ?>
 
       <?php snippet('upcoming') ?>
