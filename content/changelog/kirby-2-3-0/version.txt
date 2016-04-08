@@ -34,7 +34,7 @@ $page->image('myimage.jpg')->crop(300)->url();
 $page->image('myimage.jpg')->bw()->url();
 ```
 
-By using the new HTTP API, generating thumbnails for the first time in templates will no longer block the rendering of the page. This increases the perceived performance of your site. 
+By using the new HTTP API, generating thumbnails for the first time in templates will no longer block the rendering of the page. This increases the perceived performance of your site. You can find even more (link: https://github.com/getkirby/kirby/issues/412#issuecomment-207339141 text: details about the new API here…)
 
 ### New Panel Image Field
 <https://twitter.com/getkirby/status/695995977346478081/photo/1>
