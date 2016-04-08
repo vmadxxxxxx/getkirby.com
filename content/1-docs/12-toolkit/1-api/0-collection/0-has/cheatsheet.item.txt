@@ -1,0 +1,20 @@
+Title: {{class.instance}}->has($key)
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: Checks if an element is present in the collection by its key
+
+----
+
+Return:
+
+----
+
+Params: -
+  name: $key
+  type: string
+  text:
