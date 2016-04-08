@@ -1,4 +1,4 @@
-Title: Kirby 2.3.0
+Title: Kirby 2.3.0 Beta
 
 ----
 
@@ -6,7 +6,7 @@ Date: 2016-04-08
 
 ----
 
-Download: http://download.getkirby.com/kirby-2.3.0-beta.zip
+Download: http://download.getkirby.com/nightly
 
 ----
 

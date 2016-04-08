@@ -2,3 +2,9 @@ Title: Upcoming…
 
 ----
 
+Beta: 
+
+To join the beta you can get the latest version from our download server: 
+**<https://download.getkirby.com/nightly>**
+
+If you prefer git, you can switch all submodules to the develop branch and pull the latest version from there. 

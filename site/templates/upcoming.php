@@ -13,6 +13,9 @@
     <h2>Changelog</h2>
     <p><a href="<?php echo $changelog->url() ?>"><?php echo $changelog->url() ?></a></p>
 
+    <h2>Beta Test</h2>
+    <?php echo $page->beta()->kt() ?>
+
     <h2>Docs</h2>
     <ul>
       <?php foreach($upcoming as $item): ?>
