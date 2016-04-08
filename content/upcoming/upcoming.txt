@@ -23,9 +23,9 @@ Please post your comments on the following thread in our forum:
 **<https://forum.getkirby.com/t/kirby-2-3-0-beta/3809>**
 
 Use our Github issues to report any bugs you find: 
-<https://github.com/getkirby/kirby>
-<https://github.com/getkirby/panel>
-<https://github.com/getkirby/toolkit>
+- **<https://github.com/getkirby/kirby>**
+- **<https://github.com/getkirby/panel>**
+- **<https://github.com/getkirby/toolkit>**
 
 ## Updated Docs
 
