@@ -34,7 +34,6 @@
           <?php echo $doc->excerpt()->kt() ?>
         </a>
         <?php if($doc->since()->isNotEmpty()): ?>
-        <?php echo $doc->since()->version('Since: Kirby %s') ?>
         <?php endif ?>
       </div>
       <?php endforeach ?>
