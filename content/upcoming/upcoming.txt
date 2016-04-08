@@ -19,10 +19,8 @@ If you prefer git, you can switch all submodules to the develop branch and pull 
 
 We are actively looking for feedback for the beta. 
 
-<!--
 Please post your comments on the following thread in our forum: 
-**<>**
--->
+**<https://forum.getkirby.com/t/kirby-2-3-0-beta/3809>**
 
 ## Updated Docs
 
