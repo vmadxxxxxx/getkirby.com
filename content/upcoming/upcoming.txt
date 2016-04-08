@@ -2,9 +2,28 @@ Title: Upcoming…
 
 ----
 
-Beta: 
+Text: 
+
+## Changelog
+
+**<http://localhost/kirby/sites/getkirby.com/changelog/kirby-2-3-0>**
+
+## Beta
 
 To join the beta you can get the latest version from our download server: 
 **<https://download.getkirby.com/nightly>**
 
 If you prefer git, you can switch all submodules to the develop branch and pull the latest version from there. 
+
+## Feedback
+
+We are actively looking for feedback for the beta. 
+
+<!--
+Please post your comments on the following thread in our forum: 
+**<>**
+-->
+
+## Updated Docs
+
+We are currently working on the documentation for the next release. You can see our progress here. Feel free to browse anything you find here and let us know if you find issues.

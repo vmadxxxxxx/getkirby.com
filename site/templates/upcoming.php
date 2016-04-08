@@ -10,13 +10,8 @@
       This is a collection of all docs and cheatsheet entries for the upcoming release. All docs and features are still under development. We are happy about all beta testers, but please wait for the stable release before you use any of this in production.
     </div>
 
-    <h2>Changelog</h2>
-    <p><a href="<?php echo $changelog->url() ?>"><?php echo $changelog->url() ?></a></p>
+    <?php echo $page->text()->kt() ?>
 
-    <h2>Beta Test</h2>
-    <?php echo $page->beta()->kt() ?>
-
-    <h2>Docs</h2>
     <ul>
       <?php foreach($upcoming as $item): ?>
       <li>
