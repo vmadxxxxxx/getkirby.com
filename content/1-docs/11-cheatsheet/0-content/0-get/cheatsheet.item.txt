@@ -1,6 +1,6 @@
 Title:
 
-{{class.instance}}->get($key, $arguments = null)
+{{class.instance}}([$lang])->get($key, $arguments = null)
 
 ----
 
@@ -9,6 +9,10 @@ Excerpt: Gets a field from the content
 ----
 
 Params: -
+  name: $lang
+  type: string
+  text: Optional, language code in multi-lang installation
+-
   name: $key
   type: string
   text: A field name
@@ -16,7 +20,6 @@ Params: -
   name: $arguments
   type:
   text:
-
 
 ----
 

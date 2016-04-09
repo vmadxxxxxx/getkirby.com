@@ -1,0 +1,24 @@
+Title:
+
+{{class.instance}}->language()
+
+----
+
+Excerpt: Return the language code for the content
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->content()->language() ?>
+```

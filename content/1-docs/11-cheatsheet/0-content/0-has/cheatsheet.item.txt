@@ -1,6 +1,6 @@
 Title:
 
-{{class.instance}}->has($key)
+{{class.instance}}([$lang])->has($key)
 
 ----
 
@@ -12,6 +12,10 @@ Params: -
   name: $field
   type: string
   text: A field name
+-
+  name: $lang
+  type: string
+  text: Optional, language code in multi-lang installation
 
 ----
 Return:

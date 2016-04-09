@@ -1,12 +1,17 @@
 Title:
 
-{{class.instance}}->raw()
+{{class.instance}}([$lang])->raw()
 
 ----
 
 Excerpt: Returns the raw content from the file
 
+----
 
+Params: -
+  name: $lang
+  type: string
+  text: Optional, language code in multi-lang installation
 
 ----
 
@@ -23,4 +28,8 @@ Text:
 
 ```php
 <?php echo $page->content()->raw() ?>
+
+//multi-lang installation
+<?php echo $page->content('en')->raw() ?>
+
 ```
