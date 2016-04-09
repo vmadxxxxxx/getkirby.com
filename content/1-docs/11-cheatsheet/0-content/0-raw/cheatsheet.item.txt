@@ -1,0 +1,26 @@
+Title:
+
+{{class.instance}}->raw()
+
+----
+
+Excerpt: Returns the raw content from the file
+
+
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->content()->raw() ?>
+```

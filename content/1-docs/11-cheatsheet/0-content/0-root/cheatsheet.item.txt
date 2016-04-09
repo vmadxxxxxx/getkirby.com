@@ -1,0 +1,26 @@
+Title:
+
+{{class.instance}}->root()
+
+----
+
+Excerpt: Returns the root for the content file
+
+
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->content()->raw() ?>
+```

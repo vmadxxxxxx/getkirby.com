@@ -1,0 +1,28 @@
+Title:
+
+{{class.instance}}->exists()
+
+----
+
+Excerpt: Checks if the content file exists
+
+
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php if($page->content()->exists()): ?>
+  //do stuff
+<?php endif ?>
+```

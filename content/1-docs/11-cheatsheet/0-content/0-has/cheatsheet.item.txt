@@ -1,0 +1,33 @@
+Title:
+
+{{class.instance}}->has($key)
+
+----
+
+Excerpt: Checks if a field exists
+
+
+----
+Params: -
+  name: $field
+  type: string
+  text: A field name
+
+----
+Return:
+
+type: array
+text:
+
+----
+
+Text:
+
+## Example
+```php
+<?php
+if($page->content()->has('somefield')) {
+  echo $page->somefield()->kirbytext();
+}
+?>
+```
