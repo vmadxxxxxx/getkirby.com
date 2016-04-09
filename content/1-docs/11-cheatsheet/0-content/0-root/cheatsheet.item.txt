@@ -1,12 +1,17 @@
 Title:
 
-{{class.instance}}->root()
+{{class.instance}}([$lang])->root()
 
 ----
 
 Excerpt: Returns the root for the content file
 
+----
 
+Params: -
+  name: $lang
+  type: string
+  text: Optional, language code in multi-lang installation
 
 ----
 
@@ -22,5 +27,8 @@ Text:
 ## Example
 
 ```php
-<?php echo $page->content()->raw() ?>
+<?php echo $page->content()->root() ?>
+
+//multi-lang installation
+<?php echo $page->content('en')->root() ?>
 ```

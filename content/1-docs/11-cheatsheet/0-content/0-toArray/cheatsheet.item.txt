@@ -1,6 +1,6 @@
 Title:
 
-{{class.instance}}->toArray()
+{{class.instance}}([$lang])->toArray()
 
 ----
 
@@ -8,6 +8,12 @@ Excerpt: Returns the content object as array
 
 ----
 
+Params: -
+  name: $lang
+  type: string
+  text: Optional, language code in multi-lang installation
+
+----
 Return:
 
 type: array
@@ -21,4 +27,8 @@ Text:
 
 ```php
 <?php a::show($page->content()->toArray()) ?>
+
+//return the content array of a particular language in a multi-lang installation
+<?php a::show($page->content('fr')->toArray()) ?>
+
 ```
