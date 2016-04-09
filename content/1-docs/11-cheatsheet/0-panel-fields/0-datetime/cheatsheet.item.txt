@@ -35,3 +35,13 @@ fields:
       format: 12
       interval: 15
 ```
+
+Since version 2.3.0 you can set the default for date and time separately:
+
+```
+datetime:
+  type: datetime
+  default:
+    date: now
+    time: 19.30
+```
