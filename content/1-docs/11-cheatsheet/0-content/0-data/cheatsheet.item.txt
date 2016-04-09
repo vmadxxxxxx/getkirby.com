@@ -1,0 +1,26 @@
+Title:
+
+{{class.instance}}->data()
+
+----
+
+Excerpt: Returns the entire data array with all field objects
+
+
+
+----
+
+Return:
+
+type: array
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php a::show($page->content()->data()) ?>
+```

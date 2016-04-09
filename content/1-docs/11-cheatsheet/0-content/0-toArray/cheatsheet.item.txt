@@ -1,0 +1,24 @@
+Title:
+
+{{class.instance}}->toArray()
+
+----
+
+Excerpt: Returns the content object as array
+
+----
+
+Return:
+
+type: array
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php a::show($page->content()->toArray()) ?>
+```

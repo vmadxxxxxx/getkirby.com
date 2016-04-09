@@ -1,0 +1,26 @@
+Title:
+
+{{class.instance}}->fields()
+
+----
+
+Excerpt: Returns an array with all field names
+
+
+
+----
+
+Return:
+
+type: array
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php a::show($page->content()->fields)) ?>
+```
