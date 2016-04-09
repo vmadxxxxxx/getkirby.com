@@ -7,13 +7,13 @@ Since: 2.3.0
 
 Excerpt:
 
-A drag and drop image field with preview thumbnail
+A drag and drop image select field with preview thumbnail
 
 ----
 
 Text:
 
-Drag and drop an image from the sidebar into the image field. It will show the filename and an image thumbnail as preview. The filename is saved in the content file.
+The image field is a select field into which you can also drag and drop an image from the sidebar. It will show the filename and an image thumbnail as preview. The filename is saved in the content file.
 
 ## Example
 
