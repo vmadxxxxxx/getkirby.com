@@ -1,12 +1,12 @@
 Title:
 
-$page->isErrorPage()
+{{class.instance}}->isErrorPage()
 
 ----
 
 Excerpt:
 
-Checks if the page is the error page.
+Checks if the page is the error page
 
 ----
 

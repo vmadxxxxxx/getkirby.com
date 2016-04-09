@@ -1,12 +1,19 @@
 Title:
 
-$site->find()
+{{class.instance}}->find($uri)
 
 ----
 
 Excerpt:
 
 Finds a single $page object or a collection of $pages placed directly in /content by a single UID or a set of multiple UIDs.
+
+----
+
+Params: -
+  name: $uri
+  type: args
+  text: The URI(s) of a subpage or multiple subpages
 
 ----
 

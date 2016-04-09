@@ -1,4 +1,4 @@
-Title: $site->contentURL()
+Title: {{class.instance}}->contentURL()
 
 ----
 

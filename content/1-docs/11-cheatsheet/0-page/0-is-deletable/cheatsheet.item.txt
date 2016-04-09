@@ -1,12 +1,12 @@
 Title:
 
-$page->isDeletable()
+{{class.instance}}->isDeletable()
 
 ----
 
 Excerpt:
 
-Checks if the page is deletable.
+Checks if the page is deletable
 
 ----
 
@@ -18,6 +18,8 @@ text:
 ----
 
 Text:
+
+## Example
 
 ```php
 <?php if($page->isDeletable()): ?>

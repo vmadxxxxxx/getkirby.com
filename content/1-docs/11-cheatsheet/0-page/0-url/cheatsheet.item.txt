@@ -1,6 +1,6 @@
 Title:
 
-$page->url()
+{{class.instance}}->url()
 
 ----
 

@@ -16,3 +16,6 @@ Params: -
   name: $callback
   type: function
   text: the callback function
+
+----
+Text:

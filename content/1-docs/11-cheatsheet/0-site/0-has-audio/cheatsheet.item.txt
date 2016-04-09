@@ -1,6 +1,6 @@
 Title:
 
-$site->hasAudio()
+{{class.instance}}->hasAudio()
 
 ----
 
@@ -18,3 +18,10 @@ text:
 ----
 
 Text:
+
+## Example
+```
+<?php if($site->hasAudio()): ?>
+The /content folder contains audio files.
+<?php endif ?>
+```

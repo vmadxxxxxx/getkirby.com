@@ -1,12 +1,19 @@
 Title:
 
-$page->sort($num)
+{{class.instance}}->sort($num = null)
 
 ----
 
 Excerpt:
 
 Changes the sorting number of the page.
+
+----
+
+Params: -
+  name: $num
+  type: int
+  text: The sorting number
 
 ----
 
@@ -34,3 +41,9 @@ try {
 }
 
 ```
+
+<since v="2.3.0">
+## No parameter
+
+If the parameter `$num` is not specified, the result of $page->num() will be returned instead.
+</since>

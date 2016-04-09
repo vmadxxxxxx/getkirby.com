@@ -1,0 +1,162 @@
+Title: Kirby 2.3.0 Beta
+
+----
+
+Date: 2016-04-08
+
+----
+
+Download: http://download.getkirby.com/nightly
+
+----
+
+Text:
+
+## Highlights
+
+### New Thumb API 
+
+Your Kirby installation now comes with an on-demand image resizer API: 
+
+```
+http://yourdomain.com/projects/project-a/forrest.jpg?w=300&h=200&crop=true&bw=true
+```
+
+This can be used to create all sorts of modified images on the fly. 
+
+Additionally Kirby's Thumb API has been enhanced massively: 
+
+```php
+$page->image('myimage.jpg')->width(300)->url();
+$page->image('myimage.jpg')->height(300)->url();
+$page->image('myimage.jpg')->resize(600,400)->url();
+$page->image('myimage.jpg')->crop(300)->url();
+$page->image('myimage.jpg')->bw()->url();
+```
+
+By using the new HTTP API, generating thumbnails for the first time in templates will no longer block the rendering of the page. This increases the perceived performance of your site. You can find even more (link: https://github.com/getkirby/kirby/issues/412#issuecomment-207339141 text: details about the new API here…)
+
+### New Panel Image Field
+<https://twitter.com/getkirby/status/695995977346478081/photo/1>
+
+### New Plugin registry
+The new plugin registry makes it possible to bundle all sorts of extensions into a single plugin. You can now register templates, snippets, controllers and much more in a single plugin file: <https://gist.github.com/bastianallgeier/38f895b32b71e8e2b2f3844e38df5489>
+
+### New Component architecture
+Major parts of Kirby's internal APIs are now bundled into components, which can be replaced and modified by you. This makes it possible to replace Kirby's template engine, the thumb API, the markdown parser and more. 
+
+****
+
+## Panel
+
+- Adds the possibility to get fieldoptions from another field (e.g. a tag field) so that options can be defined dynamically.
+```php 
+favoritedrink:
+    label: Your favorite drink
+    type:  select
+    options: field
+    field:
+      page:  ../
+      name: availabledrinks
+      seperator: ;
+```
+`page` enables to references a relative path to the page of the source field (parent page in the example). `name` is the name of the source field (`tags` by default). `seperator` lets you define the seperator the field value will be split by (default is `,`).
+- Changed the order of fields in the signup form to make password first before email to avoid accidental password input into the email field
+- Fixed bug for structure fields without a label 
+- Default value options for the datetime field
+- Fixed bug in upload class
+- Fixed tags autocomplete for files
+- Fixed translated labels in structure fields
+- New Image field
+- Field Options: better relative paths resolving. Enables relative paths up to $site and back down again (e.g. `../../projects/project-a`).
+- Added css class with field name to each form field
+- Better information about upcoming content changes when the template is changed
+- Removed min default value for the number field
+- New way of enabling/disabling all kinds of page options in blueprints
+```yaml
+options:
+  preview: false
+  url: false
+  template: false
+  delete: true
+```
+- Option to hide pages in the panel via a new blueprint setting. This is perfect for the error page for example. 
+```yaml
+hide: true
+```
+- 
+- The session store for content changes will now be reset, if content files get modified
+- The panel now respects the "force ssl" option
+- Untranslatable fields will now be emptied in all languages, but the default language. 
+- Structure data for users is now stored and retreived correctly
+- Builds on new registry and thumb api
+- Added missing sorting for pages created by subpage builder
+- Fixed redirection bug after sorting subpages
+- Editors can no longer switch their role by DOM manipulation
+- Pages with blocked status option can no longer be sorted
+
+****
+
+## Core
+- New files::not() method
+- file::date() now matches the behavior of Page::date()
+- Better handling of unexpected input for the kirbytext class
+- Fixed broken Site::modified() 
+- Fixed renaming a file without filename
+- /home no longer results in a duplicate of the home page
+- Youtube and Vimeo embedding options can now be set in the config
+  ```php
+  c::set('kirbytext.video.vimeo.options', array());
+  c::set('kirbytext.video.youtube.options', array());
+  ```
+- Fixed bug in triggering of multiple hooks
+- Implemented collection::has($key) method in all collections
+- New global site.php controller can now be used for all pages without a dedicated controller
+- New custom pages::$methods
+- New custom files::$methods
+- New custom file::$methods
+- Removed old page::cacheId method from multilang branch to make it consistent with non-multilang version
+- page::sort() now returns the current number if no value is given
+- New file::uri and file::diruri methods
+- New image() helper
+- pages::not() and files::not() accept collections as argument
+- New pages::find accepts single values, arrays or collections
+- Ported the new pages::find behaviour to files::find
+- New page::update with callbacks and new increment and decrement methods
+- New field::isTranslated() method to check for untranslated fields
+- New registry system to handle all kinds of Kirby extensions and core components
+- Better accessibility for empty alt tags of Kirbytext images
+- New page::video and page::document methods
+- Lots and lots of additional bug fixes
+- More unit tests
+
+****
+
+## Toolkit
+
+- Better route error handling for broken routes
+- Limited thumb generation to 1 thread for imagemagick driver
+- Support for empty attributes in html::attr by passing a single space
+- New dimensions::crop method
+- f::modified now checks for an existing file to avoid errors
+- New a::update method
+- Implemented str::$defaults with new slug options
+- Multibyte compatibility for str::encode()
+- Added php 5.4 as a requirement to the composer.json
+- Implemented new collection::group method to allow grouping by callback
+- Implemented a cleaner way to remove cookies
+- More secure way of escaping separators in kirby data
+- Better error handling in brick::__toString
+- The thumb class tries to create a missing thumbfolder now by default
+- Implemented new interlace option for the IM thumb driver
+- Fixed possible issue with zero division in dimensions::ratio()
+- Implemented Collection::has($key) method 
+- Implemented video options for embed::youtube and embed::vimeo
+- Better dir::modified and folder::modified with custom date handler option
+- Accepted PHP's syntax for multiple uploaded files in upload class
+- Fixed SSL detection with CloudFlare
+- Additional bug fixes
+
+  
+  
+  

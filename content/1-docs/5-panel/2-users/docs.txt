@@ -8,6 +8,8 @@ Description: Learn everything about user management in the Panel.
 
 Text:
 
+(toc)
+
 The Kirby panel has a simple user management section, which makes it possible to add any number of panel users and edit their account data.
 
 ## Creating a new user
@@ -26,7 +28,8 @@ On the "Users" page either click directly on the little profile picture in the l
 
 The uploader only accepts JPG, PNG and GIF files for profile pictures. A square picture will give the best results. Otherwise the uploader will crop the profile picture from the center.
 
-##Custom user form fields (since Kirby 2.2)
+<since v="2.2.3">
+## Custom user form fields
 You can create custom fields for the user management section on a per role basis by defining a user blueprint. Those form fields can be added by creating blueprints for user roles in `site/blueprints/users`. For example:
 
 ```
@@ -53,6 +56,7 @@ You can easily access you new custom fields in your templates:
 ```
 
 **Note**: Custom user fields are only editable once a user has been created because you need to have the user object first.
+</since>
 
 ## Users API
 

@@ -1,6 +1,6 @@
 Title:
 
-$site->hasArchives()
+{{class.instance}}->hasArchives()
 
 ----
 
@@ -18,3 +18,8 @@ text:
 ----
 
 Text:
+
+## Example
+<?php if($site->hasArchives()): ?>
+The /content folder contains archive files.
+<?php endif ?>

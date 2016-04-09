@@ -2,6 +2,10 @@ Title: Datetime
 
 ----
 
+Since: 2.2.3
+
+----
+
 Excerpt:
 
 A date and time picker field

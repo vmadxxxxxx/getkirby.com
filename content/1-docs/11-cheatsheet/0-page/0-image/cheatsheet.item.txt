@@ -1,12 +1,19 @@
 Title:
 
-$page->image($filename = false)
+{{class.instance}}->image($filename = false)
 
 ----
 
 Excerpt:
 
 Returns a specific image $file object by filename. If no filename is given, the first available image will be returned.
+
+----
+
+Params: -
+  name: $filename
+  type: string
+  text: Optional, a filename
 
 ----
 

@@ -1,6 +1,6 @@
 Title:
 
-$site->visit($uri = '' [, $lang])
+{{class.instance}}->visit($uri = '' [, $lang])
 
 ----
 
@@ -20,4 +20,3 @@ text:
 Text:
 
 This method is usually only useful in the context of routing, especially in a multi-language installation, see (link: http://getkirby.com/docs/advanced/routing#multi-language-setup text: the routing docs)
-

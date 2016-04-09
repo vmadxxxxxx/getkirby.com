@@ -2,7 +2,7 @@ Title: {{class.instance}}->get($key, $default = null)
 
 ----
 
-Excerpt:
+Excerpt: Gets an element by key
 
 ----
 

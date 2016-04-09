@@ -1,6 +1,6 @@
 Title:
 
-$site->visitorLanguage()
+{{class.instance}}->visitorLanguage()
 
 ----
 
@@ -18,5 +18,3 @@ text:
 ----
 
 Text:
-
-

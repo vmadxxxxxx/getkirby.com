@@ -1,6 +1,6 @@
 Title:
 
-$site->code()
+{{class.instance}}->code()
 
 ----
 

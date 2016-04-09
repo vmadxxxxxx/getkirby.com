@@ -24,6 +24,6 @@ Text:
 
 ## Example
 
-```
-$media->append('[' . date(r) . "] Something interesting happened to this log.\n");
+```php
+$media->append('[' . date('r') . "] Something interesting happened to this log.\n");
 ```

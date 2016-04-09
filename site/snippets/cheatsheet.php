@@ -23,15 +23,18 @@
     <?php if($extendingMode = $child->extendingModeLink()): ?>
       <div class="zeta subtitle"><?php echo $extendingMode ?></div>
     <?php endif ?>
-    <?php echo kirbytext($child->text()) ?>
+    <?php echo $child->text()->kt() ?>
 
     <div class="cheatsheet-grid">
       <?php foreach($child->inheritedChildren() as $doc): ?>
+      <?php if($doc->since()->future()) continue; ?>
       <div class="cheatsheet-grid-item">
         <a href="<?php echo $doc->url($child) ?>">
           <h3 class="gamma"><?php echo html($doc->title($child)) ?></h3>
-          <?php echo kirbytext($doc->excerpt()) ?>
+          <?php echo $doc->excerpt()->kt() ?>
         </a>
+        <?php if($doc->since()->isNotEmpty()): ?>
+        <?php endif ?>
       </div>
       <?php endforeach ?>
     </div>

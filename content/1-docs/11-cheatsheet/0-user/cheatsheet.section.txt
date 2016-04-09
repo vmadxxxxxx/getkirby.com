@@ -1,15 +1,17 @@
-Title: 
+Title:
 
 $user
 
 ----
 
-Text: 
-
-
+Text:
 
 ----
 
-Excerpt: 
+Class: User
+
+----
+
+Excerpt:
 
 Returns the $avatar object for the user if the avatar exists.

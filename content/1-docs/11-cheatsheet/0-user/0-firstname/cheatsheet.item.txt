@@ -1,6 +1,6 @@
 Title:
 
-$user->firstName()
+{{class.instance}}->firstName()
 
 ----
 

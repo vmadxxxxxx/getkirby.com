@@ -16,3 +16,16 @@ Params: -
   name: $callback
   type: function
   text:
+
+----
+Text:
+
+## Example
+
+```php
+function someFunction ($item)  {
+  //some function
+  }
+}
+$collection->map('someFunction');
+```

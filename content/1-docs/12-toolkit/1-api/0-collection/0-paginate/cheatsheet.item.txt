@@ -6,11 +6,8 @@ Excerpt: Add pagination
 
 ----
 
-Call: {{class.instance}}->paginate($limit, $options = array())
-
-----
-
-Return: type: object
+Return:
+type: object
 text: a sliced set of data
 
 ----

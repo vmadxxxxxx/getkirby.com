@@ -1,6 +1,6 @@
 Title:
 
-$user->data()
+{{class.instance}}->data()
 
 ----
 

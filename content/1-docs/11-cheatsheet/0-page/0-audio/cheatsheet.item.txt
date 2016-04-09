@@ -1,6 +1,4 @@
-Title:
-
-$page->audio()
+Title: {{class.instance}}->audio()
 
 ----
 

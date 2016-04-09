@@ -2,6 +2,10 @@ Title: panel.info.versions
 
 ----
 
+Since: 2.2.3
+
+----
+
 Excerpt: Show/hide Kirby/Panel/Toolkit version information in the panel.
 
 ----

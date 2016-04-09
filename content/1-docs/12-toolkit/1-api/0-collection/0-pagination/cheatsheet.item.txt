@@ -6,7 +6,8 @@ Excerpt: Get the previously added pagination object
 
 ----
 
-Return: type: object
+Return:
+type: object
 text:
 
 ----

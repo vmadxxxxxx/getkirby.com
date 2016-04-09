@@ -7,9 +7,19 @@ Excerpt: Shuffle all elements in the array
 ----
 
 Return:
-type: object
+type: $collection
 text: a new shuffled collection
 
 ----
 
 Params:
+
+----
+
+Text:
+
+## Example
+
+```php
+$collection->shuffle();
+```

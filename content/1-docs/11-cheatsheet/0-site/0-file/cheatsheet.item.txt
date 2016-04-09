@@ -1,6 +1,6 @@
 Title:
 
-$site->file($filename)
+{{class.instance}}->file($filename)
 
 ----
 

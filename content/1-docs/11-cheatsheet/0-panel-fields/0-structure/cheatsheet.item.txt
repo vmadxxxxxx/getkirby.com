@@ -101,4 +101,4 @@ emails:
   
 ## Accessing structure fields in your templates
  
-To access a structure field in your templates, you can use the (link: docs/cheatsheet/field-methods/yaml text: `$field->yaml()`) and (link: docs/cheatsheet/field-methods/toStructure text: `$field->toStructure()`) methods.
+To access a structure field in your templates, you can use the [`$field->yaml()`](../field-methods/yaml) and [`$field->toStructure()`](../field-methods/toStructure) methods.

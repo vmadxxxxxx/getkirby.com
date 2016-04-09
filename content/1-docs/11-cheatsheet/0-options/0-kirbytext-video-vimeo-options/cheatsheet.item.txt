@@ -1,0 +1,23 @@
+Title: kirbytext.video.vimeo.options
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: Sets the default embedding options for Vimeo videos. Check out the (link: https://developer.vimeo.com/player/embedding text: Vimeo embedding docs) for all available options.
+
+----
+
+Text: 
+
+## Example
+
+```php
+c::set('kirbytext.video.vimeo.options', [
+  'autoplay' => true,
+  'badge' => false,
+  'color' => 'ffffff'
+]);
+```

@@ -21,7 +21,7 @@ Params: -
 -
   name: $unique
   type: boolean
-  text: If set to true, only unique values will be fetched, default is false.
+  text: If set to true, only unique values will be fetched, default is false
 
 ----
 

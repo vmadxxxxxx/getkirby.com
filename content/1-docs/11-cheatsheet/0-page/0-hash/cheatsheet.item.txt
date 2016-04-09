@@ -1,12 +1,12 @@
 Title:
 
-$page->hash()
+{{class.instance}}->hash()
 
 ----
 
 Excerpt:
 
-Returns a unique hash for the page, which is used by tinyurls.
+Returns a unique hash for the page, which is used by tinyurls
 
 ----
 

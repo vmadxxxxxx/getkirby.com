@@ -40,7 +40,7 @@ The panel config file is no longer loaded from `/site/panel/config.php`. Instead
 
 ## Panel fields
 
-Panel fields are completely different and more powerful in Kirby 2. Your old custom fields will not be working in Kirby 2. Read the guide (link: docs/panel/custom-form-fields text: how to create panel fields in Kirby 2).
+Panel fields are completely different and more powerful in Kirby 2. Your old custom fields will not be working in Kirby 2. Read the guide (link: docs/panel/developers/custom-form-fields text: how to create panel fields in Kirby 2).
 
 ## Kirbytext extensions
 

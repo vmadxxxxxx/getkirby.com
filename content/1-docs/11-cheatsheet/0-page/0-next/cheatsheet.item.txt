@@ -1,6 +1,4 @@
-Title:
-
-$page->next()
+Title: {{class.instance}}->next()
 
 ----
 

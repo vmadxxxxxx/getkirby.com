@@ -21,3 +21,8 @@ c::set('panel.stylesheet', '/assets/css/panel.css');
 ```
 
 For security reasons it is not possible to include a custom javascript file.
+
+<since v="2.3.0">
+## Classes
+There are some CSS classes that might be of special interest for you. First, all page edit forms have a class based on their blueprint attached: `.form-blueprint-BLUEPRINTNAME`. Second, all form fields feature a class with the pattern `.field-name-FIELDNAME`. Please note that this is the field name from the blueprint, not the field type. 
+</since>

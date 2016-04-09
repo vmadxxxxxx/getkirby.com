@@ -17,7 +17,7 @@ Params: -
 -
   name: $direction
   type: string
-  text: The sort direction: ascending (asc) or descending (desc)
+  text: "The sort direction: ascending (asc) or descending (desc)"
 -
   name: $method
   type: int

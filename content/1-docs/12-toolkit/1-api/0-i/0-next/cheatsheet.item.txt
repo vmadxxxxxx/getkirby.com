@@ -1,12 +1,8 @@
-Title: i::next
+Title: {{class.instance}}->next()
 
 ----
 
 Excerpt: Moves the cursor to the next element in the array and returns it
-
-----
-
-Call: i::next()
 
 ----
 
@@ -15,4 +11,4 @@ text:
 
 ----
 
-Params: 
+Params:

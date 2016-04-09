@@ -1,12 +1,10 @@
-Title:
-
-$page->code()
+Title: {{class.instance}}->code()
 
 ----
 
 Excerpt:
 
-Returns  a $files collection with all code files (css, js, html, etc.) in the page's directory.
+Returns a $files collection with all code files (css, js, html, etc.) in the page's directory
 
 ----
 

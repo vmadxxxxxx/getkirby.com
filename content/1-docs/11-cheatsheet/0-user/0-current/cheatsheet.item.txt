@@ -1,6 +1,6 @@
 Title:
 
-$user->current()
+{{class.instance}}->current()
 
 ----
 
@@ -9,9 +9,9 @@ Excerpt: Returns the current user
 
 ----
 
-Return: $user
+Return:
 
-type: 
+type: $user
 text:
 
 ----
@@ -23,4 +23,3 @@ Text:
 ```php
 <?php echo $site->user()->current() ?>
 ```
-

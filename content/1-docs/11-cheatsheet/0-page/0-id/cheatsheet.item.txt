@@ -1,12 +1,12 @@
 Title:
 
-$page->id()
+{{class.instance}}->id()
 
 ----
 
 Excerpt:
 
-Returns the page id, which is the untranslated URI.
+Returns the page id, which is the untranslated URI
 
 ----
 

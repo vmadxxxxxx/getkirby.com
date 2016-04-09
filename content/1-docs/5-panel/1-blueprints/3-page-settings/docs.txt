@@ -79,4 +79,15 @@ You can set a custom icon for pages that will be shown in the sidebar. You can r
 icon: suitcase
 …
 ```
+<since v="2.3.0">
 
+## Hide page
+
+Since Kirby 2.3.0 you can hide a page from the panel:
+
+```
+…
+hide: true
+…
+```
+</since>

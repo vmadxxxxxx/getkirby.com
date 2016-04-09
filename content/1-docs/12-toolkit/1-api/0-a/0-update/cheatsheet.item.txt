@@ -1,0 +1,66 @@
+Title: a::update($array, $update)
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: Updates an array with a second array
+
+----
+
+Return: type: array
+text:
+
+----
+
+Params: -
+  name: $array
+  type: array
+  text:
+-
+  name: $update
+  type: array
+  text:
+
+----
+
+Text:
+## Example
+```php
+// original array
+$source = [
+  'a' => 'value a',
+  'b' => 'value b'
+];
+
+// array with updated values
+$result = a::update($source, [
+  'a' => 'updated value a',
+  'c' => 'new value c'
+]);
+
+/**
+ * array(
+ *   'a' => 'updated value a',
+ *   'b' => 'value b',
+ *   'c' => 'new value c'
+ * )
+ */
+```
+
+## Callbacks
+The second parameter `$update` can be an array containing callbacks as values, which will get the original values as argument.
+```php
+$source = [
+  'a' => 'value a',
+  'b' => 'value b'
+];
+
+$result = a::update($source, [
+  'a' => function($value) {
+    return 'updated ' . $value;
+  }
+]);
+```

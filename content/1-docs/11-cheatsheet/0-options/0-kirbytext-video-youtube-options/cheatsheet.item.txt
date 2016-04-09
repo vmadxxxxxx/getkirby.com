@@ -1,0 +1,23 @@
+Title: kirbytext.video.youtube.options
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: Sets the default embedding options for Youtube videos. Check out the (link: https://developers.google.com/youtube/player_parameters?hl=de text: Youtube embedding docs) for all available options.
+
+----
+
+Text: 
+
+## Example
+
+```php
+c::set('kirbytext.video.youtube.options', [
+  'autoplay' => true,
+  'controls' => 0,
+  'color' => 'ffffff'
+]);
+```

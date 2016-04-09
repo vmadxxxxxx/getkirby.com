@@ -1,12 +1,12 @@
 Title:
 
-$page->images()
+{{class.instance}}->images()
 
 ----
 
 Excerpt:
 
-Returns a $files collection with all image files (jpg, png, gif, etc.) in the page directory.
+Returns a $files collection with all image files (jpg, png, gif, etc.) in the page directory
 
 ----
 

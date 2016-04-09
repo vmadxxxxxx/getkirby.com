@@ -1,6 +1,6 @@
 Title:
 
-$page->kirby()
+{{class.instance}}->kirby()
 
 ----
 
@@ -12,10 +12,9 @@ Returns the kirby object
 
 Return:
 
-type: object
+type: $kirby
 text:
 
 ----
 
 Text:
-

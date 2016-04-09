@@ -1,6 +1,6 @@
 Title:
 
-$site->image($filename = false)
+{{class.instance}}->image($filename = false)
 
 ----
 

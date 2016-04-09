@@ -16,9 +16,7 @@ Params: -
 -
     name: $value
     type: mixed
-    text: 
-
-  ----
+    text:
 
 ----
 

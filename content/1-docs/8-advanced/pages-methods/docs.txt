@@ -1,0 +1,50 @@
+Title: Custom pages methods
+
+----
+
+Since: 2.3.0
+
+----
+
+Description: Learn how to build your own pages methods
+
+----
+
+Text:
+
+(toc)
+
+## Default pages methods
+
+**For a full (link: docs/cheatsheet/#pages text: list of default pages methods), please check out the cheat sheet.** Be aware that you cannot override these default pages methods with any custom pages method.
+
+## Getting started
+
+You can extend the set of defined page methods very easily. The best place to do this is in a plugin file: `/site/plugins/pages-methods.php`
+
+```php
+pages::$methods['listAll'] = function($pages) {
+  foreach($pages as $page) {
+    echo '- ' . $page->title() . '<br>';
+  }
+};
+```
+
+This example shows the basic architecture of a pages method. You define the method name with the key for the `pages::$methods` array. The callback function receives the `$pages` object as first argument.
+
+
+## Working with method arguments
+
+In some cases it might be helpful to be able to pass arguments to the method:
+
+```php
+<?php echo $pages->withGame('Mario Kart 64') ?>
+```
+
+The definition for such a method with arguments is very simple:
+
+```php
+pages::$methods['withGame'] = function($pages, $game) {
+    return $pages->filterBy('game', $game);
+};
+```

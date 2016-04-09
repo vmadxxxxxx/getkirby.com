@@ -1,6 +1,6 @@
 Title:
 
-$site->audio()
+{{class.instance}}->audio()
 
 ----
 

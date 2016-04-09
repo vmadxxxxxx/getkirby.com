@@ -1,6 +1,6 @@
 Title:
 
-$user->avatarRoot()
+{{class.instance}}->avatarRoot()
 
 ----
 
@@ -11,7 +11,7 @@ Excerpt: Returns the full root for the user avatar image
 
 Return:
 
-type: 
+type: string
 text:
 
 ----

@@ -1,6 +1,6 @@
 Title:
 
-$page->contentURL()
+{{class.instance}}->contentURL()
 
 ----
 
@@ -17,4 +17,3 @@ text:
 ----
 
 Text:
-

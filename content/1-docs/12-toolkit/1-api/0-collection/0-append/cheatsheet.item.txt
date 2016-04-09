@@ -20,3 +20,6 @@ Params: -
   name: $object
   type: mixed
   text:
+
+----
+Text:

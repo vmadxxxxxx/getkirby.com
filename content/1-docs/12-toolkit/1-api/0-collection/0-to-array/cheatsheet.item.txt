@@ -6,9 +6,13 @@ Excerpt: Converts the current object into an array
 
 ----
 
-Return: type: array
+Return:
+type: array
 text:
 
 ----
 
-Params:
+Params: -
+  name: $callback
+  type: callable
+  text: Mapping callback

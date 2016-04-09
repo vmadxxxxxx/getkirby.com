@@ -1,12 +1,12 @@
 Title:
 
-$page->isInvisible()
+{{class.instance}}->isInvisible()
 
 ----
 
 Excerpt:
 
-Checks if the page is invisible.
+Checks if the page is invisible
 
 ----
 
@@ -18,3 +18,10 @@ text:
 ----
 
 Text:
+
+```php
+<?php if($page->isInvisible()): ?>
+  // redirect to error page
+  <?php go('error') ?>
+<?php endif ?>
+```

@@ -1,12 +1,18 @@
 Title:
 
-$page->toArray()
+{{class.instance}}->toArray($callback = null)
 
 ----
 
 Excerpt:
 
 Converts the entire page object into a plain PHP array
+
+----
+Params: -
+  name: $callback
+  type: closure
+  text: Filter callback
 
 ----
 
@@ -19,3 +25,11 @@ text:
 
 Text:
 
+## Example
+
+```php
+<?php
+$array = $page->toArray();
+a::show($array);
+ ?>
+```
