@@ -80,3 +80,12 @@ icon: suitcase
 …
 ```
 
+## Hide page
+
+Since Kirby 2.3.0 you can hide a page from the panel:
+
+```
+…
+hide: true
+…
+```
