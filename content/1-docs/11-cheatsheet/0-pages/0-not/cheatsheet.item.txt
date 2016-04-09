@@ -34,7 +34,25 @@ Text:
   <?php foreach($page->children()->not('project-b') as $subpage): ?>
   <li>
     <a href="<?php echo $subpage->url() ?>">
-      <?php echo html($subpage->title()) ?>
+      <?php echo $subpage->title()->html() ?>
+    </a>
+  </li>
+  <?php endforeach ?>
+</ul>
+```
+
+## Pass collection as argument
+(since 2.3.0+)
+You can now pass a collection as argument as well:
+
+```
+<ul>
+  <?php
+  $excluded = $page->children()>filterBy('template', 'some_template');
+  foreach($page->children()->not($excluded) as $subpage): ?>
+  <li>
+    <a href="<?php echo $subpage->url() ?>">
+      <?php echo $subpage->title()->html() ?>
     </a>
   </li>
   <?php endforeach ?>
