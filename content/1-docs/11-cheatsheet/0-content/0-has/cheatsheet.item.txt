@@ -1,0 +1,37 @@
+Title:
+
+{{class.instance}}([$lang])->has($key)
+
+----
+
+Excerpt: Checks if a field exists
+
+
+----
+Params: -
+  name: $field
+  type: string
+  text: A field name
+-
+  name: $lang
+  type: string
+  text: Optional, language code in multi-lang installation
+
+----
+Return:
+
+type: array
+text:
+
+----
+
+Text:
+
+## Example
+```php
+<?php
+if($page->content()->has('somefield')) {
+  echo $page->somefield()->kirbytext();
+}
+?>
+```

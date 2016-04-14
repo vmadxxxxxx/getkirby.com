@@ -1,0 +1,30 @@
+Title:
+
+{{class.instance}}([$lang])->fields()
+
+----
+
+Excerpt: Returns an array with all field names
+
+----
+Params: -
+  name: $lang
+  type: string
+  text: A language code
+
+----
+
+Return:
+
+type: array
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php a::show($page->content()->fields)) ?>
+```

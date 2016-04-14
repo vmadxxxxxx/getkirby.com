@@ -1,0 +1,33 @@
+Title:
+
+{{class.instance}}([$lang])->exists()
+
+----
+
+Excerpt: Checks if the content file exists
+
+
+
+----
+Params: -
+  name: $lang
+  type: string
+  text: Optional, language code in multi-lang installation
+
+----
+Return:
+
+type: boolean
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php if($page->content('en')->exists()): ?>
+  //do stuff
+<?php endif ?>
+```

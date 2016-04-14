@@ -1,0 +1,25 @@
+Title:
+
+{{class.instance}}->name()
+
+----
+
+Excerpt: Returns the name of the content file without the extension. This is being used to determine the template for the page
+
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->content()->name()) ?>
+```

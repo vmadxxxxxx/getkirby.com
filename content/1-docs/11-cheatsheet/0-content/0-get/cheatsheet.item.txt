@@ -1,0 +1,39 @@
+Title:
+
+{{class.instance}}([$lang])->get($key, $arguments = null)
+
+----
+
+Excerpt: Gets a field from the content
+
+----
+
+Params: -
+  name: $lang
+  type: string
+  text: Optional, language code in multi-lang installation
+-
+  name: $key
+  type: string
+  text: A field name
+-
+  name: $arguments
+  type:
+  text:
+
+----
+
+Return:
+
+type: Field
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php $field = $page->content()->get('title'); ?>
+```
