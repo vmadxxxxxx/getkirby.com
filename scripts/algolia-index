@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * CLI script to re-index the Kirby Algolia index
+ * 
+ * @author Lukas Bestle <lukas@getkirby.com>
+ */
+
+define('DS', DIRECTORY_SEPARATOR);
+
+// check if we are indeed on the command line
+if(php_sapi_name() !== 'cli') die();
+
+// load Kirby
+require(__DIR__ . DS . '..' . DS . 'kirby' . DS . 'bootstrap.php');
+
+// check for a custom site.php
+if(file_exists(__DIR__ . DS . '..' . DS . 'site.php')) {
+  require(__DIR__ . DS . '..' . DS . 'site.php');
+} else {
+  $kirby = kirby();
+}
+
+// initialize Kirby and site
+echo "\033[1mLoading Kirby...\033[0m\n";
+$kirby->site();
+$kirby->extensions();
+$kirby->plugins();
+$kirby->models();
+
+// re-index using the Algolia plugin
+try {
+  timer::start();
+  echo "\033[1mReindexing using the Algolia plugin...\033[0m\n";
+  algolia()->index();
+  $time = timer::stop();
+} catch(Exception $e) {
+  echo "\033[1;31mError: \033[0;31m" . $e->getMessage() . "\033[0m\n";
+  exit(1);
+}
+
+// Success message
+echo "\033[32mSuccessfully indexed the Kirby site in \033[34m" . number_format($time, 2) . "\033[32m seconds.\033[0m\n";
+exit(0);

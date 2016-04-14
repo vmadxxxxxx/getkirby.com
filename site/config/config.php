@@ -87,3 +87,42 @@ c::set('routes', array(
     }
   ),
 ));
+
+// Algolia search options
+c::set('algolia.autoindex', false);
+c::set('algolia.index', 'getkirby');
+c::set('algolia.fields', array(
+  'url',
+  'template',
+  'title',
+  'text' => function($page) {
+    return strip_tags($page->text()->kirbytext());
+  }
+));
+c::set('algolia.templates', array(
+  'docs' => array(
+    'filter' => function($page) {
+      return $page->isVisible();
+    },
+    'fields' => array('description')
+  ),
+  'cheatsheet.section' => array(
+    'filter' => function($page) {
+      return $page->isVisible();
+    },
+    'fields' => array(
+      'url' => function($page) {
+        return $page->parent()->url() . '#' . $page->uid();
+      }
+    )
+  ),
+  'cheatsheet.item' => array(
+    'filter' => function($page) {
+      return $page->isVisible();
+    },
+    'fields' => array('excerpt')
+  ),
+));
+
+// Load site-specific Algolia options
+if(is_file(__DIR__ . DS . 'config.algolia.php')) require_once(__DIR__ . DS . 'config.algolia.php');
