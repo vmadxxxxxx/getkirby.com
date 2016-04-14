@@ -2023,3 +2023,17 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .searchpage .pagination .next {
   right: 0; }
+
+.searchsuggestions {
+  text-align: center;
+  line-height: 1.75em;
+  font-size: 1.15em; }
+
+.searchsuggestions:hover {
+  opacity: 1; }
+
+.searchsuggestions h2 {
+  font-size: 1em; }
+
+.searchsuggestions a {
+  border-bottom: 2px solid #ddd; }

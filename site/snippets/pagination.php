@@ -1,3 +1,4 @@
+<?php if($pagination->hasPages()): ?>
 <nav class="pagination" role="navigation">
 
   <ul>
@@ -17,3 +18,4 @@
   </ul>
 
 </nav>
+<?php endif ?>

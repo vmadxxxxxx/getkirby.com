@@ -2,6 +2,10 @@
 
 return function($site, $pages, $page) {
 
+  if(!c::get('algolia.app')) {
+    go();
+  }
+
   $query = trim(get('q'));
   
   if(!empty($query)) {
@@ -13,6 +17,7 @@ return function($site, $pages, $page) {
     ]);
   } else {
     $results = new Collection;
+    $results = $results->paginate(10);
   }
 
   return [
