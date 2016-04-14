@@ -50,6 +50,17 @@ try {
 
 ```
 
+<since v="2.3.0">
+### Updating a field by callback
+
+```php
+$page->update(array(
+  'title' => function($title) {
+    return str::lower($title);
+  }
+));
+</since>
+
 ## Multi-language site
 Use the optional `$lang` parameter to specify the language you want to update.
 
