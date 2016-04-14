@@ -21,7 +21,7 @@ panel.page.update | $page
 panel.page.delete | $page
 panel.page.sort | $page
 panel.page.hide | $page
-panel.page.move  | $page
+panel.page.move  | $page, $oldPage
 panel.file.upload | $file
 panel.file.replace | $file
 panel.file.rename | $file
