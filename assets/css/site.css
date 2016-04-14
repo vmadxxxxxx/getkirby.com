@@ -1976,3 +1976,50 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .version-badge a:hover {
   color: #000; }
+
+/*
+ :::  Search Page
+-------------------------------------------------- */
+.searchpage-query {
+  color: red; }
+
+.searchresults {
+  padding-bottom: 3rem;
+  overflow: hidden; }
+
+.searchresult {
+  border-bottom: 1px dashed #ddd;
+  padding: .75rem 0;
+  line-height: 1.25em;
+  white-space: nowrap; }
+
+@media screen and (min-width: 45em) {
+  .searchresult {
+    width: 50%;
+    float: left; } }
+
+.searchresult-headline {
+  font-size: 1rem; }
+
+.searchresult-meta {
+  color: #777;
+  font-weight: 300; }
+
+.searchpage .pagination {
+  position: relative;
+  padding: 0; }
+
+.searchpage .pagination span {
+  color: #999; }
+
+.searchpage .pagination .prev,
+.searchpage .pagination .next {
+  position: absolute;
+  top: 0; }
+
+.searchpage .pagination .count {
+  text-align: center;
+  color: #999; }
+
+.searchpage .pagination .next {
+  right: 0; }
