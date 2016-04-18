@@ -28,7 +28,7 @@ Text:
 To only get files of a certain type, you can filter by type, e.g.
 
 ```php
-{{class.instance}}->files()->filterBy('type', 'image');
-{{class.instance}}->files()->filterBy('type', 'video');
+$pages->files()->filterBy('type', 'image');
+$pages->files()->filterBy('type', 'video');
 //etc.
 ```
