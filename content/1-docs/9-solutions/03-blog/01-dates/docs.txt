@@ -41,7 +41,7 @@ Make sure the format you use for your date is parsable by php. Anything like `dd
 <?php echo $page->date('Y-m-d') ?>
 ```
 
-This will do the same as the example above – just in one line. As an argument you can pass any valid (link: http://php.net/manual/de/function.date.php text: php date format string). If you don't pass any string the function will return a unix timestamp, which you can use to make some more fancy php date calculation stuff.
+This will do the same as the example above – just in one line. As an argument you can pass any valid (link: http://php.net/manual/en/function.date.php text: php date format string). If you don't pass any string the function will return a unix timestamp, which you can use to make some more fancy php date calculation stuff.
 
 ## How to use that for our blog?
 
