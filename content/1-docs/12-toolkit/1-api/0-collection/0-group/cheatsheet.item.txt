@@ -4,6 +4,10 @@ Title:
 
 ----
 
+Since: 2.3.0
+
+----
+
 Excerpt: Groups the collection by a given callback
 
 ----
