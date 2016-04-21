@@ -4,7 +4,7 @@ Title: Related articles
 
 Text:
 
-With (link: docs/learn/content/structured-field-content text: Structured Field Content) you can easily link information on your site with external or internal sources in Kirby.
+With (link: docs/cheatsheet/panel-fields/structure text: Structured Field Content) you can easily link information on your site with external or internal sources in Kirby.
 
 ## In your content files
 
