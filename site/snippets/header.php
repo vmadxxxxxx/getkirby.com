@@ -30,6 +30,7 @@
   <link rel="apple-touch-icon" href="<?php echo url('assets/images/apple-touch-icon.png') ?>" />
   <meta name="apple-mobile-web-app-title" content="<?php echo html($site->title()) ?>">
   <link rel="alternate" type="application/rss+xml" href="<?php echo url('feed') ?>" title="<?php echo html($site->title()) ?> Blog Feed" />
+  <link rel="alternate" type="application/rss+xml" href="<?php echo url('changelog/feed') ?>" title="<?php echo html($site->title()) ?> Changelog Feed" />
 
 </head>
 <body class="<?php echo str_replace('.', '-', $page->template()) ?>" id="top">
