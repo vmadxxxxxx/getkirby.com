@@ -1,12 +1,23 @@
 Title:
 
-{{class.instance}}->hasPrevInvisible()
+{{class.instance}}->hasPrevInvisible([$sort, $direction])
 
 ----
 
 Excerpt:
 
 Checks if the page has a previous invisible sibling
+
+----
+
+Params: -
+  name: $sort
+  type: string
+  text: An optional sort field for the siblings
+-
+   name: $direction
+   type: string
+   text: An optional sort direction
 
 ----
 
@@ -24,5 +35,13 @@ Text:
 ```php
 <?php
 echo $page->hasPrevInvisible(); //will echo 1 if true, nothing if false.
+?>
+```
+
+### Using sort field
+
+```php
+<?php
+echo $page->hasPrevInvisible('date', 'desc'); //will echo 1 if true, nothing if false.
 ?>
 ```
