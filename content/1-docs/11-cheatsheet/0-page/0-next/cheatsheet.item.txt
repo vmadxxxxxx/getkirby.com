@@ -1,10 +1,21 @@
-Title: {{class.instance}}->next()
+Title: {{class.instance}}->next([$sort, $direction])
 
 ----
 
 Excerpt:
 
 Returns the next sibling
+
+----
+
+Params: -
+  name: $sort
+  type: string
+  text: An optional sort field for the siblings
+-
+   name: $direction
+   type: string
+   text: An optional sort direction
 
 ----
 
@@ -21,6 +32,14 @@ Text:
 
 ```php
 <?php if($next = $page->next()): ?>
+<a href="<?php echo $next->url() ?>">next page</a>
+<?php endif ?>
+```
+
+### Using sort field
+
+```php
+<?php if($next = $page->next('date', 'desc')): ?>
 <a href="<?php echo $next->url() ?>">next page</a>
 <?php endif ?>
 ```
