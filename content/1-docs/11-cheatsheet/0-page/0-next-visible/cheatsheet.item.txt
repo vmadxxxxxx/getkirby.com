@@ -1,10 +1,21 @@
-Title: {{class.instance}}->nextVisible()
+Title: {{class.instance}}->nextVisible([$sort, $direction])
 
 ----
 
 Excerpt:
 
 Returns the next visible sibling
+
+----
+
+Params: -
+  name: $sort
+  type: string
+  text: An optional sort field for the siblings
+-
+   name: $direction
+   type: string
+   text: An optional sort direction
 
 ----
 
@@ -21,6 +32,14 @@ Text:
 
 ```php
 <?php if($next = $page->nextVisible()): ?>
+<a href="<?php echo $next->url() ?>">next visible page</a>
+<?php endif ?>
+```
+
+### Using sort field
+
+```php
+<?php if($next = $page->nextVisible('title', 'asc')): ?>
 <a href="<?php echo $next->url() ?>">next visible page</a>
 <?php endif ?>
 ```
