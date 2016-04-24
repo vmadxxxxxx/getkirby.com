@@ -1,0 +1,41 @@
+Title: email($params)
+
+----
+
+Excerpt: Sends an email
+
+----
+
+Params: -
+  name: $params
+  type: array
+  text:
+
+----
+
+Return:
+
+type: $email
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+$email = email(array(
+  'to'      => 'bastian@getkirby.com',
+  'from'    => 'my@email.com',
+  'subject' => 'Sending emails with Kirby is easy',
+  'body'    => 'Hey! This was really easy!'
+));
+
+if($email->send()) {
+  echo 'The email has been sent';
+} else {
+  echo $email->error();
+}
+
+```
