@@ -1,0 +1,37 @@
+Title:
+
+{{class.instance}}->crop($width, $height = null, $quality = null)
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt:
+
+Crops the image by width and optionally by height
+
+----
+
+Return:
+
+type: $file
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+// crop into a square of 300 x 300
+echo $page->image()->crop(300);
+
+// crop by height as well
+echo $page->image()->crop(300, 200);
+
+// adjust the quality
+echo $page->image()->crop(300, 200, 70);
+```

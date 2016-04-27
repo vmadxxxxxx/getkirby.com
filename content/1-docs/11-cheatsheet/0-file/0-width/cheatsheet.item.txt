@@ -24,3 +24,13 @@ Text:
 ```php
 <?php echo $page->image()->width(); ?>
 ```
+
+<since v="2.3.0">
+## Resizing the width
+
+By passing a value, you can also use the `$file->width()` method to resize the image by width:
+
+```php
+echo $page->image('my-image.jpg')->width(300);
+```
+</since>

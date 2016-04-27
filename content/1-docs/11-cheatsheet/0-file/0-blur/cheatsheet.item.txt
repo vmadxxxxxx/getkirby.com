@@ -1,6 +1,6 @@
 Title:
 
-{{class.instance}}->bw($bw)
+{{class.instance}}->blur()
 
 ----
 
@@ -10,7 +10,7 @@ Since: 2.3.0
 
 Excerpt:
 
-Converts the image to grayscale
+Applies a blur filter to the image
 
 ----
 
@@ -26,5 +26,5 @@ Text:
 ## Example
 
 ```php
-<?php echo $page->image()->bw()->html() ?>
+echo $page->image()->blur();
 ```

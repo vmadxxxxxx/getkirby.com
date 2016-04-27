@@ -25,3 +25,13 @@ Text:
 echo $page->image('my-image.jpg')->ratio();
 // i.e. 1.345232
 ```
+
+<since v="2.3.0">
+## Crop the image by ratio
+
+You can also pass a ratio to crop the image accordingly
+
+```php
+echo $page->image('my-image.jpg')->ratio(3/2);
+```
+</since>
