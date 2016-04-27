@@ -1,0 +1,32 @@
+Title: {{class.instance}}->diruri()
+
+----
+
+Excerpt: Returns the relative path for the file
+
+----
+
+Since: 2.3.0
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example:
+
+```php
+echo $page->file()->diruri();
+```
+
+## Result:
+
+```
+1-projects/2-project-b/forrest.jpg
+```
