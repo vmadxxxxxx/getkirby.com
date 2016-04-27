@@ -20,3 +20,5 @@ fields:
     label: Name
     type: text
 ```
+
+(docs: panel-field-max-and-min)

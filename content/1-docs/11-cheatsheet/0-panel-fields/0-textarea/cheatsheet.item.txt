@@ -34,3 +34,5 @@ fields:
       - link
       - email
 ```
+
+(docs: panel-field-max-and-min)
