@@ -73,7 +73,7 @@ class Algolia {
     
     // Start the search
     $results = $this->getIndex()->search($query, $options);
-    
+  
     // Convert the results to Obj objects
     $hits = array_map(function($hit) {
       return new Obj($hit);
