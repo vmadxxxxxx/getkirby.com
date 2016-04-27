@@ -2,6 +2,14 @@
 
 This plugin integrates with the [Algolia service](https://www.algolia.com) to index and search through your Kirby website.
 
+## What is Algolia?
+
+Algolia is a hosted search engine for websites and apps. After providing it with the structured content of your website, it will create an optimized database of the content that will be very fast to search through via their API.
+
+Using Algolia requires an [account](https://www.algolia.com/users/sign_up). Free accounts are available, but paid accounts allow you to use the service without displaying the Algolia logo next to the search results. The [pricing](https://www.algolia.com/pricing) mostly depends on the number of records (Kirby pages) you want to index, the change frequency of these records and the number of search queries per month. The "Starter" plan should be enough for most Kirby websites.
+
+You can read more about Algolia on their [website](https://www.algolia.com) and in their [documentation](https://www.algolia.com/doc).
+
 ## Installation
 
 To install the plugin, please put it in the `site/plugins` directory and add the necessary configuration options (see below) to your `site/config.php`.
@@ -10,7 +18,7 @@ To install the plugin, please put it in the `site/plugins` directory and add the
 
 ### API credentials
 
-You can find your API credentials in the Algolia dashboard on the "API keys" page. The values you need are the "Application ID" and the "Write API Key":
+After [creating an Algolia account](https://www.algolia.com/users/sign_up), you can find your API credentials in the Algolia dashboard on the "API keys" page. The values you need are the "Application ID" and the "Write API Key":
 
 ```php
 c::set('algolia.app', 'ABCDEFGHIJ');
@@ -19,13 +27,14 @@ c::set('algolia.key', '12345678901234567890123456789012');
 
 ### Search index
 
-Once setup, the plugin will upload your Kirby pages to an Algolia index. You need to create one index per site and set its name like this:
+Once setup, the plugin will upload your Kirby pages to an Algolia index. An index is like a database table that is optimized for searching.
+You need to create one index per site in the [Algolia dashboard](https://www.algolia.com/dashboard) and set its name like this:
 
 ```php
 c::set('algolia.index', 'myindex');
 ```
 
-The plugin also uses a temporary index when re-indexing the site manually.
+The plugin also uses a temporary index when re-indexing the site manually. This temporary index is created automatically when needed.
 The name of that index is set to `{{algolia.index}}_temp` by default, but if you need to, you can change this value like this:
 
 ```php
@@ -107,6 +116,8 @@ c::set('algolia.search.options', array(
 ));
 ```
 
+Alternatively, you can also set the options in the display settings of the index in the Algolia dashboard.
+
 ## Indexing
 
 The plugin will automatically update the Algolia index with changes you make in the Panel.
@@ -117,7 +128,7 @@ algolia()->index();
 ```
 
 This will create a new temporary index, upload all indexable pages and replace the main index with the temporary index.
-Please note that manual indexing will use roughly as many Algolia "Operations" as you have indexable pages each time you call the `index` method.
+Please note that manual indexing will use roughly as many Algolia "Operations" as you have indexable pages each time you call the `index` method. The amount of included/free "Operations" per month depends on your Algolia plan.
 
 ## Search
 
