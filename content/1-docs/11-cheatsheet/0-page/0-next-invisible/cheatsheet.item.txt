@@ -1,10 +1,21 @@
-Title: {{class.instance}}->nextInvisible()
+Title: {{class.instance}}->nextInvisible([$sort, $direction])
 
 ----
 
 Excerpt:
 
 Returns the next invisible sibling
+
+----
+
+Params: -
+  name: $sort
+  type: string
+  text: An optional sort field for the siblings
+-
+   name: $direction
+   type: string
+   text: An optional sort direction
 
 ----
 
@@ -21,6 +32,14 @@ Text:
 
 ```php
 <?php if($next = $page->nextInvisible()): ?>
+<a href="<?php echo $next->url() ?>">next invisible page</a>
+<?php endif ?>
+```
+
+### Using sort field
+
+```php
+<?php if($next = $page->nextInvisible('date', 'desc')): ?>
 <a href="<?php echo $next->url() ?>">next invisible page</a>
 <?php endif ?>
 ```

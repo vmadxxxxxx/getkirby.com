@@ -1,12 +1,23 @@
 Title:
 
-{{class.instance}}->prev()
+{{class.instance}}->prev([$sort, $direction])
 
 ----
 
 Excerpt:
 
 Returns the previous sibling
+
+----
+
+Params: -
+  name: $sort
+  type: string
+  text: An optional sort field for the siblings
+-
+   name: $direction
+   type: string
+   text: An optional sort direction
 
 ----
 
@@ -23,6 +34,14 @@ Text:
 
 ```php
 <?php if($prev = $page->prev()): ?>
+<a href="<?php echo $prev->url() ?>">previous page</a>
+<?php endif ?>
+```
+
+### Using sort field
+
+```php
+<?php if($prev = $page->prev('date', 'desc')): ?>
 <a href="<?php echo $prev->url() ?>">previous page</a>
 <?php endif ?>
 ```
