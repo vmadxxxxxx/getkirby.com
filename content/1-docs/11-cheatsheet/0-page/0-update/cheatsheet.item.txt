@@ -59,6 +59,7 @@ $page->update(array(
     return str::lower($title);
   }
 ));
+```
 </since>
 
 ## Multi-language site
