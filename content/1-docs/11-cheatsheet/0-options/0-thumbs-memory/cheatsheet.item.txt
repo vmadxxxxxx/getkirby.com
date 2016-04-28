@@ -1,0 +1,25 @@
+Title: thumbs.memory
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: Allocates memory to the GD library
+
+----
+
+Text: 
+
+## Default value
+
+```
+'128M'
+```
+
+## Example
+
+```php
+c::set('thumbs.memory', '32M');
+```

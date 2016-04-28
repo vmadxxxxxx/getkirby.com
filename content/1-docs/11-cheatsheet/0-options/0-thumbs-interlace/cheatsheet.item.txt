@@ -1,0 +1,25 @@
+Title: thumbs.interlace
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: Switches the default interlacing for JPEGs on or off
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('thumbs.interlace', true);
+```

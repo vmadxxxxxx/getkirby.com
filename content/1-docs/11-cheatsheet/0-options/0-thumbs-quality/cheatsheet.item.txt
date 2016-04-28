@@ -1,0 +1,25 @@
+Title: thumbs.quality
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: The default JPEG compression quality for all thumbnails
+
+----
+
+Text: 
+
+## Default value
+
+```
+90
+```
+
+## Example
+
+```php
+c::set('thumbs.quality', 80);
+```

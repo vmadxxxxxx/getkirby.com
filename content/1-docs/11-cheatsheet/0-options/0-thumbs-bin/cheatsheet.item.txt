@@ -1,0 +1,25 @@
+Title: thumbs.bin
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: The path for the imagemagick convert binary
+
+----
+
+Text: 
+
+## Default value
+
+```
+convert
+```
+
+## Example
+
+```php
+c::set('thumbs.bin', '/usr/local/bin/convert');
+```
