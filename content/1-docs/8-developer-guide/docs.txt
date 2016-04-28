@@ -1,0 +1,80 @@
+Title: Developer guide
+
+----
+
+Description: Learn how to write extensions for Kirby and modify the system in various ways
+
+----
+
+Text:
+
+## Plugins
+
+- (link: docs/developer-guide/plugins/hello-world text: Getting started with your first plugin)
+- (link: docs/developer-guide/plugins/assets text: How to store plugin assets)
+- (link: docs/developer-guide/plugins/registry text: The Kirby extension registry)
+- (link: docs/developer-guide/plugins/components text: How to create a core component)
+- (link: docs/developer-guide/plugins/publish text: How to publish your plugin)
+<!-- - (link: docs/developer-guide/ text: Developer styleguide) -->
+
+## Kirbytext 
+
+- (link: docs/developer-guide/kirbytext/tags text: How to create custom Kirby tags)
+- (link: docs/developer-guide/kirbytext/filters text: Kirbytext filters)
+<!-- - (link: docs/developer-guide/ text: How to replace the markdown parser) -->
+<!-- - (link: docs/developer-guide/ text: How to replace the smartypants parser) -->
+
+## Extending the Panel
+
+- (link: docs/developer-guide/panel/fields text: Custom form fields)
+- (link: docs/developer-guide/panel/css text: Custom panel stylesheet)
+- (link: docs/developer-guide/panel/widgets text: Dashboard widgets)
+- (link: docs/developer-guide/panel/translations text: Translating the panel)
+
+## Advanced tasks
+
+- (link: docs/developer-guide/advanced/routing text: Routing)
+- (link: docs/developer-guide/advanced/caching text: Caching)
+- (link: docs/developer-guide/advanced/hooks text: Hooks)
+- (link: docs/developer-guide/advanced/controllers text: Controllers)
+- (link: docs/developer-guide/advanced/models text: Page models)
+- (link: docs/developer-guide/advanced/emails text: Emails)
+
+## Extending Kirby objects
+
+- (link: docs/developer-guide/objects/fields text: Custom $field methods)
+- (link: docs/developer-guide/objects/page text: Custom $page methods)
+- (link: docs/developer-guide/objects/pages text: Custom $pages methods)
+- (link: docs/developer-guide/objects/file text: Custom $file methods)
+- (link: docs/developer-guide/objects/files text: Custom $files methods)
+- (link: docs/developer-guide/objects/collections text: How to write collection filters)
+
+## Security
+
+- (link: docs/developer-guide/security text: Kirby security guide)
+
+## Configuration
+
+- (link: docs/developer-guide/configuration/options text: Kirby's options)
+- (link: docs/developer-guide/configuration/languages text: Multi-language setup)
+<!-- - (link: docs/developer-guide/configuration/apache text: Apache configuration) -->
+<!-- - (link: docs/developer-guide/configuration/nginx text: Nginx configuration) -->
+- (link: docs/developer-guide/configuration/thumbnails text: Thumbnail configuration)
+<!-- - (link: docs/developer-guide/configuration/email text: Email driver configuration) -->
+- (link: docs/developer-guide/configuration/folders text: Custom folder setup)
+
+## Troubleshooting
+
+- (link: docs/developer-guide/troubleshooting/installation text: Installation issues)
+- (link: docs/developer-guide/troubleshooting/debugging text: Debugging)
+- (link: docs/developer-guide/troubleshooting/thumbnails text: Thumbnail issues)
+
+## Toolkit
+
+- (link: docs/toolkit/api text: Toolkit Api cheat sheet)
+- (link: docs/developer-guide/toolkit/thumb-driver text: How to create a custom thumb driver)
+- (link: docs/developer-guide/toolkit/email-driver text: How to create a custom email driver)
+- (link: docs/developer-guide/toolkit/cache-driver text: How to create a custom cache driver)
+- (link: docs/developer-guide/toolkit/database text: How to use Kirby's database class)
+- (link: docs/developer-guide/toolkit/upload text: How to use the toolkit upload class)
+- (link: docs/developer-guide/toolkit/routing text: How to use the toolkit router class)

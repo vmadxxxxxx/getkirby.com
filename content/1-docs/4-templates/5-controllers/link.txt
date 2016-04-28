@@ -1,0 +1,9 @@
+Title: Controllers
+
+----
+
+Description: Learn how to store more complex template code in controllers to separate logic from your HTML.
+
+----
+
+Link: docs/developer-guide/advanced/controllers

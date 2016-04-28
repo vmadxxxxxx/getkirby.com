@@ -1,0 +1,96 @@
+Title: How to create a core component
+
+----
+
+Since: 2.3.0
+
+----
+
+Text:
+
+Kirby is built on a set of major components, which can be replaced by your own component plugins. 
+
+(toc)
+
+## Core components
+
+### css
+
+The `css` component builds the link tags for your stylesheets whenever you call the (link: docs/cheatsheet/helpers/css text: css()) helper. 
+
+### js
+
+The `js` component builds the script tags for your js files whenever you call the (link: docs/cheatsheet/helpers/js text: js()) helper. 
+
+### markdown
+
+The `markdown` component takes a string and passes it to the markdown parser (we use Parsedown as a parser). By replacing the markdown component you can replace the Parsedown parser with your own favorite.
+
+### response
+
+The response component stands at the end of page generation process in Kirby. It takes whatever it gets from your templates and routes and tries to turn it into a useful response object, which will then be rendered. By replacing or extending this component, you can modify the output directly before it hits the user. 
+
+### smartypants
+
+The `smartypants` component takes a string and passes it to the smartypants parser by Michel Fortin. By replacing the smartypants component you can replace the default parser.
+
+### snippet
+
+The `snippet` component takes care of locating snippet files, passing variables and rendering them. You can bring your own snippet logic in here. 
+
+### template
+
+The `template` component is Kirby's template engine. It takes care of locating templates, passing variables and rendering them. You can replace this with your render engine of choice, if you like.
+
+### thumb
+
+The `thumb` component handles resizing of images. You can replace this with a plugin that talks to a service like imgix for example or bring your own thumb generator class. 
+
+### tinyurl
+
+The `tinyurl` component can be replaced to entirely change the way Kirby resolves tinyurls (if enabled)
+
+
+## Register a component
+
+A component can be registered in a plugin file with the `kirby()->set()` method: 
+
+```php
+$kirby->set('component', 'thumb', 'MyThumbClass');
+```
+
+With the second argument, you specify which of the components you want to replace. The classname of your custom component class must be passed as last argument. The class must be loadable or exist. 
+
+**Your custom class must extend the default component class!**
+
+Here's a list of all default component class names: 
+
+```
+Kirby\Component\CSS
+Kirby\Component\JS
+Kirby\Component\Markdown
+Kirby\Component\Response
+Kirby\Component\SmartyPants
+Kirby\Component\Snippet
+Kirby\Component\Template
+Kirby\Component\Thumb
+Kirby\Component\Tinyurl
+```
+
+## Example
+
+So if you want to replace the thumb class, your custom class would need to look like this:
+
+```php 
+<?php
+
+class MyCustomThumbComponent extends Kirby\Component\Thumb {
+  // your code goes here
+}
+```
+
+Your class name does not have to follow any rules, but we recommend to use a namespace for it.
+
+## What to extend
+
+Please check out the source code of the default components in `/kirby/kirby/component` in order to find out more about their architecture and the methods you want to replace/extend.

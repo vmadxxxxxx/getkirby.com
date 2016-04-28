@@ -1,0 +1,79 @@
+Title: Custom Filters
+
+----
+
+Text:
+
+(toc)
+
+You can filter lists of pages, files, users or languages with a set of predefined filter methods. This set can be extended with your own filters.
+
+## Predefined filter methods
+
+Method   | Function
+-        | -
+==       | all values, which match exactly
+!=       | all values, which don't match
+*=       | all values, which contain the given string
+>        | all values, which are greater than the given value
+>=       | all values, which are greater or equal the given value
+<        | all values, which are smaller than the given value
+<=       | all values, which are smaller or equal the given value
+
+The best place to define those extended filter methods is in a plugin file.
+For example: `/site/plugins/filters.php`
+
+## Define your own method
+
+```php
+// anything that starts with the given value
+collection::$filters['^='] = function($collection, $field, $value) {
+
+  foreach($collection->data as $key => $item) {
+    if(str::startsWith(collection::extractValue($item, $field), $value)) continue;
+    unset($collection->$key);
+  }
+
+  return $collection;
+
+};
+```
+
+### collection::extractValue($item, $field)
+
+You might have noticed this static method in the example above. This method helps to extract the correct value by field from the given $item, no matter if the item is an array or an object.
+
+## Supporting the split argument
+
+When you use the filterBy() method for a collection you can pass a split separator as last argument, which makes it possible to apply the filter to fields with comma separated values for example.
+
+### Example
+
+```php
+$articles = $page->children()->filterBy('tags', 'design', ',');
+```
+
+To support this split parameter in your own filter you have to extend it a bit.
+
+```php
+// anything that starts with the given value
+collection::$filters['^='] = function($collection, $field, $value, $split = false) {
+
+  foreach($collection->data as $key => $item) {
+    if($split) {
+      $values = str::split((string)collection::extractValue($item, $field), $split);
+      foreach($values as $val) {
+        if(str::startsWith($val, $value) === false) {
+          unset($collection->$key);
+          break;
+        }
+      }
+    } else if(str::startsWith(collection::extractValue($item, $field), $value) === false) {
+      unset($collection->$key);
+    }
+  }
+
+  return $collection;
+
+};
+```

@@ -1,0 +1,9 @@
+Title: Page Models
+
+----
+
+Description: Learn how to create page models with extended functionalities. 
+
+----
+
+Link: docs/developer-guide/advanced/models

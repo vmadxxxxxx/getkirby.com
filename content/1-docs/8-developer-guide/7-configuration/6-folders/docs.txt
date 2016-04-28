@@ -1,0 +1,92 @@
+Title: Custom folder setup
+
+----
+
+Text:
+
+(toc)
+
+Kirby 2 offers a new way to customize the default folder layout of Kirby. This can be used for example to rename the content folder or use a shared kirby core folder with other installations.
+
+## /site.php
+
+To avoid messing around with the core or the index.php you can set site specifc settings by creating a site.php in your main directory of your site (next to the index.php)
+
+As soon as you create a site.php, Kirby will load that and expect a fully configured kirby object.
+
+##### Example of a valid /site.php
+
+```php
+<?php 
+
+$kirby = kirby();
+// configuration goes here
+```
+
+## Changing the content folder
+
+##### /site.php
+
+```php
+$kirby = kirby();
+
+// changing the directory
+$kirby->roots->content = $kirby->roots()->index() . DS . 'my-custom-content-folder';
+
+// changing the url
+$kirby->urls->content = $kirby->urls()->index() . '/my-custom-content-folder';
+
+```
+
+When you customize the content folder you must make sure that the content URL is set accordingly as well. Otherwise images and other files, which must be available publicly will not be reachable. 
+
+
+## Changing the site folder
+
+```php
+$kirby = kirby();
+$kirby->roots->site = '/var/sites/mysite.com';
+```
+
+The site folder can be located anywhere and does not have to be accessible publicly. It might even make sense to move it above the document root for more security.
+
+
+## Changing the thumbs folder
+
+```php
+$kirby = kirby();
+$kirby->roots->thumbs = $kirby->roots()->index() . DS . 'thumbnails';
+$kirby->urls->thumbs  = $kirby->urls()->index() . '/thumbnails';
+```
+
+The thumbs folder can be moved as well, but the URL must be adjusted accordingly to make sure that thumbnails will be loaded correctly. 
+
+## Multi-site setup
+
+With the new way to setup folder layouts you can easily direct multiple domains to the same installation and switch to different content, site and thumbs folders. **Please note that you still need to purchase a valid license for every domain**
+
+```php
+<?php
+
+// /site.php
+
+$kirby   = kirby();
+$domain  = server::get('server_name');
+$domains = array('domain-1.com', 'domain-2.com');
+
+if(in_array($domain, $domains)) {
+
+  // custom roots
+  $kirby->roots->site    = __DIR__ . DS . 'site' . DS . $domain;
+  $kirby->roots->content = __DIR__ . DS . 'content' . DS . $domain;
+  $kirby->roots->avatars = __DIR__ . DS . 'assets' . DS . 'avatars' . DS . $domain;
+  $kirby->roots->thumbs  = __DIR__ . DS . 'thumbs' . DS . $domain;
+
+  // custom urls
+  $kirby->urls->index    = url::scheme() . '://' . $domain;
+  $kirby->urls->content  = $kirby->urls->index . '/content/' . $domain;
+  $kirby->urls->avatars  = $kirby->urls->index . '/assets/avatars/' . $domain;
+  $kirby->urls->thumbs   = $kirby->urls->index . '/thumbs/' . $domain;
+
+}
+```

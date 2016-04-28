@@ -1,0 +1,279 @@
+Title: MySQL and Sqlite
+
+----
+
+Text: 
+
+(toc)
+
+## Connecting to a database
+
+### MySQL 
+
+```php
+$db = new Database(array(
+  'type'     => 'mysql',
+  'host'     => '127.0.0.1',
+  'database' => 'mydb',
+  'user'     => 'mydb_user',
+  'password' => 'supersecret'
+));
+
+```
+
+### Sqlite
+
+```php
+$db = new Database(array(
+  'type'     => 'sqlite',
+  'database' => '/var/data/mydb.sqlite'
+));
+
+```
+
+## Selecting a table
+
+```php
+$users = $db->table('users');
+```
+
+### Example Table 
+
+#### Users
+
+id | username | email
+- | - | - | - 
+1 | homer | homer@simpsons.com
+2 | marge | marge@simpsons.com
+3 | lisa | lisa@simpsons.com
+4 | bart | bart@simpsons.com
+4 | maggie | maggie@simpsons.com
+
+## Selecting rows
+
+### Selecting all rows
+
+```php
+$results = $users->all();
+
+foreach($results as $user) {
+  echo $user->username();
+}
+
+```
+
+### Limit the number of returned rows
+
+```php
+$results = $users->limit(10)->all();
+
+foreach($results as $user) {
+  echo $user->username();
+}
+
+```
+
+### Order rows
+
+```php
+$results = $users->order('username DESC')
+                 ->limit(10)
+                 ->all();
+
+foreach($results as $user) {
+  echo $user->username();
+}
+
+```
+
+### Set an offset
+
+```php
+$results = $users->order('username DESC')
+                 ->offset(10)
+                 ->limit(10)
+                 ->all();
+
+foreach($results as $user) {
+  echo $user->username();
+}
+
+```
+
+### Select specific columns
+
+```php
+$results = $users->select(array('username', 'email'))
+                 ->order('username DESC')
+                 ->offset(10)
+                 ->limit(10)
+                 ->all();
+
+foreach($results as $user) {
+  echo $user->username();
+}
+
+```
+
+### Setting a where clause
+
+#### Example 1
+
+```php
+$results = $users->where(array('username' => 'homer'))
+                 ->all();
+
+foreach($results as $user) {
+  echo $user->username();
+}
+```
+
+#### Example 2
+
+```php
+$results = $users->where('username', '=', 'homer')
+                 ->all();
+
+foreach($results as $user) {
+  echo $user->username();
+}
+```
+
+#### Example 3
+
+```php
+$results = $users->where('email', 'LIKE', '%@simpson.com')
+                 ->all();
+
+foreach($results as $user) {
+  echo $user->username();
+}
+```
+
+### Fetching a single row
+
+#### Example 1
+
+```php
+$user = $users->first();
+```
+
+#### Example 2
+
+```php
+$user = $users->where('email', 'LIKE', '%@simpsons.com')->first();
+```
+
+### Fetching a single row by id
+
+```php
+$user = $users->find(1);
+```
+
+### Fetching a single row by another field
+
+```php
+$user = $users->findBy('username', 'homer');
+```
+
+## Counting rows
+
+### Example 1
+
+```php
+echo $users->count();
+```
+
+### Example 2
+
+```php
+echo $users->where('username', 'LIKE', 'H%')->count();
+```
+
+## Inserting rows
+
+```php
+if($id = $users->insert(array(
+  'username' => 'moe',
+  'email'    => 'moe@szyslak.com'
+))) {
+  echo 'Moe has been added and has the ID: ' . $id;
+}
+```
+
+## Updating rows
+
+### Example 1
+
+```php
+$update = $users->where('id', '=', 2)->update(array(
+  'username' => 'margery'
+));
+
+if($update) echo 'The user has been updated';
+```
+
+## Deleting rows
+
+### Deleting a single row
+
+```php
+if($users->where('id', '=', 1)->delete()) {
+  echo 'The user has been deleted';
+}
+```
+
+### Deleting multiple rows
+
+```php
+if($users->where('email', 'LIKE', '%@simpsons.com')->delete()) {
+  echo 'All users with a simpsons email address have been deleted';
+}
+```
+
+### Deleting all rows
+
+```php
+if($users->delete()) {
+  echo 'All users have been deleted';
+}
+```
+
+## Pagination
+
+```php
+$results    = $users->page(1, 20);
+$pagination = $results->pagination();
+
+foreach($results as $users) {
+  echo $user->username();
+}
+
+```
+
+Read more about (link: docs/toolkit/api#pagination text: the Pagination object).
+
+## Fetching each row into a model class
+
+```php
+class UserModel extends Obj {  
+  public function isHomer() {
+    return $this->username == 'homer';
+  }
+}
+
+$results = $users->fetch('UserModel')->all();
+
+foreach($results as $user) {
+  if($user->isHomer()) {
+    echo 'This is Homer';
+  }
+}
+
+```
+
+
+
+
+
+

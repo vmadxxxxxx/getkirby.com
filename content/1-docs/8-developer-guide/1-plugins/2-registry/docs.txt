@@ -1,0 +1,50 @@
+Title: The Kirby extension registry
+
+----
+
+Since: 2.3.0
+
+----
+
+Text:
+
+Kirby's internal registry makes it possible to register templates, controllers, tags and more directly in your plugins. This means that you can build a full package of all kinds of plugin parts in a single directory.
+
+## Example
+
+```php
+// /site/plugins/blog/blog.php
+$kirby->set('template',     'blog',     __DIR__ . '/templates/blog.php');
+$kirby->set('template',     'article',  __DIR__ . '/templates/article.php');
+$kirby->set('snippet',      'tagcloud', __DIR__ . '/snippets/tagcloud.php');
+$kirby->set('widget',       'articles', __DIR__ . '/widgets/articles');
+$kirby->set('tag',          'article',  […]);
+$kirby->set('page::method', 'tags',     function() {});
+
+// …
+
+```
+
+As you can see in this example of a blog plugin, the plugin can take care of registering all kinds of extensions, which will then be available in templates, controllers and even in the panel
+
+## Extensions
+
+Here's a full list of extensions you can register like this: 
+
+- blueprint
+- component
+- controller
+- entry
+- field
+- hook
+- page::method
+- pages::method
+- file::method
+- files::method
+- page::model
+- option
+- route
+- snippet
+- tag
+- template
+- widget

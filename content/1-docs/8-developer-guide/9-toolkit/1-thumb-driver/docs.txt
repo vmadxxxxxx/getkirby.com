@@ -1,0 +1,37 @@
+Title: Custom thumb drivers
+
+----
+
+Text:
+
+Besides the two default thumb drivers — GD Lib and ImageMagick — there's also an option to create your own thumb driver. This can be useful to extend the functionalities of Kirby's default drivers or make use of a different image manipulation library. 
+
+## Thumb driver plugin
+
+Your thumb driver should be located in a plugin file. For example `/site/plugins/mythumbdriver/mythumbdriver.php`
+
+A new driver is a simple callback function, which is being added to the `thumb::$drivers` array:
+
+```php
+thumb::$drivers['mythumbdriver'] = function($thumb) {
+  // your thumb driver code
+};
+```
+
+The callback receives the `$thumb` object, which gives you access to the original (link: docs/cheatsheet#file text: Kirby file object) as well as the destination object and the options array for the thumbnail.
+
+```php
+$thumb->source;
+$thumb->options;
+$thumb->destination;
+```
+
+The callback must take care of all the resizing, cropping and converting of the original image and store it at the selected destination. Possible errors must be handled with Exceptions. The callback does not have to return anything.
+
+## Activating the driver
+
+Once your driver is ready, it can be activated in your config file.
+
+```php
+c::set('thumbs.driver', 'mythumbdriver');
+```

@@ -1,0 +1,38 @@
+Title: How to publish your plugin
+
+----
+
+Text:
+
+There are two places, where you can publish your plugin. 
+
+## Add a readme
+
+Make sure to add a useful readme with instructions to your plugin. 
+
+## Put it on Github, Bitbucket or Gitlab
+
+We highly recommend, that you put it in a public git repository, so other developers can clone, update it or even contribute to it.
+
+## License
+
+We don't require any specific license for plugins. Go for whatever works best for you. 
+
+## Tell others about it 
+
+### (link: https://forum.getkirby.com/c/plugins text: Kirby Forum)
+
+It's always a good idea to let others know about your plugin in the forum. Just sign-up and create a post in the plugins category.
+
+### (twitter: getkirby)
+
+We are always happy to tweet about new plugins. Just ping us on Twitter and we can publish it there.
+
+### (link: http://getkirby-plugins.com text: getkirby-plugins.com)
+
+This site is run and maintained by (link: http://jd-powered.net/ text: Jonas Döbertin). You can (twitter: getkirbyplugins text: ping him on Twitter) and he will add your plugin to the list.
+
+### (link: https://github.com/jenstornell/kirby-plugins text: github.com/jenstornell/kirby-plugins)
+
+(link: http://www.jenst.se/ text: Jens Törnell) and (link: http://aoimedia.co.uk/ text: John Coyne) started this massive repository, which collects all plugins from all over the place. It's definitely worth posting your plugin there as well.
+

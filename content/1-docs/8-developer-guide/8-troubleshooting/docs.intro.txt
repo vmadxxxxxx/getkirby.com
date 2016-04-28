@@ -1,0 +1,7 @@
+Title: Troubleshooting
+
+----
+
+Text:
+
+We try to make the installation and configuration as straight forward as possible. But sometimes you just get stuck and we want to help you out of it as fast possible. If you don't find the solution in the docs, don't heistate to ask the (link: https://forum.getkirby.com text: forum) or send us an email: <support@getkirby.com>

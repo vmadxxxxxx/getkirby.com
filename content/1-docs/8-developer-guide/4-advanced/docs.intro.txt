@@ -1,0 +1,7 @@
+Title: Advanced tasks
+
+----
+
+Text:
+
+Kirby starts simple, but it can handle highly advanced setups and solutions, by providing tools, such as a router, hooks, controllers and more.

@@ -1,0 +1,65 @@
+Title: Kirbytext filters
+
+----
+
+Text:
+
+Besides (link: ../tags text: Kirbytags), Kirbytext can be extended with filters. You can apply a pre and post filter, which will be called before or after tags and markdown are being parsed.
+
+**The best place to add those filters is in plugins.**
+
+In this section we are going to create a very simple text snippet replacement plugin. The plugin will make it possible to define text snippets in the config file, which can be triggered with simple placeholders in Kirbytext.
+
+Placeholder | Snippet
+- | -
+{{email}} | bastian@getkirby.com
+{{lorem}} | Lorem ipsum dolor sit amet…
+
+The definition of text snippets in `/site/config/config.php` will look like this:
+
+```php
+c::set('kirbytext.snippets', array(
+  'email' => 'bastian@getkirby.com',
+  'lorem' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+));
+```
+
+The placeholders should be replaced before Markdown or Kirbytags are being parsed. That makes it possible to use the placeholders in Markdown and Kirbytext. So we are going to define a `pre` filter for Kirbytext.
+
+### Pre & Post Filters
+
+```php
+// filters which are called BEFORE markdown and tags are parsed
+kirbytext::$pre[] = function($kirbytext, $value) {
+  // your filter code
+  return $value;
+};
+
+// filters which are called AFTER markdown and tags are parsed
+kirbytext::$post[] = function($kirbytext, $value) {
+  // your filter code
+  return $value;
+};
+
+```
+
+The code for our pre filter is pretty straight forward. We are fetching the array with placeholders and text from the config file with `c::get('kirbytext.snippets')`. Afterwards we do a simple `str_replace` on the Kirbytext value to replace all placeholders with the defined text snippets.
+
+##### /site/plugins/textsnippets/textsnippets.php
+```php
+<?php
+
+kirbytext::$pre[] = function($kirbytext, $value) {
+
+  $snippets = c::get('kirbytext.snippets', array());
+  $values   = array_values($snippets);
+  $keys     = array_map(function($key) {
+    return '{{' . $key . '}}';
+  }, array_keys($snippets));
+
+  return str_replace($keys, $values, $value);
+
+};
+```
+
+This plugin shows quite well how simple it is to write helpful extensions for Kirbytext, which will massively benefit your editors. There's hardly any limitation how to go forward and extend it even more.

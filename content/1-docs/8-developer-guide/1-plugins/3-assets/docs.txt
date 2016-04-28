@@ -1,0 +1,13 @@
+Title: How to store plugin assets
+
+----
+
+Since: 2.3.0
+
+----
+
+Text:
+
+You can now also put assets like stylesheets or js files directly in your plugins folder. 
+
+More docs will follow soon…
