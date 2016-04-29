@@ -1,4 +1,4 @@
-Title: Kirby 2.3.0 Beta
+Title: Kirby 2.3.0 Beta 2
 
 ----
 
@@ -12,29 +12,85 @@ Download: http://download.getkirby.com/nightly
 
 Text:
 
-## Highlights
+## Beta 2
 
-### New Thumb API 
+After the first beta, we decided to ditch the newly introduced REST API for thumbnails. It wasn't an easy decision, but it introduced more issues than it solved. After all we decided that it's more important to make thumbnail handling more stable and not less stable. We still kept the most awesome parts, including awesome new methods to create thumbs and a far superior naming and structuring scheme for thumbnails — which got even better in beta 2.
 
-Your Kirby installation now comes with an on-demand image resizer API: 
+Here are the other changes in beta 2:
 
-```
-http://yourdomain.com/projects/project-a/forrest.jpg?w=300&h=200&crop=true&bw=true
-```
+### Core
 
-This can be used to create all sorts of modified images on the fly. 
+- Fixed PHP 7 issues in our SmartyPants library
+- Fixed `css()` and `js()` helper issues after switching to components
+- Fixed broken alt attributes for thumbnails
+- Fixed logic bug in the new `image()` helper function
+- New `file::scale` method
+- New `file::ratio` method behavior 
+- New Asset class, which can now convert any external files/images into Kirby file objects and make them resizable with the thumb api. 
+- Skipped filesystem checks in components for improved performance
+- Fixed the hard coded `page::intendedTemplateFile` method to add more flexibilty to thumb components
+- Fixed `content::exists()` method, which can now reliably detect if there's a translated version of multi-lang content
+- Cleaner thumb filenames without @ and ampersands 
+(before: `image@w=200&h=300.jpg` after: `image-200x300.jpg)
+- The thumb api respects thumbs.destination and thumbs.filename options again.
+- New `file::original()` method, which makes it possible to access the original file object from a thumbnail. 
 
-Additionally Kirby's Thumb API has been enhanced massively: 
+### Panel
+
+- Fixed `panel.file.upload` hook
+- Fixed issues with the new thumb component
+- Fixed issues with registered blueprints from plugins
+- Fixed custom asset loading for form fields
+- User blueprints can now be registered in plugins `$kirby->set('blueprint', 'users/admin', 'admin.yml')`
+
+### Toolkit
+
+- **Refactored Database class, which fixes possible SQL injections**
+- `query::having()` support for where clauses
+- Replaced x with × in `dimensions::__toString`
+- Fixed broken alt attributes in `thumb::tag`
+- Removed the `thumb()` helper method to make it globally available (is now present in `kirby/helpers.php`)
+- Added `dimensions::resize()`
+- Allow the `attr()` function to handle multiple values
+
+
+****
+
+## Highlights in 2.3.0
+
+### New Thumb Methods
 
 ```php
 $page->image('myimage.jpg')->width(300)->url();
 $page->image('myimage.jpg')->height(300)->url();
-$page->image('myimage.jpg')->resize(600,400)->url();
+$page->image('myimage.jpg')->resize(600, 400)->url();
 $page->image('myimage.jpg')->crop(300)->url();
 $page->image('myimage.jpg')->bw()->url();
+$page->image('myimage.jpg')->blur()->url();
+$page->image('myimage.jpg')->scale(0.5)->url();
+$page->image('myimage.jpg')->ratio(3/2)->url();
 ```
 
-By using the new HTTP API, generating thumbnails for the first time in templates will no longer block the rendering of the page. This increases the perceived performance of your site. You can find even more (link: https://github.com/getkirby/kirby/issues/412#issuecomment-207339141 text: details about the new API here…)
+### Better thumbnail organisation
+
+Thumbnails are no longer stored with unrecognizable filenames in a flat structure. Each thumbnail is now store under the url path of each page and with far better readability of dimension and options: 
+
+#### old
+```
+/thumbs/myimage-33BF6lAvSTlmrYLtJ184BGJ6T5657avo.jpg
+```
+
+#### new
+```
+/thumbs/projects/project-a/myimage-300x200.jpg
+/thumbs/projects/project-a/myimage-300x200-blur.jpg
+/thumbs/projects/project-a/myimage-300x200-blur-q50.jpg
+```
+
+This new structure makes it possible to delete thumbnails per page and now even the panel does that for you, whenever a page is updated or deleted.
+
+
+
 
 ### New Panel Image Field
 <https://twitter.com/getkirby/status/695995977346478081/photo/1>
