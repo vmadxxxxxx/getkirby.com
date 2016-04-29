@@ -1,0 +1,29 @@
+Title: dimensions::crop
+
+----
+
+Excerpt: Crops the dimensions by width and optionally by height
+
+----
+
+Call: dimensions::crop($width, $height)
+
+----
+
+Return: 
+
+type: Dimensions
+text:
+
+----
+
+Params: 
+
+- 
+  type: int
+  name: $width
+  text: 
+- 
+  type: int
+  name: $width
+  text: 

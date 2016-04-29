@@ -1,0 +1,29 @@
+Title: dimensions::crop
+
+----
+
+Excerpt: Recalculates the dimensions by width and height
+
+----
+
+Call: dimensions::resize($width, $height)
+
+----
+
+Return: 
+
+type: Dimensions
+text:
+
+----
+
+Params: 
+
+- 
+  type: int
+  name: $width
+  text: 
+- 
+  type: int
+  name: $width
+  text: 

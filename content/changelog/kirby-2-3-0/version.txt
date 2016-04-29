@@ -21,19 +21,19 @@ Here are the other changes in beta 2:
 ### Core
 
 - Fixed PHP 7 issues in our SmartyPants library
-- Fixed `css()` and `js()` helper issues after switching to components
+- Fixed (sheet: helpers/css) and (sheet: helpers/js) helper issues after switching to components
 - Fixed broken alt attributes for thumbnails
-- Fixed logic bug in the new `image()` helper function
-- New `file::scale` method
-- New `file::ratio` method behavior 
+- Fixed logic bug in the new (sheet: helpers/image) helper function
+- New (sheet: file/scale) method
+- New (sheet: file/ratio) method behavior 
 - New Asset class, which can now convert any external files/images into Kirby file objects and make them resizable with the thumb api. 
 - Skipped filesystem checks in components for improved performance
-- Fixed the hard coded `page::intendedTemplateFile` method to add more flexibilty to thumb components
-- Fixed `content::exists()` method, which can now reliably detect if there's a translated version of multi-lang content
+- Fixed the hard coded (sheet: page/intendedTemplateFile) method to add more flexibilty to thumb components
+- Fixed (sheet: content/exists) method, which can now reliably detect if there's a translated version of multi-lang content
 - Cleaner thumb filenames without @ and ampersands 
-(before: `image@w=200&h=300.jpg` after: `image-200x300.jpg)
+(before: `image@w=200&h=300.jpg` after: `image-200x300.jpg`)
 - The thumb api respects thumbs.destination and thumbs.filename options again.
-- New `file::original()` method, which makes it possible to access the original file object from a thumbnail. 
+- New (sheet: file/original) method, which makes it possible to access the original file object from a thumbnail. 
 
 ### Panel
 
@@ -46,12 +46,12 @@ Here are the other changes in beta 2:
 ### Toolkit
 
 - **Refactored Database class, which fixes possible SQL injections**
-- `query::having()` support for where clauses
-- Replaced x with × in `dimensions::__toString`
-- Fixed broken alt attributes in `thumb::tag`
-- Removed the `thumb()` helper method to make it globally available (is now present in `kirby/helpers.php`)
-- Added `dimensions::resize()`
-- Allow the `attr()` function to handle multiple values
+- (toolkit: database-query/having) support for where clauses
+- Replaced x with × in (toolkit: dimensions/to-string)
+- Fixed broken alt attributes in (toolkit: thumb/tag)
+- Removed the (sheet: helpers/thumb) helper method to make it globally available (is now present in `kirby/helpers.php`)
+- Added (toolkit: dimensions/resize)
+- Allow the (toolkit: helpers/attr) function to handle multiple values
 
 
 ****
@@ -124,7 +124,7 @@ favoritedrink:
 - Fixed tags autocomplete for files
 - Fixed translated labels in structure fields
 - New Image field
-- Field Options: better relative paths resolving. Enables relative paths up to $site and back down again (e.g. `../../projects/project-a`).
+- Field Options: better relative paths resolving. Enables relative paths up to (sheet: site) and back down again (e.g. `../../projects/project-a`).
 - Added css class with field name to each form field
 - Better information about upcoming content changes when the template is changed
 - Removed min default value for the number field
@@ -140,7 +140,6 @@ options:
 ```yaml
 hide: true
 ```
-- 
 - The session store for content changes will now be reset, if content files get modified
 - The panel now respects the "force ssl" option
 - Untranslatable fields will now be emptied in all languages, but the default language. 
@@ -154,10 +153,10 @@ hide: true
 ****
 
 ## Core
-- New files::not() method
-- file::date() now matches the behavior of Page::date()
+- New (sheet: files/not) method
+- (sheet: file/date) now matches the behavior of (sheet: page/date)
 - Better handling of unexpected input for the kirbytext class
-- Fixed broken Site::modified() 
+- Fixed broken (sheet: site/modified)
 - Fixed renaming a file without filename
 - /home no longer results in a duplicate of the home page
 - Youtube and Vimeo embedding options can now be set in the config
@@ -167,22 +166,25 @@ hide: true
   ```
 - Fixed bug in triggering of multiple hooks
 - Implemented collection::has($key) method in all collections
+  - (sheet: pages/has)
+  - (sheet: files/has)
+  - (sheet: users/has)
 - New global site.php controller can now be used for all pages without a dedicated controller
 - New custom pages::$methods
 - New custom files::$methods
 - New custom file::$methods
 - Removed old page::cacheId method from multilang branch to make it consistent with non-multilang version
-- page::sort() now returns the current number if no value is given
-- New file::uri and file::diruri methods
-- New image() helper
-- pages::not() and files::not() accept collections as argument
-- New pages::find accepts single values, arrays or collections
-- Ported the new pages::find behaviour to files::find
-- New page::update with callbacks and new increment and decrement methods
-- New field::isTranslated() method to check for untranslated fields
+- (sheet: page/sort) now returns the current number if no value is given
+- New (sheet: file/uri) and (sheet: file/diruri) methods
+- New (sheet: helpers/image) helper
+- (sheet: pages/not) and (sheet: files/not) accept collections as argument
+- New (sheet: pages/find) accepts single values, arrays or collections
+- Ported the new pages::find behaviour to (sheet: files/find)
+- New (sheet: page/update) with callbacks and new increment and decrement methods
+- New `$field->isTranslated()` method to check for untranslated fields
 - New registry system to handle all kinds of Kirby extensions and core components
 - Better accessibility for empty alt tags of Kirbytext images
-- New page::video and page::document methods
+- New (sheet: page/video) and (sheet: page/document) methods
 - Lots and lots of additional bug fixes
 - More unit tests
 
@@ -194,21 +196,21 @@ hide: true
 - Limited thumb generation to 1 thread for imagemagick driver
 - Support for empty attributes in html::attr by passing a single space
 - New dimensions::crop method
-- f::modified now checks for an existing file to avoid errors
+- (toolkit: f/modified) now checks for an existing file to avoid errors
 - New a::update method
 - Implemented str::$defaults with new slug options
-- Multibyte compatibility for str::encode()
+- Multibyte compatibility for (toolkit: str/encode)
 - Added php 5.4 as a requirement to the composer.json
-- Implemented new collection::group method to allow grouping by callback
+- Implemented new (toolkit: collection/group) method to allow grouping by callback
 - Implemented a cleaner way to remove cookies
 - More secure way of escaping separators in kirby data
-- Better error handling in brick::__toString
+- Better error handling in (toolkit: brick/to-string)
 - The thumb class tries to create a missing thumbfolder now by default
 - Implemented new interlace option for the IM thumb driver
-- Fixed possible issue with zero division in dimensions::ratio()
-- Implemented Collection::has($key) method 
-- Implemented video options for embed::youtube and embed::vimeo
-- Better dir::modified and folder::modified with custom date handler option
+- Fixed possible issue with zero division in (toolkit: dimensions/ratio)
+- Implemented (toolkit: collection/has) method 
+- Implemented video options for (toolkit: embed/youtube) and (toolkit: embed/vimeo)
+- Better (toolkit: dir/modified) and (toolkit: folder/modified) with custom date handler option
 - Accepted PHP's syntax for multiple uploaded files in upload class
 - Fixed SSL detection with CloudFlare
 - Additional bug fixes
