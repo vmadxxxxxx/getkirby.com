@@ -219,7 +219,7 @@ $collection = $pages->find('blog')->children()->visible()->filter(function($p) u
 
 
 ### Custom date fields
-Events often use custom `startdate` and `enddate` date fields. To filter events with  their ending or beginning in the future, you can use a filter with a callback:
+Events often use custom `startdate` and `enddate` date fields. The `filterBy()` method currently does not work with custom date fields. To filter events with either their ending or beginning in the future, you can use a filter with a callback:
 
 ```php
 $events = page('events')
@@ -232,6 +232,17 @@ $events = page('events')
 ```
 Note that the date method here uses two parameters. The first is the format parameter, the second is the name of the custom field.
 
+With just a little change to the above code, you can fetch all events that are happening right now:
+
+```php
+$events = page('events')
+          ->children()
+          ->visible()
+          ->filter(function($child) {
+            return $child->date('null', 'startdate') > time() or $child->date(null, 'enddate') < time();
+          });
+
+```
 
 ## Using filters with forms (e.g. select fields)
 
