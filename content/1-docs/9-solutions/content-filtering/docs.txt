@@ -1,0 +1,114 @@
+Title: Filtering content
+
+----
+
+Methods: visible(), invisible(), filterBy(), filter($callback)
+
+----
+Text:
+
+In this guide you will learn how you can filter your page or file collections. Kirby offers many easy to use build-in methods for filtering content and also some more advanced options.
+
+## Filtering by visible/invisible
+
+In Kirby, pages can be either visible (folder with prepended number/date) or invisible. Kirby has two handy built-in methods to filter pages according to their visibilty status:
+
+```php
+$collection = page('projects')->children()->visible();
+$collection = page('projects')->children()->invisible();
+```
+
+## Filter page collections by a single field
+Often, you only want to display all pages that have a certain value in a special field, e.g. a category or a tags field. For this task, you can use the `filterBy()` method:
+
+```php
+//filter a collection by a value in a single value field
+$collection = page('projects')->children()->visible()->filterBy('category', 'webdesign');
+
+//filter a collection by a value in a field with a comma separated list of values
+$collection = page('projects')->children()->visible()->filterBy('tags', 'webdesign', ',');
+```
+Note the use of the delimiter in the second example to get a value from a comma separated list. If you use other delimiters in your fields, you can, of course, change the delimiter.
+
+## Filtering by other methods
+
+You cannot only filter by fields in your content files but also by some build-in methods. Here are some examples:
+
+```php
+//filter by template
+$collection = page('projects')->children()->visible()->filterBy('template', 'blogarticle');
+//filter by intended template
+$collection = page('projects')->children()->visible()->filterBy('intendedTemplate', 'blogarticle');
+//filter by depth (this is the same as (`$site->grandchildren()`)
+$collection = $site->index()->filterBy('depth', 2);
+```
+
+## Filtering using filter operators
+With the above example, you only get results that fit a single value. You can fine tune your filter results by using the operator parameter in the `filterBy()` method:
+
+```php
+//get all pages with a date after now
+$collection = page('blog')->children()->filterBy('date', '>', time());
+//get all pages with a title that starts with "A" or a number
+$collection = page('blog')->children()->filterBy('title', '<', 'B');
+```
+
+For a full documentation of the available filter operators see (link: https://getkirby.com/docs/cheatsheet/pages/filter-by text: the docs).
+
+## Filter page collections by more then one field/method
+
+You can also string together multiple `filterBy()` methods to narrow down your filter results:
+
+```php
+//fetch all events  with a template that is not "concert" or "exhibition"
+$collection = page('events')->children()->filterBy('template', '!=', 'concert')->filterBy('template', '!=', 'exhibition');
+```
+
+You can, of course, achieve the same result with a filter with callback:
+
+```php
+$collection = page('events')->children()->filter(function($p) {
+	return $p->template() != 'concert' && $p->template() != 'exhibition';
+});
+```
+
+## Fun with filtering by date
+
+Since the date field is a bit special, I'll cover this here a bit more extensively.
+
+### Custom date fields
+Events often use custom `startdate` and `enddate` date fields. To filter events with both their ending and beginning in the future, you can use a filter with a callback:
+
+```php
+$events = page('events')
+	   			->children()
+	   			->visible()
+	   			->filter(function($child) {
+	      		return $child->date('null', 'startdate') > time() or $child->date(null, 'enddate') > time();
+	   			});
+
+```
+### Filtering from - to
+
+E.g. get all pages of the current year from a date field
+
+```php
+$collection = $pages->find('blog')->children()->visible()->filter(function($p) {
+  return $p->date('Y') === date('Y');
+});
+```
+
+## Using filters with forms (e.g. select fields)
+
+
+----
+https://forum.getkirby.com/t/date-fields-from-to-with-filterby/3361
+https://forum.getkirby.com/t/multiple-date-fields-in-1-markdown-file/3222/3
+https://forum.getkirby.com/t/events-startdate-enddate-enddate-filter/2889?source_topic_id=3222
+
+
+
+
+Note that the date method here uses two parameters. The first is the format parameter, the second is the name of the custom field.
+
+## Simple related pages
