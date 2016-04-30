@@ -232,17 +232,18 @@ $events = page('events')
 ```
 Note that the date method here uses two parameters. The first is the format parameter, the second is the name of the custom field.
 
-With just a little change to the above code, you can fetch all events that are happening right now:
+With just two little changes to the above code, you can fetch all events that are happening right now:
 
 ```php
 $events = page('events')
           ->children()
           ->visible()
           ->filter(function($child) {
-            return $child->date('null', 'startdate') > time() or $child->date(null, 'enddate') < time();
+            return $child->date('null', 'startdate') > time() && $child->date(null, 'enddate') < time();
           });
 
 ```
+
 
 ## Using filters with forms (e.g. select fields)
 
