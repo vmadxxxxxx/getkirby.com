@@ -51,7 +51,7 @@ $collection = page('projects')->children()->visible()->filterBy('intendedTemplat
 $collection = $site->index()->filterBy('depth', 2);
 
 //filter by modified date
-$collection = $site->index()->filterBy('modified', date('d'));
+$collection = $site->index()->filterBy('modified', '>', strtotime('2016-04-30'));
 ```
 
 ### Files
@@ -161,7 +161,7 @@ In this example we have an array of locations (e.g. from a post request) and wan
 // $selections is an array with the values of the selected checkboxes
 $locations = array('New York', 'Paris', 'Tokyo');
 $stores = $pages->filter(function($p) use ($locations)  {
-  
+
   // only $p that return true in here will be part of $stores
   return in_array($child->locations(), $selections);
 });
@@ -185,7 +185,7 @@ $relatedPages = $children->filter(function($child) use($tags) {
   });
 ?>
 <ul>
-  
+
   //shuffle and limit the results
   <?php foreach($relatedPages->not($page)->shuffle()->limit(3) as $related): ?>
     <li><a href='<?php echo $related->url(); ?>'><?php echo $related->title(); ?></a></li>
@@ -226,7 +226,7 @@ $events = page('events')
           ->children()
           ->visible()
           ->filter(function($child) {
-            return $child->date('null', 'startdate') > time() or $child->date(null, 'enddate') > time();
+            return $child->date('null', 'startdate') > time() || $child->date(null, 'enddate') > time();
           });
 
 ```
@@ -239,7 +239,7 @@ $events = page('events')
           ->children()
           ->visible()
           ->filter(function($child) {
-            return $child->date('null', 'startdate') > time() && $child->date(null, 'enddate') < time();
+            return $child->date(null, 'startdate') > time() && $child->date(null, 'enddate') < time();
           });
 
 ```
@@ -254,13 +254,13 @@ Let's suppose we had a clothing shop and wanted to give our potential customers 
 //give the select the name of the category to filter by
   <select name="color" onchange="this.form.submit()">
     <option selected value="">Select a color</option>
-    
+
     //let's fill the options with our colors
     <?php foreach($color as $item): ?>
-     
+
      //we don't want empty items
       <?php if ($item == "") continue; ?>
-       
+
        //set the option to selected if selected
       <option <?php if((isset($_POST['color'])) && $_POST['color'] == $item) { echo "selected"; } ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
     <?php endforeach ?>
@@ -294,13 +294,13 @@ Now that we have our form ready, let's get into the logic. In our products.php c
     //if there is a post request, filter the projects collection
     if($_POST) {
       $projects = $page->children()->visible()->filter(function($child) {
-        
+
         // loop through the post request
         foreach($_POST as $key => $value) {
-          
+
           //only act if the value is not empty
           if ($value != '') {
-            
+
             // return false if the child page's category and value don't match
             if (! $match = $child->$key() == $value) {
               return false;
