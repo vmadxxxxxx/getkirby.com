@@ -1,0 +1,99 @@
+Title: Getting Started
+
+----
+Description: Get up and running with Kirby in a breeze and find your way around the docs.
+
+----
+Text:
+(toc)
+
+This guide assumes that you have successfully (link: https://getkirby.com/docs/installation text: installed the Kirby Starterkit) and are ready to play around with it. We'll use the Starterkit as a bedrock to get familiar with some basic Kirby concepts. The main goal of this guide is to give you an overview of how Kirby works together with some guidelines for further reading to make it easier to find your way around the docs.
+
+## Kirby's folder structure
+
+Let's start with a brief overview of all the folders in the Starterkit.
+
+| Folder | Subfolders | What's in it |
+| --- | --- | --- |
+| assets | avatars, css, fonts, images | Your website assets like stylesheet, fonts, site wide images, and panel user avatars. You would also put your javascript and other assets into this folder. |
+| content | 1-about, 2-projects, 3-contact, error, home | The content of your website is stored in folders that each contain one textfile (per language) and additional resources like images, videos, or other files. The `site.txt` text file in this folder contains general site wide information. |
+| kirby | quite a few | The Kirby app. Great for studying the source code, but in general you should leave this folder untouched (apart from updating it when a new version is released). |
+| panel | quite a few | The Panel app. It provides an easy-to-use interface for website editors to manage the content of your website. This folder should also be updated when a new version is released, and otherwise left alone.
+| site | accounts, blueprints, cache, config, plugins, snippets, templates | This folder contains all the developer stuff that defines how your content files will be processed, the blueprints for the panel, and any extensions. |
+
+**Notes**:
+- The `assets` and `site` folders may contain more subfolders depending on your setup and needs.
+- The panel app is optional and can be removed if you prefer to edit your content files in a text editor.
+
+**Advanced reading**:
+You can change Kirby's default folder layout: (link: https://getkirby.com/docs/developer-guide/configuration/folders text: Custom folder setup)
+
+
+## Adding & structuring content
+
+Content in Kirby is organized in folders. Basically, each folder is a single page, and each folder can contain subfolders, which can in turn contain subfolders etc. to form a tree structure. Each folder may contain one content file (.txt or .md) in a single language setup or one content file per language in a multi-lingual setup. Additionally, each folder can contain all sorts of files (like images, videos, documents etc.) and (link: http://localhost/getkirby.com/docs/content/media#adding-meta-data-to-your-files text: their meta data text files).
+
+You can read up on how to add content to your site (link: http://localhost/getkirby.com/docs/content text: in the content section of the docs).
+
+### Organizing your content
+The content organization of the Starterkit is quite straightforward: There are only 4 main pages (home, projects, about, contact) apart from the error page, and some subfolders in the `projects` folder. Once your website gets bigger, you will have to start thinking about how to best organize your content.
+
+Performance-wise, Kirby can easily handle a lot of content. However, performance might start to deteriorate once you have more than several hundred or even thousands of subpages in a single folder. That is when you have to start thinking about how to best organize your content in a sort of tree structure.
+
+
+## Rendering your content
+
+The content in your content files is rendered into code that a browser understands (HTML, JSON, etc.) by so called template files that reside in the `/site/templates` folder. Template files use HTML for the page markup and PHP for the logic. So a basic understanding of PHP (using variables, if-statements, loops etc.) is helpful, but can also be learned along the way.
+
+If you have a look at the different content folders, you will notice that the some of the text files have different names while others have the same name. The content file in the `/about` folder is called `about.txt` and in the `/projects` folder
+`projects.txt` while all the subpages of `/projects` have a content file called `project.txt`.
+
+Now open the `/site/template`folder. There you will find some template files with the same names as the content files. All content files that have a template file of the same name, will be rendered using that template; content files with no matching template file will be rendered with the `default.php` template.
+
+The (link: http://localhost/getkirby.com/docs/templates/hello-world text: Hello World) example shows you how to fetch the content of your pages and render them into valid HTML.
+
+### Don't repeat yourself: Using snippets
+If you screen the `/site/snippets` folder, you will find the `header.php` and `footer.php` files. These files contain code that is used in every template of the Starterkit. Instead of writing the same code over and over again, the Starterkit follows a coding best practice called DRY (Don't repeat yourself) by putting these chunks of code into separate files, which can be referenced in your templates.
+
+Snippets can also be used to outsource blocks of code to keep your template code short (like projects.php snippets), or for reusing code in other projects.
+
+Check out the (link: http://localhost/getkirby.com/docs/templates/snippets text: snippet docs).
+
+### Non-HTML output
+Kirby output is not limited to HTML. You can also render JSON or XML, e.g. to create an API or an RSS feed.
+
+Here are some resources:
+(link: https://getkirby.com/blog/json text: Creating a json api)
+(link: https://getkirby.com/docs/solutions/blog/rss text: Creating an RSS feed)
+
+**Advanced reading**:
+Modularizing your code: The (link: https://github.com/getkirby-plugins/patterns-pluginingtext: Patterns plugin) goes even further than snippets in modularizing and reusing code blocks.
+Separate logic from HTML: (link: https://getkirby.com/docs/developer-guide/advanced/controllers text: Controllers) and (link: https://getkirby.com/docs/developer-guide/advanced/models text: Page Models)
+
+## Configuring your site
+
+All configuration settings are made in the `/site/config/config.php` file. You can find everything about the available configuration options and how to set them in the (link: http://localhost/getkirby.com/docs/developer-guide/configuration text: Configuration section).
+
+## Setting up a multi-lingual site
+
+With Kirby, it is easy to set up a multi-lingual site. You can learn how to do this in the (link: http://localhost/getkirby.com/docs/languages text: Languages section). You can also download the (link: text: LanguageKit) variant of the Starterkit to check out how this works.
+
+
+
+## Creating forms for the panel
+
+## Adding custom functionality
+Sooner or later you will want to add custom functionality to your site. Kirby can be extended in many ways.
+
+
+
+## Getting help
+
+### The Cheat Sheet
+Once you have familiarized yourself with the basics, the (link: text: Cheat Sheet) is probably the number one resource you will keep getting back to. It lists all Kirby and Toolkit API methods, helpers, panel fields, and configuration options. Check it out!
+
+### The rest of the docs
+There are a lot more documents out there than I have listed here as a first overview. You might find the (link: http://localhost/getkirby.com/docs/solutions text: Solutions) section helpful for specific topics like creating menus, creating a blog, or filtering content. The (link: http://localhost/getkirby.com/docs/developer-guide text: Developer Guide) offers more advanced stuff like extending Kirby with plugins, using routes and hooks, and many more topics.
+
+### The Forum
+The community in the (link: https://forum.getkirby.com text: Kirby Forum) is always there to help out whenever you get stuck. It's likely that someone already had the same problem, so using the search function might uncover a solution to your problem within seconds. If you can't find anything, drop us your question.
