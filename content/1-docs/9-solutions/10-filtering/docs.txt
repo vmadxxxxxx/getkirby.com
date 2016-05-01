@@ -19,7 +19,7 @@ $collection = page('projects')->children()->visible();
 $collection = page('projects')->children()->invisible();
 ```
 
-Check out the docs: [`$pages->visible()`](https://getkirby.com/docs/cheatsheet/pages/visible) and [`$pages->invisible`](https://getkirby.com/docs/cheatsheet/pages/invisible).
+Check out the docs: [`$pages->visible()`](https://getkirby.com/docs/cheatsheet/pages/visible) and [`$pages->invisible`](https://getkirby.com/docs/cheatsheet/pages/invisible). **Please note that `visible`and `invisible` are just flags for filtering collections. An invisible folder is still accessible via it's URL.**
 
 ## Filter page collections by a single field
 Often, you only want to display all pages that have a certain value in a special field, e.g. a category or a tags field. For this task, you can use the `filterBy()` method:
@@ -152,7 +152,7 @@ You can then use this filter in your templates like this:
 ```php
 $articles = $page->children()->visible()->filterBy('code', 'languageIs', 'en');
 ```
-You can find more on this in  (link: https://getkirby.com/docs/developer-guide/objects/collections text: the docs).
+You can find more on this in (link: https://getkirby.com/docs/developer-guide/objects/collections text: the docs).
 
 ## Filter by multiple values in an array
 
