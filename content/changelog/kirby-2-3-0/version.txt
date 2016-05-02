@@ -46,7 +46,7 @@ Here are the other changes in beta 2:
 ### Toolkit
 
 - **Refactored Database class, which fixes possible SQL injections**
-- (toolkit: database-query/having) support for where clauses
+- (toolkit: database-query/having) now supports the same parameters as (toolkit: database-query/where)
 - Replaced x with × in (toolkit: dimensions/to-string)
 - Fixed broken alt attributes in (toolkit: thumb/tag)
 - Removed the (sheet: helpers/thumb) helper method to make it globally available (is now present in `kirby/helpers.php`)
