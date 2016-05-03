@@ -19,21 +19,45 @@ $collection = page('projects')->children()->visible();
 $collection = page('projects')->children()->invisible();
 ```
 
-Check out the docs: [`$pages->visible()`](https://getkirby.com/docs/cheatsheet/pages/visible) and [`$pages->invisible`](https://getkirby.com/docs/cheatsheet/pages/invisible). **Please note that `visible`and `invisible` are just flags for filtering collections. An invisible folder is still accessible via it's URL.**
+Check out the docs: [`$pages->visible()`](https://getkirby.com/docs/cheatsheet/pages/visible) and [`$pages->invisible`](https://getkirby.com/docs/cheatsheet/pages/invisible). **Please note that `visible`and `invisible` are just flags for filtering collections. An invisible folder is still accessible via its URL.**
 
 ## Filter page collections by a single field
 Often, you only want to display all pages that have a certain value in a special field, e.g. a category or a tags field. For this task, you can use the `filterBy()` method:
 
 ```php
-//filter a collection by a value in a single value field
+// filter a collection by a value in a single value field
 $collection = page('projects')->children()->visible()->filterBy('category', 'webdesign');
 
-//filter a collection by a value in a field with a comma separated list of values
+// filter a collection by a value in a field with a comma separated list of values
 $collection = page('projects')->children()->visible()->filterBy('tags', 'webdesign', ',');
 ```
 Note the use of the delimiter in the second example to get a value from a comma separated list. If you use other delimiters in your fields, you can, of course, change the delimiter.
 
 For more information on using tags dynamically to filter blog posts, see (link: https://getkirby.com/docs/solutions/blog/tags text: Filtering content by tag)
+
+## Filtering using filter operators
+With the above example, you only get results that fit a single value. You can fine tune your filter results by using the operator parameter in the `filterBy()` method:
+
+### Pages
+```php
+// get all pages with a date after now
+$collection = page('blog')->children()->filterBy('date', '>', time());
+
+// get all pages with a title that starts with "A" or a number
+$collection = page('blog')->children()->filterBy('title', '<', 'B');
+```
+
+### Files
+
+```php
+// get all images that contain a string
+$images = page('blog')->images()->filterBy('filename', '*=', 'cover-');
+
+// get all file types exept images
+$files = page('blog')->images()->filterBy('type', '!=', 'image');
+```
+For a full documentation of the available filter operators see (link: https://getkirby.com/docs/cheatsheet/pages/filter-by text: the docs).
+
 
 ## Filtering by methods
 
@@ -41,58 +65,36 @@ You cannot only filter by custom field methods in your content files but also by
 
 ### Pages
 ```php
-//filter by page template
+// filter by page template
 $collection = page('projects')->children()->visible()->filterBy('template', 'blogarticle');
 
-//filter by intended template
+// filter by intended template
 $collection = page('projects')->children()->visible()->filterBy('intendedTemplate', 'blogarticle');
 
-//filter by depth (this is the same as ($site->grandchildren())
+// filter by depth (this is the same as ($site->grandchildren())
 $collection = $site->index()->filterBy('depth', 2);
 
-//filter by modified date
+// filter by modified date
 $collection = $site->index()->filterBy('modified', '>', strtotime('2016-04-30'));
 ```
 
 ### Files
 
 ```php
-//filter by file extension
+// filter by file extension
 $images = $page->images()->filterBy('extension', 'png');
 
-//filter by type
+// filter by type
 $files = $page->files()->filterBy('type', 'document');
 ```
 ### Users
 
 ```php
-//filter by role
+// filter by role
 $users = $site->users()->filterBy('role', 'editor');
 
 ```
 
-## Filtering using filter operators
-With the above example, you only get results that fit a single value. You can fine tune your filter results by using the operator parameter in the `filterBy()` method:
-
-### Pages
-```php
-//get all pages with a date after now
-$collection = page('blog')->children()->filterBy('date', '>', time());
-
-//get all pages with a title that starts with "A" or a number
-$collection = page('blog')->children()->filterBy('title', '<', 'B');
-```
-
-### Files
-
-```php
-//get all images that contain a string
-$images = page('blog')->images()->filterBy('filename', '*=', 'cover-');
-
-//get all file types exept images
-$files = page('blog')->images()->filterBy('type', '!=', 'image');
-```
-For a full documentation of the available filter operators see (link: https://getkirby.com/docs/cheatsheet/pages/filter-by text: the docs).
 
 ## Filter collections by more than one field/method
 
@@ -100,7 +102,7 @@ You can also string together multiple `filterBy()` methods to narrow down your f
 
 ### Pages
 ```php
-//fetch all events  with a template that is neither "concert" nor "exhibition"
+// fetch all events  with a template that is neither "concert" nor "exhibition"
 $collection = page('events')->children()->filterBy('template', '!=', 'concert')->filterBy('template', '!=', 'exhibition');
 ```
 
@@ -114,13 +116,13 @@ $collection = page('events')->children()->filter(function($p) {
 ### Files
 
 ```php
-//fetch all files that are neither videos nor images
+// fetch all files that are neither videos nor images
 $files = $page->images()->filterBy('type', '!=', 'video')->filterBy('type', '!=', 'image');
 ```
 
 ### Users
 ```php
-//fetch all users that are neither admins nor editors
+// fetch all users that are neither admins nor editors
 $files = $site->users()->filterBy('role', '!=', 'admin')->filterBy('role', '!=', 'editor');
 ```
 
@@ -129,15 +131,15 @@ In addition to the predifined filter methods mentioned above, you can also defin
 
 The following example filters pages by language.
 
-Add the filter to a filters.php file in site/plugins:
+Add the filter to a filters.php file in `/site/plugins`:
 
 ```php
 // Anything that matches a given language attribute
 
 collection::$filters['languageIs'] = function($collection, $field, $value) {
 
-  foreach ($collection->data as $key => $item) {
-    if (collection::extractValue($item->content()->language(), $field) != $value) {
+  foreach($collection->data as $key => $item) {
+    if(collection::extractValue($item->content()->language(), $field) != $value) {
       unset($collection->$key);
     }
   }
@@ -160,7 +162,7 @@ In this example we have an array of locations (e.g. from a post request) and wan
 ```php
 // $selections is an array with the values of the selected checkboxes
 $locations = array('New York', 'Paris', 'Tokyo');
-$stores = $pages->filter(function($p) use ($locations)  {
+$stores = $pages->filter(function($p) use($locations)  {
 
   // only $p that return true in here will be part of $stores
   return in_array($child->locations(), $selections);
@@ -173,20 +175,20 @@ In this example, `$child->locations()` only contains a single value, so we can u
 In the this example we fetch all blog posts with one of the tags of the current page. The resulting collection is the shuffled and three pages are returned.
 ```php
 <?php
-//get an array of the tags of the current page
+// get an array of the tags of the current page
 $tags = $page->tags()->split(',');
 
-//filter the blog posts with a filter with callback
+// filter the blog posts with a filter with callback
 $children = page('blog')->children()->visible();
 $relatedPages = $children->filter(function($child) use($tags) {
-    if (array_intersect($child->tags()->split(','), $tags)) {
-      return $child;
-    }
-  });
+  if(array_intersect($child->tags()->split(','), $tags)) {
+    return $child;
+  }
+});
 ?>
 <ul>
 
-  //shuffle and limit the results
+  // shuffle and limit the results
   <?php foreach($relatedPages->not($page)->shuffle()->limit(3) as $related): ?>
     <li><a href='<?php echo $related->url(); ?>'><?php echo $related->title(); ?></a></li>
   <?php endforeach ?>
@@ -203,7 +205,7 @@ Since the date field is a bit special, I'll cover this here a bit more extensive
 For a simple from - to filtering of dates, you can string together two `filterBy()` methods as seen above:
 
 ```php
-//fetch all blog post of 2015 using beginning and end dates
+// fetch all blog post of 2015 using beginning and end dates
 $collection = page('blog')->children()->visible()->filterBy('date', '>', strtotime('2015-01-01'))->filterBy('date', '<', strtotime('2015-12-31'))
 ```
 
@@ -212,7 +214,7 @@ If you just happen to have the year as a variable, you can use a filter with cal
 
 ```php
 $year = '2015';
-$collection = $pages->find('blog')->children()->visible()->filter(function($p) use ($year){
+$collection = $pages->find('blog')->children()->visible()->filter(function($p) use($year){
   return $p->date('Y') === $year;
 });
 ```
@@ -226,7 +228,7 @@ $events = page('events')
           ->children()
           ->visible()
           ->filter(function($child) {
-            return $child->date('null', 'startdate') > time() || $child->date(null, 'enddate') > time();
+            return $child->date(null, 'startdate') > time() || $child->date(null, 'enddate') > time();
           });
 
 ```
@@ -251,32 +253,32 @@ Let's suppose we had a clothing shop and wanted to give our potential customers 
 ```php
 <form id="filters" action="" method="post">
 
-//give the select the name of the category to filter by
+// give the select the name of the category to filter by
   <select name="color" onchange="this.form.submit()">
     <option selected value="">Select a color</option>
 
-    //let's fill the options with our colors
+    // let's fill the options with our colors
     <?php foreach($color as $item): ?>
 
-     //we don't want empty items
-      <?php if ($item == "") continue; ?>
+     // we don't want empty items
+      <?php if($item == "") continue; ?>
 
-       //set the option to selected if selected
-      <option <?php if((isset($_POST['color'])) && $_POST['color'] == $item) { echo "selected"; } ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
+       // set the option to selected if selected
+      <option <?php if(isset($data['size']) && $data['color'] == $item) { echo "selected"; } ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
     <?php endforeach ?>
   </select>
    <select name="brand" onchange="this.form.submit()">
      <option selected value="">Select a brand</option>
     <?php foreach($brand as $item): ?>
       <?php if ($item == "") continue; ?>
-      <option <?php if((isset($_POST['brand'])) && $_POST['brand'] == $item) { echo "selected"; } ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
+      <option <?php if(isset($data['brand']) && $data['brand'] == $item) { echo "selected"; } ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
     <?php endforeach ?>
   </select>
   <select name="size" onchange="this.form.submit()">
-    <option selected value="">Select a brand</option>
+    <option selected value="">Select a size</option>
    <?php foreach($size as $item): ?>
-     <?php if ($item == "") continue; ?>
-     <option <?php if((isset($_POST['size'])) && $_POST['size'] == $item) { echo "selected"; } ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
+     <?php if($item == "") continue; ?>
+     <option <?php if(isset($data['size']) && $data['size'] == $item) { echo "selected"; } ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
    <?php endforeach ?>
  </select>
 </form>
@@ -288,21 +290,26 @@ Now that we have our form ready, let's get into the logic. In our products.php c
 <?php
   return function($site, $pages, $page) {
 
-    //return all children if nothing is selected
+    $color = $page->children()->pluck('color', null, unique);
+    $brand = $page->children()->pluck('brand', null, unique);
+    $size = $page->children()->pluck('size', null, unique);
+    $keys = array('color', 'brand', 'size');
+
+    // return all children if nothing is selected
     $projects = $page->children()->visible();
 
-    //if there is a post request, filter the projects collection
-    if($_POST) {
-      $projects = $page->children()->visible()->filter(function($child) {
+    // if there is a post request, filter the projects collection
+    if($data = get()) {
+      $projects = $page->children()->visible()->filter(function($child) use($keys, $data){
 
         // loop through the post request
-        foreach($_POST as $key => $value) {
+        foreach($data as $key => $value) {
 
-          //only act if the value is not empty
-          if ($value != '') {
+          // only act if the value is not empty and the key is valid
+          if($value != '' && in_array($key, $keys)) {
 
             // return false if the child page's category and value don't match
-            if (! $match = $child->$key() == $value) {
+            if(! $match = $child->$key() == $value) {
               return false;
             }
           }
@@ -311,7 +318,7 @@ Now that we have our form ready, let's get into the logic. In our products.php c
         return $child;
       });
     }
-    return compact('products');
+    return compact('products', 'color', 'brand', 'size', 'data');
   };
 ```
 
