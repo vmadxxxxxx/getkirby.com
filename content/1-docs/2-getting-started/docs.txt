@@ -85,7 +85,8 @@ With Kirby, it is easy to set up a multi-lingual site. You can learn how to do t
 ## Adding custom functionality
 Sooner or later you will want to add custom functionality to your site. Kirby can be extended in many ways.
 
-
+## Pimping your site with javascript
+The starterkit doesn't use any Javascript. But you can, of course, easily add your scripts or libraries (for sliders, lightboxes, etc.) like your would do it in any static website. The [`js()` helper](https://getkirby.com/docs/cheatsheet/helpers/js) makes adding your scripts even easier.
 
 ## Getting help
 
