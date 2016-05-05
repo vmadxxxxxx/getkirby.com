@@ -128,6 +128,15 @@ Sooner or later you will want to add custom functionality to your site. Kirby ca
 and a whole lot more that is far beyond this Getting Started Guide.
 
 
+## Kirby plugins
+
+You don't have to reinvent the wheel if you need more functionality. The (link: https://github.com/getkirby/plugins text: official Kirby repository) includes quite a few plugins ready to be incorporated into your website. There are also two other "non-official" listings out there on the web:
+
+- (link: http://getkirby-plugins.com text: Plugins and extensions for Kirby CMS)
+- (link: https://github.com/jenstornell/kirby-plugins text: Kirby Plugins: The unofficial plugin list for Kirby CMS)
+
+**Please use third-party plugins at your own discretion. They may be outdated and not work with current Kirby releases, or even contain insecure code. If you run into problems with using such plugins, please contact the plugin authors.**
+
 Well, we've come a long way to this point. We hope you enjoy exploring all the exciting features of Kirby and how they can help you to create awesome websites your clients will fall in love with.
 
 This Getting Started Guide can't possibly answer all the question you may ever have. But fear not, help is not far:
