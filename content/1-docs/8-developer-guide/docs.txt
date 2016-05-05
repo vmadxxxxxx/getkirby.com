@@ -48,6 +48,7 @@ Text:
 - (link: docs/developer-guide/objects/file text: Custom $file methods)
 - (link: docs/developer-guide/objects/files text: Custom $files methods)
 - (link: docs/developer-guide/objects/collections text: How to write collection filters)
+- (link: docs/developer-guide/objects/validators text: How to write custom validators)
 
 ## Security
 
