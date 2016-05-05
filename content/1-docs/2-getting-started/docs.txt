@@ -119,12 +119,13 @@ The starterkit doesn't use any Javascript. But you can, of course, easily add yo
 
 Sooner or later you will want to add custom functionality to your site. Kirby can be extended in many ways. The (link: docs/developer-guide text: Developer Guide) has you covered on many topics, e.g.
 
-- how to create a plugin
-- how to extend kirbytext
-- how to extend the panel
-- how to create custom page or file methods
+- (link: docs/developer-guide/plugins text: how to create a plugin)
+- (link: docs/developer-guide/kirbytext text: how to extend kirbytext)
+- (link: docs/developer-guide/panel text: how to extend the panel)
+- (link: docs/developer-guide/objects text: how to extend Kirby objects)
+- (link: docs/developer-guide/pugins/registry text: how to register your own components), e.g. if you want to use a template engine like Twig instead of PHP
 
-and a lot more.
+and a whole lot more that is far beyond this Getting Started Guide.
 
 
 Well, we've come a long way to this point. We hope you enjoy exploring all the exciting features of Kirby and how they can help you to create awesome websites your clients will fall in love with.
