@@ -2,6 +2,10 @@ Title: Filtering Compendium
 
 ----
 
+Description: Learn how to filter pages, files and users with Kirby's extensive filtering methods
+
+----
+
 Methods: visible(), invisible(), filterBy(), filter($callback), search()
 
 ----
