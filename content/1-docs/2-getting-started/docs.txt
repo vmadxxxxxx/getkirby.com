@@ -38,11 +38,24 @@ Changing Kirby's default folder layout: (link: docs/developer-guide/configuratio
 
 Content in Kirby is organized in folders. Basically, each folder is a single page, and each folder can contain subfolders, which can in turn contain subfolders etc. to form a tree structure. Each folder may contain one content file (.txt or .md) in a single language setup or one content file per language in a multi-lingual setup. Additionally, each folder can contain all sorts of files (like images, videos, documents etc.) and (link: docs/content/media#adding-meta-data-to-your-files text: their meta data text files).
 
-You can read up on how to add content to your site (link: docs/content text: in the content section of the docs).
+What makes Kirby really great is the possibility to create as many fields as you need, for content as well as meta data files. Kirby web interface, the Panel, comes with (link: docs/cheatsheet#panel-fields text: many predefined field types, but you can also (link: docs/developer-guide/panel/fields text: create your own).
 
 Each page folder is accessible via its URL, e.g., you can access the `projects` folder by entering your domain name followed by the UID of the folder into your browser's address bar: http://yourdomain.com/projects. The subpage `project-a` is therefore accessible via http://yourdomain.com/projects/project-a etc.
 
 If you want to use pages to create a one-page website, that is no problem with Kirby, either. (link: docs/solutions/one-pager text: Learn how to create a one-pager).
+
+You can read up on how to add content to your site (link: docs/content text: in the content section of the docs).
+
+
+### Files
+
+Files (images, videos, documents etc.) are usually stored in the folder of the page where they are needed. That way, it is
+easy to just drag & drop those files into a textarea or image field in the Panel or to reference them in your content files if you don't use the panel. You can also put files directly into the `/content` folder for site wide use. (link: docs/content/media text: Read more about handling files).
+
+
+### Image thumbnails
+
+Often, you don't want to render images the size at which they are uploaded, e.g. to adapt images to screensizes. Kirby's core  (link: docs/templates/thumbnails text: thumbnail class makes it easy to resize and crop images on the fly.
 
 
 ### Organizing your content
