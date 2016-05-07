@@ -90,7 +90,7 @@ Check out the (link: docs/templates/snippets text: snippet docs).
 Kirby output is not limited to HTML. You can also render JSON or XML, e.g. to create an API or an RSS feed.
 
 Here are some resources:
-(link: blog/json text: Creating a json api)
+(link: blog/json text: Creating a JSON api)
 (link: docs/solutions/blog/rss text: Creating an RSS feed)
 
 **Advanced reading**:
@@ -177,7 +177,7 @@ The community in the (link: https://forum.getkirby.com text: Kirby Forum) is alw
 | page model | A PHP file that defines custom page methods. Page models are stored in `/site/models`. |
 | snippet | A blocks of code that can be reused across templates. Snippets are stored in `/site/snippets`.
 | template | A PHP file that renders content, contains the HTML (and the logic) for the page. Templates are stored in `/site/templates`. |
-| URL | The full address of the page/resource including host, subfolders, (and file name). |
+| URL | The full web address of the page/resource including host, subfolders, (and file name). |
 | UID | The name of the page folder without the sorting number. |
-| URI | The relative URL without the host or any subfolders. |
+| URI | The relative URL without the host or subfolders, i.e. the path as seen from the Kirby installation. |
 | XML | Extensible Markup Language, a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable. |
