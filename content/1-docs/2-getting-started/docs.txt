@@ -46,6 +46,10 @@ If you want to use pages to create a one-page website, that is no problem with K
 
 You can read up on how to add content to your site (link: docs/content text: in the content section of the docs).
 
+### A note on filenames
+
+On Linux systems, i.e most servers, filenames are case sensitive. **We therefore strongly recommend avoiding capital letters in all filenames (content files, templates, controllers etc.)** in order to prevent problems resulting from non-matching filenames.
+
 
 ### Files
 
@@ -157,6 +161,7 @@ You don't have to reinvent the wheel if you need more functionality. The (link: 
 - (link: https://github.com/jenstornell/kirby-plugins text: Kirby Plugins: The unofficial plugin list for Kirby CMS)
 
 **Please use third-party plugins at your own discretion. They may be outdated and not work with current Kirby releases, or even contain insecure code. If you run into problems with using such plugins, please contact the plugin authors.**
+
 
 Well, we've come a long way to this point. We hope you enjoy exploring all the exciting features of Kirby and how they can help you to create awesome websites your clients will fall in love with.
 
