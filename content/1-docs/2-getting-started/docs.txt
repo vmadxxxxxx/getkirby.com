@@ -126,7 +126,7 @@ We'll soon come up with a special Panel Guide as well, stay tuned!
 
 ## Pimping your site with javascript
 
-The starterkit doesn't use any Javascript. But you can, of course, easily add your scripts or libraries (for sliders, lightboxes, etc.) like you would in any static website. The [`js()` helper](cheatsheet/helpers/js) makes adding your scripts even easier.
+The Starterkit doesn't use any Javascript. But you can, of course, easily add your scripts or libraries (for sliders, lightboxes, etc.) like you would in any static website. The [`js()` helper](cheatsheet/helpers/js) makes adding your scripts even easier.
 
 
 ## Adding custom functionality
@@ -137,7 +137,7 @@ Sooner or later you will want to add custom functionality to your site. Kirby ca
 - (link: docs/developer-guide/kirbytext text: how to extend kirbytext)
 - (link: docs/developer-guide/panel text: how to extend the Panel)
 - (link: docs/developer-guide/objects text: how to extend Kirby objects)
-- (link: docs/developer-guide/pugins/registry text: how to register your own components), e.g. if you want to use a template engine like Twig instead of PHP
+- (link: docs/developer-guide/plugins/registry text: how to register your own components), e.g. if you want to use a template engine like Twig instead of PHP
 
 and a whole lot more that is far beyond this Getting Started Guide.
 
@@ -170,10 +170,10 @@ The community in the (link: https://forum.getkirby.com text: Kirby Forum) is alw
 
 | What is (a)… | Description |
 | --- | --- |
-| blueprint | A yaml file that defines the form fields and several settings for the Panel. Blueprints are stored in `/site/blueprints`.|
+| blueprint | A YAML file that defines the form fields and several settings for the Panel. Blueprints are stored in `/site/blueprints`.|
 | controller | A PHP file that can contains the logic for a specific page template. Controllers are stored in `/site/controllers`. |
 | JSON | (Javascript Object Notation) A human-readable, open-standard data exchange format that uses data objects consisting of attribute/value pairs. |
-| Markdown | A markup language that uses plain text formating syntax that can be converted to HTML and other formats. Created by John Gruber in 2004. |
+| Markdown | A markup language that uses plain text formatting syntax that can be converted to HTML and other formats. Created by John Gruber in 2004. |
 | page model | A PHP file that defines custom page methods. Page models are stored in `/site/models`. |
 | snippet | A blocks of code that can be reused across templates. Snippets are stored in `/site/snippets`.
 | template | A PHP file that renders content, contains the HTML (and the logic) for the page. Templates are stored in `/site/templates`. |
