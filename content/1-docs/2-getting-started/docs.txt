@@ -20,9 +20,9 @@ Let's start with a brief overview of the folders in the Starterkit.
 
 | Folder | Subfolders | What's in it |
 | --- | --- | --- |
-| assets | avatars, css, fonts, images | Your website assets like stylesheet, fonts, site wide images, and Panel user avatars. You would also put your javascript and other assets into this folder. |
-| content | 1-about, 2-projects, 3-contact, error, home | The content of your website is stored in folders that each contain one text file (per language) and additional resources like images, videos, or other files. The `site.txt` text file in this folder contains general site wide information. |
-| kirby | quite a few | The Kirby app. Great for studying the source code, but in general you should leave this folder untouched (apart from updating it when a new version is released). |
+| assets | /avatars, /css, /fonts, /images | Your website assets like stylesheet, fonts, site wide images, and Panel user avatars. You would also put your javascript and other assets into this folder. |
+| content | /1-about, /2-projects, /3-contact, /error, /home | The content of your website is stored in folders that each contain one text file (per language) and additional resources like images, videos, or other files. The `site.txt` text file in this folder contains general site wide information. |
+| kirby | quite a few and /toolkit| The Kirby app. Great for studying the source code, but in general you should leave this folder untouched (apart from updating it when a new version is released). The Toolkit folder contains some classes that are used by Kirby internally but can be used in your code as well. |
 | panel | quite a few | The Panel app. It provides an easy-to-use interface for website editors to manage the content of your website. This folder should also be updated when a new version is released, and otherwise left alone.
 | site | accounts, blueprints, cache, config, plugins, snippets, templates | This folder contains all the developer stuff that defines how your content files will be processed, the blueprints for the Panel, and any extensions. |
 
@@ -118,6 +118,10 @@ As you already know by now, with Kirby you are free to structure your content th
 
 Enter blueprints. You can customize these forms and other Panel options with blueprints. Blueprints are defined in YAML. For more information on how to create blueprints, head over to the (link: docs/panel/blueprints text: blueprint docs).
 
+### Customizing the look of the Panel
+
+You can customize the way the Panel looks, e.g. to adapt it to your or your client's branding, by adding a custom stylesheet. (link: docs/developer-guide/panel/css text: Read more about this feature).
+
 We'll soon come up with a special Panel Guide as well, stay tuned!
 
 **Advanced Reading**:
@@ -141,6 +145,9 @@ Sooner or later you will want to add custom functionality to your site. Kirby ca
 
 and a whole lot more that is far beyond this Getting Started Guide.
 
+## The Toolkit
+
+The Toolkit is a library of PHP classes Kirby is built upon. You can also use these classes in your own code within Kirby. The Toolkit library contains, among many more, methods for array or string handling, the Database class to connect Kirby with a database, or the Email class for easy sending of emails. The Toolkit docs are still quite rudimentary, but you can nevertheless (link: docs/toolkit/api text: find them here).
 
 ## Kirby plugins
 
