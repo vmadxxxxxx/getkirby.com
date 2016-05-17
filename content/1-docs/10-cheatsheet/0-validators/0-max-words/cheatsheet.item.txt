@@ -1,0 +1,40 @@
+Title: MaxWords
+
+----
+
+Excerpt: Checks if the number of words in the value equals or is below the given maximum
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Since: 2.3.0
+
+----
+
+Text:
+
+## In your code
+
+```php
+if(v::maxWords('Lorem ipsum dolor sit amet.', 10)) {
+  echo 'Yay, valid!';
+}
+
+```
+
+## In panel fields
+
+```
+fields:
+  example:
+    label: Example field
+    type: text
+    validate:
+      maxWords: 10
+```
