@@ -10,7 +10,17 @@
       <div class="col-3-6 buy-section">
         <div class="text">
           <h3 class="gamma"><a href="https://sites.fastspring.com/openwe/instant/kirby2-personal">Personal license</a></h3>
-          <h4><a href="https://sites.fastspring.com/openwe/instant/kirby2-personal">€15 / $17</a> <small>(excluding VAT)</small></h4>
+          <h4>
+            <a href="https://sites.fastspring.com/openwe/instant/kirby2-personal">
+              <?php if($page->personalDiscount()->isEmpty()): ?>
+              <?php echo $page->personalPrice()->html() ?>
+              <?php else: ?>
+              <small><del><?php echo $page->personalPrice()->html() ?></del></small>
+              <?php echo $page->personalDiscount()->html() ?>
+              <?php endif ?>
+            </a> 
+            <small>(excluding VAT)</small>
+          </h4>
           <?php echo $page->personal()->kirbytext() ?>
         </div>
         <a href="https://sites.fastspring.com/openwe/instant/kirby2-personal" class="btn">Buy now &rarr;</a>
@@ -19,7 +29,17 @@
    --><div class="col-3-6 buy-section">
         <div class="text">
           <h3 class="gamma"><a href="https://sites.fastspring.com/openwe/instant/kirby2-professional">Pro license</a></h3>
-          <h4><a href="https://sites.fastspring.com/openwe/instant/kirby2-professional">€79 / $89</a> <small>(excluding VAT)</small></h4>
+          <h4>
+            <a href="https://sites.fastspring.com/openwe/instant/kirby2-professional">
+              <?php if($page->commercialDiscount()->isEmpty()): ?>
+              <?php echo $page->commercialPrice()->html() ?>
+              <?php else: ?>
+              <small><del><?php echo $page->commercialPrice()->html() ?></del></small>
+              <?php echo $page->commercialDiscount()->html() ?>
+              <?php endif ?>
+            </a>
+            <small>(excluding VAT)</small>
+          </h4>
           <?php echo $page->commercial()->kirbytext() ?>
         </div>
         <a href="https://sites.fastspring.com/openwe/instant/kirby2-professional" class="btn">Buy now &rarr;</a>
