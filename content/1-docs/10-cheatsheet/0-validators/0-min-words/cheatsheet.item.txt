@@ -1,0 +1,40 @@
+Title: MinWords
+
+----
+
+Excerpt: Checks if the number of words in the value equals or is greater than the given minimum
+
+----
+
+Return:
+
+type: boolean
+text:
+
+----
+
+Since: 2.3.0
+
+----
+
+Text:
+
+## In your code
+
+```php
+if(v::minWords('Lorem ipsum dolor sit amet.', 5)) {
+  echo 'Yay, valid!';
+}
+
+```
+
+## In panel fields
+
+```
+fields:
+  example:
+    label: Example field
+    type: text
+    validate:
+      minWords: 5
+```
