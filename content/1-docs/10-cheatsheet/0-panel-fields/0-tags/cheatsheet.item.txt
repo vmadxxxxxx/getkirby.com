@@ -58,5 +58,6 @@ The index option gives you full control over displayed suggestions, while the us
 - index: children
 - index: all
 
-
-
+<since v="2.3.0">
+- index: self
+</since>
