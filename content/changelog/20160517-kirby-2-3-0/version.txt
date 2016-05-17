@@ -29,7 +29,7 @@ $page->image('myimage.jpg')->ratio(3/2)->url();
 
 ### Better thumbnail organisation
 
-Thumbnails are no longer stored with unrecognizable filenames in a flat structure. Each thumbnail is now store under the url path of each page and with far better readability of dimension and options: 
+Thumbnails are no longer stored with unrecognizable filenames in a flat structure. Each thumbnail is now stored under the url path of each page and with far better readability of dimension and options: 
 
 #### old
 ```
