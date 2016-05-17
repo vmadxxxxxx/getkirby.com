@@ -1946,6 +1946,9 @@ input[type="search"]::-webkit-search-cancel-button {
 .sponsors-imgix img {
   height: 2.05em; }
 
+.sponsors-codetree img {
+  height: 2.25em; }
+
 /*
  :::  Info box
 -------------------------------------------------- */

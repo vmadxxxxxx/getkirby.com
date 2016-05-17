@@ -12,7 +12,7 @@
         <img src="<?php echo url('assets/images/keycdn.svg') ?>" alt="KeyCDN">
       </a>
 
-      <a class="sponsors-imgix" href="https://codetree.com">
+      <a class="sponsors-codetree" href="https://codetree.com">
         Issue tracking by 
         <img src="<?php echo url('assets/images/codetree.svg') ?>" alt="Codetree">
       </a>
