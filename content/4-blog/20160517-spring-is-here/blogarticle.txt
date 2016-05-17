@@ -19,8 +19,8 @@ Our poor blog must have felt pretty lonely in the last months. But instead of fa
 After three months of development and two beta test rounds, (link: https://download.getkirby.com text: Kirby 2.3.0) is finally here! Here are some of the highlights of the new version:
 
 - A better thumb api
-- New plugin and component architecture
-- New image panel fields
+- A brand new plugin and component architecture
+- A new image panel field
 - Dozens of usability improvements and bug fixes
 
 The list of changes has become quite long again. Please check out the (link: changelog/kirby-2-3-0 text: changelog) for the full list and more highlights.
@@ -76,6 +76,35 @@ Another project, which launched at the beginning of this year, is the Kirby patt
 
 **<https://github.com/getkirby-plugins/patterns-plugin>**
 
+## Kirby community projects
+
+The Kirby community is thriving and many exciting projects pop up all over the place. Here are just a few…
+
+### The unofficial plugin list
+
+Jens Törnell and John Coyne started an unofficial but super extensive list of Kirby plugins, fields and more. You can join them on Github and help to curate the list if you want.
+
+**<https://github.com/jenstornell/kirby-plugins>**
+
+### Twig Template Engine for Kirby
+Florens Verschelde created the first core component plugin for Kirby 2.3.0, which replaces Kirby's template engine with Twig. So if you are a Twig fan, make sure to check it out.
+
+**<https://github.com/fvsch/kirby-twig>**
+
+### Kirby Shopkit 
+Sam Nabi is working on Shopkit for quite some time already and it has evolved into an amazing solution if you are looking for a shop based on Kirby.
+
+**<https://github.com/samnabi/shopkit>**
+
+### Kirby Static Builder
+Florens seems to be on fire at the moment and also released a brand new static site builder, which is far more advanced than the basic script I wrote some months ago. So if you are looking for a way to convert your Kirby installation into a static site, definitely check this out:
+
+**<https://github.com/fvsch/kirby-staticbuilder>**
+
+### Join the community
+
+Did you build something interesting or do you have questions or feedback? (link: https://forum.getkirby.com text: Join the forum) and talk to other Kirby users and developers. 
+
 ## New partners
 
 In the last months we managed to get a set of awesome partners on board, who help us to make our work on Kirby easier. 
@@ -101,7 +130,6 @@ We are currently cooking on something special for you and we are very excited th
 **<https://algolia.com>**
 
 A big **Thank you** to all our partners! 
-
 
 ## The road ahead
 
