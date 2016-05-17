@@ -1,60 +1,16 @@
-Title: Kirby 2.3.0 Beta 2
+Title: Kirby 2.3.0
 
 ----
 
-Date: 2016-04-08
+Date: 2016-05-16
 
 ----
 
-Download: http://download.getkirby.com/nightly
+Download: http://download.getkirby.com
 
 ----
 
 Text:
-
-## Beta 2
-
-After the first beta, we decided to ditch the newly introduced REST API for thumbnails. It wasn't an easy decision, but it introduced more issues than it solved. After all we decided that it's more important to make thumbnail handling more stable and not less stable. We still kept the most awesome parts, including awesome new methods to create thumbs and a far superior naming and structuring scheme for thumbnails — which got even better in beta 2.
-
-Here are the other changes in beta 2:
-
-### Core
-
-- Fixed PHP 7 issues in our SmartyPants library
-- Fixed (sheet: helpers/css) and (sheet: helpers/js) helper issues after switching to components
-- Fixed broken alt attributes for thumbnails
-- Fixed logic bug in the new (sheet: helpers/image) helper function
-- New (sheet: file/scale) method
-- New (sheet: file/ratio) method behavior 
-- New Asset class, which can now convert any external files/images into Kirby file objects and make them resizable with the thumb api. 
-- Skipped filesystem checks in components for improved performance
-- Fixed the hard coded (sheet: page/intendedTemplateFile) method to add more flexibilty to thumb components
-- Fixed (sheet: content/exists) method, which can now reliably detect if there's a translated version of multi-lang content
-- Cleaner thumb filenames without @ and ampersands 
-(before: `image@w=200&h=300.jpg` after: `image-200x300.jpg`)
-- The thumb api respects thumbs.destination and thumbs.filename options again.
-- New (sheet: file/original) method, which makes it possible to access the original file object from a thumbnail. 
-
-### Panel
-
-- Fixed `panel.file.upload` hook
-- Fixed issues with the new thumb component
-- Fixed issues with registered blueprints from plugins
-- Fixed custom asset loading for form fields
-- User blueprints can now be registered in plugins `$kirby->set('blueprint', 'users/admin', 'admin.yml')`
-
-### Toolkit
-
-- **Refactored Database class, which fixes possible SQL injections**
-- (toolkit: database-query/having) now supports the same parameters as (toolkit: database-query/where)
-- Replaced x with × in (toolkit: dimensions/to-string)
-- Fixed broken alt attributes in (toolkit: thumb/tag)
-- Removed the (sheet: helpers/thumb) helper method to make it globally available (is now present in `kirby/helpers.php`)
-- Added (toolkit: dimensions/resize)
-- Allow the (toolkit: helpers/attr) function to handle multiple values
-
-
-****
 
 ## Highlights in 2.3.0
 
@@ -96,10 +52,10 @@ This new structure makes it possible to delete thumbnails per page and now even 
 <https://twitter.com/getkirby/status/695995977346478081/photo/1>
 
 ### New Plugin registry
-The new plugin registry makes it possible to bundle all sorts of extensions into a single plugin. You can now register templates, snippets, controllers and much more in a single plugin file: <https://gist.github.com/bastianallgeier/38f895b32b71e8e2b2f3844e38df5489>
+The new **(link: docs/developer-guide/plugins/registry text: plugin registry)** makes it possible to bundle all sorts of extensions into a single plugin. You can now register templates, snippets, controllers and much more in a single plugin file.
 
 ### New Component architecture
-Major parts of Kirby's internal APIs are now bundled into components, which can be replaced and modified by you. This makes it possible to replace Kirby's template engine, the thumb API, the markdown parser and more. 
+Major parts of Kirby's internal APIs are now bundled into **(link: docs/developer-guide/plugins/components text: components)**, which can be replaced and modified by you. This makes it possible to replace Kirby's template engine, the thumb API, the markdown parser and more. 
 
 ****
 
@@ -149,6 +105,9 @@ hide: true
 - Fixed redirection bug after sorting subpages
 - Editors can no longer switch their role by DOM manipulation
 - Pages with blocked status option can no longer be sorted
+- Fixed `panel.file.upload` hook
+- User blueprints can now be registered in plugins `$kirby->set('blueprint', 'users/admin', 'admin.yml')`
+
 
 ****
 
@@ -170,6 +129,7 @@ hide: true
   - (sheet: files/has)
   - (sheet: users/has)
 - New global site.php controller can now be used for all pages without a dedicated controller
+- New custom site::$methods
 - New custom pages::$methods
 - New custom files::$methods
 - New custom file::$methods
@@ -185,8 +145,15 @@ hide: true
 - New registry system to handle all kinds of Kirby extensions and core components
 - Better accessibility for empty alt tags of Kirbytext images
 - New (sheet: page/video) and (sheet: page/document) methods
+- Fixed PHP 7 issues in our SmartyPants library
+- New (sheet: file/scale) method
+- New (sheet: file/ratio) method behavior 
+- New Asset class, which can now convert any external files/images into Kirby file objects and make them resizable with the thumb api. 
+- Fixed (sheet: content/exists) method, which can now reliably detect if there's a translated version of multi-lang content
+- New (sheet: file/original) method, which makes it possible to access the original file object from a thumbnail. 
 - Lots and lots of additional bug fixes
 - More unit tests
+
 
 ****
 
@@ -213,6 +180,13 @@ hide: true
 - Better (toolkit: dir/modified) and (toolkit: folder/modified) with custom date handler option
 - Accepted PHP's syntax for multiple uploaded files in upload class
 - Fixed SSL detection with CloudFlare
+- **Refactored Database class, which fixes possible SQL injections**
+- (toolkit: database-query/having) now supports the same parameters as (toolkit: database-query/where)
+- Replaced x with × in (toolkit: dimensions/to-string)
+- Fixed broken alt attributes in (toolkit: thumb/tag)
+- Removed the (sheet: helpers/thumb) helper method to make it globally available (is now present in `kirby/helpers.php`)
+- Added (toolkit: dimensions/resize)
+- Allow the (toolkit: helpers/attr) function to handle multiple values
 - Additional bug fixes
 
   
