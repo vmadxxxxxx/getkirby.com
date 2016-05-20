@@ -70,9 +70,9 @@ favoritedrink:
     field:
       page:  ../
       name: availabledrinks
-      seperator: ;
+      separator: ;
 ```
-`page` enables to references a relative path to the page of the source field (parent page in the example). `name` is the name of the source field (`tags` by default). `seperator` lets you define the seperator the field value will be split by (default is `,`).
+`page` enables to references a relative path to the page of the source field (parent page in the example). `name` is the name of the source field (`tags` by default). `separator` lets you define the separator the field value will be split by (default is `,`).
 - Changed the order of fields in the signup form to make password first before email to avoid accidental password input into the email field
 - Fixed bug for structure fields without a label 
 - Default value options for the datetime field
