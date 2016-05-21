@@ -170,7 +170,7 @@ This Getting Started Guide can't possibly answer all the question you may ever h
 ## Getting help
 
 ### The Cheat Sheet
-Once you have familiarized yourself with the basics, the (link: text: Cheat Sheet) is probably the number one resource you will keep getting back to. It lists all Kirby and Toolkit API methods, helpers, Panel fields, and configuration options. Check it out!
+Once you have familiarized yourself with the basics, the (link: https://getkirby.com/docs/cheatsheet text: Cheat Sheet) is probably the number one resource you will keep getting back to. It lists all Kirby and Toolkit API methods, helpers, Panel fields, and configuration options. Check it out!
 
 ### The rest of the docs
 There are a lot more documents out there than I have listed here as a first overview. You might find the (link: docs/solutions text: Solutions) section helpful for specific topics like creating menus, creating a blog, or filtering content. The (link: docs/developer-guide text: Developer Guide) offers more advanced stuff like extending Kirby with plugins, using routes and hooks, and many more topics.
