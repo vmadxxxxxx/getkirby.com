@@ -25,6 +25,7 @@ Let's start with a brief overview of the folders in the Starterkit.
 | kirby | quite a few and /toolkit| The Kirby app. Great for studying the source code, but in general you should leave this folder untouched (apart from updating it when a new version is released). The Toolkit folder contains some classes that are used by Kirby internally but can be used in your code as well. |
 | panel | quite a few | The Panel app. It provides an easy-to-use interface for website editors to manage the content of your website. This folder should also be updated when a new version is released, and otherwise left alone.
 | site | accounts, blueprints, cache, config, plugins, snippets, templates | This folder contains all the developer stuff that defines how your content files will be processed, the blueprints for the Panel, and any extensions. |
+| thumbs | subdirectories for each page | This folder will hold thumbnails of images created with Kirby's thumb methods |
 
 **Notes**:
 - The `assets` and `site` folders may contain more subfolders depending on your setup and needs.
