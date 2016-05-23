@@ -3572,7 +3572,7 @@ var delay = (function(){
 
 $('.quicksearch input').on('focus', function() {
   $('.quicksearch').addClass('has-focus');
-  $(this).attr('placeholder', '');
+  $(this).attr('placeholder', '…');
 }).on('blur', function() {
   $('.quicksearch').removeClass('has-focus');
   $(this).val('').attr('placeholder', 'Search…');
