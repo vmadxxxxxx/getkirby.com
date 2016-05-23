@@ -47,7 +47,7 @@ c::set('roles', array(
 ));
 ```
 
-If you now add a new user in the panel and assign the Client role, that use will not be able to login to the panel, but login to the site only. 
+If you now add a new user in the panel and assign the Client role, that user will not be able to login to the panel, but login to the site only. 
 
 You can customize this even further with more roles, which can later be used to determin which parts of the site are accessible for which role. 
 
