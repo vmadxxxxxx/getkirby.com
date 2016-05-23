@@ -11,6 +11,9 @@ gulp.task('js-site', function() {
 
   return gulp.src([
       'assets/js/src/jquery.js',
+      'assets/js/src/prism.js',
+      'assets/js/src/algolia.js',
+      'assets/js/src/awesomplete.js',
       'assets/js/src/site.js',
     ]) 
     .pipe(concat('site.js')) 

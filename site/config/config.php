@@ -122,6 +122,12 @@ c::set('algolia.templates', array(
     },
     'fields' => array('excerpt')
   ),
+  'blogarticle' => array(
+    'filter' => function($page) {
+      return $page->isVisible();
+    },
+    'fields' => array()
+  ),
 ));
 
 // Load site-specific Algolia options
