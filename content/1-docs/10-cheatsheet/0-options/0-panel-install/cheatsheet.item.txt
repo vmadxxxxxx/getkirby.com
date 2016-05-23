@@ -1,0 +1,27 @@
+Title: panel.install
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: Allow running the Panel installer on a remote server.
+
+----
+
+Text:
+
+For security reasons, the Panel installer can only be run on localhost. If you want to run the installer on a remote server, you have to set the `panel.install` option.
+.
+## Default value
+
+```
+'false'
+```
+
+## Example
+
+```php
+c::set('panel.install', true);
+```

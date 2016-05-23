@@ -27,8 +27,22 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^controlpanel/(.*) controlpanel/index.php [L]
 ```
 You can now access the panel under `http://yourdomain.com/controlpanel`.
- 
+
 ## Running the installer
+
+
+<since v="2.3.0">
+**Important**:
+
+For security reasons, the Panel installer can only be run on localhost by default. If you want to run the installer on a remote server, you need to set a config option in your `config.php`:
+
+```
+c::set('panel.install', true);
+```
+
+**Please make sure to remove this line again after you have successfully created your first Panel user.**
+</since>
+
 
 Visit `http://yourdomain.com/panel` to start Kirby's installer. It will check for any issues with your installation.
 
