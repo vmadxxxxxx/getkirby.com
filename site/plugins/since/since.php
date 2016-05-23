@@ -14,16 +14,23 @@ function version($version, $format) {
 
 kirbytext::$pre[] = function($kirbytext, $text) {
 
-  $text = preg_replace_callback('!<since v="([0-9.]+)"\>!', function($match) {
-    $block  = '<div class="relative" markdown="1">';
+
+
+  return preg_replace_callback('!<since v="([0-9.]+)"\>(.*?)</since>!s', function($match) {
+
+    if(version_compare(kirby::$version, $match[1], '<')) {
+      $class = ' upcoming-feature';
+    } else {
+      $class = '';
+    }
+
+    $block  = '<div class="relative' . $class . '">';
     $block .= '<p class="version-badge">' . version($match[1], '%s +') . '</p>';
+    $block .= kirbytext($match[2]);
+    $block .= '</div>';
     return $block;
+
   }, $text);
-
-  $text = str_replace('</since>', '</div>', $text);
-
-  return $text;
-
 };
 
 field::$methods['future'] = function($field) {

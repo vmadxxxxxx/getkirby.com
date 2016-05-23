@@ -1,0 +1,47 @@
+Title: headers
+
+----
+
+Excerpt: An array with template names as keys and HTTP headers as values. Those headers will be sent before the template is rendered.
+
+----
+
+Text: 
+
+## Default value
+
+```
+array()
+```
+
+## Example
+
+The array must contain a template as key. This is the actual used template and not the intended template (aka. content file name).
+
+The value is either a callback function that will be called right before rendering the template with the current page object (you can use that to decide which headers to send):
+
+```php
+c::set('headers', array(
+  'home' => function($page) {
+    header('x-my-header: my-value');
+  }
+));
+```
+
+or a valid HTTP status code:
+
+```php
+c::set('headers', array(
+  'badrequest' => 503
+));
+```
+
+The latter is useful if a specific template always needs a specific status code. If it depends on the page, you can also send the status code from a callback function like so:
+
+```php
+c::set('headers', array(
+  'badrequest' => function($page) {
+    if($code = $page->statusCode()) header::status($code->int());
+  }
+));
+```

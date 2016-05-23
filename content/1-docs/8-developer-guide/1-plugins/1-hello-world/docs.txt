@@ -1,0 +1,40 @@
+Title: Getting started 
+
+----
+
+Since: 
+
+----
+
+Text:
+
+A Kirby plugin can start as a simple file with a PHP function. All plugins are being installed in `/site/plugins`. The only requirement for a plugin is that the foldername has to be the same as the main php filename. 
+
+```
+/site/plugins/{plugin-name}/{plugin-name}.php
+```
+
+For example: 
+
+```
+/site/plugins/hello/hello.php
+```
+
+A good starting point is to create a simple helper function in your plugin, which you can then start to use immediately in all your templates, snippets and controllers. 
+
+```php
+// /site/plugins/hello/hello.php
+function hello() {
+  echo 'hello';
+}
+```
+
+The new hello() function can now be used in a template:
+
+```php
+<?php snippet('header') ?>
+<?php hello() ?>
+<?php snippet('footer') ?>
+```
+
+Of course this is a pretty useless example, but as you can see you don't have to follow lots of instructions and rules to get started with your own helper plugin.

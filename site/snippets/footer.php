@@ -11,6 +11,11 @@
         CDN by 
         <img src="<?php echo url('assets/images/keycdn.svg') ?>" alt="KeyCDN">
       </a>
+
+      <a class="sponsors-codetree" href="https://codetree.com">
+        Issue tracking by 
+        <img src="<?php echo url('assets/images/codetree.svg') ?>" alt="Codetree">
+      </a>
     </div>
 
   </div><!-- [.site] end -->

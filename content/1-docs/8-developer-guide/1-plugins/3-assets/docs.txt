@@ -1,0 +1,55 @@
+Title: How to store plugin assets
+
+----
+
+Since: 2.3.0
+
+----
+
+Text:
+
+Since all requests to the site folder are blocked by Kirby's htaccess file for security reasons, you cannot just store public assets, such as js files, css or images in your plugin folder. They won't be accessible from the outside. Kirby has a built-in secure way to solve this for you, so you can bundle assets with your plugins. 
+
+All plugin assets must go into an assets folder. 
+
+```
+/site/plugins/{pluginName}/assets
+```
+
+For example:
+
+```
+/site/plugins/myplugin/assets/css/myplugin.css
+/site/plugins/myplugin/assets/js/myplugin.js
+/site/plugins/myplugin/assets/images/myplugin-sprite.svg
+```
+
+You are free to structure your assets within the assets folder as you like. Put them in subfolders, have them all in one huge list, it's up to you. **We recommend the shown folder structure though.**
+
+## Public URLs for plugin assets
+
+As long as you store your assets in the assets folder, your assets are publicly available at the following URL: 
+
+```
+http://{domain}/assets/plugins/{pluginName}/{optionalSubfolder}/{filename}
+```
+
+For example:
+
+```
+http://yourdomain.com/assets/plugins/myplugin/css/myplugin.css
+http://yourdomain.com/assets/plugins/myplugin/js/myplugin.js
+http://yourdomain.com/assets/plugins/myplugin/images/myplugin-sprite.svg
+```
+
+## Customizing plugin assets
+
+Your plugin users can customize your stylesheets, images, or any other asset, by copying the orginal from the plugin's asset folder to the actual asset location `/assets/plugins/{pluginName}` as pointed out by the URL. The server will then pick the custom file instead of running the route to the original plugin asset.
+
+
+
+
+
+
+
+

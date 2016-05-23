@@ -1,0 +1,47 @@
+Title: Custom files methods
+
+----
+
+Since: 2.3.0
+
+----
+
+Text:
+
+(toc)
+
+## Default files methods
+
+**For a full (link: docs/cheatsheet/#files text: list of default files methods), please check out the cheat sheet.** Be aware that you cannot override these default files methods with any custom files method.
+
+## Getting started
+
+You can extend the set of defined files methods very easily. The best place to do this is in a plugin file: `/site/plugins/files-methods.php`
+
+```php
+files::$methods['listAll'] = function($files) {
+  foreach($files as $file) {
+    echo '- ' . $file->filename() . '<br>';
+  }
+};
+```
+
+This example shows the basic architecture of a files method. You define the method name with the key for the `files::$methods` array. The callback function receives the `$files` object as first argument.
+
+## Working with method arguments
+
+In some cases it might be helpful to be able to pass arguments to the method:
+
+```php
+<?php if($files->moreThan($num)) : ?>
+  Page has more then $num files.
+<?php endif ?>
+```
+
+The definition for such a method with arguments is very simple:
+
+```php
+files::$methods['moreThan'] = function($files, $num) {
+    return $files->count() > $num;
+};
+```

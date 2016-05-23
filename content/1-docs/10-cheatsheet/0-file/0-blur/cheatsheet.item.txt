@@ -1,0 +1,30 @@
+Title:
+
+{{class.instance}}->blur()
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt:
+
+Applies a blur filter to the image
+
+----
+
+Return:
+
+type: $file
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+echo $page->image()->blur();
+```

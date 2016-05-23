@@ -1,0 +1,30 @@
+Title:
+
+{{class.instance}}->bw($bw)
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt:
+
+Converts the image to grayscale
+
+----
+
+Return:
+
+type: $file
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->image()->bw()->html() ?>
+```

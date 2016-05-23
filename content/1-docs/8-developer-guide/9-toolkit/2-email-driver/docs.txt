@@ -1,0 +1,32 @@
+Title: Custom email drivers
+
+----
+
+Text: 
+
+By default Kirby can send email via your server, Amazon SES, Postmark or Mailgun. If you want to send from another service, you can write your own email driver. 
+
+An email driver is a callback function added to the `$services` array of the email class: 
+
+```php
+email::$services['yourservice'] = function($email) {
+  // your adaptor code goes here.
+};
+```
+
+To handle errors in your driver, throw a new Error Exception like this:
+
+```php
+email::$services['yourservice'] = function($email) {
+  
+  …
+  // something went wrong
+  throw new Error('Uh oh, that was not intended');
+  …
+
+};
+```
+
+## API Docs
+
+Check out the (link: docs/toolkit/api#email text: API docs for the Email class) to learn more. 

@@ -1,0 +1,30 @@
+Title: How to use the upload class
+
+----
+
+Text: 
+
+## Example
+
+```php
+$upload = new Upload(__DIR__ . DS . 'uploads' . DS . '{safeFilename}', array(
+  'input'     => 'file',
+  'overwrite' => true
+));
+
+if($file = $upload->file()) {
+
+  dump(array(
+    'file'     => $file->filename(),
+    'mime'     => $file->mime(),
+    'size'     => $file->size(),
+    'niceSize' => $file->niceSize()
+  ));
+
+} else {
+  dump($upload->error());
+}
+
+```
+
+More soon…

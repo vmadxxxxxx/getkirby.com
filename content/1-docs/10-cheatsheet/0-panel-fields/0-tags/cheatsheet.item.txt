@@ -1,0 +1,63 @@
+Title: Tags
+
+----
+
+Excerpt:
+
+An interactive tags input field with autocompletion
+
+----
+
+Text:
+
+The tags field is perfect for multiple variable options, which should be stored in a single field. It comes with built-in autocompletion for options and an intuitive interface for adding and removing multiple tags.
+
+## Example
+
+```
+fields:
+  tags:
+    label: Tags
+    type: tags
+```
+
+## Options
+
+### lowercase
+
+The `lower` option will make sure that every entered tag is automatically converted to lowercase.
+
+```
+fields:
+  tags:
+    label: Tags
+    type: tags
+    lower: true
+```
+
+### Separator
+
+By default tags are separated with a , in fields. You can change that separator though.
+
+```
+fields:
+  tags:
+    label: Tags
+    type: tags
+    separator: /
+```
+
+### Index
+
+The index option gives you full control over displayed suggestions, while the user is typing. By default suggestions will be pulled from the same field of sibling pages.
+
+#### Available options:
+
+- index: siblings
+- index: template
+- index: children
+- index: all
+
+<since v="2.3.0">
+- index: self
+</since>

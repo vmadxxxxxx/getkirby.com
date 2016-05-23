@@ -1,0 +1,5 @@
+Title: Multi-language setup
+
+----
+
+Link: docs/languages/setup

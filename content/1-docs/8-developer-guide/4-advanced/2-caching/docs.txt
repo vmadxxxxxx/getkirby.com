@@ -1,0 +1,78 @@
+Title: Caching
+
+----
+
+Text:
+
+(toc)
+
+For complex sites with lots of content or high amounts of traffic it might make sense to switch on Kirby's cache. Kirby' cache stores the entire result of a rendered page. As long as the cache is valid, visitors will be served the cached version which is pretty close in performance to a static html file.
+
+## Activating the cache
+
+The cache can be activated in `/site/config/config.php`
+
+```php
+c::set('cache', true);
+```
+
+## Ignoring pages
+
+You can ignore pages from being cached, by adding their URI to the `cache.ignore` array
+
+```php
+c::set('cache.ignore', array(
+  'home',
+  'projects/project-a',
+  'search'
+));
+```
+
+## Cache drivers
+
+Kirby has three built-in cache drivers. The default driver is a simple file cache. The cache driver can be changed in your config file:
+
+```php
+// valid values: file|memcached|apc
+c::set('cache.driver', 'memcached');
+```
+
+### File
+
+The default cache driver stores files in `/site/cache`. Make sure that the cache directory is writable by PHP in order to make the cache work.
+
+```php
+c::set('cache.driver', 'file');
+```
+
+You can change the cache directory like this:
+
+```php
+c::set('cache.root', '/var/cache');
+```
+
+### Memcached
+
+If you are running Kirby on a VPS or dedicated server or your shared hosting company is really, really awesome you might want to make use of Memcached. It's one of the fastest available cache engines. In order to use Memcached the Memcached server must be running and the Memcached PHP extension must be installed.
+
+```php
+c::set('cache.driver', 'memcached');
+```
+
+By default the Memcached driver is setup to use the localhost and the port 11211. You can change that with the `cache.options` variable:
+
+```php
+c::set('cache.options', array(
+  'host' => 'someotherhost',
+  'port' => 22122
+));
+```
+
+
+### APC
+
+Another fast option is the APC cache extension for PHP. If the extension is available you can switch on the cache with…
+
+```php
+c::set('cache.driver', 'apc');
+```

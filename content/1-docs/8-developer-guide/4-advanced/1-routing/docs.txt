@@ -1,0 +1,247 @@
+Title: Routing
+
+----
+
+Text:
+
+(toc)
+
+Kirby has a built-in router, which can be extended with your own routes.
+
+Routes can be setup with the `routes` option in your `/site/config/config.php`
+Routes are simple associative arrays with two required fields: pattern and action.
+
+##### Example:
+
+```php
+c::set('routes', array(
+  array(
+    'pattern' => 'my/awesome/url',
+    'action'  => function() {
+      // do something here when the URL matches the pattern above
+    }
+  )
+));
+
+```
+
+## Patterns
+
+URL patterns for routes can be static, relative URLs: `some/static/url` or parts of the URL can be defined by dynamic placholders:
+
+Placeholder | Matches
+- | -
+(:any)  | Matches any character and stops at the next /
+(:num)  | Matches any number and stops at the next /
+(:all)  | Matches everything from here on until the end or the next placeholder
+
+Placeholders can also contain expressions. i.e. `([a-z]+)`
+Placeholders will be passed as arguments in the order they appear.
+
+```php
+// my/awesome/pattern/(:any)/(:num)/(:all)
+function($anyPlaceholder, $numPlaceholder, $allPlaceholder) {
+
+};
+```
+
+If you want to use the same action for multiple patterns, you can either use regex expressions or pass an array to the pattern:
+
+```php
+c::set('routes', array(
+  array(
+    'pattern' => array('blog/(:any)', 'events/(:any)'),
+    'action'  => function() {
+      // do something here when the URL matches the pattern above
+    }
+  )
+));
+
+```
+
+## Multi-language setup
+
+In case of multi-language sites you must call the `$site->visit()` method in order to activate the selected page and set a language.
+
+```php
+c::set('routes', array(
+  array(
+    'pattern' => 'my/pattern',
+    'action' => function () {
+      return site()->visit('some/page', 'en');
+    }
+  )
+));
+````
+
+## Actions
+
+The action must be a valid callback. An action must either return a page object, a response object, redirect to a different URL or exit the code execution by returning false.
+
+### Returning a page
+
+```php
+function() {
+  return page('some/page');
+}
+```
+
+### Returning a page with additional data for the template
+
+#### Sites without multi-language setup
+
+```php
+function() {
+
+  // additional data for the page
+  $data = array(
+    'foo' => 'bar'
+  );
+
+  return array('some/page', $data);
+}
+```
+
+#### Multi-language sites
+
+```php
+function() {
+
+  // additional data for the page
+  $data = array(
+    'foo' => 'bar'
+  );
+
+  // activate the page and set the language
+  site()->visit('some/page', 'en');
+
+  return array('some/page', $data);
+}
+```
+
+### Returning a response object
+
+```php
+function() {
+  return response::json(array(
+    'some', 'json', 'stuff'
+  ));
+}
+```
+
+### Redirecting
+
+```php
+function() {
+  return go('some/page');
+}
+```
+
+### Stopping the app
+
+```php
+function() {
+  f::download('download.zip');
+  return false;
+}
+```
+
+## Methods
+
+By default routes are only available for GET requests. You can define additional request methods for the route like this:
+
+```php
+c::set('routes', array(
+  array(
+    'pattern' => 'my/awesome/url',
+    'action'  => function() {
+      // do something here when the URL matches the pattern above
+      // and the specified request method
+    },
+    'method' => 'GET|POST|DELETE'
+  )
+));
+
+```
+
+## Simulating Wordpress URLs
+
+When you previously had your blog running on Wordpress you are probably used to URLs for your articles like this:
+
+```
+http://yourdomain.com/2012/12/12/my-awesome-article
+```
+
+It's difficult to achieve the same URL structure for a Kirby-based blog. In Kirby it's more usable to have every article in a single blog or articles folder, which results in a more simple URL scheme:
+
+```
+http://yourdomain.com/blog/my-awesome-article
+```
+
+The router can help to simulate the Wordpress blog scheme, while still using Kirby's flat article structure.
+
+##### /site/config/config.php
+
+```php
+c::set('routes', array(
+  array(
+    'pattern' => '(:num)/(:num)/(:num)/(:any)',
+    'action'  => function($year, $month, $day, $uid) {
+
+      // search for the article
+      $page = page('blog/' . $uid);
+
+      // redirect to the article or the error page
+      go($page ? $page->url() : 'error');
+
+    }
+  )
+));
+```
+
+
+## Omitting the blog folder in URLs
+
+A similar approach can be used to omit the blog or article folder in the URL entirely, if you are aiming for something really clean for your blog:
+
+Instead of…
+
+```
+http://yourdomain.com/blog/my-awesome-article
+```
+
+…you can achieve…
+
+```
+http://yourdomain.com/my-awesome-article
+```
+
+…with the following two routes:
+
+```php
+c::set('routes', array(
+  array(
+    'pattern' => '(:any)',
+    'action'  => function($uid) {
+
+      $page = page($uid);
+
+      if(!$page) $page = page('blog/' . $uid);
+      if(!$page) $page = site()->errorPage();
+
+      return site()->visit($page);
+
+    }
+  ),
+  array(
+    'pattern' => 'blog/(:any)',
+    'action'  => function($uid) {
+      go($uid);
+    }
+  )
+));
+```
+
+
+
+

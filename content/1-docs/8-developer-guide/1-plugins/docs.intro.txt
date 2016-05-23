@@ -1,0 +1,8 @@
+Title: Plugins
+
+----
+
+Text:
+
+Kirby can be extended with a mighty plugin architecture, that lets you extend or replace almost every aspect of the system.
+

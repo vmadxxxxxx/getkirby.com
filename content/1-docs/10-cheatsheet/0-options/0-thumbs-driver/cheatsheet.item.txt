@@ -1,0 +1,29 @@
+Title: thumbs.driver
+
+----
+
+Excerpt: The thumbnail library which is being used by Kirby's thumb function/class ('gd' or 'im')
+
+----
+
+Text: 
+
+## Default value
+
+```
+'gd'
+```
+
+## Example
+
+```php
+c::set('thumbs.driver','gd');
+```
+
+## Available Drivers
+
+Kirby comes with drivers for GD Lib (gd) and ImageMagick (im), which can be used out of the box.
+
+## Custom Driver
+
+Read more about (link: docs/thumbnails/building-your-own-thumb-driver text: how to setup your own custom thumbnail driver).

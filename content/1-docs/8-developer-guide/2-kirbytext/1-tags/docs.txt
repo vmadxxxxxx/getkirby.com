@@ -1,0 +1,132 @@
+Title: How to create custom Kirbytags
+
+----
+
+Text:
+
+Kirbytext — Kirby's extension of Markdown — comes with a set of helpful tags, which editors can use to add links, include images, embed videos and much more.
+
+To make it even easier for your editors to create content and format text Kirbytext can be further extended with your own custom tags and rules.
+
+## Creating your own Kirbytag
+
+Custom Kirbytags are installed in `/site/tags`. Each tag gets its own PHP file.
+The most simple form of a Kirbytag looks like this
+
+##### /site/tags/wikipedia.php
+```php
+<?php
+
+kirbytext::$tags['wikipedia'] = array(
+  'html' => function($tag) {
+    return '<a href="http://wikipedia.org">Wikipedia</a>';
+  }
+);
+```
+
+You can invoke this by using the following tag in Kirbytext
+
+```
+(\wikipedia: somevalue)
+```
+
+The tag is pretty stupid though. It will only generate a link to Wikipedia with a link text called Wikipedia. It completely ignores the value of the tag so far.
+
+To make use of the entered value the $tag object has an `$tag->attr($attr)` method, which can be used to fetch the value of any attribute of the tag.
+
+```php
+<?php
+
+kirbytext::$tags['wikipedia'] = array(
+  'html' => function($tag) {
+    return '<a href="http://wikipedia.org/wiki/' . $tag->attr('wikipedia') . '">Wikipedia</a>';
+  }
+);
+```
+
+Now the tag will fetch the `wikipedia` attribute and pass the value to the link. The tag is now able to link to any article on Wikipedia:
+
+```
+(\wikipedia: Content_Management_System)
+```
+
+It's very easy to add more attributes to make the tag even smarter. An additional `attr` array defines which attributes are allowed within the tag. You don't have to define the main attribute though.
+
+```php
+<?php
+
+kirbytext::$tags['wikipedia'] = array(
+  'attr' => array(
+    'text'
+  ),
+  'html' => function($tag) {
+
+    $url     = 'http://wikipedia.org/wiki';
+    $article = $tag->attr('wikipedia');
+    $text    = $tag->attr('text', 'Wikipedia');
+
+    return '<a href="' . $url . '/' . $article . '">' . $text . '</a>';
+
+  }
+);
+```
+
+You can now pass a text attribute to the tag and it will be used to build the link text.
+
+```
+(\wikipedia: cat text: Read all about cats…)
+```
+
+Another great feature of the `$tag->attr()` method is the fallback value, which makes it possible to react on missing or empty attributes and still provide some useful alternative.
+
+```php
+$text = $tag->attr('text', 'Wikipedia');
+// if no text is given, the link text will be 'Wikipedia'
+```
+
+Just like in this example, tags can be very simple and generate something like a link. But of course you can extend this to generate entire galleries, tables, download lists or whatever you need.
+
+### Accessing the current page
+
+For some tags it might be necessary to access the current page or files of the current page. The `$tag` object has three methods to help you with this:
+
+```php
+$tag->page()
+$tag->files()
+$tag->file('myfile.jpg')
+```
+
+We can make use of this to create a simple download list tag.
+
+
+##### /site/tags/downloads.php
+```php
+<?php
+
+kirbytext::$tags['downloads'] = array(
+  'html' => function($tag) {
+
+    $html  = '<h2>' . $tag->attr('downloads') . '</h2>';
+    $html .= '<ul>';
+
+    foreach($tag->page()->documents() as $doc) {
+      $html .= '<li>';
+      $html .= '<a href="' . $doc->url() . '">' . $doc->filename() . '</a>';
+      $html .= '</li>';
+    }
+
+    $html .= '</ul>';
+
+    return $html;
+
+  }
+);
+```
+
+…which can be embedded in the text like this:
+
+```
+(downloads: Download documents)
+```
+
+This could be easily extended with more attributes/options to limit the number of files or download a different type of files, etc.

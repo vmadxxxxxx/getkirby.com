@@ -1,0 +1,8 @@
+Title: Configuration
+
+----
+
+Text:
+
+Almost every aspect of Kirby can be controlled and configured to do exactly what you need it to do.
+

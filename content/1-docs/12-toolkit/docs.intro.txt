@@ -1,7 +1,0 @@
-Title: Toolkit
-
-----
-
-Description: Learn everything about Kirby's underlying PHP library, called the Kirby toolkit.
-
-----

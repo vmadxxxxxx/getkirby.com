@@ -1,0 +1,8 @@
+Title: Toolkit
+
+----
+
+Text:
+
+The Kirby Toolkit is the foundation of Kirby. It's an open-source library with dozens of classes and functions to make PHP more pleasent and effective. We use it internally for everything, but of course you can make full use of it in your code as well.
+

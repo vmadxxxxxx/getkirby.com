@@ -1,0 +1,34 @@
+Title:
+
+{{class.instance}}->scale($by)
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt:
+
+Scales the image up or down by value
+
+----
+
+Return:
+
+type: $file
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+// scale the image down by 50%
+echo $page->image()->scale(0.5);
+
+// scale the image up
+echo $page->image()->scale(1.5);
+```

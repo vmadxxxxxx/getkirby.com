@@ -1,0 +1,53 @@
+Title: Related articles
+
+----
+
+Text:
+
+With (link: docs/cheatsheet/panel-fields/structure text: Structured Field Content) you can easily link information on your site with external or internal sources in Kirby.
+
+## In your content files
+
+Add a new field to any of your content files, which you'd like to add related pages to:
+
+    Title: My Title
+    ----
+    Text: Some text for this page
+    ----
+    Related:
+
+    - blog/my-related-blog-article
+    - blog/another-related-blog-article
+
+
+You are free to name the field with related pages however you like, as long as you take care of using the right variable in the template later.
+
+Add any number of related pages with the YAML syntax. To link pages, you simply use the UIR (the URL without your domain). Since the URI is unique, Kirby will always be able to find the right page, even if you change the content or the sorting number of it. You only need to be careful if you change the location of a page or its folder name.
+
+## In your templates
+
+Accessing those related posts in your templates could look like this:
+
+```php
+<?php snippet('header') ?>
+
+<h1><?php echo $page->title()->html() ?></h1>
+<?php echo $page->text()->kirbytext() ?>
+
+<?php if(!$page->related()->empty()): ?>
+<h2>Related</h2>
+<ul>
+  <?php foreach($page->related()->pages() as $item): ?>
+  <li>
+    <a href="<?php echo $item->url() ?>">
+      <?php echo $item->title()->html() ?>
+    </a>
+  </li>
+  <?php endforeach ?>
+</ul>
+<?php endif ?>
+
+<?php snippet('footer') ?>
+
+```
+

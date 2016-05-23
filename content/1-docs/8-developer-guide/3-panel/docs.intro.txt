@@ -1,0 +1,7 @@
+Title: Extending the panel
+
+----
+
+Text:
+
+Kirby's web interface — called Panel — can be extended in multiple ways, such as custom form fields, your own stylesheet for a more customized branding or widgets.

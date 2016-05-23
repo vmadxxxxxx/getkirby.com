@@ -1,0 +1,8 @@
+Title: Extending Kirby objects
+
+----
+
+Text:
+
+Kirby's API objects for pages and files come pre-packed with dozens of helpful methods. But you can even extend them with your own for further control.
+

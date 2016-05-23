@@ -1,0 +1,24 @@
+Title:
+
+{{class.instance}}->group($callback)
+
+----
+
+Since: 2.3.0
+
+----
+
+Excerpt: Groups the collection by a given callback
+
+----
+
+Return:
+type: $collection
+text:
+
+----
+
+Params: -
+  name: $callback
+  type: function
+  text: the callback function

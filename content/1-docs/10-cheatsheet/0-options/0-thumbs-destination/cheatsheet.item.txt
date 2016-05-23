@@ -1,0 +1,30 @@
+Title: thumbs.destination
+
+----
+
+Excerpt: Sets your own handler for where to store thumbnails
+
+----
+
+Text: 
+
+## Default value
+
+```
+false
+```
+
+By default all thumbnails will be stored in the thumbs folder. For the directory path, the path of the parent page will be used. The thumb driver automatically converts all thumbnail parameters to a human-readable filename for thumbnails.
+
+## Example
+
+```php
+c::set('thumbs.destination', function($thumb) {
+  return new Obj([
+    'root' => '/var/www/mysite.com/mythumbs/somewhere/' . $thumb->source->filename(),
+    'url'  => 'https://mysite.com/mythumbs/somewhere/' . $thumb->source->filename()
+  ]);
+});
+```
+
+The destination callback must return an Obj (Object) with root and url, so the thumb generator can figure out where to store the thumbnail and what the URL for it will be.

@@ -22,3 +22,11 @@ Commercial:
 - Personal email support
 - Volume discounts
 
+----
+PersonalPrice: €15 / $17
+----
+PersonalDiscount:
+----
+CommercialPrice: €79 / $89
+----
+CommercialDiscount: 

@@ -1,0 +1,8 @@
+Title: Kirbytext
+
+----
+
+Text:
+
+Kirbytext is Kirby's extended version of John Gruber's popular Markdown syntax. Kirbytext brings its own tags to provide easy access to images, files, internal links, etc. It can also be extended with custom tags and filters.
+

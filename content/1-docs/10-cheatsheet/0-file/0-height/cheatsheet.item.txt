@@ -1,0 +1,36 @@
+Title:
+
+{{class.instance}}->height()
+
+----
+
+Excerpt:
+
+Returns the height of image files in pixels
+
+----
+
+Return:
+
+type: integer
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->image()->height(); ?>
+```
+
+<since v="2.3.0">
+## Resizing the height
+
+By passing a value, you can also use the `$file->height()` method to resize the image by height:
+
+```php
+echo $page->image('my-image.jpg')->height(300);
+```
+</since>

@@ -1,1 +1,0 @@
-$(".text h2, .text h3").each(function(){var t=$(this).text().replace(/[\-\[\]\/\{\}\(\)\*\+\?\!\.\,\=\\\^\$\'\&\%\|]/g,"").replace(/\s/g,"-");$(this).attr("id",t.toLowerCase())});

@@ -1,0 +1,9 @@
+Title: Extensions
+
+----
+
+Description: Learn how to extend the Panel to create your own fields, widgets and more.
+
+----
+
+Link: docs/developer-guide/panel

@@ -1,0 +1,58 @@
+Title: Thumbnail issues
+
+----
+
+Text:
+
+## A writable thumbs folder
+
+In most cases, when thumbnails are not being generated, the `/thumbs` directory is not writable. Make sure that the permissions for the thumbs directory are set correctly so that Kirby can create and modify files there.
+
+## Broken thumbs driver
+
+### Broken PNG support for GD Lib in Yosemite
+
+After the upgrade from Max OS X Mavericks to Yosemite a lot of users reported issues with the built-in GD version, suddenly missing support for PNG files. The thrown error by the thumbnail class looks like this: 
+
+``` 
+Fatal error: Call to undefined function abeautifulsite\imagecreatefrompng() in …
+```
+
+This issue has been fixed in Max OS X 10.11. Please update your OS accordingly, or follow the steps in the (link: https://github.com/getkirby/panel/issues/482 text: issue thread). 
+
+
+### Invalid path to ImageMagick's convert bin
+
+If you are using the ImageMagick driver for thumbnails, you might need to set the path to the convert bin manually, if it's not available to PHP yet. Unfortunately thumb generation will fail silently if the path is not correct. I have no workaround for this so far. You can fix that in your config file by adding 
+
+```php
+thumb::$defaults['bin'] = '/usr/local/bin/convert';
+```
+
+### Broken SimpleImage class loading
+
+Some users with Turkish locale settings reported issues with a loading error for the SimpleImage class: 
+
+```
+Fatal error:  Class 'abeautifulsite\SimpleImage' not found in …
+```
+
+If you get a similar error, you can fix this by adjusting the locale and setting `LC_CTYPE` to `en_US.utf8`:
+
+```php
+c::set('locale', array(
+  LC_COLLATE  => 'tr_TR.utf8',
+  LC_MONETARY => 'tr_TR.utf8',
+  LC_NUMERIC  => 'tr_TR.utf8',
+  LC_TIME     => 'tr_TR.utf8',
+  LC_MESSAGES => 'tr_TR.utf8',
+  LC_CTYPE    => 'en_US.utf8'
+));
+```
+
+This might fix similar issues in other languages, due to a bug in PHP.
+You can (link: https://github.com/getkirby/toolkit/issues/62 text: follow the issue thread) for additional information. 
+
+
+
+

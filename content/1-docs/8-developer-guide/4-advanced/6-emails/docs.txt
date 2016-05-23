@@ -1,0 +1,137 @@
+Title: Emails
+
+----
+
+Text: 
+
+(toc)
+
+Kirby has a built-in email class, which makes it straight forward to send emails via your server, Amazon SES, Postmark or Mailgun. You can even write your own adaptor for other services.  
+
+## PHP mail()
+
+```php
+$email = email(array(
+  'to'      => 'mail@example.com',
+  'from'    => 'john@doe.com',
+  'subject' => 'Yay, Kirby sends mails',
+  'body'    => 'Hey, this is a test email!'
+));
+
+if($email->send()) {
+  echo 'The email has been sent';
+} else {
+  echo $email->error()->message();
+}
+
+```
+
+
+## Amazon SES
+
+<http://aws.amazon.com/ses>
+
+```php
+$email = email(array(
+  'to'      => 'mail@example.com',
+  'from'    => 'john@doe.com',
+  'subject' => 'Yay, Kirby sends mails',
+  'body'    => 'Hey, this is a test email!', 
+  'service' => 'amazon',
+  'options' => array(
+    'key'    => 'Your Amazon API Key',
+    'secret' => 'Your Amazon API Secret',
+    'host'   => 'email.us-east-1.amazonaws.com' // optional (default value)
+  )
+));
+
+if($email->send()) {
+  echo 'The email has been sent via Amazon SES';
+} else {
+  echo $email->error()->message();
+}
+
+```
+
+
+## Postmark
+
+<http://postmarkapp.com>
+
+```php
+$email = email(array(
+  'to'      => 'mail@example.com',
+  'from'    => 'john@doe.com',
+  'subject' => 'Yay, Kirby sends mails',
+  'body'    => 'Hey, this is a test email!', 
+  'service' => 'postmark',
+  'options' => array(
+    'key' => 'Your Postmark API Key',
+  )
+));
+
+if($email->send()) {
+  echo 'The email has been sent via Postmark';
+} else {
+  echo $email->error()->message();
+}
+
+```
+
+## Mailgun
+
+<http://mailgun.com>
+
+```php
+$email = email(array(
+  'to'      => 'mail@example.com',
+  'from'    => 'john@doe.com',
+  'subject' => 'Yay, Kirby sends mails',
+  'body'    => 'Hey, this is a test email!', 
+  'service' => 'mailgun',
+  'options' => array(
+    'key'    => 'Your Mailgun API Key',
+    'domain' => 'Your Mailgun Domain'
+  )
+));
+
+if($email->send()) {
+  echo 'The email has been sent via Mailgun';
+} else {
+  echo $email->error()->message();
+}
+
+```
+
+## Multiple mails with the same options
+
+You can set up your email with the main parameters once and then overwrite the single options only when sending an email. This can be handy when you need to send emails in a foreach loop to various recipients for example. 
+
+```php
+$email = email(array(
+  'from'    => 'mail@example.com',
+  'service' => 'postmark', 
+  'options' => array(
+    'key' => 'Your Postmark API key'
+  )
+));
+
+// later in your app
+foreach($listOfRecipients as $recipient) {
+  
+  $email->send(array(
+    'to'      => $recipient,
+    'subject' => 'Your personal email',
+    'body'    => 'Hey! This is just for you'
+  ));
+  
+}
+```
+
+## Configuration
+
+You can (link: docs/developer-guide/configuration/email text: configure all email options) in your Kirby config file. 
+
+## Write your own email driver
+
+If you want to send emails from another email service or an SMTP server, you can (link: docs/developer-guide/toolkit/email-driver text: write your own email driver).

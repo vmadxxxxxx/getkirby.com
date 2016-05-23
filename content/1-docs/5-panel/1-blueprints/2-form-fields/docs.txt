@@ -110,7 +110,7 @@ fields:
     validate:
       min: 4
       alphanum
-    help: Minimum of 4 characters required and only alphanumeric characters allowed. 
+    help: Minimum of 4 characters required and only alphanumeric characters allowed.
 ```
 
 Special characters (e.g. `&` or `<`) should be added with their character entity reference (e.g. `&amp;` or `&lt;`).
@@ -167,16 +167,16 @@ If you have editors from various language backgrounds, you can translate labels,
 ### Labels, placeholders and help text
 
 ```
-fields: 
-  street: 
-    label: 
+fields:
+  street:
+    label:
       de: Straße
       en: Street
     type: text
-    placeholder: 
+    placeholder:
       de: Bitte geben Sie einen Straßennamen ein…
       en: Please enter a street name…
-    help: 
+    help:
       de: Der Name der Straße
       en: The name of the street
 ```
@@ -184,17 +184,17 @@ fields:
 ### Options
 
 ```
-fields: 
+fields:
   category:
       label:
         en: Category
-        de: Kategorie 
+        de: Kategorie
       type: select
-      options: 
-        architecture: 
+      options:
+        architecture:
           en: Architecture
           de: Architektur
-        photography: 
+        photography:
           en: Photography
           de: Fotografie
 ```
@@ -203,10 +203,10 @@ fields:
 ### Headlines
 
 ```
-fields: 
+fields:
   headline:
     label: headline
-    text: 
+    text:
       de: Optionen
       en: Options
 ```
@@ -222,5 +222,6 @@ fields:
     translate: false
 ```
 
-When set to `false`, the field will automatically be made read-only in all non-default languages. 
+When set to `false`, the field will automatically be made read-only in all non-default languages.
 
+Since Kirby 2.2.3, the contents of an untranslatable field will be emptied in all languages but the default language.

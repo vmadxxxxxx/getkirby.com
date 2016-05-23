@@ -1946,6 +1946,9 @@ input[type="search"]::-webkit-search-cancel-button {
 .sponsors-imgix img {
   height: 2.05em; }
 
+.sponsors-codetree img {
+  height: 2.25em; }
+
 /*
  :::  Info box
 -------------------------------------------------- */
@@ -1976,6 +1979,31 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .version-badge a:hover {
   color: #000; }
+
+.upcoming-feature {
+  border: 1px solid #dedede;
+  padding: 1.5rem;
+  margin: 6rem 0 4.5rem;
+  opacity: .5;
+  transition: opacity .3s; }
+
+.upcoming-feature:hover {
+  opacity: 1; }
+
+.upcoming-feature:before {
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  content: "Upcoming feature…";
+  font-weight: 600;
+  color: red; }
+
+.upcoming-feature *:last-child {
+  margin-bottom: 0; }
+
+.upcoming-feature .version-badge {
+  top: 1.5rem;
+  right: 1.5rem; }
 
 /*
  :::  Search Page
