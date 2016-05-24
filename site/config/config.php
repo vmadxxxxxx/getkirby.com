@@ -5,27 +5,6 @@ c::set('cache.driver', 'file');
 
 c::set('routes', array(
   array(
-    'pattern' => 'docs.json',
-    'action'  => function() {
-
-      $cache = new Cache\Driver\File(kirby()->roots()->cache());
-      $data  = $cache->get('docs');
-
-      if(empty($data)) {
-        $data = page('docs')->index()->visible()->sortBy('title', 'asc')->toArray(function($item) {
-          return array(
-            'title' => $item->title()->toString(),
-            'uri'   => $item->uri()
-          );
-        });
-        $data = array_values($data);
-        $cache->set('docs', $data);
-      }
-
-      return response::json($data);
-    }
-  ),
-  array(
     'pattern' => array('(docs/cheatsheet)/(:any)/(:any)', '(docs/toolkit/api)/(:any)/(:any)'),
     'action'  => function($cheatsheet, $section, $item) {
       // set the section GET param

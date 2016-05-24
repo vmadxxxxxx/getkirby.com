@@ -6,8 +6,8 @@
  --><?php endforeach ?><!--    
  --><li class="quicksearch">
       <form action="<?= url('search') ?>">
-        <label for="quicksearch">Search:</label>        
-        <input type="search" id="quicksearch" name="q" placeholder="Search…">
+        <label for="quicksearch">Search</label>        
+        <input type="search" id="quicksearch" name="q">
       </form>
     </li>
   </ul><!--
