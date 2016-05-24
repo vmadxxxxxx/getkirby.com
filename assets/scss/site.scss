@@ -1395,6 +1395,7 @@ input[type="search"]::-webkit-search-cancel-button {
  :::  Quicksearch
 -------------------------------------------------- */
 .quicksearch {
+  position: relative;
   display: none;
 }
 
@@ -1413,29 +1414,44 @@ input[type="search"]::-webkit-search-cancel-button {
   padding: 0;
   font-size: inherit;
   font-family: inherit;
-  font-weight: 600;
+  font-weight: 400;
   background: none;
-  line-height: 3rem;
-  display: inline-block;
+  height: 3rem;
+  display: none;
+  outline: none;
+  width: 8rem;
+}
+@media screen and (min-width: 55em) {
+  .quicksearch input {
+    width: 10rem;
+  }
+}
+@media screen and (min-width: 60em) {
+  .quicksearch input {
+    width: 15rem;
+  }
+}
+@media screen and (min-width: 65em) {
+  .quicksearch input {
+    width: 20rem;
+  }
+}
+@media screen and (min-width: 70em) {
+  .quicksearch input {
+    width: 22rem;
+  }
 }
 .quicksearch input:focus {
   outline: none;
 }
 .quicksearch label {
+  display: block;
   padding: 1em 0;
-  top: 0;
-  left: 0;
-  position: absolute;
   font-weight: 600;
   z-index: 1;
   cursor: pointer;
 }
-.quicksearch.has-focus input {
-  margin-left: 4rem;
-  font-weight: 400;
-}
 .quicksearch.has-focus label {
-  display: block;
   color: red;
 }
 

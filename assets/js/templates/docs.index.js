@@ -1,1 +1,0 @@
-$("#q").autocomplete().on("autocomplete:add",function(o,t){window.location.href=t.uri});

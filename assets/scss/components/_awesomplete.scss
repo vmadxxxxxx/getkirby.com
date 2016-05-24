@@ -6,7 +6,9 @@
   clip: rect(0, 0, 0, 0); }
 
 div.awesomplete {
-  position: relative; 
+  position: absolute; 
+  top: 0;
+  left: 4rem;
 }
 
 div.awesomplete > input {
