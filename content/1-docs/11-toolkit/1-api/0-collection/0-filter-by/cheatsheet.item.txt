@@ -1,4 +1,4 @@
-Title: {{class.instance}}->filterBy($field [,operator], $value)
+Title: {{class.instance}}->filterBy($field [, $operator], $value [, $split])
 
 ----
 
@@ -12,11 +12,15 @@ Params: -
 -
   name: $operator
   type: string
-  text: A filter method
+  text: See list of filter methods below; if not a valid filter method the second parameter will be the value
 -
   name: $value
   type: string
   text:
+-
+  name: $split
+  type: string
+  text: Character to split by while filtering
 
 ----
 
@@ -26,3 +30,15 @@ text:
 
 ----
 Text:
+
+## Available filter methods
+
+Method   | Function
+-        | -
+==       | all values, which match exactly
+!=       | all values, which don't match
+*=       | all values, which contain the given string
+>        | all values, which are greater than the given value
+>=       | all values, which are greater or equal the given value
+<        | all values, which are smaller than the given value
+<=       | all values, which are smaller or equal the given value
