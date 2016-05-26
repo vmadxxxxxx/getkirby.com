@@ -115,7 +115,7 @@ You’ll have to adjust the `piwik.php` like this:
 <!-- End Piwik Code -->
 ```
 
-Now your clients would be able to easily change the URL or site ID of the corresponding Piwik installation if they need to, just by editing the `site.txt` via FTP or the (link: docs/learn/panel text: panel).
+Now your clients would be able to easily change the URL or site ID of the corresponding Piwik installation if they need to, just by editing the `site.txt` via FTP or the (link: docs/panel text: panel).
 
 ----
 Externals:

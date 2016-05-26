@@ -26,7 +26,7 @@ The content structure for the blog will be something like this:
 
 (image: 01.png)
 
-Please read the article about (link: blog/how-to-build-a-blog text: how to build a blog with Kirby), if this seems weird to you.
+Please read the article about (link: docs/solutions/blog text: how to build a blog with Kirby), if this seems weird to you.
 
 ## Invisible API folder
 
