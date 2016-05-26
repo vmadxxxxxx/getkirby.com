@@ -100,7 +100,7 @@ echo $site->uri->params('someparam', 'mydefaultvalue');
 
 ```
 
-The (link: blog/add-pagination-to-your-blog text: pagination) object is using a `page:` param to handle pagination in URLs. It is very readable for your visitors, which is a good thing :)
+The (link: docs/solutions/blog/pagination text: pagination) object is using a `page:` param to handle pagination in URLs. It is very readable for your visitors, which is a good thing :)
 
 If you need a string of all params, do it like this:
 

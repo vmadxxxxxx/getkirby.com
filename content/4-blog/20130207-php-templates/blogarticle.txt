@@ -230,7 +230,7 @@ Your templates will instantly look a lot less PHPy:
 
 ### Use snippets
 
-Kirby has built-in includes for your templates called snippets. In other systems they are often called partials or stubs or something similar. There's an (link: docs/snippets text: entire page in the docs) about them, which you should definitely read.
+Kirby has built-in includes for your templates called snippets. In other systems they are often called partials or stubs or something similar. There's an (link: docs/templates/snippets text: entire page in the docs) about them, which you should definitely read.
 
 Snippets can simplify your templates drastically, which will lead to better template readability.
 

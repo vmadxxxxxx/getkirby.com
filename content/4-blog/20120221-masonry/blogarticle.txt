@@ -87,7 +87,7 @@ If you want to add the additional info from your image text files you can do it 
 </div>
 ```
 
-You can access all the custom variables, which you've added to the image text files like you would with all custom variables in the content file of each page. You can find more about it (link: docs/media text: in the docs).
+You can access all the custom variables, which you've added to the image text files like you would with all custom variables in the content file of each page. You can find more about it (link: docs/content/media text: in the docs).
 
 
 

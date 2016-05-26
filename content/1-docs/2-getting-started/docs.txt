@@ -99,7 +99,7 @@ Here are some resources:
 (link: docs/solutions/blog/rss text: Creating an RSS feed)
 
 **Advanced reading**:
-Modularizing your code: The (link: https://github.com/getkirby-plugins/patterns-pluginingtext: Patterns plugin) goes even further than snippets in modularizing and reusing code blocks.
+Modularizing your code: The (link: https://github.com/getkirby-plugins/patterns-plugin text: Patterns plugin) goes even further than snippets in modularizing and reusing code blocks.
 Separate logic from HTML: (link: docs/developer-guide/advanced/controllers text: Controllers) and (link: docs/developer-guide/advanced/models text: Page Models)
 
 
