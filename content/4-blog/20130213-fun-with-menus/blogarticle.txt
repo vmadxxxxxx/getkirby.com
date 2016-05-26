@@ -281,4 +281,4 @@ nav .depth-2 {
 
 #### The entire API
 
-Of course this is only a minimal extract of possibilities. The entire Kirby API is there to get the most out of your ideas, so check out the (link: http://cl.ly/GXBe text: Kirby Cheat Sheet) for additional methods you can use and have fun with your next project.
+Of course this is only a minimal extract of possibilities. The entire Kirby API is there to get the most out of your ideas, so check out the (link: docs/cheatsheet text: Kirby Cheat Sheet) for additional methods you can use and have fun with your next project.
