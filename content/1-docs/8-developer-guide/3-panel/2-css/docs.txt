@@ -13,7 +13,7 @@ Any external stylesheet can be linked in your config file
 c::set('panel.stylesheet', 'http://example.com/assets/css/panel.css');
 
 // relative links
-c::set('panel.stylesheet', '/assets/css/panel.css');
+c::set('panel.stylesheet', 'assets/css/panel.css');
 ```
 
 For security reasons it is not possible to include a custom javascript file.
