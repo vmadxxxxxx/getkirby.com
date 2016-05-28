@@ -24,10 +24,10 @@ fields:
 
 ## In templates/snippets
 
-A checkbox field stores either 1 or 0 in a content text file. You can work with this in your templates in two ways:
+A checkbox field stores either true or false in a content text file. You can work with this in your templates in two ways:
 
 ```php
-<?php if($page->myCheckboxField() == '1'): ?>
+<?php if($page->myCheckboxField() == true): ?>
 <!-- show something here -->
 <?php endif ?>
 ```
