@@ -46,6 +46,6 @@ $items = $page->children()->visible()->filter(function($child) {
 
 //fetch children in the current language only
 $items = $page->children()->visible()->filter(function($child) {
-  return $child->content(site()->language()->code)->exists();
+  return $child->content(site()->language()->code())->exists();
 });
 ```
