@@ -6,6 +6,45 @@ Text:
 
 (toc)
 
+<since v="2.3.0">
+## Options
+
+With the options setting, you can switch off and on all major features for a page in the panel. This can be useful to block certain functionalities for editors, based on the blueprint/template.
+
+### Available options
+
+- preview
+- status
+- template
+- url
+- delete
+
+In your blueprint you can set options like this:
+
+```
+title: My blueprint
+pages: true
+files: true
+options:
+  preview: true
+  status: false
+  template: true
+  url: true
+  delete: false
+fields:
+  …
+```
+
+| Settings | Description |
+| --- | --- |
+| Preview | Show/hide the preview button in the sidebar |
+| Status | Allow/disallow to change the status of a page to visible/invisible |
+| Template | Allow/disallow to change the template of a page, when possible |
+| URL | Allow/disallow to modify the URL of a page |
+| Delete | Allow/disallow to delete a page |
+
+</since>
+
 ## Page preview
 
 The sidebar for each page contains a link, which will take panel users to the corresponding page. Sometimes it makes sense to reroute this link or hide it entirely.
@@ -16,35 +55,12 @@ In Kirby it's often useful to add subpages as data providers instead of real pag
 
 For scenarios like this you have three available options to reroute the preview link:
 
-#### Parent
+| Settings | Description | Code |
+| --- | --- | --- |
+| Parent | The preview link will lead to the parent page. |`preview: parent` |
+| First child | The preview link will lead to the first subpage of the current page. | `preview: first-child`|
+| Last child | The preview link will lead to the last subpage of the current page. | `preview: last-child` |
 
-The preview link will lead to the parent page.
-
-```
-…
-preview: parent
-…
-```
-
-#### First child
-
-The preview link will lead to the first subpage of the current page.
-
-```
-…
-preview: first-child
-…
-```
-
-#### Last child
-
-The preview link will lead to the last subpage of the current page.
-
-```
-…
-preview: last-child
-…
-```
 
 ### Hiding the preview link
 
