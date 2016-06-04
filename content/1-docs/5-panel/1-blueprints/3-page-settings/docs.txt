@@ -13,11 +13,13 @@ With the options setting, you can switch off and on all major features for a pag
 
 ### Available options
 
-- preview
-- status
-- template
-- url
-- delete
+| Settings | Description |
+| --- | --- |
+| Preview | Show/hide the preview button in the sidebar |
+| Status | Allow/disallow to change the status of a page to visible/invisible |
+| Template | Allow/disallow to change the template of a page, when possible |
+| URL | Allow/disallow to modify the URL of a page |
+| Delete | Allow/disallow to delete a page |
 
 In your blueprint you can set options like this:
 
@@ -34,16 +36,8 @@ options:
 fields:
   …
 ```
-
-| Settings | Description |
-| --- | --- |
-| Preview | Show/hide the preview button in the sidebar |
-| Status | Allow/disallow to change the status of a page to visible/invisible |
-| Template | Allow/disallow to change the template of a page, when possible |
-| URL | Allow/disallow to modify the URL of a page |
-| Delete | Allow/disallow to delete a page |
-
 </since>
+
 
 ## Page preview
 
@@ -86,15 +80,6 @@ deletable: false
 
 Even when deleting is enabled, a page with subpages cannot be deleted. You have to delete its subpages first.
 
-## Set custom icon
-
-You can set a custom icon for pages that will be shown in the sidebar. You can reference all Fontawesome icons by their name without "fa-".
-
-```
-…
-icon: suitcase
-…
-```
 <since v="2.3.0">
 
 ## Hide page
@@ -107,3 +92,13 @@ hide: true
 …
 ```
 </since>
+
+## Set custom icon
+
+You can set a custom icon for pages that will be shown in the sidebar. You can reference all Fontawesome icons by their name without "fa-".
+
+```
+…
+icon: suitcase
+…
+```

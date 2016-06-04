@@ -23,6 +23,7 @@ In general, you are free to name your fields like you want to, but there are two
 1. You can only use alphanumeric characters and underscores in field names.
 2. If you use field names that are also used by native Kirby methods, your field names will conflict with Kirby's existing methods, e.g. if you give your field a name "image", it will conflict with Kirby's `$page->image()` method. You can do this, but you will have to call these fields differently in your templates, for details please refer to (link: docs/templates/hello-world text: the template docs)
 
+
 ## Required fields
 
 You can mark fields as required to make sure that your users have to fill in some data before the form gets submitted.
@@ -36,6 +37,20 @@ fields:
     type: textarea
     required: true
 ```
+
+
+## Default values
+
+Most fields can have a default value. Default values can be entered as simple text:
+
+```
+fields:
+  street:
+    label: Street
+    type: text
+    default: Sesamestreet 23
+```
+
 
 ## Validation
 
@@ -53,6 +68,39 @@ fields:
 ```
 
 **You can find a (link: docs/cheatsheet/#validators text: list of all available validation methods) in the cheat sheet.**
+
+
+## Placeholders
+
+Most fields can show a placeholder text when the field is empty. This is a good option to guide users.
+
+### Example
+
+```
+fields:
+  street:
+    label: Street
+    type: text
+    placeholder: Please enter a street name…
+    icon: map-marker
+```
+
+
+## Field instructions
+Sometimes it is helpful to add some instrunctions to explain how a field is being used. You can add some helping words by including a `help:` line to your field specification in the blueprint, e.g.
+
+```
+fields:
+  name:
+    label: Name
+    type: text
+    validate:
+      min: 4
+      alphanum
+    help: Minimum of 4 characters required and only alphanumeric characters allowed.
+```
+
+Special characters (e.g. `&` or `<`) should be added with their character entity reference (e.g. `&amp;` or `&lt;`).
 
 
 ## Creating grids
@@ -99,21 +147,6 @@ The following column widths are available
 
 If you don't define a column width the field will span the entire width of the form
 
-## Field instructions
-Sometimes it is helpful to add some instrunctions to explain how a field is being used. You can add some helping words by including a `help:` line to your field specification in the blueprint, e.g.
-
-```
-fields:
-  name:
-    label: Name
-    type: text
-    validate:
-      min: 4
-      alphanum
-    help: Minimum of 4 characters required and only alphanumeric characters allowed.
-```
-
-Special characters (e.g. `&` or `<`) should be added with their character entity reference (e.g. `&amp;` or `&lt;`).
 
 ## Custom icons
 
@@ -133,32 +166,6 @@ fields:
     icon: map-marker
 ```
 
-## Default values
-
-Most fields can have a default value. Default values can be entered as simple text:
-
-```
-fields:
-  street:
-    label: Street
-    type: text
-    default: Sesamestreet 23
-```
-
-## Placeholders
-
-Most fields can show a placeholder text when the field is empty. This is a good option to guide users.
-
-### Example
-
-```
-fields:
-  street:
-    label: Street
-    type: text
-    placeholder: Please enter a street name…
-    icon: map-marker
-```
 
 ## Translating form fields
 
