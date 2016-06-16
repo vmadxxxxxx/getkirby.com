@@ -43,7 +43,6 @@ placeholder | info
 {name}      | The name of the original file without extension
 {safeName}  | The sanitized name of the original file without extension
 {filename}  | The unsanitized name of the original file
-{safeName}  | The sanitized version of the original filename
 {extension} | the file extension
 {hash}      | unique thumb options identifier
 {width}     | The width of the generated thumbnail

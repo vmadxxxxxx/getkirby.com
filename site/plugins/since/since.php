@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function version($version, $format) {
 
