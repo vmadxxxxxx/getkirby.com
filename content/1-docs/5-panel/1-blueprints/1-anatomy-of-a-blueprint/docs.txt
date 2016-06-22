@@ -42,4 +42,4 @@ fields:
 | blueprint title| The blueprint title is very important. It will be shown to panel users in the "Add page" dialog. It makes clear which kind of template/blueprint the user is currently selecting for the new page and thus should be unique.|
 | page settings | The page settings define if a page can be deleted, if it can be previewed etc. Learn more about page settings in the (link: /docs/panel/blueprints/page-settings text: page settings section) |
 | subpage settings | In the subpage settings you define if a page can have children, the templates that are allowed for these children, the max number of allowed children etc. Learn more about subpage settings in the  (link: docs/panel/blueprints/subpages-settings text: subpages settings section) |
-| fields | Blueprints can have any number of fields of different types. Learn more about available fields in the (link: dics/panel/blueprints/form-fields text: form fields section) |
+| fields | Blueprints can have any number of fields of different types. Learn more about available fields in the (link: docs/panel/blueprints/form-fields text: form fields section) |
