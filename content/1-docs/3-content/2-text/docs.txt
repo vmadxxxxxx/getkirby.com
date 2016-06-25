@@ -135,7 +135,7 @@ Link with link text:
 (\link: http://wikipedia.org text: Wikipedia)
 ```
 
-Open link in a new window
+Open link in a new window/tab
 
 ```
 (\link: http://wikipedia.org text: Wikipedia popup: yes)
