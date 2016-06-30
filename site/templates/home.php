@@ -122,7 +122,7 @@
 
     <p>Get monthly updates about new versions, plugins, themes, community events and more…</p>
 
-    <form action="http://getkirby.createsend.com/t/t/s/xdildi/" method="post" id="subForm">
+    <form action="https://getkirby.createsend.com/t/t/s/xdildi/" method="post" id="subForm">
       <p>
         <label for="fieldEmail">Email</label>
         <input id="fieldEmail" name="cm-xdildi-xdildi" type="email" placeholder="mail@example.com" required />
