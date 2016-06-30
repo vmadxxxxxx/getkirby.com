@@ -10,6 +10,8 @@ Excerpt: Creates an email address link
 
 Text:
 
+Kirby will automatically encrypt your email addresses, so they won't be that easy to be parsed and misused by spam bots.
+
 ## Examples and options:
 
 Email without link text
