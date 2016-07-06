@@ -1,0 +1,31 @@
+Title: Kirby 2.3.1
+
+----
+
+Date: 
+
+----
+
+Download: http://download.getkirby.com/kirby-2.3.1.zip
+
+----
+
+Text:
+
+## Panel
+
+- The Panel URL is now detected more reliably if the custom folder setup is used
+
+## Core
+
+- Structure objects can now be shuffled
+- Fix a bug where multiple hooks with the same name would cause an error when triggered
+- Redirection to the homepage (`/home` to `/`) now works with custom homepages (`c::set('home')`)
+- Fix a bug where the order of calling the `kirby()->urls()` methods would matter
+ 
+## Toolkit
+
+- More robust `$collection->shuffle()` method
+- Fix database query resetting so that a query object can now be used for multiple queries again (introduced in 2.3.0)
+- Improve extensibility of the `Sql` class with custom database drivers
+- The `str::ascii()` representation of the character `ö` can now be overwritten
