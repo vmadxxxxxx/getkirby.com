@@ -14,12 +14,18 @@ Text:
 
 ## Panel
 
+- Global field definitions (field snippets) can now be registered by plugins
+- "Page settings" headline in the sidebar is now hidden if all options are disabled
 - The Panel URL is now detected more reliably if the custom folder setup is used
+- Fix "Call to a member function direction() on null" error
 
 ## Core
 
 - Structure objects can now be shuffled
+- `$page->is*()` methods now accept an URI string
 - Fix a bug where multiple hooks with the same name would cause an error when triggered
+- Reset template data after the template has been rendered
+- Fix a bug where a controller could only be used once per page load
 - Redirection to the homepage (`/home` to `/`) now works with custom homepages (`c::set('home')`)
 - Fix a bug where the order of calling the `kirby()->urls()` methods would matter
  
