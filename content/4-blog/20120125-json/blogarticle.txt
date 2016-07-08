@@ -167,19 +167,19 @@ $.getJSON('/blog/api/page:4')
 
 ## Securing your API
 
-If you want to avoid that someone else is accessing your little API, you can simply add a check if the page has been requested with an Ajax call. There's a built-in function for this in the (link: http://toolkit.getkirby.com text: Kirby Toolkit)
+If you want to avoid that someone else is accessing your little API, you can simply add a check if the page has been requested with an Ajax call. There's a built-in function for this in the (link: https://getkirby.com/docs/developer-guide/toolkit text: Kirby Toolkit)
 
 Add this at the top of your template code:
 
 ```php
 <?php
 
-if(!r::is_ajax()) notFound();
+if(!r::ajax()) go(url('error'));
 
 …
 ```
 
-`r::is_ajax()` asks for `$_SERVER["HTTP_X_REQUESTED_WITH"]` which will be `xmlhttprequest` in case of an Ajax call. So whenever a regular request is coming in, the `notFound()` function will be called, which just redirects the visitor to the error page.
+`r::ajax()` asks for `$_SERVER["HTTP_X_REQUESTED_WITH"]` which will be `xmlhttprequest` in case of an Ajax call. So whenever a regular request is coming in, `go(url('error'))` will be called, which redirects the visitor to the error page.
 
 Ajax calls can only be made from the same domain unless you are using some cross-domain call magic, so it's a fairly good trick to protect your API from unwanted calls.
 
@@ -191,7 +191,7 @@ Here's the entire code for this example:
 ```php
 <?php
 
-if(!r::is_ajax()) notFound();
+if(!r::ajax()) go(url('error'));
 
 header('Content-type: application/json; charset=utf-8');
 
@@ -229,7 +229,7 @@ As suggested in the comments, you might want to improve pagination a bit more by
 ```php
 <?php
 
-if(!r::is_ajax()) notFound();
+if(!r::ajax()) go(url('error'));
 
 header('Content-type: application/json; charset=utf-8');
 
