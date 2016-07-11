@@ -12,6 +12,9 @@ Download: http://download.getkirby.com/kirby-2.3.1.zip
 
 Text:
 
+This release contains bug fixes and improvements for Kirby 2.3.0.
+It is strongly recommended to upgrade to Kirby 2.3.1.
+
 ## Panel
 
 - Global field definitions (field snippets) can now be registered by plugins:
