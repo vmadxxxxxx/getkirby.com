@@ -14,11 +14,19 @@ Text:
 
 ## Panel
 
-- Global field definitions (field snippets) can now be registered by plugins
+- Global field definitions (field snippets) can now be registered by plugins:
+
+```php
+// The blueprint file must exist at the given location
+$kirby->set('blueprint', 'fields/title', __DIR__ . '/blueprints/fields/title.yml');
+```
+
 - "Page settings" headline in the sidebar is now hidden if all options are disabled
-- The `disabled` option is now respected for datetime fields
+- Respect `disabled` option for datetime fields
+- Ignore invalid fields in `site/fields` again instead of throwing an error (introduced in 2.3.0)
 - The Panel URL is now detected more reliably if the custom folder setup is used
 - Fix "Call to a member function direction() on null" error
+- Improve wording of the installer error for non-localhost environments
 
 ## Core
 
@@ -30,7 +38,7 @@ Text:
 - Fallback for `$page->tinyurl()` if the tinyurl component is not loaded
 - Reset template data after the template has been rendered
 - Fix a bug where a controller could only be used once per page load
-- Redirection to the homepage (`/home` to `/`) now works with custom homepages (`c::set('home')`)
+- Redirection to the homepage (`/home` to `/`) now works with custom homepages set using `c::set('home')`
 - Fix a bug where the order of calling the `kirby()->urls()` methods would matter
  
 ## Toolkit
