@@ -1,0 +1,42 @@
+Title:
+
+{{class.instance}}->chunk($size)
+
+----
+
+Since: 2.3.2
+
+----
+
+Excerpt:
+
+Creates chunks of the same size and returns them in a new collection
+
+----
+Params: -
+  name: $size
+  type: int
+  text: Number of items per chunk
+
+----
+Return:
+
+type: $collection
+text:
+
+----
+
+Text:
+
+## Example:
+
+```php
+<?php $chunks = page('projects')->children()->chunk(4); ?>
+<?php foreach($chunks as $items): ?>
+  <div class="row">
+    <?php foreach($items as $item): ?>
+    <article><?php echo $item->title() ?></article>
+    <?php endforeach; ?>
+  </ul>
+<?php endforeach ?>
+```
