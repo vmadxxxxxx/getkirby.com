@@ -44,6 +44,15 @@ kirby()->hook('panel.page.create', function($page) {
 
 A hook is not expected to return anything. You cannot control the user flow with hooks at this state. They are silently triggered. 
 
+<since v="2.3.2">
+If multiple hooks use the same callback, you can set them at once:
+
+```php
+kirby()->hook(['panel.page.create', 'panel.page.update'], function($page) {
+  // your hook code
+});
+```
+</since>
 
 ## Accessing panel, kirby, site and user in a hook callback
 
