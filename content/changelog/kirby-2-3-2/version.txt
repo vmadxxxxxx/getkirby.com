@@ -1,0 +1,28 @@
+Title: Kirby 2.3.2
+
+----
+
+Date: 
+
+----
+
+Download: http://download.getkirby.com/kirby-2.3.2.zip
+
+----
+
+Text:
+
+## Panel
+
+
+
+## Core
+
+- Support for setting multiple registry items to the same value at once, see (link: docs/developer-guide/plugins/registry text: registry docs)
+- `link` Kirbytag: Add support for `role` attribute
+
+## Toolkit
+
+- Add (toolkit: collection/chunk) method
+- Collections (also applies to Pages and Files) can now be counted using the native PHP `count()` function
+- Improve use of Spyc YAML library when encoding YAML
