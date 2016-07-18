@@ -66,3 +66,8 @@ Link to a page in another language (only on multi-language sites)
 (\link: some/page text: Some page in German lang: de)
 ```
 
+Link with a role attribute
+
+```
+(\link: delete-account text: Delete my account role: button)
+```
