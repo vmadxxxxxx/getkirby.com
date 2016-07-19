@@ -1,0 +1,26 @@
+Title: $field->smartypants()
+
+----
+
+Since: 2.3.2
+
+----
+
+Excerpt: Applies SmartyPants to the field
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $page->text()->smartypants() ?>
+```
