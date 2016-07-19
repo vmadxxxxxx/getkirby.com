@@ -1,4 +1,4 @@
-Title: go($url = '/')
+Title: go($url = '/', $code = 302)
 
 ----
 
@@ -10,6 +10,10 @@ Params: -
   name: $url
   type: string
   text: Absolute or relative URL
+-
+  name: $code
+  type: int
+  text: HTTP status code like 301
 
 ----
 
@@ -28,3 +32,11 @@ go('blog');
 ```php
 go('http://getkirby.com');
 ```
+
+<since v="2.3.2">
+### Permanent redirect
+
+```php
+go('blog', 301);
+```
+</since>

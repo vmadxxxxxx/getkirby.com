@@ -23,6 +23,7 @@ Text:
 
 ## Toolkit
 
+- (toolkit: helpers/go) helper now supports second argument with HTTP status code
 - Add (toolkit: collection/chunk) method
 - New collection filters `in` and `not in` with array support
 - Collections (also applies to Pages and Files) can now be counted using the native PHP `count()` function
