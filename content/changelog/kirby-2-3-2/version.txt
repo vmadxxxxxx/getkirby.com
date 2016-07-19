@@ -24,5 +24,6 @@ Text:
 ## Toolkit
 
 - Add (toolkit: collection/chunk) method
+- New collection filters `in` and `not in` with array support
 - Collections (also applies to Pages and Files) can now be counted using the native PHP `count()` function
 - Improve use of Spyc YAML library when encoding YAML

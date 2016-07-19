@@ -110,7 +110,7 @@ You can also string together multiple `filterBy()` methods to narrow down your f
 ### Pages
 
 ```php
-// fetch all events  with a template that is neither "concert" nor "exhibition"
+// fetch all events with a template that is neither "concert" nor "exhibition"
 $collection = page('events')->children()->filterBy('template', '!=', 'concert')->filterBy('template', '!=', 'exhibition');
 ```
 
@@ -121,6 +121,15 @@ $collection = page('events')->children()->filter(function($p) {
   return $p->template() != 'concert' && $p->template() != 'exhibition';
 });
 ```
+
+<since v="2.3.2">
+You can also use the new `not in` filter:
+
+```php
+// fetch all events with a template that is neither "concert" nor "exhibition"
+$collection = page('events')->children()->filterBy('template', 'not in', ['concert', 'exhibition']);
+```
+</since>
 
 ### Files
 

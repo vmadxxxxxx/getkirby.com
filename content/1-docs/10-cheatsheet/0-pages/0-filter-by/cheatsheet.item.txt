@@ -20,7 +20,7 @@ Params: -
   text: See list of filter methods below; if not a valid filter method the second parameter will be the value
 -
   name: $value
-  type: string
+  type: mixed
   text:
 -
   name: $split
@@ -53,6 +53,9 @@ $items = $page->children()->filterBy('date', '>', time());
 // fetch any page with a project template
 $items = $site->index()->filterBy('template', 'project');
 
+// fetch any page with either an article or project template (added in Kirby 2.3.2)
+$items = $site->index()->filterBy('template', 'in', ['article', 'project']);
+
 // fetch children that have the tag 'development'
 $items = $page->children()->filterBy('draft', 'development', ',');
 
@@ -64,10 +67,12 @@ $items = $page->children()->filterBy('draft', 'development', ';');
 
 Method   | Function
 -        | -
-==       | all values, which match exactly
-!=       | all values, which don't match
-*=       | all values, which contain the given string
->        | all values, which are greater than the given value
->=       | all values, which are greater or equal the given value
-<        | all values, which are smaller than the given value
-<=       | all values, which are smaller or equal the given value
+==       | all values that match exactly
+in       | takes an array as parameter, matches all values that are included in the array (added in Kirby 2.3.2)
+!=       | all values that don't match
+not in   | takes an array as parameter, matches all values that are not included in the array (added in Kirby 2.3.2)
+*=       | all values that contain the given string
+>        | all values that are greater than the given value
+>=       | all values that are greater or equal the given value
+<        | all values that are smaller than the given value
+<=       | all values that are smaller or equal the given value
