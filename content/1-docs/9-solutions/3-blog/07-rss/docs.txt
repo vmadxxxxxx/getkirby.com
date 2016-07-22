@@ -25,7 +25,7 @@ In your feed.txt you can add some basic information about your feed. Here's mine
 
 ## The template
 
-First of all please download the **(link: https://github.com/getkirby/plugins text: feed plugin)** and add the entire feed plugin folder to `/site/plugins`. It's no hokuspokus, just a simple wrapper to make feed generation easier. 
+First of all please download the **(link: https://github.com/getkirby-plugins/feed-plugin text: feed plugin)** and add the entire feed plugin folder to `/site/plugins`. It's no hokuspokus, just a simple wrapper to make feed generation easier. 
 
 With this plugin building the final feed template is very, very straight forward:
 
