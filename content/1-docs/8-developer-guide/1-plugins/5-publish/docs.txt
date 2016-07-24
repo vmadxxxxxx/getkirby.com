@@ -12,7 +12,7 @@ Make sure to add a useful readme with instructions to your plugin.
 
 ## Add a package.json
 
-By adding a package.json you allow others to install and update your plugin using the (link: https://github.com/getkirby/cli text: Kirby CLI)
+By adding a package.json you allow others to install and update your plugin using the (link: https://github.com/getkirby/cli text: Kirby CLI).
 
 ```
 {
