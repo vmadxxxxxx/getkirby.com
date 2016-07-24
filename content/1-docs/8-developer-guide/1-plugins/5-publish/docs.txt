@@ -10,18 +10,18 @@ There are two places, where you can publish your plugin.
 
 Make sure to add a useful readme with instructions to your plugin.
 
-## Add a package.json
+## Add a `package.json`
 
-By adding a package.json you allow others to install and update your plugin using the (link: https://github.com/getkirby/cli text: Kirby CLI).
+By adding a `package.json` file at the root of your repository, you allow others to install and update your plugin using the (link: https://github.com/getkirby/cli text: Kirby CLI).
 
-```
+```json
 {
   "name": "your-plugin-name",
+  "description": "Short description of your plugin",
   "author": "Firstname Lastname <you@provider.com>",
   "version": "1.0.0",
-  "description": "What you Plugin does",
   "type": "kirby-plugin",
-  "license": "your-licence"
+  "license": "your-license (e.g. MIT)"
 }
 ```
 
