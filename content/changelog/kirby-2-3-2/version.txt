@@ -14,8 +14,10 @@ Text:
 
 ## Panel
 
+- Update Dutch translation
 - Ignore invalid widgets in `site/widgets` again instead of throwing an error (introduced in 2.3.0)
 - Fix a bug where plugins would not be loaded in time to register `default` and `site` blueprints
+- Further improvements to custom folder setup compatibility
 - Fix "Error without a useful message :(" message for early errors
 
 ## Core
