@@ -25,7 +25,7 @@ Text:
 ## Core
 
 - Support for setting multiple registry items to the same value at once, see (link: docs/developer-guide/plugins/registry text: registry docs)
-- (sheet: helpers/kirbytext) helper now support a second argument with a page reference
+- (sheet: helpers/kirbytext) helper now supports a second argument with a page reference
 - Add (sheet: field-methods/smartypants) field method
 - `link` Kirbytag: Add support for `role` attribute
 
