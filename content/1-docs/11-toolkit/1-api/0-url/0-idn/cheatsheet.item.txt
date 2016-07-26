@@ -1,0 +1,29 @@
+Title: url::idn
+
+----
+
+Since: 2.3.2
+
+----
+
+Excerpt: Shortens a URL and converts IDN domain names to Unicode
+
+----
+
+Call: url::idn($url)
+
+----
+
+Return: type: string
+text: The shortened and converted URL
+
+----
+
+Params: - 
+  name: $url
+  type: string
+  text: The URL to be shortened
+
+----
+
+Text: Please note that this method requires the PHP `intl` extension. If it is not installed, this function will behave exactly like (toolkit: url/short).
