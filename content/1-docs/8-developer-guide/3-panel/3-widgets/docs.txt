@@ -134,6 +134,61 @@ return array(
 
 The option icon name can be chosen from the FontAwesome icon set. The link can lead to an internal panel page or to an external URL. 
 
+### Additional options for options
+
+#### Keyboard shortcut
+
+```php 
+return array(
+  'title' => 'My widget',
+  'options' => array(
+    array(
+      'text' => 'Edit',
+      'icon' => 'pencil',
+      'key'  => 'e',
+      'link' => 'link/to/option'
+    )
+  )
+  // …
+);
+```
+
+#### Open inside modal
+
+```php 
+return array(
+  'title' => 'My widget',
+  'options' => array(
+    array(
+      'text'  => 'Edit',
+      'icon'  => 'pencil',
+      'link'  => 'link/to/option',
+      'modal' => true
+    )
+  )
+  // …
+);
+```
+
+<since v="2.3.2">
+#### Link with target attribute
+
+```php 
+return array(
+  'title' => 'My widget',
+  'options' => array(
+    array(
+      'text'   => 'Edit',
+      'icon'   => 'pencil',
+      'link'   => 'link/to/option',
+      'target' => '_blank'
+    )
+  )
+  // …
+);
+```
+</since>
+
 ****
 
 ## Widget HTML
