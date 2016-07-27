@@ -79,7 +79,7 @@ You can set default values for structure fields which will prepopulate the field
         type: email
 ```
 
-###Options:
+### Options
 
 Display entries in a table layout:
 
@@ -88,17 +88,37 @@ emails:
   label: Emails
   type: structure
   style: table
-  ```
+```
   
-Control the width of the structure modals ("small", "medium" or "large"). 
+Control the width of the structure modals ("small", "medium" or "large"): 
   
- ```
+```
 emails:
   label: Emails
   type: structure
   modalsize: small
-  ```
-  
+```
+
+Don't allow changes:
+
+```
+emails:
+  label: Emails
+  type: structure
+  readonly: true
+```
+
+<since v="2.3.2">
+Limit number of items:
+
+```
+emails:
+  label: Emails
+  type: structure
+  limit: 10
+```
+</since>
+
 ## Accessing structure fields in your templates
  
 To access a structure field in your templates, you can use the [`$field->yaml()`](../field-methods/yaml) and [`$field->toStructure()`](../field-methods/toStructure) methods.
