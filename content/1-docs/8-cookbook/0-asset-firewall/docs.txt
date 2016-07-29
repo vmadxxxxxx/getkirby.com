@@ -1,0 +1,299 @@
+Title: How to build an asset firewall
+
+----
+
+Date: 06.05.2015
+
+----
+
+Category: security
+
+----
+
+Description: Protect your private pages' assets from being accessible to unauthorised visitors.
+
+----
+
+Tags: tutorials
+
+----
+
+Text:
+
+Creating "secret" pages for logged in users is very easy in Kirby with the built-in (link: docs/solutions/authentication text: user and authentication system). But how can you protect images and other files in your content folders from being accessed by any visitor?
+
+By default all the files, which you upload are public and are not protected even for locked pages. As soon as one of your visitors knows the full URL of an image for example, they can access it. But Kirby's plugin and routing system offers a straight-forward way to lock access to files as well. Here's how…
+
+## Creating a new plugin
+
+We are going to solve this with a simple plugin, so you can take this solution with you to every new project with similar requirements.
+
+### site/plugins/firewall/firewall.php
+
+Let's just call the plugin firewall. That somehow seems obvious. Create a new firewall folder in site/plugins and add a firewall.php file.
+
+That's it! We've already created a plugin, which will automatically be loaded by Kirby on every request.
+
+## The router
+
+Kirby offers the option to add routes on the fly in plugin files. This can be achieved by using the `kirby()->routes()` method to register any additional routes for our plugin.
+
+The `routes()` method expects an array of route definitions. You can find (link: docs/advanced/routing text: more about the router) in the docs.
+
+### Adding the content route
+
+In this case we want to add a route, which handles all incoming requests for the content folder.
+
+```php
+<?php
+// site/plugins/firewall/firewall.php
+
+kirby()->routes(array(
+  array(
+    'pattern' => 'content/(:all)',
+    'action' => function($path) {
+      // our firewall logic
+    }
+  )
+));
+```
+
+The basic setup is very simple. We define a pattern, which applies to all URLs starting with `/content`. The `(:all)` placeholder will fetch the path after `/content` and pass it to the router action. The router action is a simple callback function, which we can use to do all kinds of crazy things with the request before it will be passed on to the regular Kirby machinery.
+
+### Splitting the path
+
+In the next step, we split the path and try to find the page and file for it.
+
+```php
+kirby()->routes(array(
+  array(
+    'pattern' => 'content/(:all)',
+    'action' => function($path) {
+
+      $dirs     = str::split($path, '/');
+      $filename = array_pop($dirs);
+
+      …
+
+  }
+));
+```
+
+With `str::split` we can easily split the path into an array. With `array_pop()` we fetch the last element of that array, which will probably be the filename `content/some/page/filename.jpg`. `array_pop()` also removes the last element at the same time, so `$dirs` will be the clean path without the filename afterwards, which is pretty cool.
+
+### Searching for the parent page
+
+Right now, we have the filename and the path of directories of the page, to which the file belongs. We now need to find the Kirby `$page` object by working with those directories somehow.
+
+```php
+kirby()->routes(array(
+  array(
+    'pattern' => 'content/(:all)',
+    'action' => function($path) {
+
+      $dirs     = str::split($path, '/');
+      $filename = array_pop($dirs);
+
+      // we start with site->children()
+      // and then climb up the tree with every round of
+      // the foreach loop
+      $parent = site();
+
+      foreach($dirs as $dirname) {
+        // try to find the next parent page by $dirname
+        if($child = $parent->children()->findBy('dirname', $dirname)) {
+          // overwrite the parent for the next round
+          $parent = $child;
+        } else {
+          header::notFound();
+          die('Page not found');
+        }
+      }
+
+      …
+
+  }
+));
+```
+
+So in this step, we take the `$dirs` array and loop through it to get each individual `$dirname`. With every round of the loop, we climb up the directory tree and see if we can find the right page. Sounds a bit complicated, but if you give it a bit, it should be quite logical.
+
+In the end we either found a page for the directory path, or we didn't. In this case we stop and send an error header together with a simple error message. This will make sure that the browser knows what to do with invalid requests.
+
+### Searching for the file
+
+If a page has been found, we keep on looking for the file by the filename we got earlier. If the file could not be found, we create a simple error message again together with a 404 header.
+
+```php
+kirby()->routes(array(
+  array(
+    'pattern' => 'content/(:all)',
+    'action' => function($path) {
+
+      $dirs     = str::split($path, '/');
+      $filename = array_pop($dirs);
+
+      // we start with site->children()
+      // and then climb up the tree with every round of
+      // the foreach loop
+      $parent = site();
+
+      foreach($dirs as $dirname) {
+        // try to find the next parent page by $dirname
+        if($child = $parent->children()->findBy('dirname', $dirname)) {
+          // overwrite the parent for the next round
+          $parent = $child;
+        } else {
+          header::notFound();
+          die('Page not found');
+        }
+      }
+
+      // now let's try to find that file
+      if($file = $parent->file($filename)) {
+
+        // our authentication logic…
+
+      } else {
+        header::notFound();
+        die('File not found');
+      }
+
+  }
+));
+```
+
+### Checking permissions
+
+In this last step we check if the user has access to the requested file. In this example all logged in users get access to all files and if a user is not logged in all files will locked.
+
+If no permissions are granted, we will return a simple 403 header (`header::forbidden()`) and an error message.
+
+```php
+kirby()->routes(array(
+  array(
+    'pattern' => 'content/(:all)',
+    'action' => function($path) {
+
+      $dirs     = str::split($path, '/');
+      $filename = array_pop($dirs);
+
+      // we start with site->children()
+      // and then climb up the tree with every round of
+      // the foreach loop
+      $parent = site();
+
+      foreach($dirs as $dirname) {
+        // try to find the next parent page by $dirname
+        if($child = $parent->children()->findBy('dirname', $dirname)) {
+          // overwrite the parent for the next round
+          $parent = $child;
+        } else {
+          header::notFound();
+          die('Page not found');
+        }
+      }
+
+      // now let's try to find that file
+      if($file = $parent->file($filename)) {
+
+        // check for a logged in user
+        if($user = site()->user()) {
+          $file->show();
+        } else {
+          header::forbidden();
+          die('Unauthorized access');
+        }
+
+      } else {
+        header::notFound();
+        die('File not found');
+      }
+
+  }
+));
+```
+
+You can use this code right away to lock access to all your files for users, which are not logged in.
+
+## htaccess
+
+One last step is needed though to make it work. Kirby's default htaccess file makes sure that all requests to existing files are directly handled by the server and are not sent to Kirby's index.php. In order to make the routing work though, we need to send all those requests to the index.php as well.
+
+In your htaccess just add the following line below the first content folder rule:
+
+```
+# firewall
+RewriteRule ^content/(.*)$ index.php [L]
+```
+
+From now on every request will go through our route first and we can intercept it with the code from above.
+
+You can check out if it works by simple browsing your site without being logged in. All images should no longer be accessible. As soon as you login to the panel, the images should appear again.
+
+## Fine tuning
+
+This firewall is pretty brutal and would only fit to a fully locked down site. Of course it's easy to adjust the permission check to make it less strict and only check for certain templates for example:
+
+```php
+…
+
+if($parent->template() == 'secret' and !site()->user()) {
+  header::forbidden();
+  die('Unauthorized access');
+} else {
+  $file->show();
+}
+
+…
+
+```
+
+…or you could allow access only for certain user roles
+
+```php
+…
+
+if($user = site()->user() and $user->hasRole('admin')) {
+  $file->show();
+} else {
+  header::forbidden();
+  die('Unauthorized access');
+}
+
+…
+```
+
+You could even make that dynamic by using a page field to determin which users have access:
+
+    title: My page
+    ----
+    text: some text
+    ----
+    fileaccess:
+    - homer
+    - marge
+    - lisa
+
+```php
+…
+
+if($user = site()->user() and in_array($user->username(), $parent->fileaccess()->yaml())) {
+  $file->show();
+} else {
+  header::forbidden();
+  die('Unauthorized access');
+}
+
+…
+```
+
+## Final thoughts
+
+As you can see this can be extended to a quite powerful plugin, which can follow you to each new project. With Kirby's user authentication system, roles and this little firewall you can basically build a full blown, secure client area or similar scenarios.
+
+I hope you enjoyed the first tutorial after quite a long time! As always, I'm looking forward to any kind of feedback.
+
+## One last thing
+
+This article is the first which uses the new (link: http://forum.getkirby.com text: Discourse Forum) for comments instead of Disqus. I have no experience with the embedding system of Discourse so far, so I hope it will all be fine. Let me know if you run into any issues.

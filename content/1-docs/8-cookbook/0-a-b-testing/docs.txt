@@ -1,0 +1,164 @@
+Title: A/B Testing with Kirby
+
+----
+
+Date: 11.06.2015
+
+----
+
+Category: extensions
+
+----
+
+Description: Learn how this plugin helps you to test content variants or design options on different user groups
+
+----
+
+Tags: tutorial
+
+----
+
+Text:
+
+I was asked yesterday if there is a A/B testing plugin for Kirby. As I am not aware of any, I wrote one. It sounds like something more of you could be interested in and it's a good chance to write a new tutorial.
+
+Actually the plugin is just a simple function and I'd like to walk you through it in this post.
+
+The idea for the plugin is to have a IP-based method to split visitors into two groups to display different content or slightly change the design of the site depending on the group. You'd then feed this into your analaytics software and compare the numbers, conversion rates, etc.
+
+The final plugin works like this in your templates and snippets:
+
+```php
+<?php if(visitorgroup('a')): ?>
+Some content for visitors in group a
+<?php else: ?>
+Some content for visitors in group b
+<?php endif ?>
+```
+
+Of course the same can be used to switch CSS files
+
+```php
+<?php if(visitorgroup('b')) echo css('assets/css/shinynew.css') ?>
+```
+
+In this case only visitors in group B would get to see the shinynew.css.
+
+I'm skipping the connection to Google Analytics and Co. because all analytics services have their own way of handling special tags and input.
+
+Now let's build the plugin…
+
+## Creating the plugin
+
+As you can see in the examples above, I've called the function `visitorgroup()` so let's create a folder called visitorgroup in plugins with a php file called visitorgroup.php.
+
+```
+/site/plugins/visitorgroup/visitorgroup.php
+```
+
+That's it. Kirby will now automatically load the visitorgroup.php for us.
+
+## The visitorgroup function
+
+In the visitor group function we will have to do two things. First, decide in which group the visitor will be according to the ip and then returning either the group name or true/false, when you pass the group name you are looking for.
+
+**This is the full code for the `visitorgroup()` function:**
+
+```php
+function visitorgroup($which = null) {
+
+  $ip    = visitor::ip();
+  $int   = ip2long($ip);
+  $group = ($int % 2) ? 'a' : 'b';
+
+  if(is_null($which)) return $group;
+
+  return $group == $which;
+
+}
+```
+
+It looks fairly simple, but let me go through each step for you:
+
+### Fetching the IP
+
+Kirby has a built-in class called (link: docs/toolkit/api#visitor text: visitor), which lets you get some useful information about the current visitor such as the ip, the preferred language or the user agent string.
+
+```php
+$ip = visitor::ip()
+```
+
+### Finding a group for the visitor
+
+The most straight-forward approach to split visitors into equal groups is to convert the IP to an integer and then determin if integer is odd or even. This can be done in two lines of code — or even just one if you write it a bit more compressed. But let's keep it readable.
+
+```php
+$int   = ip2long($ip);
+$group = ($int % 2) ? 'a' : 'b';
+```
+
+In this step we use PHP's modulus operator: `$int % 2`, which can be translated to *remainder of $int divided by 2*. This will either return 0 or 1, which we can use to return either `a` or `b. So at this point we end up with a `$group` variable that contains the group name.
+
+### Returning something useful
+
+The next step is very easy. We could just return the group name now:
+
+```php
+$group = visitorgroup();
+// a or b
+```
+
+To make the function a bit more powerful though, we will also offer the option to pass an expected group name and get a boolean (true or false) as the return value, so we can easily use this in if clauses.
+
+```php
+if(visitorgroup('a')) {
+  // do something for group a here
+}
+```
+
+In the final code for the function you can see that there's a parameter called `$which`, which is by default null.
+
+```php
+function visitorgroup($which = null) {
+  // …
+}
+```
+
+So let's first return the name of the group as long as `$which` is still null
+
+```php
+function visitorgroup($which = null) {
+
+  $ip    = visitor::ip();
+  $int   = ip2long($ip);
+  $group = ($int % 2) ? 'a' : 'b';
+
+  if(is_null($which)) return $group;
+
+}
+
+```
+
+This would not be very helpful in case we pass a group name for `$which`. In that case we have to do a simple comparison of the group name and the name we got as argument.
+
+```php
+function visitorgroup($which = null) {
+
+  $ip    = visitor::ip();
+  $int   = ip2long($ip);
+  $group = ($int % 2) ? 'a' : 'b';
+
+  if(is_null($which)) return $group;
+
+  return $group == $which;
+
+}
+```
+
+And that's it! Our final plugin for A/B testing with Kirby.
+
+I went through this with very detailed little steps and the more experienced coders among you will probably be bored by now, but let me take this chance to encourage every Kirby user — PHP beginner or pro — to try writing your own code first, before looking for a plugin.
+
+I know there's this golden "Don't reinvent the wheel" rule, but most problems can be solved by just a little bit of code and along the way there's a good chance you might even learn something new. Take that chance. You will end up with much cleaner code and much more coding skills in the long run.
+
+Check out the (link: docs/toolkit/api text: Kirby Toolkit API docs) for tons of helpers and classes, that will help and guide you along the way.

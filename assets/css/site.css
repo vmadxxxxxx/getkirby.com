@@ -1401,6 +1401,9 @@ figure.slider-index {
   background-size: 1.25em 1.25em;
   background-image: url(../images/docs.svg); }
 
+.docs-index-list li p.text.small {
+  font-size: 0.8rem; }
+
 /*
  :::  Further reading [Docs]
 -------------------------------------------------- */

@@ -1,0 +1,92 @@
+Title: RSS-Feeds
+
+----
+
+Category: extensions
+
+----
+
+Description: Learn how to add an RSS feed to your Kirby powered site.
+
+----
+
+Text:
+
+To add a RSS-Feed to your blog is applicable to pretty much any part of your Kirby-flavoured site, so if you want to rssify your site, this is the way to go.
+
+## Adding an invisible feed page
+
+(image: 01.png)
+
+Do you remember the page setup for our (link: docs/solutions/blog text: blog)? We've got visible pages (with numbers prepended) for each article and a blog.txt so far. No we add an invisible feed folder, so later our feed will be available at `http://yourdomain.com/blog/feed` but it won't appear in any menu.
+
+Inside the feed folder add a `feed.txt`, so we can build a specific `feed.php` template later.
+
+(image: 02.png)
+
+In your feed.txt you can add some basic information about your feed. Here's mine:
+
+    Title: Blog Feed
+    ----
+    Description: The latest updates from our blog
+    ----
+
+## The template
+
+First of all please download the **(link: https://github.com/getkirby/plugins text: feed plugin)** and add the entire feed plugin folder to `/site/plugins`. It's no hokuspokus, just a simple wrapper to make feed generation easier.
+
+With this plugin building the final feed template is very, very straight forward:
+
+### site/templates/feed.php
+
+Add a file named `feed.php` to your site/templates folder. Do you remember that we named the text file inside our blog/feed folder `feed.txt`? By providing a `feed.php` template we make sure that this template will be used instead of the `default.php` template when we open `http://yourdomain.com/blog/feed`
+
+All we need to do now is to get the right set of items for our feed and to embed our feed snippet. Here is how it is done:
+
+```php
+<?php
+
+echo page('blog')->children()->visible()->flip()->limit(10)->feed(array(
+  'title'       => $page->title(),
+  'description' => $page->description(),
+  'link'        => 'blog',
+));
+
+?>
+
+```
+
+In the first line we search for the latest articles in our blog. We find our blog page first, get all the visible children (all our articles), flip them to get the latest first and finally we make sure to only get the last 10 articles by using `->limit(10)`. Pretty easy, right?
+
+Afterwards we call the new feed method, which is being created by the plugin. With the added options we finalize the feed and that's it.
+
+## Visiting your feed
+
+After all that hard work you should finally visit your feed and see if all went as expected. Go to `http://yourdomain.com/blog/feed` in your browser or feed reader.
+
+## Link to your feed
+
+You probably want to link to your feed somewhere. The most simple way is to include a link in your blog template somewhere – maybe with a nice little RSS-icon. You can do that by using the handy `url()` helper function again:
+
+```php
+<a href="<?php echo url('blog/feed') ?>">Subscribe to our RSS-feed</a>
+
+```
+
+Another good way is to add the feed to the header of your site, so browsers and feed readers can automatically detect it:
+
+```php
+<link rel="alternate" type="application/rss+xml" href="<?php echo url('blog/feed') ?>" title="Blog Feed" />
+
+```
+
+If you want to make sure that the `title=""` attribute is filled dynamically with the content of the title field in your feed.txt, do it like this:
+
+```php
+… title="<?php echo html($pages->find('blog/feed')->title()) ?>" …
+
+```
+
+## Multiple feeds
+
+With bigger site projects you probably get to the point where you need multiple feeds for different parts of your site. A good way to do this is by adding multiple feed templates. You probably would call the content file for your blog feed `blogfeed.txt` instead of `feed.txt` so your template for your blog feed would be `blogfeed.php`. Then you can easily just add another feed for your projects for example by having a content folder `content/projects/feed` with a `projectfeed.txt` file and a `projectfeed.php` template file. By embedding the feed snippet over and over again your template code is staying very small and maintainable, so it's really up to you how many feeds you want to add.

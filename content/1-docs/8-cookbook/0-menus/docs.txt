@@ -1,0 +1,280 @@
+Title: Menus
+
+----
+
+Description: Learn to create any kind of menu you need for your project.
+
+----
+
+Category: navigation
+
+----
+
+Text:
+
+(toc)
+
+## Main menu
+
+```php
+<?php
+
+// main menu items
+$items = $pages->visible();
+
+// only show the menu if items are available
+if($items->count()):
+
+?>
+<nav>
+  <ul>
+    <?php foreach($items as $item): ?>
+    <li><a<?php e($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo $item->title()->html() ?></a></li>
+    <?php endforeach ?>
+  </ul>
+</nav>
+<?php endif ?>
+```
+
+****
+
+## Sub menu
+
+### The independent sub menu
+
+```php
+<?php
+
+$items = false;
+
+// get the open item on the first level
+if($root = $pages->findOpen()) {
+
+  // get visible children for the root item
+  $items = $root->children()->visible();
+}
+
+// only show the menu if items are available
+if($items and $items->count()):
+
+?>
+<nav>
+  <ul>
+    <?php foreach($items as $item): ?>
+    <li><a<?php e($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo $item->title()->html() ?></a></li>
+    <?php endforeach ?>
+  </ul>
+</nav>
+<?php endif ?>
+```
+
+### The independent sub sub menu
+
+```php
+<?php
+
+// independent sub sub menu
+$items = false;
+
+// get the open item on the first level
+if($root1 = $pages->findOpen()) {
+
+  // get the open item on the second level
+  if($root2 = $root1->children()->findOpen()) {
+
+    // get visible children of the second level item
+    $items = $root2->children()->visible();
+  }
+}
+
+// only show the menu if items are available
+if($items and $items->count()):
+
+?>
+<nav>
+  <ul>
+    <?php foreach($items as $item): ?>
+    <li><a<?php e($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo $item->title()->html() ?></a></li>
+    <?php endforeach ?>
+  </ul>
+</nav>
+<?php endif ?>
+```
+
+****
+
+## Breadcrumb
+
+```php
+<nav>
+  <ul>
+    <?php foreach($site->breadcrumb() AS $crumb): ?>
+    <li<?php e($crumb->isActive(), ' class="is-active"') ?>><a href="<?php echo $crumb->url() ?>"><?php echo $crumb->title()->html() ?></a></li>
+    <?php endforeach; ?>
+  </ul>
+</nav>
+```
+
+****
+
+## Tree menu
+
+```php
+<?php if(!isset($subpages)) $subpages = $site->children() ?>
+<ul>
+  <?php foreach($subpages->visible() AS $p): ?>
+  <li class="depth-<?php echo $p->depth() ?>">
+    <a<?php e($p->isActive(), ' class="active"') ?> href="<?php echo $p->url() ?>"><?php echo $p->title()->html() ?></a>
+    <?php if($p->hasChildren()): ?>
+    <?php snippet('treemenu', array('subpages' => $p->children())) ?>
+    <?php endif ?>
+  </li>
+  <?php endforeach ?>
+</ul>
+```
+
+****
+
+## Nested menu
+
+```php
+<?php
+
+// nested menu
+$items = $pages->visible();
+
+// only show the menu if items are available
+if($items->count()):
+
+?>
+<nav>
+  <ul>
+    <?php foreach($items as $item): ?>
+    <li>
+      <a<?php e($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo $item->title()->html() ?></a>
+
+      <?php
+
+      // get all children for the current menu item
+      $children = $item->children()->visible();
+
+      // display the submenu if children are available
+      if($children->count() > 0):
+
+      ?>
+      <ul>
+        <?php foreach($children as $child): ?>
+        <li><a<?php e($child->isOpen(), ' class="active"') ?> href="<?php echo $child->url() ?>"><?php echo $child->title()->html() ?></a></li>
+        <?php endforeach ?>
+      </ul>
+      <?php endif ?>
+
+    </li>
+    <?php endforeach ?>
+  </ul>
+</nav>
+<?php endif ?>
+```
+
+****
+
+## Custom menu
+
+```php
+<?php
+
+// selective items
+
+$items = $pages->find('terms-of-service', 'faq', 'support');
+
+if($items and $items->count()):
+
+?>
+<nav>
+  <ul>
+    <?php foreach($items as $item): ?>
+    <li><a<?php e($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo $item->title()->html() ?></a></li>
+    <?php endforeach ?>
+  </ul>
+</nav>
+<?php endif ?>
+```
+
+****
+
+## Selectbox menu
+
+```php
+<?php
+
+// main menu items
+$items = $pages->visible();
+
+// only show the menu if items are available
+if($items->count()):
+
+?>
+<select onchange="window.location.href = this.value">
+  <?php foreach($items as $item): ?>
+  <option value="<?php echo $item->url() ?>"<?php e($item->isOpen(), ' selected="selected"') ?>><?php echo $item->title()->html() ?></option>
+  <?php endforeach ?>
+</select>
+<?php endif ?>
+```
+
+## Little helpers
+
+All the examples above are pretty raw. You probably want to add additional classes to the list elements to style them or add more markup. That's all up to you. Here are two more little helpers, which will make your life easier:
+
+### Dedicated CSS selectors
+
+It's often needed to style particular items in a menu without touching the others – for example if you want to add icons. This can be done by adding dedicated selectors:
+
+#### in your menu template
+
+```php
+<nav>
+  …
+  <li class="<?php echo $item->uid() ?>"><a<?php ecco($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></a></li>
+  …
+</nav>
+```
+
+#### in your css
+
+```css
+nav .home {
+  background: url(../images/home.png) no-repeat left center;
+}
+nav .contact a {
+  color: green
+}
+```
+
+That's of course some horrible CSS, but you get the idea. The `uid()` method displays the folder name of each item without the prepended number.
+
+### Depth
+
+Especially in nested menus it can be helpful to have an additional selector, which indicates the depth of the item. That can be very handy for indenting list items.
+
+#### in your template
+
+```php
+<nav>
+  …
+  <li class="depth-<?php echo $item->depth() ?>"><a<?php ecco($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></a></li>
+  …
+</nav>
+```
+
+#### in your css
+
+```css
+nav .depth-2 {
+  padding-left: 20px;
+}
+```
+
+#### The entire API
+
+Of course this is only a minimal extract of possibilities. The entire Kirby API is there to get the most out of your ideas, so check out the (link: docs/cheatsheet text: Kirby Cheat Sheet) for additional methods you can use and have fun with your next project.
