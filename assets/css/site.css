@@ -1521,6 +1521,11 @@ ul.toc {
     margin-bottom: 3em;
     border-top: 0; } }
 
+.submenu.filter a {
+  border: none;
+  padding-bottom: 0;
+  font-weight: normal; }
+
 /*
  :::  Search [Docs]
 -------------------------------------------------- */
