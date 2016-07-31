@@ -135,9 +135,8 @@ Unfortunately this is not available in all browsers, especially IE prior to IE9 
 
 It's up to you to decide if it is better for your project to go for the server-side solution or the client-side solution. Both are easy to implement and can be extended and adjusted very well.
 
-Text: A couple months ago I wrote about (link: blog/odd-even text: how to add odd/even class selectors to items) when looping through a set of pages for example.
-
-Today I found a way how to write it even shorter. It's a combination of the new `ecco()` function included in the latest releases of Kirby and a shorter way to write the PHP syntax for counter variables.
+Update:
+I found a way how to write it even shorter. It's a combination of the new `ecco()` function included in the latest releases of Kirby and a shorter way to write the PHP syntax for counter variables.
 
 ```php
 <ul>

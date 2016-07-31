@@ -12,7 +12,7 @@ Category: website structure
 
 Text:
 
-In this section you’ll learn how to build a blog with Kirby. We’re gonna start with a very basic and minimalistic blog here. For more advanced stuff please check out the subsections.
+In this section you’ll learn how to build a blog with Kirby. We’re gonna start with a very basic and minimalistic blog here. You will find more advanced stuff in related sections.
 
 
 ## Setting up the content
@@ -222,6 +222,70 @@ You might also want to add a back link:
 ```
 
 which will take your visitors back to the article list.
+
+## Add an intro to your articles
+To add an article intro which you can display and maybe style differently from the rest of the post you have to set up an additional field in your `.blogarticle.txt` first.
+
+
+    Title: Some title
+    ----
+    Text: Some great text
+    ----
+    Tags: design, photography, architecture, whatever
+    ----
+    Intro: This is a nice article intro. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+    ----
+    Text: [...]
+
+
+### Template adjustments
+
+Now we are going to implement the intro in the blog's overview loop (instead of an excerpt) like this:
+
+```php
+<?php snippet('header') ?>
+<?php snippet('menu') ?>
+
+<main class="blog" role="main">
+
+  <h1><?php echo html($page->title()) ?></h1>
+  <?php echo kirbytext($page->text()) ?>
+
+  <?php foreach($page->children()->visible()->flip() as $article): ?>
+
+  <article>
+    <h1><?php echo html($article->title()) ?></h1>
+    <?php echo kirbytext($article->intro()) ?>
+    <a href="<?php echo $article->url() ?>">Read more…</a>
+  </article>
+
+  <?php endforeach ?>
+
+</main>
+
+<?php snippet('footer') ?>
+```
+
+Your article template would look like this:
+
+```php
+<?php snippet('header') ?>
+<?php snippet('menu') ?>
+
+<main class="blogarticle" role="main">
+  <article>
+    <h1><?php echo html($page->title()) ?></h1>
+    <?php echo kirbytext($page->intro()) ?>
+    <?php echo kirbytext($page->text()) ?>
+
+    <a href="<?php echo url('blog') ?>">Back…</a>
+
+  </article>
+</main>
+
+<?php snippet('footer') ?>
+```
+
 
 
 ----
