@@ -2,7 +2,7 @@ Title: Disqus Comments
 
 ----
 
-Category: plugins
+Category: extensions
 
 ----
 
