@@ -9,7 +9,12 @@ fields:
     label: Name
     type: text
     validate: 
-      min: 10
-      max: 1000
+      minLength: 10
+      maxLength: 1000
 ```
+</since>
+
+<since v="2.3.2">
+Please note that the names of the validators have been changed from `min` to `minLength` and from `max` to `maxLength` respectively.
+Before 2.3.2, the `min` and `max` validators would check for the value of the number if a numeric value is entered. You can still use those if that's the intended behavior.
 </since>

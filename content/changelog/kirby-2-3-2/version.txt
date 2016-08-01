@@ -20,6 +20,8 @@ Text:
 - Add `target` option for widget options to be consistent with widget titles
 - Unicode domain names in the Punycode syntax are displayed in Unicode in the dashboard (requires the PHP `intl` extension)
 - Ignore invalid widgets in `site/widgets` again instead of throwing an error (introduced in 2.3.0)
+- `text` and `textarea` fields: Fix min and max validation for numeric values to check for length of the number instead of its value (requires using the new (sheet: validators/min-length) and (sheet: validators/max-length) validators)
+- `textarea` field: Unify validation code with existing `text` field validation
 - Enforce `readonly` option for structure field
 - Fix a bug where plugins would not be loaded in time to register `default` and `site` blueprints
 - Further improvements to custom folder setup compatibility
@@ -36,6 +38,7 @@ Text:
 
 - (toolkit: helpers/go) helper now supports second argument with HTTP status code
 - Add (toolkit: collection/chunk) method
+- New validators (sheet: validators/min-length) and (sheet: validators/max-length)
 - New collection filters `in` and `not in` with array support
 - Collections (also applies to Pages and Files) can now be counted using the native PHP `count()` function
 - Add (toolkit: url/idn) method
