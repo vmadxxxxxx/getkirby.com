@@ -111,7 +111,7 @@ This makes adding custom CSS rules for each template a breeze and you can keep t
 
 ## Related: Art-directed blog posts
 
-If you want to get even more fancy with custom styles, you should read the tutorial about (link: blog/art-directed-posts text: Art-directed blog posts), which will show how to add optional, custom css to each individual page of your site.
+If you want to get even more fancy with custom styles, you should read the tutorial about (link: docs/cookbook/art-directed-posts text: Art-directed blog posts), which will show how to add optional, custom css to each individual page of your site.
 
 ----
 

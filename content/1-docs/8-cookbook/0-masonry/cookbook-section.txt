@@ -24,7 +24,7 @@ The (link: http://masonry.desandro.com/ text: Masonry jQuery Plugin) by (link: h
 
 (image: 01.png)
 
-It looks like magic but actually it is very easy to implement. I've prepared a **(link: blog/masonry/demo text: little demo)** for you so you get a better idea of it.
+It looks like magic but actually it is very easy to implement. I've prepared a **(link: docs/cookbook/masonry/demo text: little demo)** for you so you get a better idea of it.
 
 The following tutorial will show how to use it with your Kirby-flavoured site.
 
@@ -158,4 +158,4 @@ That's it! Now you should have a nice Masonry+Kirby-powered grid for your images
 
 ## PS
 
-I'm using the `shuffle()` method for the (link: blog/masonry/demo text: demo), so the layout changes on every page view. Read more about it in the (link: blog/random-content text: tutorial about random content).
+I'm using the `shuffle()` method for the (link: docs/cookbook/masonry/demo text: demo), so the layout changes on every page view. Read more about it in the (link: docs/cookbook/random-content text: tutorial about random content).

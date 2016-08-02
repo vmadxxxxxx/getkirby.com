@@ -14,7 +14,7 @@ Text:
 
 A blog is not just a great way to post text, but also images, videos, links or quotes. Putting all those different types of content into a dumb old article template is quite boring and so custom post types have become very popular.
 
-This is a quick introduction, how to build custom post types for your (link: docs/solutions/blog text: Kirby-powered blog).
+This is a quick introduction, how to build custom post types for your (link: docs/cookbook/blog text: Kirby-powered blog).
 
 ## The Content
 

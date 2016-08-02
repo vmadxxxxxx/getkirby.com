@@ -108,7 +108,7 @@ echo $site->uri->params('someparam', 'mydefaultvalue');
 
 ```
 
-The (link: docs/solutions/blog/pagination text: pagination) object is using a `page:` param to handle pagination in URLs. It is very readable for your visitors, which is a good thing :)
+The (link: docs/cookbook/pagination text: pagination) object is using a `page:` param to handle pagination in URLs. It is very readable for your visitors, which is a good thing :)
 
 If you need a string of all params, do it like this:
 
@@ -120,10 +120,10 @@ echo $site->uri->params();
 
 ## Query Strings
 
-The (link: http://toolkit.getkirby.com text: Kirby Toolkit) has an included helper function to get any value from a query or even any post value. So the easiest way to react on variables in the query string is to do something like this:
+The (link: https://getkirby.com/docs/developer-guide/toolkit text: Kirby Toolkit) has an included helper function to get any value from a query or even any post value. So the easiest way to react on variables in the query string is to do something like this:
 
 ```php
-// url: http://getkirby.com/blog/the-mighty-mighty-uri-object/page:2/?comments=show
+// url: https://getkirby.com/docs/cookbook/the-mighty-mighty-uri-object/page:2/?comments=show
 
 echo get('comments');
 // output: show

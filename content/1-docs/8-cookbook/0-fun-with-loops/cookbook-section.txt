@@ -208,4 +208,4 @@ Doesn't sound useful? Think about it again! You can use this to customize single
 
 ## Odd and even
 
-Another tricky task is to work with odd and even entries in a loop. I've wrote an (link: blog/odd-even text: extra article about that) a while ago, so make sure to check it out.
+Another tricky task is to work with odd and even entries in a loop. I've wrote an (link: docs/cookbook/odd-even text: extra article about that) a while ago, so make sure to check it out.

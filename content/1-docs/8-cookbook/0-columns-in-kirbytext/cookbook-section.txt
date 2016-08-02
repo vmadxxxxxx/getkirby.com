@@ -32,7 +32,7 @@ Right column
 
 It somehow worked but looked very hacky and not very usable for editors. It also introduced an issue with Markdown not being parsed inside the columns, which is another story.
 
-So I sat down and tried to come up with (link: https://github.com/getkirby/plugins/tree/master/columns text: a more elegant solution) to this problem. Unfortunately the most elegant solution in my opinion cannot be solved with the default way to create your own Kirbytags. It looks like this:
+So I sat down and tried to come up with (link: https://github.com/getkirby-plugins/columns-plugin text: a more elegant solution) to this problem. Unfortunately the most elegant solution in my opinion cannot be solved with the default way to create your own Kirbytags. It looks like this:
 
 ```
 (columns…)

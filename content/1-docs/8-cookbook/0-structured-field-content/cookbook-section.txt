@@ -20,7 +20,7 @@ Tags: tutorial, yaml
 
 Text:
 
-With the (link: docs/content text: syntax for Kirby content files) it is very easy to (link: blog/any-content-you-like text: structure any kind of data) for your templates. But the latest release of (link: blog/1-0-8 text: Kirby) includes a brand new feature, which will give you even more data-structure-power – the YAML parser.
+With the (link: docs/content text: syntax for Kirby content files) it is very easy to (link: docs/cookbook/any-content-you-like text: structure any kind of data) for your templates. But the latest release of (link: blog/1-0-8 text: Kirby) includes a brand new feature, which will give you even more data-structure-power – the YAML parser.
 
 (link: http://www.yaml.org text: YAML) is a very simple, human-readable structure syntax. It's actually quite similar to the Kirby content syntax and a perfect match. With YAML you will be able to nest structured data inside your content fields. Sounds weird, so let me just show you some examples to demonstrate how it works:
 

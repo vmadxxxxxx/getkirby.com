@@ -1,4 +1,4 @@
-Title: HTML5 Videos
+Title: Easily embed HTML5 Videos
 
 ----
 
@@ -61,7 +61,7 @@ But at some point Youtube or Vimeo might just not do it and you have to go for y
 
 Unfortunately it is still very painful to embed videos with the HTML5 video tag, because there's missing support for IE, where you mostly need a flash fallback, you need different formats for all modern browsers and so on.
 
-At least with Kirby I'm trying to make it a little less painful and together with such awesome services like (link: http://sublimevideo.net/ text:SublimeVideo) it can even be fun.
+At least with Kirby I'm trying to make it a little less painful.
 
 ### Storing your video files
 
@@ -130,7 +130,3 @@ There are some more options, which you can find in the (link: https://github.com
 ### What about a Flash fallback
 
 I haven't added a flash fallback, because you need some kind of flash video player for it and this would go too far. Also Flash is dying out – we all know this :) But you can add your own flash fallback to the snippet in a matter of seconds and always keep in mind that once you've customized the video snippet for your project you can use it on the entire site for each and every video.
-
-### What about SublimeVideo
-
-Since (link: http://sublimevideo.net text: SublimeVideo) offers a free plan it has also become a great solution for smaller or personal projects so you should definitely give it a try. They have some additional requirements for the video tag, which you can add to the snippet very easily. I didn't want to add them by default because it would be too focused on their service.

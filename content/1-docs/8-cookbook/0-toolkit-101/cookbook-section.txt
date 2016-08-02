@@ -20,11 +20,11 @@ Tags: toolkit
 
 Text:
 
-As you might already know, Kirby CMS is based on a PHP library called (link: http://toolkit.getkirby.com text: Kirby Toolkit)
+As you might already know, Kirby CMS is based on a PHP library called (link: https://getkirby.com/docs/developer-guide/toolkit  text: Kirby Toolkit)
 
 PHP is sometimes so messed up, that you necessarily start to write your own wrappers and helpers, to make your daily work with PHP easier. The Toolkit is a collection of classes and functions, which I came up with in the last years and which have become a core element of my work.
 
-It's a 1-file, open-source library, which can be easily included in any existing project. Since it is already included in the Kirby CMS core, you can start using all its (link: http://toolkit.getkirby.com/docs text: classes and functions) right away. If you want to use it for any other project, you can (link: https://github.com/bastianallgeier/kirby text: download the source from Github).
+It's a 1-file, open-source library, which can be easily included in any existing project. Since it is already included in the Kirby CMS core, you can start using all its (link: https://getkirby.com/docs/developer-guide/toolkit/api text: classes and functions) right away. If you want to use it for any other project, you can (link: https://github.com/getkirby/toolkit text: download the source from Github).
 
 ## Philosophy
 
@@ -540,7 +540,7 @@ if(v::date($date)) {
 
 ## More…
 
-The (link: http://toolkit.getkirby.com text: Kirby Toolkit) has way more features. Please (link: http://toolkit.getkirby.com text: read the docs) to learn more about them.
-There's also a tutorial (link: blog/database text: how to use the built-in database class).
+The (link: https://getkirby.com/docs/developer-guide/toolkit text: Kirby Toolkit) has way more features. Please (link: https://getkirby.com/docs/developer-guide/toolkit/api text: read the docs) to learn more about them.
+There's also a tutorial (link: docs/cookbook/database text: how to use the built-in database class).
 
-If you like the Toolkit, but you want to add your own features, feel free to (link: https://github.com/bastianallgeier/kirby text: fork it on Github).
+If you like the Toolkit, but you want to add your own features, feel free to (link: https://github.com/getkirby/toolkit text: fork it on Github).

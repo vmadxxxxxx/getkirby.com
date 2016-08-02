@@ -70,7 +70,7 @@ To simplify those steps, I've written a plugin that takes care of modifying the 
 
 ### Installation
 
-1. grab the (link: https://github.com/getkirby/plugins/archive/master.zip text: plugins zip)
+1. grab the (link: https://github.com/getkirby-plugins/cdn-plugin/archive/master.zip text: CDN zip)
 2. copy the cdn folder into site/plugins
 3. set your CDN urls in your config:
 

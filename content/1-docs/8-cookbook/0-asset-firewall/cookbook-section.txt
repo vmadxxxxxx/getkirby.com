@@ -20,7 +20,7 @@ Tags: tutorials
 
 Text:
 
-Creating "secret" pages for logged in users is very easy in Kirby with the built-in (link: docs/solutions/authentication text: user and authentication system). But how can you protect images and other files in your content folders from being accessed by any visitor?
+Creating "secret" pages for logged in users is very easy in Kirby with the built-in (link: docs/cookbook/authentication text: user and authentication system). But how can you protect images and other files in your content folders from being accessed by any visitor?
 
 By default all the files, which you upload are public and are not protected even for locked pages. As soon as one of your visitors knows the full URL of an image for example, they can access it. But Kirby's plugin and routing system offers a straight-forward way to lock access to files as well. Here's how…
 

@@ -21,7 +21,7 @@ Tags: tutorial, meta tags
 
 Text:
 
-The first file you will find, when you take a look at Kirby's content folder is (link: https://github.com/bastianallgeier/kirbycms/blob/master/content/site.txt text: site.txt). It is there to store global content for your site, such as the main title or additional values, which are used for your site's metatags – keywords, description, etc. Basically you can store everything in there, which you might need on multiple pages but you don't want to hard-wire into your templates.
+The first file you will find, when you take a look at Kirby's content folder in the Starterkit is (link: https://github.com/getkirby/starterkit/blob/master/content/site.txt text: site.txt). It is there to store global content for your site, such as the main title or additional values, which are used for your site's metatags – keywords, description, etc. Basically you can store everything in there, which you might need on multiple pages but you don't want to hard-wire into your templates.
 
 But especially with things like the keywords and description meta tags, you might want to overwrite those global values on any page later. For example if you are building your portfolio it would be cool to have custom keywords and description in your meta tags for each project.
 

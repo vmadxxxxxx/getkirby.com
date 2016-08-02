@@ -1,4 +1,4 @@
-Title: Blog
+Title: Creating a Kirby-powered blog
 
 ----
 
@@ -12,7 +12,7 @@ Category: website structure
 
 Text:
 
-In this section you’ll learn how to build a blog with Kirby. We’re gonna start with a very basic and minimalistic blog here. You will find more advanced stuff in related sections.
+In this section you’ll learn how to build a blog with Kirby. We’ll  start with a very basic and minimalistic blog here. You will find more advanced stuff in related sections.
 
 
 ## Setting up the content
@@ -294,7 +294,7 @@ Blog posts:
 How to add authors to your articles:
 
     text: How to add authors to your articles
-    link: blog/author-system
+    link: docs/cookbook/author-system
 
 ----
 Externals:
@@ -308,52 +308,40 @@ Docs:
 
 date:
     text: How to add a date to your articles
-    link: docs/solutions/blog/dates
+    link: docs/cookbook/dates
 
 tags:
     text: How to add tags to your articles
-    link: docs/solutions/blog/tags
+    link: docs/cookbook/tags
 
 comments:
     text: How to add comments to your articles
-    link: docs/solutions/blog/comments
-
-intros:
-    text: How to add intros to your articles
-    link: docs/solutions/blog/intros
+    link: docs/cookbook/comments
 
 pagination:
     text: How to add a pagination to your blog
-    link: docs/solutions/blog/pagination
+    link: docs/cookbook/pagination
 
 prevnext:
     text: How to add a prev/next switcher to your articles
-    link: docs/solutions/blog/previous-next-article
+    link: docs/cookbook/previous-next-article
 
 rss:
     text: How to add a feed to your articles
-    link: docs/solutions/blog/rss
-
-archive:
-    text: How to add an archive to your blog
-    link: docs/solutions/blog/archive
+    link: docs/cookbook/rss
 
 search:
     text: How to add a search to your blog
-    link: docs/solutions/blog/search
+    link: docs/cookbook/search
 
 art direction:
     text: How to art-direct your articles
-    link: docs/solutions/blog/art-directed-blog-posts
+    link: docs/cookbook/art-directed-blog-posts
 
 custom post types:
     text: How to add customs post types to your blog
-    link: docs/solutions/blog/custom-post-types
+    link: docs/cookbook/custom-post-types
 
 related:
     text: How to add related posts to your articles
-    link: docs/solutions/blog/related-articles
-
-import:
-    text: How to import articles to your Kirby blog
-    link: docs/solutions/blog/import-articles
+    link: docs/cookbook/related-articles

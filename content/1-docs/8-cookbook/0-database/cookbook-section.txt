@@ -1,4 +1,4 @@
-Title: Kirby loves MySQL
+Title: Connecting Kirby to a database
 
 ----
 
@@ -35,9 +35,9 @@ etc.
 
 So you are lost when you want to build a site with such features and you are using Kirby, right? **Wrong!**
 
-Kirby is based on the (link: http://toolkit.getkirby.com text: Kirby Toolkit). The Kirby Toolkit is a library of handy classes a functions, which make your life as a PHP developer  easier. I like to refer to it as some kind of jQuery for PHP.
+Kirby is based on the (link: https://getkirby.com/docs/developer-guide/toolkit text: Kirby Toolkit). The Kirby Toolkit is a library of handy classes a functions, which make your life as a PHP developer  easier. I like to refer to it as some kind of jQuery for PHP.
 
-The Toolkit has a built-in (link: http://toolkit.getkirby.com/docs/classes/db text: MySQL-database class), which is very easy to use. Let me show you how you make your first database queries in your Kirby-powered project in a matter of seconds.
+The Toolkit has a built-in (link: https://getkirby.com/docs/toolkit/api#database text: MySQL-database class), which is very easy to use. Let me show you how you make your first database queries in your Kirby-powered project in a matter of seconds.
 
 ## Connect
 
@@ -241,9 +241,9 @@ $result = db::query('SELECT * FROM comments JOIN users ON comment_user = user_id
 
 ## Learn more…
 
-This is really just a very short overview of what you can do with the built-in database class. (link: http://toolkit.getkirby.com/docs/classes/db text: Please read the docs), to find out more. There are plenty more methods you can use and you can do quite powerful database fiddling with it.
+This is really just a very short overview of what you can do with the built-in database class. (link: https://getkirby.com/docs/toolkit/api#database text: Please read the docs), to find out more. There are plenty more methods you can use and you can do quite powerful database fiddling with it.
 
-You should also give the other features and functions of the (link: http://toolkit.getkirby.com text: Kirby Toolkit) a try. I promise it will definitely make your life with PHP much easier :) The Toolkit is open-source so you can always use it for other projects as well.
+You should also give the other features and functions of the (link: https://getkirby.com/docs/toolkit/api text: Kirby Toolkit) a try. I promise it will definitely make your life with PHP much easier :) The Toolkit is open-source so you can always use it for other projects as well.
 
 ## Conclusion
 

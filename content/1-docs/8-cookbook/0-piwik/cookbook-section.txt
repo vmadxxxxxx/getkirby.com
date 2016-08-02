@@ -52,7 +52,7 @@ That’s it. You’re done.
 
 ## Integration via snippet
 
-As you might know by now, it’s very easy to create (link: docs/learn/templates/snippets text: snippets) with Kirby and reuse them wherever you want to in your templates. We can do the same with the Piwik tracking code.
+As you might know by now, it’s very easy to create (link: docs/templates/snippets text: snippets) with Kirby and reuse them wherever you want to in your templates. We can do the same with the Piwik tracking code.
 
 Save a `piwik.php` in your snippets folder...
 
