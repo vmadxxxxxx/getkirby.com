@@ -315,6 +315,4 @@ Afterwards the HTML for the grid will look like this:
 
 I hope you like this little grid system plugin and it will help you to come up with a bit more complex text layouts.
 
-The full code for this plugin can be found here: <https://github.com/getkirby/plugins/tree/master/columns>
-
-Make sure to leave any kind of feedback behind in the comments if you got questions or suggestions.
+The full code for this plugin can be found here: <https://github.com/getkirby-plugins/columns-plugin>

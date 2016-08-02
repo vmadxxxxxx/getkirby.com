@@ -6,7 +6,7 @@ Category: content structure
 
 ----
 
-Description: Exploit Kirby's power of using fields to structure your content in a most flexible way
+Description: Use Kirby's power of custom fields to structure your content in a most flexible way
 
 ----
 

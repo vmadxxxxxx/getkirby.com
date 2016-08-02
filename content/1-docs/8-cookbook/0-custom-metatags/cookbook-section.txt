@@ -40,11 +40,11 @@ Let's say there's a `project.txt` stored in `projects/my-first-project` and it h
 
 ## The header snippet
 
-Go to `site/snippets/header.php` By default it looks like (link: https://github.com/bastianallgeier/kirbycms/blob/master/site/snippets/header.php text: this), but I guess you already changed that.
+Go to `site/snippets/header.php` By default it looks like (link: https://github.com/getkirby/starterkit/blob/master/site/snippets/header.php text: this), but I guess you already changed that.
 
 What we want here is to check for custom description and keywords for the current page and replace the global values from site.txt, if custom values are available.
 
-```
+```php
 …
 
 <?php if($page->description() != ''): ?>

@@ -20,7 +20,7 @@ Tags: tutorial, database
 
 Text:
 
-Wait, what!? Did I just write the bad "M" word? Sure, Kirby is a file-based system and I'm convinced that _file-based is the new black_, but in some cases you might want to consider to move away from the file-based approach and rather organize data in a database.
+Wait, what!? Did I just write the bad "D" word? Sure, Kirby is a file-based system and I'm convinced that _file-based is the new black_, but in some cases you might want to consider to move away from the file-based approach and rather organize data in a database.
 
 Here are some examples where a database is definitely a better idea than using the file system:
 
@@ -35,9 +35,9 @@ etc.
 
 So you are lost when you want to build a site with such features and you are using Kirby, right? **Wrong!**
 
-Kirby is based on the (link: https://getkirby.com/docs/developer-guide/toolkit text: Kirby Toolkit). The Kirby Toolkit is a library of handy classes a functions, which make your life as a PHP developer  easier. I like to refer to it as some kind of jQuery for PHP.
+Kirby is based on the (link: docs/developer-guide/toolkit text: Kirby Toolkit). The Kirby Toolkit is a library of handy classes a functions, which make your life as a PHP developer  easier. I like to refer to it as some kind of jQuery for PHP.
 
-The Toolkit has a built-in (link: https://getkirby.com/docs/toolkit/api#database text: MySQL-database class), which is very easy to use. Let me show you how you make your first database queries in your Kirby-powered project in a matter of seconds.
+The Toolkit has a built-in (link: docs/toolkit/api#database text: database class), which is very easy to use and supports MySQL and SQLite by default. Let me show you how you make your first database queries in your Kirby-powered project in a matter of seconds.
 
 ## Connect
 
@@ -236,14 +236,15 @@ There are a couple of other shortcuts for common SQL queries, but if you have so
 
 ```php
 $result = db::query('SELECT * FROM comments JOIN users ON comment_user = user_id ORDER BY comment_date DESC LIMIT 0,10');
-
 ```
+
+**Warning**: If you write your own SQL queries, you must make sure that they are protected against SQL injections.
 
 ## Learn more…
 
-This is really just a very short overview of what you can do with the built-in database class. (link: https://getkirby.com/docs/toolkit/api#database text: Please read the docs), to find out more. There are plenty more methods you can use and you can do quite powerful database fiddling with it.
+This is really just a very short overview of what you can do with the built-in database class. (link: docs/developer-guide/toolkit/database text: Please read the docs), to find out more. There are plenty more methods you can use and you can do quite powerful database fiddling with it.
 
-You should also give the other features and functions of the (link: https://getkirby.com/docs/toolkit/api text: Kirby Toolkit) a try. I promise it will definitely make your life with PHP much easier :) The Toolkit is open-source so you can always use it for other projects as well.
+You should also give the other features and functions of the (link: docs/toolkit/api text: Kirby Toolkit) a try. I promise it will definitely make your life with PHP much easier :) The Toolkit is open-source so you can always use it for other projects as well.
 
 ## Conclusion
 

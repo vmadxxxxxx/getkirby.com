@@ -65,8 +65,8 @@ What we are doing here is to get all files in our content folder and filter them
 And that's it!! Now you got a very easy way to create art-directed posts or custom styles for individual pages.
 
 ----
-Blogposts:
+Docs:
 
 How to add template-specific CSS files:
-  text: How to add template-specific CSS files
-  link: blog/template-css
+  text: How to add template-specific CSS files (@auto rule)
+  link: docs/cheatsheet/helpers/css

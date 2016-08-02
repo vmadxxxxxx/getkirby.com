@@ -20,8 +20,6 @@ Tags: blog
 
 Text:
 
-It's been a while since the last tutorial so my last article for 2013 will be a tutorial :)
-
 I just ran through the backlog of support requests for this year and found an interesting question: **How do you add different authors to articles in a Kirby blog?**
 
 There's no built-in way to work with multiple authors, but it's quite easy to setup a nice little system for your publisher team and this is how:

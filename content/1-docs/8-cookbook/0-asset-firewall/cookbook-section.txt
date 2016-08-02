@@ -264,7 +264,7 @@ if($user = site()->user() and $user->hasRole('admin')) {
 …
 ```
 
-You could even make that dynamic by using a page field to determin which users have access:
+You could even make that dynamic by using a page field to determine which users have access:
 
     title: My page
     ----
@@ -291,9 +291,3 @@ if($user = site()->user() and in_array($user->username(), $parent->fileaccess()-
 ## Final thoughts
 
 As you can see this can be extended to a quite powerful plugin, which can follow you to each new project. With Kirby's user authentication system, roles and this little firewall you can basically build a full blown, secure client area or similar scenarios.
-
-I hope you enjoyed the first tutorial after quite a long time! As always, I'm looking forward to any kind of feedback.
-
-## One last thing
-
-This article is the first which uses the new (link: http://forum.getkirby.com text: Discourse Forum) for comments instead of Disqus. I have no experience with the embedding system of Discourse so far, so I hope it will all be fine. Let me know if you run into any issues.
