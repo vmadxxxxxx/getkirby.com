@@ -35,36 +35,36 @@ Let's start with a pretty basic HTML event registration form. We save the form i
 
   <div class="form-element">
     <label for="firstname">First Name: *</label>
-    <input type="text" id="firstname" name="firstname" placeholder="First name"  value="<?= isset($data['firstname']) ? $data['firstname'] : ''  ?>" required  />
+    <input type="text" id="firstname" name="firstname" placeholder="First name" value="<?= isset($data['firstname']) ? $data['firstname'] : '' ?>" required/>
   </div>
 
   <div class="form-element">
     <label for="lastname">Last Name: *</label>
-    <input type="text" id="lastname" name="lastname" placeholder="Last name"  value="<?= isset($data['lastname']) ? $data['lastname'] : ''  ?>" required  />
+    <input type="text" id="lastname" name="lastname" placeholder="Last name" value="<?= isset($data['lastname']) ? $data['lastname'] : '' ?>" required/>
   </div>
 
   <div class="form-element">
     <label for="company">Company: </label>
-    <input type="text" id="company" name="company" placeholder="Company"  value="<?= isset($data['company']) ? $data['company'] : ''  ?>"  />
+    <input type="text" id="company" name="company" placeholder="Company" value="<?= isset($data['company']) ? $data['company'] : '' ?>"/>
   </div>
 
   <div class="form-element">
     <label for="email">Email: *</label>
-    <input type="email" name="email" id="email" placeholder ="mail@example.com" value="<?= isset($data['email']) ? $data['email'] : ''  ?>" required/>
+    <input type="email" name="email" id="email" placeholder="mail@example.com" value="<?= isset($data['email']) ? $data['email'] : '' ?>" required/>
   </div>
 
   <div class="form-element">
     <label for="message">Message:</label>
-    <textarea name="message" id="message" placeholder="Do you have any comments?"><?= isset($data['message']) ? $data['message'] : ''  ?></textarea>
+    <textarea name="message" id="message" placeholder="Do you have any comments?"><?= isset($data['message']) ? $data['message'] : '' ?></textarea>
   </div>
 
   <div class="honey">
      <label for="message">If you are a human, leave this field empty</label>
-     <input type="website" name="website" id="website" placeholder ="http://example.com" value="<?= isset($data['website']) ? $data['website'] : ''  ?>" />
+     <input type="website" name="website" id="website" placeholder="http://example.com" value="<?= isset($data['website']) ? $data['website'] : '' ?>"/>
   </div>
   <p>* required</p>
 
-  <button class="button" type="submit" name="register" value="Register" </button>Register</button>
+  <button class="button" type="submit" name="register" value="Register">Register</button>
 
 </form>
 ```
@@ -94,28 +94,28 @@ return function($site, $pages, $page) {
   $alert = null;
 
   if(r::is('post') && get('register')) {
-    if(! empty(get('website'))) {
+    if(!empty(get('website'))) {
       // lets tell the bot that everything is ok
       go($page->url());
       exit;
     }
     $data = array(
-      'firstname'  => esc(get('firstname')),
+      'firstname' => esc(get('firstname')),
       'lastname'  => esc(get('lastname')),
-      'company'  => esc(get('company')),
-      'email' => esc('email'),
-      'message'  => esc(get('message'))
+      'company'   => esc(get('company')),
+      'email'     => esc(get('email')),
+      'message'   => esc(get('message'))
     );
 
     $rules = array(
-      'firstname'  => array('required'),
+      'firstname' => array('required'),
       'lastname'  => array('required'),
-      'email' => array('required', 'email'),
+      'email'     => array('required', 'email'),
     );
     $messages = array(
-      'firstname'  => 'Please enter a valid first name',
+      'firstname' => 'Please enter a valid first name',
       'lastname'  => 'Please enter a valid last name',
-      'email' => 'Please enter a valid email address',
+      'email'     => 'Please enter a valid email address',
     );
 
     // some of the data is invalid
@@ -126,13 +126,13 @@ return function($site, $pages, $page) {
       // everything is ok, let's try to create a new registration
       try {
 
-        $newRegistration = $page->find('registrations')->children()->create(str::slug($data['lastname'] . "-" . $data['firstname'] . '-' . time()) , 'register', $data);
+        $newRegistration = $page->find('registrations')->children()->create(str::slug($data['lastname'] . '-' . $data['firstname'] . '-' . time()) , 'register', $data);
 
-        $success = "Your registration was successful";
+        $success = 'Your registration was successful';
         $data = array();
 
       } catch(Exception $e) {
-        echo 'Your registration failed' . $e.getMessage();
+        echo 'Your registration failed: ' . $e->getMessage();
       }
     }
   }
@@ -157,7 +157,7 @@ if(r::is('post') && get('register')) { ... }
 Before we move any further, we check our honeypot trap. If it is filled in, we know that some bot filled the form, redirect to the current page and exit the controller.
 
 ```php
-if(! empty(get('website'))) {
+if(!empty(get('website'))) {
   // lets tell the bot that everything is ok
   go($page->url());
   exit;
@@ -172,11 +172,11 @@ When dealing with user input, two things are important:
 
 ```php
 $data = array(
-  'firstname'  => esc(get('firstname')),
+  'firstname' => esc(get('firstname')),
   'lastname'  => esc(get('lastname')),
-  'company'  => esc(get('company')),
-  'email' => esc(get('email')),
-  'message'  => esc(get('message'))
+  'company'   => esc(get('company')),
+  'email'     => esc(get('email')),
+  'message'   => esc(get('message'))
 );
 ```
 
@@ -184,9 +184,9 @@ $data = array(
 
 ```php
 $rules = array(
-  'firstname'  => array('required'),
+  'firstname' => array('required'),
   'lastname'  => array('required'),
-  'email' => array('required', 'email'),
+  'email'     => array('required', 'email'),
 );
 ```
 
@@ -194,13 +194,13 @@ We also want to tell the user what is wrong if the validator fails with an array
 
 ```php
 $messages = array(
-  'firstname'  => 'Please enter your first name',
+  'firstname' => 'Please enter your first name',
   'lastname'  => 'Please enter your last name',
-  'email' => 'Please enter a valid email address',
+  'email'     => 'Please enter a valid email address',
 );
 ```
 
-We check if any of the data is invalid using the `invalid()` helper. It takes three arguments, the `$data` array, the `$rules` array, and the `$messages` array. If some of the data is invalid, it is stored in the `$alert` variable. Internally, the helper uses (link: https://getkirby.com/docs/cheatsheet#validators text: Kirby's inbuilt validators).
+We check if any of the data is invalid using the `invalid()` helper. It takes three arguments, the `$data` array, the `$rules` array, and the `$messages` array. If some of the data is invalid, it is stored in the `$alert` variable. Internally, the helper uses (link: https://getkirby.com/docs/cheatsheet#validators text: Kirby's built-in validators).
 
 ```php
 if($invalid = invalid($data, $rules, $messages)) {
@@ -214,13 +214,13 @@ Finally, if everything is ok, we can try to create a new subpage from the data. 
 // everything is ok, let's try to create a new registration
 try {
 
-  $newRegistration = $page->find('registrations')->children()->create(str::slug($data['lastname'] . "-" . $data['firstname'] . '-' . time()) , 'register', $data);
+  $newRegistration = $page->find('registrations')->children()->create(str::slug($data['lastname'] . '-' . $data['firstname'] . '-' . time()) , 'register', $data);
 
-  $success = "Your registration was successful";
+  $success = 'Your registration was successful';
   $data = array();
 
 } catch(Exception $e) {
-  echo 'Your registration failed' . $e.getMessage();
+  echo 'Your registration failed: ' . $e->getMessage();
 }
 ```
 
@@ -240,7 +240,8 @@ We use a little function for that, the function can be stored either in the cont
 
 ```php
 <?php
-function addToStructure($p, $field, $data = array()){
+
+function addToStructure($p, $field, $data = array()) {
   $fieldData = $p->$field()->yaml();
   $fieldData[] = $data;
   $fieldData = yaml::encode($fieldData);
@@ -252,9 +253,9 @@ function addToStructure($p, $field, $data = array()){
 
 The function accepts/requires three arguments:
 
-- $p: the page where the data should be saved, in our example we want to save the data to the subpage registrations, which is a subpage of the event page.
-- $field: the name of the structure field, here we call it `registrations`
-- $data: the user input array
+- `$p`: the page where the data should be saved, in our example we want to save the data to the subpage registrations, which is a subpage of the event page.
+- `$field`: the name of the structure field, here we call it `registrations`
+- `$data`: the user input array
 
 Within the function, we first fetch the current contents of the field using the `yaml()` method:
 
@@ -291,11 +292,11 @@ try {
 
   addToStructure($page->find('registrations'), 'registrations', $data);
 
-  $success = "Your registration was successful";
+  $success = 'Your registration was successful';
   $data = array();
 
 } catch(Exception $e) {
-  echo 'Your registration failed' . $e.getMessage();
+  echo 'Your registration failed: ' . $e->getMessage();
 }
 ```
 
@@ -327,7 +328,7 @@ if($alert): ?>
   </div>
 <?php endif ?>
 
-<?php if(! isset($success)) {
+<?php if(!isset($success)) {
   // if the $success variable is not set, show the form (i.e. when the page is first loaded or the form submission was not successful)
   snippet('form', compact('data'));
 }
@@ -335,7 +336,7 @@ if($alert): ?>
 <?php snippet('footer') ?>
 ```
 
-That's it for now. If you enjoyed this recipe, let us know. And if you have any suggestions of how to improve it or if you get stuck, contact us via (link: https://forum,getkirby.com text: the support forum).
+That's it for now. If you enjoyed this recipe, let us know. And if you have any suggestions of how to improve it or if you get stuck, contact us via (link: https://forum.getkirby.com text: the forum).
 
 ----
 Externals:

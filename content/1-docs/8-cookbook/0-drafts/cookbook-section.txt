@@ -71,7 +71,7 @@ Later in your templates and snippets you could check for that drafts field and i
     <?php foreach($pages->visible() AS $p): ?>
     <?php if($p->draft() == 'yes') continue ?>
     <li>
-      <a<?php echo ($p->isOpen()) ? ' class="active"' : '' ?> href="<?php echo $p->url() ?>"><?php echo html($p->title()) ?></a>
+      <a<?php e($p->isOpen(), ' class="active"') ?> href="<?php echo $p->url() ?>"><?php echo html($p->title()) ?></a>
     </li>
     <? endforeach ?>
   </ul>
@@ -83,4 +83,4 @@ It's definitely more complex to implement throughout the entire site, because yo
 
 ## Security
 
-The first two approaches include the risk that someone guesses the URL of one of your drafts and can read it before it is online. In most cases this isn't that bad at all if you don't have to hide some serious secrets, but sometimes you might want to keep them really secret until they are ready to be public. In this case you should give all content files for drafts the name draft.txt and implement a draft.php template, which has built-in authentication. There are plenty of ways to build simple logins with PHP and I will also write an article about it in the next weeks.
+The first two approaches include the risk that someone guesses the URL of one of your drafts and can read it before it is online. In most cases this isn't that bad at all if you don't have to hide some serious secrets, but sometimes you might want to keep them really secret until they are ready to be public. In this case you should give all content files for drafts the name draft.txt and implement a draft.php template, which has built-in authentication. There is a tutorial on (link: docs/cookbook/authentication text: authentication) in the cookbook as well.
