@@ -158,7 +158,9 @@ if(! empty(get('website'))) {
 
 Now that we have made sure the data was not send via some bot, we store it in the `$data` array. We fetch each element of the post data array using the `get()` method by its key.
 
-You will notice the `strip_tags()` function. Why do we need that? Not every user who visits our site might be really nice. Some visitors might want to attack our website by trying to inject malicious code via scripting. To prevent that, we strip all tags from the user input fields.
+When dealing with user input, two things are important:
+
+1. Some of our website visitors might not have the best intentions, they might try to attack the website by trying to inject malicious code. We therefore need to sanitize data to prevent that. Here, we use the `esc()` helper function to escape all tags.
 
 ```php
 $data = array(
@@ -170,7 +172,7 @@ $data = array(
 );
 ```
 
-Since we marked some of the fields as required and we also want to make sure that we get an email address when we want an email address, we next set up a array of rules using Kirby's validators. For each element of the rules array, we define an array of validators. In this example we use the required validator that checks if the field has been filled out, and the email validator that checks if the field input is a valid email address.
+2. We need to make sure that we get the data we expect. Since we marked some of the fields as required and we also want to make sure that we get an email address when we expect an email address, we next set up a array of rules using Kirby's validators. For each element of the rules array, we define an array of validators. In this example we pass the rules a a multi-dimensional array that is later passed to the `invalid()` helper.
 
 ```php
 $rules = array(
@@ -190,7 +192,7 @@ $messages = array(
 );
 ```
 
-We check if any of the data is invalid using the `invalid()` helper. It takes three arguments, the `$data` array, the `$rules` array, and the `$messages` array. If some of the data is invalid, it is stored in the `$alert` variable.
+We check if any of the data is invalid using the `invalid()` helper. It takes three arguments, the `$data` array, the `$rules` array, and the `$messages` array. If some of the data is invalid, it is stored in the `$alert` variable. Internally, the helper uses (link: https://getkirby.com/docs/cheatsheet#validators text: Kirby's inbuilt validators).
 
 ```php
 if($invalid = invalid($data, $rules, $messages)) {
