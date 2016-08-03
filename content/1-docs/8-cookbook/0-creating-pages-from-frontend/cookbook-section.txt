@@ -92,11 +92,11 @@ return function($site, $pages, $page) {
       exit;
     }
     $data = array(
-      'firstname'  => strip_tags(get('firstname')),
-      'lastname'  => strip_tags(get('lastname')),
-      'company'  => strip_tags(get('company')),
-      'email' => strip_tags('email'),
-      'message'  => strip_tags(get('message'))
+      'firstname'  => esc(get('firstname')),
+      'lastname'  => esc(get('lastname')),
+      'company'  => esc(get('company')),
+      'email' => esc('email'),
+      'message'  => esc(get('message'))
     );
 
     $rules = array(
@@ -162,11 +162,11 @@ You will notice the `strip_tags()` function. Why do we need that? Not every user
 
 ```php
 $data = array(
-  'firstname'  => strip_tags(get('firstname')),
-  'lastname'  => strip_tags(get('lastname')),
-  'company'  => strip_tags(get('company')),
-  'email' => strip_tags(get('email')),
-  'message'  => strip_tags(get('message'))
+  'firstname'  => esc(get('firstname')),
+  'lastname'  => esc(get('lastname')),
+  'company'  => esc(get('company')),
+  'email' => esc(get('email')),
+  'message'  => esc(get('message'))
 );
 ```
 
@@ -326,3 +326,11 @@ if($alert): ?>
 ```
 
 That's it for now. If you enjoyed this recipe, let us know. And if you have any suggestions of how to improve it or if you get stuck, contact us via (link: https://forum,getkirby.com text: the support forum).
+
+----
+Externals:
+
+HTML5 & Javascript form validation
+
+  text: HTML5 & javascript form validation
+  link: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Data_form_validation
