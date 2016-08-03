@@ -20,9 +20,7 @@ Tags: tutorial
 
 Text:
 
-I was asked if there is a A/B testing plugin for Kirby. As I am not aware of any, I wrote one. It sounds like something more of you could be interested in and it's a good chance to write a new tutorial.
-
-Actually the plugin is just a simple function and I'd like to walk you through it in this post.
+This tutorial will introduce you to the A/B testing plugin, which is basically just a simple function.
 
 The idea for the plugin is to have a IP-based method to split visitors into two groups to display different content or slightly change the design of the site depending on the group. You'd then feed this into your analytics software and compare the numbers, conversion rates, etc.
 
