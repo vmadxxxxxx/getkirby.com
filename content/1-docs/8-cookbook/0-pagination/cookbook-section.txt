@@ -12,7 +12,7 @@ Description: Use pagination to divide a list of post or similar content into dig
 
 Text:
 
-The time will come when we have more than just a few articles in our blog and we can't show them all on one page.
+The time will come when we have more than just a few articles or projects in our blog/projects list and we can't show them all on one page.
 
 This has been the code for fetching and displaying our articles on the main blog page:
 

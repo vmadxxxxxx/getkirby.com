@@ -27,7 +27,7 @@ In this tutorial we are going to build a very basic one-pager. Here’s a rough 
 
 (image: 02.png)
 
-This looks like a regular Kirby-powered websites with multiple subpages, but this will work just great for our single-page website as well.
+This looks like a regular Kirby-powered website with multiple subpages, but this will work just great for our single-page website as well.
 
 ### Why visible folders?
 
@@ -35,7 +35,7 @@ We have a visible folder (those with the prepended numbers) for each content sec
 
 ### `home` and `error`
 
-There’s an additional invisible `home` folder with a `home.txt`. This is needed to tell Kirby that the homepage has a `home.php` template, which will be used to diplay all the sections above. We’ll get to that later.
+There’s an additional invisible `home` folder with a `home.txt`. This is needed to tell Kirby that the homepage has a `home.php` template, which will be used to display all the sections above. We’ll get to that later.
 
 The error folder is used to display a 404 error page, when someone tries to access a non-available page on your site.
 
@@ -71,7 +71,7 @@ You are free to add whatever fields you need in each text file. Here are some po
     ----
     url: http://projecturl.com
 
-You are free to add whatever metadata you need for your projects. Photographers will probably need different fields from projects of an architect or designer. It’s completely up to you.
+You are free to add whatever metadata you need for your projects. Photographers will probably need different fields than projects of an architect or designer. It’s completely up to you.
 
 ### `testimonials.txt`
 
@@ -272,3 +272,10 @@ As a final step you should setup a proper `error.php` template. It doesn’t hav
 ## Final thoughts
 
 With those few simple steps, you get a very comfortable setup for your “one-pager” which will be super easy to update and maintain. But please just take this as inspiration for your own project. It’s up to you to stick those pieces together in a way you are most happy with. Working with subfolders not only for full rendered pages can be a very cool way to store and retrieve data with Kirby. Once you get the hang of it, you will be able to come up with pretty anything you have in mind.
+
+----
+Internals:
+
+Modules Plugin
+  link: https://github.com/getkirby-plugins/modules-plugin
+  text: Kirby Modules Plugin

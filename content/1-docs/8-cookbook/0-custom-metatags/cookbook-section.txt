@@ -48,15 +48,15 @@ What we want here is to check for custom description and keywords for the curren
 …
 
 <?php if($page->description() != ''): ?>
-<meta name="description" content="<?php echo html($page->description()) ?>" />
+<meta name="description" content="<?php echo $page->description()->html() ?>" />
 <?php else: ?>
-<meta name="description" content="<?php echo html($site->description()) ?>" />
+<meta name="description" content="<?php echo site->description()->html() ?>" />
 <?php endif ?>
 
 <?php if($page->keywords() != ''): ?>
-<meta name="keywords" content="<?php echo html($page->keywords()) ?>" />
+<meta name="keywords" content="<?php echo $page->keywords()->html() ?>" />
 <?php else: ?>
-<meta name="keywords" content="<?php echo html($site->keywords()) ?>" />
+<meta name="keywords" content="<?php echo $site->keywords()->html() ?>" />
 <?php endif ?>
 
 …

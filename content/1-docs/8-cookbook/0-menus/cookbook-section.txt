@@ -235,7 +235,7 @@ It's often needed to style particular items in a menu without touching the other
 ```php
 <nav>
   …
-  <li class="<?php echo $item->uid() ?>"><a<?php ecco($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></a></li>
+  <li class="<?php echo $item->uid() ?>"><a<?php ecco($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo $item->title()->html() ?></a></li>
   …
 </nav>
 ```
@@ -262,7 +262,7 @@ Especially in nested menus it can be helpful to have an additional selector, whi
 ```php
 <nav>
   …
-  <li class="depth-<?php echo $item->depth() ?>"><a<?php ecco($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></a></li>
+  <li class="depth-<?php echo $item->depth() ?>"><a<?php ecco($item->isOpen(), ' class="active"') ?> href="<?php echo $item->url() ?>"><?php echo $item->title()->html() ?></a></li>
   …
 </nav>
 ```

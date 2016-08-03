@@ -20,11 +20,11 @@ Tags: tutorial, json, api
 
 Text:
 
-I've been asked yesterday, if it is possible to generate JSON with Kirby instead of HTML.
+With Kirby, you cannot only generate HTML output. In this recipe, we will explain how to generate JSON with Kirby.
 
-If you've never heard about (link: http://en.wikipedia.org/wiki/JavaScript_Object_Notation text: JSON), this post is probably not for you, but you should definitely learn more about it – it's awesome!
+If you've never heard about (link: http://en.wikipedia.org/wiki/JavaScript_Object_Notation text: JSON), this tutorial is probably not for you, but you should definitely learn more about it – it's awesome!
 
-Kirby's template system does not really care, what you build with it. In fact you could even generate an Excel spreadsheet with the data of your site – though nobody wants that :)
+Kirby's template system does not really care what you build with it. In fact you could even generate an Excel spreadsheet with the data of your site – though nobody wants that :)
 
 For this tutorial we are going to build a little JSON API for our blog, which will provide a list of articles as JSON string. You could use that to add endless scrolling for your blog for example, or to load blog articles dynamically in some other fancy way.
 

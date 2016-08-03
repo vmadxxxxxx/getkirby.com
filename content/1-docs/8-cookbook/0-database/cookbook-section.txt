@@ -26,7 +26,7 @@ Here are some examples where a database is definitely a better idea than using t
 
 - a self-made comment system
 - a newsletter list
-- tracking downloads/pageviews or other statistics
+- tracking downloads/page views or other statistics
 - a contact form, which stores the sent messages
 - huge lists of data, which may end up with thousands of entries
 - in general most kinds of user generated content
@@ -232,7 +232,7 @@ db::delete('comments', array('email' => 'bastian@getkirby.com'));
 
 ## Complex queries
 
-There are a couple of other shortcuts for common SQL queries, but if you have some complex query or you just feel more comforable by using normal SQL, you can use the query function:
+There are a couple of other shortcuts for common SQL queries, but if you have some complex query or you just feel more comfortable by using normal SQL, you can use the query function:
 
 ```php
 $result = db::query('SELECT * FROM comments JOIN users ON comment_user = user_id ORDER BY comment_date DESC LIMIT 0,10');

@@ -1,4 +1,4 @@
-Title: Tags
+Title: Filtering content with tags
 
 ----
 
