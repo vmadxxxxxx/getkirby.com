@@ -75,7 +75,8 @@ kirby()->routes(array(
 
       …
 
-  }
+    }
+  )
 ));
 ```
 
@@ -112,7 +113,8 @@ kirby()->routes(array(
 
       …
 
-  }
+    }
+  )
 ));
 ```
 
@@ -159,7 +161,8 @@ kirby()->routes(array(
         die('File not found');
       }
 
-  }
+    }
+  )
 ));
 ```
 
@@ -210,7 +213,8 @@ kirby()->routes(array(
         die('File not found');
       }
 
-  }
+    }
+  )
 ));
 ```
 
