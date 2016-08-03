@@ -77,9 +77,9 @@ This is just a basic example of how the article template could look:
 
 <article>
 
-  <h1><?php echo html($page->title()) ?></h1>
+  <h1><?php echo $page->title()->html() ?></h1>
   <time><?php echo $page->date('d.m.Y') ?></time>
-  <?php echo kirbytext($page->text()) ?>
+  <?php echo $page->text()->kirbytext() ?>
 
   <?php $author = $pages->find('authors/' . $page->author()) ?>
   <aside class="author">
@@ -90,7 +90,7 @@ This is just a basic example of how the article template could look:
       <img src="<?php echo $author->images()->first()->url() ?>">
     </figure>
 
-    <?php echo kirbytext($author->bio()) ?>
+    <?php echo $author->bio()->kirbytext() ?>
 
     <h2>On the web:</h2>
 
@@ -127,7 +127,7 @@ In that template you can loop through all subfolders of the authors folder and b
 <?php foreach($page->children() as $author): ?>
 <article class="author">
 
-  <h1><?php echo html($author->name()) ?></h1>
+  <h1><?php echo $author->name()->html() ?></h1>
 
   <figure>
     <img src="<?php echo $author->images()->first()->url() ?>">
@@ -149,6 +149,6 @@ Each author will show up on http://yourdomain.com/authors with the profile pictu
 
 ## Conclusion
 
-It's not a full-blown authoring system with permissions or a editing workflow. It's really just a nice and simple way to add author information to your articles and pages without having to reenter it for each article.
+It's not a full-blown authoring system with permissions or an editing workflow. It's really just a nice and simple way to add author information to your articles and pages without having to reenter it for each article.
 
 Let me know if you use something similar on your Kirby site. I'd love to add it here as a reference.

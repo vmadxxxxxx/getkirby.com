@@ -2,7 +2,15 @@ Title: Creating pages from frontend
 
 ----
 
-Description: Create new pages from user input on the frontend, e.g. for an event registration.
+Date: 03.08.2016
+
+----
+
+Category: content structure
+
+----
+
+Description: Create new pages from user input on the front end, e.g. for an event registration.
 
 ----
 

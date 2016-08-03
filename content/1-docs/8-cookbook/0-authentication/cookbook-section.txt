@@ -16,7 +16,7 @@ Text:
 
 Kirby's internal user system is not only made for Panel users, it can also be used for parts of your website, which should be locked and only available to certain users (clients for example)
 
-This tutorial will guide you throught the necessary steps to build a login form and a logout as well as protecting certain templates from unauthenticated users.
+This tutorial will guide you through the necessary steps to build a login form and a logout as well as protecting certain templates from unauthenticated users.
 
 ## User management
 
@@ -261,3 +261,9 @@ The (link: docs/cheatsheet/#user text: $user) object can be used to display all 
   <?php endif ?>
 </header>
 ```
+----
+Internals:
+
+Build an asset firewall
+  link: docs/cookbook/asset-firewall
+  text: Build an asset firewall to protect your assets
