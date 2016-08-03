@@ -20,18 +20,15 @@ Tags: tutorial
 
 Text:
 
-After quite a long break it's time to start with some fresh tutorials.
-Today I'm starting with a little tutorial about how to have more fun with foreach loops.
-
 Foreach loops are needed all over the place. No matter if you build a menu, a simple list of subpages, a gallery, a table of contents, you name it – foreach loops are your best friends in templates.
 
 ```php
 <nav>
- <ul>
-   <?php foreach($pages->visible() as $item): ?>
-   <li><a href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></li>
-   <?php endforeach ?>
- </ul>
+  <ul>
+    <?php foreach($pages->visible() as $item): ?>
+    <li><a href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></li>
+    <?php endforeach ?>
+  </ul>
 </nav>
 ```
 
