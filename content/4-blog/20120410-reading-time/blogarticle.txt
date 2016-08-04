@@ -12,6 +12,8 @@ Tags: tutorial, blog, plugin
 
 Text:
 
+**Is this plugin up to date?**
+
 Time is precious and sometimes it would be just great to know if it is worth starting to read a blog article right now, or save it for later when you got more time to read it. That's where the new (link: https://github.com/bastianallgeier/kirbycms-extensions/blob/master/plugins/readingtime text: Reading Time Plugin) by (link: http://roylodder.com text: Roy Lodder) comes in handy.
 
 The Plugin makes it easy to display the estimated time to read any text in Kirby.
@@ -76,4 +78,3 @@ echo readingtime($page->text(), array(
 This makes the plugin very flexible and you gain full control of the generated HTML.
 
 I think it's a fantastic plugin and a great addition to any blog. Thanks to (link: http://roylodder.com text: Roy) for his help.
-

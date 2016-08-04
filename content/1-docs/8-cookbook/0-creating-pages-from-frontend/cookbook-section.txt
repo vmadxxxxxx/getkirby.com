@@ -1,0 +1,347 @@
+Title: Creating pages from frontend
+
+----
+
+Date: 03.08.2016
+
+----
+
+Category: content structure
+
+----
+
+Description: Create new pages from user input on the front end, e.g. for an event registration.
+
+----
+
+Methods: $pages->create(), $page->update(), invalid(), r::is(), get(), esc(),
+
+----
+Text:
+(toc)
+In this recipe you will learn how you can use Kirby's API to create pages or add to structure fields based on user input entered into a form on the front end. A typical use case for this is an event or newsletter registration form. Along the way we will see how we can validate the form input to make sure we get the type of data we want and to prevent (link: https://en.wikipedia.org/wiki/Cross-site_scripting text: XSS attacks).
+
+We will walk through two scenarios:
+
+- store user input as subpages
+- store user input as structure field entries
+
+## The registration form snippet
+
+Let's start with a pretty basic HTML event registration form. We save the form in a snippet called `registration-form.php`.
+
+```php
+<form class="event-registration" action="<?= $page->url() ?>" method="post">
+
+  <div class="form-element">
+    <label for="firstname">First Name: *</label>
+    <input type="text" id="firstname" name="firstname" placeholder="First name" value="<?= isset($data['firstname']) ? $data['firstname'] : '' ?>" required/>
+  </div>
+
+  <div class="form-element">
+    <label for="lastname">Last Name: *</label>
+    <input type="text" id="lastname" name="lastname" placeholder="Last name" value="<?= isset($data['lastname']) ? $data['lastname'] : '' ?>" required/>
+  </div>
+
+  <div class="form-element">
+    <label for="company">Company: </label>
+    <input type="text" id="company" name="company" placeholder="Company" value="<?= isset($data['company']) ? $data['company'] : '' ?>"/>
+  </div>
+
+  <div class="form-element">
+    <label for="email">Email: *</label>
+    <input type="email" name="email" id="email" placeholder="mail@example.com" value="<?= isset($data['email']) ? $data['email'] : '' ?>" required/>
+  </div>
+
+  <div class="form-element">
+    <label for="message">Message:</label>
+    <textarea name="message" id="message" placeholder="Do you have any comments?"><?= isset($data['message']) ? $data['message'] : '' ?></textarea>
+  </div>
+
+  <div class="honey">
+     <label for="message">If you are a human, leave this field empty</label>
+     <input type="website" name="website" id="website" placeholder="http://example.com" value="<?= isset($data['website']) ? $data['website'] : '' ?>"/>
+  </div>
+  <p>* required</p>
+
+  <button class="button" type="submit" name="register" value="Register">Register</button>
+
+</form>
+```
+
+The form contains some standard form fields (firstname, lastname, company, email and message) and a [honeypot](https://en.wikipedia.org/wiki/Honeypot_(computing)) field to prevent spam.
+
+The honeypot field is moved out of the visible screen area via CSS, so that it is not visible to human visitors. The label tells visitors who use screen readers to leave this field empty.
+
+```css
+.honey {
+  position: absolute;
+  left: -9999px;
+}
+```
+
+The form snippet is included in a template called `event.php` because we want it shown on every event page that uses this template.
+
+When we submit the form, the action attribute calls the URL of the current page. The input data is processed in the `event.php` controller.
+
+## The event.php controller
+
+```php
+<?php
+
+return function($site, $pages, $page) {
+
+  $alert = null;
+
+  if(r::is('post') && get('register')) {
+    if(!empty(get('website'))) {
+      // lets tell the bot that everything is ok
+      go($page->url());
+      exit;
+    }
+    $data = array(
+      'firstname' => esc(get('firstname')),
+      'lastname'  => esc(get('lastname')),
+      'company'   => esc(get('company')),
+      'email'     => esc(get('email')),
+      'message'   => esc(get('message'))
+    );
+
+    $rules = array(
+      'firstname' => array('required'),
+      'lastname'  => array('required'),
+      'email'     => array('required', 'email'),
+    );
+    $messages = array(
+      'firstname' => 'Please enter a valid first name',
+      'lastname'  => 'Please enter a valid last name',
+      'email'     => 'Please enter a valid email address',
+    );
+
+    // some of the data is invalid
+    if($invalid = invalid($data, $rules, $messages)) {
+      $alert = $invalid;
+    } else {
+
+      // everything is ok, let's try to create a new registration
+      try {
+
+        $newRegistration = $page->find('registrations')->children()->create(str::slug($data['lastname'] . '-' . $data['firstname'] . '-' . time()) , 'register', $data);
+
+        $success = 'Your registration was successful';
+        $data = array();
+
+      } catch(Exception $e) {
+        echo 'Your registration failed: ' . $e->getMessage();
+      }
+    }
+  }
+
+  return compact('alert', 'data', 'success');
+};
+```
+That's a lot of stuff here, so let's go through this one step at a time:
+
+First, we initialize the `$alert` variable to prevent an error in our template if the variable is not set.
+
+```php
+$alert = null;
+```
+
+Then we check if the request was a post request using `r::is('post')` and if the data was submitted by the `register` submit button.
+
+```php
+if(r::is('post') && get('register')) { ... }
+```
+
+Before we move any further, we check our honeypot trap. If it is filled in, we know that some bot filled the form, redirect to the current page and exit the controller.
+
+```php
+if(!empty(get('website'))) {
+  // lets tell the bot that everything is ok
+  go($page->url());
+  exit;
+}
+```
+
+Now that we have made sure the data was not send via some bot, we store it in the `$data` array. We fetch each element of the post data array using the `get()` method by its key.
+
+When dealing with user input, two things are important:
+
+1. Some of our website visitors might not have the best intentions, they might try to attack the website by trying to inject malicious code. We therefore need to sanitize data to prevent that. Here, we use the `esc()` helper function to escape all tags.
+
+```php
+$data = array(
+  'firstname' => esc(get('firstname')),
+  'lastname'  => esc(get('lastname')),
+  'company'   => esc(get('company')),
+  'email'     => esc(get('email')),
+  'message'   => esc(get('message'))
+);
+```
+
+2. We need to make sure that we get the data we expect. Since we marked some of the fields as required and we also want to make sure that we get an email address when we expect an email address, we next set up a array of rules using Kirby's validators. For each element of the rules array, we define an array of validators. In this example we pass the rules a a multi-dimensional array that is later passed to the `invalid()` helper.
+
+```php
+$rules = array(
+  'firstname' => array('required'),
+  'lastname'  => array('required'),
+  'email'     => array('required', 'email'),
+);
+```
+
+We also want to tell the user what is wrong if the validator fails with an array of messages for every validated field:
+
+```php
+$messages = array(
+  'firstname' => 'Please enter your first name',
+  'lastname'  => 'Please enter your last name',
+  'email'     => 'Please enter a valid email address',
+);
+```
+
+We check if any of the data is invalid using the `invalid()` helper. It takes three arguments, the `$data` array, the `$rules` array, and the `$messages` array. If some of the data is invalid, it is stored in the `$alert` variable. Internally, the helper uses (link: https://getkirby.com/docs/cheatsheet#validators text: Kirby's built-in validators).
+
+```php
+if($invalid = invalid($data, $rules, $messages)) {
+  $alert = $invalid;
+}
+```
+
+Finally, if everything is ok, we can try to create a new subpage from the data. To do so, we use a `try/catch` block which allows us to react on possible errors. We assume that each event page has a subpage called registrations and try to create the new pages as subpages of `/registrations`. If the page can be created, we store a success message in `$success`
+
+```php
+// everything is ok, let's try to create a new registration
+try {
+
+  $newRegistration = $page->find('registrations')->children()->create(str::slug($data['lastname'] . '-' . $data['firstname'] . '-' . time()) , 'register', $data);
+
+  $success = 'Your registration was successful';
+  $data = array();
+
+} catch(Exception $e) {
+  echo 'Your registration failed: ' . $e->getMessage();
+}
+```
+
+If the registration fails, we echo a failure message.
+
+As a last action in the controller, we return all our variables to the template:
+
+```php
+return compact('alert', 'data', 'success');
+```
+
+## Save registrations as structure field
+
+We don't have to save our registrations as subpages, we might as well add those entries to a structure field. A structure field requires the data as a yaml array, so we have to encode our data first before trying to save it to the page.
+
+We use a little function for that, the function can be stored either in the controller or in a plugin file.
+
+```php
+<?php
+
+function addToStructure($p, $field, $data = array()) {
+  $fieldData = $p->$field()->yaml();
+  $fieldData[] = $data;
+  $fieldData = yaml::encode($fieldData);
+  $p->update(array(
+    $field => $fieldData
+  ));
+}
+```
+
+The function accepts/requires three arguments:
+
+- `$p`: the page where the data should be saved, in our example we want to save the data to the subpage registrations, which is a subpage of the event page.
+- `$field`: the name of the structure field, here we call it `registrations`
+- `$data`: the user input array
+
+Within the function, we first fetch the current contents of the field using the `yaml()` method:
+
+```php
+$fieldData = $p->$field()->yaml();
+```
+
+Then we add the user data to this array:
+
+```php
+$fieldData[] = $data;
+```
+
+We convert the data to yaml using `yaml::encode`:
+
+```php
+$fieldData = yaml::encode($fieldData);
+```
+
+And then update the field with the field data:
+
+```php
+$p->update(array(
+  $field => $fieldData
+));
+```
+
+With this function in place, we modify our controller code from above like this:
+
+
+```php
+// everything is ok, let's try to create a new registration
+try {
+
+  addToStructure($page->find('registrations'), 'registrations', $data);
+
+  $success = 'Your registration was successful';
+  $data = array();
+
+} catch(Exception $e) {
+  echo 'Your registration failed: ' . $e->getMessage();
+}
+```
+
+## The event.php template
+
+Now that we are almost finished, let's complete our `event.php` so that it shows the alerts to the user and only shows the form if the form was not successfully submitted yet.
+
+```php
+<?php snippet('header') ?>
+
+<?php
+// if the form was successfully submitted and the page created, show the success message
+if(isset($success)): ?>
+  <div class="message">
+    <?php echo $message; ?>
+  </div>
+<?php endif ?>
+
+
+<?php
+// if the form input does not validate, show a list of alerts
+if($alert): ?>
+  <div class="alert">
+    <ul>
+      <?php foreach($alert as $message): ?>
+        <li><?php echo html($message) ?></li>
+      <?php endforeach ?>
+    </ul>
+  </div>
+<?php endif ?>
+
+<?php if(!isset($success)) {
+  // if the $success variable is not set, show the form (i.e. when the page is first loaded or the form submission was not successful)
+  snippet('form', compact('data'));
+}
+?>
+<?php snippet('footer') ?>
+```
+
+That's it for now. If you enjoyed this recipe, let us know. And if you have any suggestions of how to improve it or if you get stuck, contact us via (link: https://forum.getkirby.com text: the forum).
+
+----
+Externals:
+
+HTML5 & Javascript form validation
+
+  text: HTML5 & javascript form validation
+  link: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/Data_form_validation

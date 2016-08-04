@@ -1,0 +1,318 @@
+Title: Columns in Kirbytext
+
+----
+
+Date: 16.12.2014
+
+----
+
+Category: extensions
+
+----
+
+Description: Learn how you can add columns to your textarea fields with this Kirbytag.
+
+----
+
+Tags: kirbytag, columns
+
+----
+
+Text:
+
+I received a support request today asking for help with a (link: forum/code-snippets/20140731/kirbytext-columns text: Kirbytag extension), that tried to solve multi-column text. It was based on the regular way to (link: docs/advanced/kirbytext text: extend Kirbytext) with your own tags and tried to solve this like this:
+
+```
+(twocol: start)
+Left column
+(twocol: break)
+Right column
+(twocol: end)
+```
+
+It somehow worked but looked very hacky and not very usable for editors. It also introduced an issue with Markdown not being parsed inside the columns, which is another story.
+
+So I sat down and tried to come up with (link: https://github.com/getkirby-plugins/columns-plugin text: a more elegant solution) to this problem. Unfortunately the most elegant solution in my opinion cannot be solved with the default way to create your own Kirbytags. It looks like this:
+
+```
+(columns…)
+
+Left column
+
+++++
+
+Right column
+
+(…columns)
+
+```
+
+It doesn't look that much easier in the first place, but when you look at how simple it is to add columns to it, you will probably understand why this syntax is cleaner in the end. I also think that it looks more "human" to have something like (columns…) and (…columns) instead of (twocol:start) and (twocol:end)
+
+```
+(columns…)
+
+Left column
+
+++++
+
+Center column
+
+++++
+
+Right column
+
+(…columns)
+
+```
+
+The number of columns is not limited. Just add more `++++` separators for more columns.
+
+## Implementation
+
+As I already mentioned, this cannot be done with a regular Kirbytag, since Kirbytags are single tags and cannot be wrapped around text to capture it.
+
+Fortunately Kirbytext has a feature called **pre and post filters**. All pre filters will be applied to the text before all the other Kirbytags are being rendered and before Markdown is being parsed. All post filteres will be applied afterwards.
+
+Those filters are easy to add and the best place to create them is in plugins.
+
+### The filter plugin
+
+Kirbytext filters are simple callbacks, which can be added to the `kirbytext::$pre[]` or `kirbytext::$post[]` arrays. Those callbacks receive two arguments:
+
+1. `$kirbytext` …is the parent kirbytext object
+2. `$text` …contains the raw text, which can be modified and must be returned
+
+A plain filter looks like this:
+
+```php
+<?php
+kirbytext::$pre[] = function($kirbytext, $text) {
+  // do something with the text here
+  return $text;
+};
+
+```
+
+### The regular expression voodoo
+
+As the first step to achieve the syntax for the columns, we need to fetch the columns tags:
+
+```php
+$text = preg_replace_callback('!\(columns(…|\.{3})\)(.*)\((…|\.{3})columns\)!is', function($matches) use($kirbytext) {
+  // do something with the stuff inside the brackets here
+}, $text);
+```
+
+The regular expression looks horrible, as all regular expressions do, but it's rather simple:
+
+```
+!\(columns(…|\.{3})\)(.*)\((…|\.{3})columns\)!is
+```
+
+The exclamation marks define the beginning and the end of the expression.
+
+`is` at the end makes sure the expression is case insensitive and the `s` tells the expression to include new lines.
+
+We could simplify the inner part like this:
+
+```
+\(columns…\)(.*)\(…columns\)
+```
+
+The only thing that looks creepy now are all the backslashes, but they are only there to escape the brackets, which are normally being used to group matches, which you can see here: `(.*)` This little thing translates to: take everything between the opening columns tag and the closing columns tag and put it in a group.
+
+The final expression is only a bit more complicated to make sure an editor can either write an ellipsis or three dots:
+
+```
+(columns…) or (columns...)
+```
+
+This is done with a simple "or" clause, which looks like this:
+
+```
+(…|\.{3})
+```
+
+The `\.{3}` translates into: a dot which repeats three times. A dot is another magic character in regular expressions and therefor has to be escaped with the backslash again.
+
+So finally our regular expression fetches what we want and passes the matches to the callback function.
+
+```php
+function($matches) use($kirbytext) {
+}
+```
+*This is the shortened version for better legibility. Check out the the code above for the full preg_replace_callback call.*
+
+The `$matches` variable is an array with the following content:
+
+0. the entire match starting with the beginning columns tag ending with the closing tag.
+1. the first "or" group (… or ...)
+2. the content between the tags
+3. the second "or" group (… or ...)
+
+Since arrays start their index at zero, we can get the content between the tags with `$matches[2]`
+
+### Splitting content into columns
+
+Now that we got the content in between the tags, we can simply look for our separators and split the content into nice pieces for the columns.
+
+```php
+$columns = preg_split('!\R\+{4}\s+\R!', $matches[2]);
+```
+
+Since we are all regular expression experts now, the expression above isn't that scary anymore. The only new things are `\R` which stands for any line breaks and `\s` which stands for spaces. So the expression above translates to:
+
+*Split the content when there's a line break, followed by four plus signs, follwed by one or more spaces, followed by a line break again.*
+
+Et voilà, we get a beautiful `$columns` array with text separated into nice handy chunks for our columns.
+
+### Nested Kirbytext
+
+The columns tags are only useful if an editor can use Kirbytext and Markdown inside of them. To achieve this we must manually parse the content for each column as Kirbytext.
+
+The simplified way to do this would be:
+
+```php
+$html = array();
+
+foreach($columns as $column) {
+  $html[] = '<div class="column">' . kirbytext($column) . '</div>';
+}
+
+```
+
+But unfortunately it gets a bit more complex here. Kirbytext always relies on the related page object in order to get a few things right, such as related images, urls, data, etc. This is why Kirby is using Field objects instead of simple strings for any content that comes from pages and might be parsed with Kirbytext. Those Field objects contain the relation to the Page object and make sure that everything is linked correctly.
+
+If we simply call the kirbytext helper on a regular string like in the example above, the relation to the original Page object would be lost and it would no longer be possible to embed images, which are stored in the content folder of the Page, etc.
+
+That's why we need to wrap the string in a new Field object and connect it with the page again. Fortunately this is very easy to do.
+
+```php
+foreach($columns as $column) {
+  $field  = new Field($kirbytext->field->page, null, trim($column));
+  $html[] = '<div class="column">' . kirbytext($field) . '</div>';
+}
+```
+
+We passed the $kirbytext variable to the preg_replace_callback callback with `use($kirbytex)` (check the code above) so we can use it now to fetch the original Page object and pass it to the new Field object. The second argument is normally used for the field key, but is not needed in this case. As the last parameter we pass the string from the `$columns` array and trim it to remove any spaces at the beginning or the end.
+
+### The final HTML
+
+We end up with an `$html` array with separate entries for each column. The HTML for each column looks like this:
+
+```markup
+<div class="column">column content</div>
+```
+
+A simple implode function together with a wrapping div makes everything complete.
+
+```php
+return '<div class="columns">' . implode($html) . '</div>';
+```
+
+But the grid is still missing the information how many columns it has. We need this for the CSS to adjust the column width. Fortunately we know the column count from the `$columns` array and can add it to the wrapping `columns` div.
+
+```php
+return '<div class="columns columns-' . count($columns) . '">' . implode($html) . '</div>';
+```
+*Sorry for the broken syntax highlighting. Prism.js cannot handle this combination of HTML and PHP*
+
+### Finalization
+
+Finally I added configurable class names to the div tags, which I'm not going to explain further. I think it should be pretty clear. The final code for the plugin looks like this:
+
+```php
+kirbytext::$pre[] = function($kirbytext, $text) {
+
+  $text = preg_replace_callback('!\(columns(…|\.{3})\)(.*)\((…|\.{3})columns\)!is', function($matches) use($kirbytext) {
+
+    $columns = preg_split('!\R\+{4}\s+\R!', $matches[2]);
+    $html    = array();
+
+    foreach($columns as $column) {
+      $field = new Field($kirbytext->field->page, null, trim($column));
+      $html[] = '<div class="' . c::get('columns.item', 'column') . '">' . kirbytext($field) . '</div>';
+    }
+
+    return '<div class="' . c::get('columns.container', 'columns') . ' ' . c::get('columns.container', 'columns') . '-' . count($columns) . '">' . implode($html) . '</div>';
+
+  }, $text);
+
+  return $text;
+
+};
+```
+
+The plugin is now ready to be used. Put it in `/site/plugins/columns/columns.php` and it should be ready to go.
+
+## CSS
+
+After all the PHP mess this plugin relies on some CSS to display the columns correctly. Otherwise you will only get some regular looking text — at least a nice fallback.
+
+For the columns I decided to use a grid system, which I absolutely love. It's the grid Harry Roberts (twitter: @csswizardry) introduced for his SASS framework (link: https://github.com/csswizardry/inuit.css/ text: inuit.css) In my opinion it is pure genius and very versatile. It has no support for IE8 though, so you should probably look for a different solution if you need that.
+
+Harry's grid uses `display:inline-block` for the columns and percentages for the width of each column. The CSS for this is very short and can be easily adapted. It's also great that you can nest this kind of grid very easily.
+
+The gutter looks bit hacky because of the negative margin, but works amazingly well across modern browsers. But let's not dive any deeper and just have a look at the code.
+
+```css
+.columns {
+  margin-right: -2rem;
+}
+.column {
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 2rem;
+}
+.columns-1 .column {
+  width: 100%;
+}
+.columns-2 .column {
+  width: 50%;
+}
+.columns-3 .column {
+  width: 33.33%;
+}
+.columns-4 .column {
+  width: 25%;
+}
+.columns-5 .column {
+  width: 20%;
+}
+```
+
+As you can see this grid system is super simple and yet this can be extended to any reasonable number of columns by just adding more columns classes with additional smaller percentages. It's also very easy to add media queries.
+
+If you'd like to adjust or remove the gutter, just change the right margin in the `.columns` class and the right padding in the `.column` class.
+
+Once you've added the code above to your CSS file for your site, you should be able to see your grid.
+
+(image: columns.png)
+
+Your editors can now add any number of columns, which is supported in your CSS and otherwise it will simply fall back to regular text without columns. You might want to call it progressive enhancement :)
+
+### Adjusting the classnames
+
+It's quite possible that you might not be happy with my choice of classnames. Since I added the configuration variables to the divs above you can now set your own classnames in the config:
+
+```php
+c::set('columns.wrapper', 'awesome-columns');
+c::set('columns.item', 'awesome-column');
+```
+
+Afterwards the HTML for the grid will look like this:
+
+```markup
+<div class="awesome-columns awesome-columns-3">
+  <div class="awesome-column">a</div>
+  <div class="awesome-column">b</div>
+  <div class="awesome-column">c</div>
+</div>
+```
+
+## Download
+
+I hope you like this little grid system plugin and it will help you to come up with a bit more complex text layouts.
+
+The full code for this plugin can be found here: <https://github.com/getkirby-plugins/columns-plugin>

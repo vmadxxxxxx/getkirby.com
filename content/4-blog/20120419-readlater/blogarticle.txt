@@ -12,6 +12,8 @@ Tags: plugin, tutorial
 
 Text:
 
+**Is this plugin up to date?**
+
 (link: http://roylodder.com text: Roy Lodder) has come up with another great extension for Kirby: (link: https://github.com/bastianallgeier/kirbycms-extensions/blob/master/plugins/readlater/ text: The Read Later Plugin)
 
 You can use the plugin to provide handy links for your visitors to save the current page or article with (link: http://instapaper.com text: Instapaper) or (link: http://getpocket.com text: Pocket).
@@ -73,5 +75,3 @@ You can also change the CSS selector, target and rel attribute for each link:
 ## Get involved
 
 It would be great to have support for (link: http://readability.com/ text: Readability) or other sharing/read later services. The plugin is very easy to extend, so just get involved and (link: https://github.com/bastianallgeier/kirbycms-extensions/blob/master/plugins/readlater/ text: fork the plugin on Github).
-
-

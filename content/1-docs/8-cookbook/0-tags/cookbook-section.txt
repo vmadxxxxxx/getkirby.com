@@ -1,0 +1,201 @@
+Title: Filtering content with tags
+
+----
+
+Category: content structure
+
+----
+
+Description: Tags are an excellent way to classify your content and make it easy for your visitors to find related content. Here's how.
+
+----
+
+Text:
+
+Tags are a great way to separate your content into different categories and make it easier for your visitors to find the articles and pages they are looking for.
+
+## Adding Tags to your content
+
+The perfect format to add tags to your content is a comma separated list.
+
+    Title: Some title
+    ----
+    Text: Some great text
+    ----
+    Tags: design, photography, architecture, whatever
+    ----
+
+Looks quite natural, right?
+
+## Filtering content by tag
+
+The `filterBy()` method is built to make it possible to filter pages by a certain value in a field and even to filter pages by a certain value in a separated list like the tags list above. So we can use that to filter a set of pages by tag in a single line:
+
+```php
+$filtered = $page->children()->filterBy('tags', 'design', ',');
+```
+
+This will search through all children of the current page and return all pages with the tag "design". The third argument of the method is telling it to search in a comma separated list. If you prefer to separate your tags with any other character you are free to do that and specify that separation character here.
+
+In our `blog.php` template we fetched the latest articles like this:
+
+```php
+$articles = $page->children()
+                 ->visible()
+                 ->flip()
+                 ->paginate(10);
+
+```
+
+So if you want to filter them by a specific tag, go for:
+
+```php
+$articles = $page->children()
+                 ->visible()
+                 ->filterBy('tags', 'design', ',')
+                 ->flip()
+                 ->paginate(10);
+
+```
+
+## Controlling the filter by URL
+
+At the end we want to be able to have different URLs for each tag filter. So something like `http://yourdomain.com/blog/tag:fun` should show all articles with tagged fun and `http://yourdomain.com/blog/tag:design` should show all design articles.
+
+It's very easy to fetch those parameters passed by the URL with Kirby:
+
+```php
+// url: http://yourdomain.com/blog/tag:design
+echo param('tag');
+// result: design
+
+// url: http://yourdomain.com/blog/tag:fun
+echo param('tag');
+// result: fun
+
+```
+
+So what we need to do is to replace `'design'` in our articles example above with the param function.
+
+```php
+$articles = $page->children()
+                 ->visible()
+                 ->filterBy('tags', param('tag'), ',')
+                 ->flip()
+                 ->paginate(10);
+
+```
+
+Now you can filter all your articles in your blog by specifying the tag in the URL.
+
+Of course we want to make sure that the filter is only applied when a tag is added to the URL. We need a little if clause to do that:
+
+```php
+
+// fetch the basic set of articles
+$articles = $page->children()->visible()->flip();
+
+// add the tag filter
+if($tag = param('tag')) {
+  $articles = $articles->filterBy('tags', $tag, ',');
+}
+
+// apply pagination
+$articles = $articles->paginate(10);
+
+```
+
+
+## Tagcloud
+
+To fetch all tags for a tagcloud you can use the new pluck method, which will extract a single field into an array.
+
+```php
+<?php
+
+// fetch all tags
+$tags = $page->children()->visible()->pluck('tags', ',', true);
+
+?>
+<ul class="tags">
+  <?php foreach($tags as $tag): ?>
+  <li>
+    <a href="<?php echo url('blog/' . url::paramsToString(['tag' => $tag])) ?>">
+      <?php echo html($tag) ?>
+    </a>
+  </li>
+  <?php endforeach ?>
+</ul>
+```
+
+The `url::paramsToString` method will make sure that the resulting URL is compatible with both Linux and Windows servers.
+
+## Blog Controller
+
+Putting it all together in `/controllers/blog.php` makes it easier to keep the blog template clean.
+
+```php
+return function($site, $pages, $page) {
+
+  // fetch the basic set of pages
+  $articles = $page->children()->visible()->flip();
+
+  // add the tag filter
+  if($tag = param('tag')) {
+    $articles = $articles->filterBy('tags', $tag, ',');
+  }
+
+  // fetch all tags
+  $tags = $articles->pluck('tags', ',', false);
+
+  // apply pagination
+  $articles   = $articles->paginate(10);
+  $pagination = $articles->pagination();
+
+  return compact('articles', 'tags', 'tag', 'pagination');
+
+};
+```
+
+The `blog.php` template has no logic in it afterwards, which makes it very simple and readable. The template will automatically have all the passed variables available ($articles, $pagination, $tags & $tag)
+
+```php
+<?php snippet('header') ?>
+
+<h1>Blog</h1>
+
+<!-- articles -->
+<?php foreach($articles as $article): ?>
+<article>
+  <h1><a href="<?php echo $article->url() ?>"><?php echo $article->title()->html() ?></a></h1>
+  <?php echo $article->text()->excerpt(300) ?>
+</article>
+<?php endforeach ?>
+
+<!-- sidebar with tagcloud -->
+<aside>
+  <h1>Tags</h1>
+  <ul class="tags">
+    <?php foreach($tags as $tag): ?>
+    <li>
+      <a href="<?php echo url($page->url() . '/' . url::paramsToString(['tag' => $tag])) ?>">
+        <?php echo html($tag) ?>
+      </a>
+    </li>
+    <?php endforeach ?>
+  </ul>
+</aside>
+
+<!-- pagination -->
+<nav class="pagination">
+  <?php if($pagination->hasPrevPage()): ?>
+  <a href="<?php echo $pagination->prevPageUrl() ?>">previous posts</a>
+  <?php endif ?>
+
+  <?php if($pagination->hasNextPage()): ?>
+  <a href="<?php echo $pagination->nextPageUrl() ?>">next posts</a>
+  <?php endif ?>
+</nav>
+
+<?php snippet('footer') ?>
+```
