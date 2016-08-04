@@ -4,7 +4,7 @@
   <ul>
     <?php foreach($categories as $category): ?>
       <li>
-        <a href="<?= $page->url() . '/category:' . urlencode($category) ?>"><?= $category ?></a>
+        <a<?php e(param('category') == $category, ' class="is-active"', '')?> href="<?= $page->url() . '/category:' . urlencode($category) ?>"><?= $category ?></a>
       </li>
     <?php endforeach ?>
   </ul>
