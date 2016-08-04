@@ -277,7 +277,7 @@ Let's suppose we had a clothing shop and wanted to give our potential customers 
       <?php if(!$item) continue ?>
 
       <!-- set the option to selected if selected -->
-      <option<?php e(isset($data['color']) && $data['color'] == $item, ' selected') ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
+      <option<?php e(isset($data['color']) && $data['color'] == $item, ' selected') ?> value="<?php echo $item ?>"><?php echo $item?></option>
     <?php endforeach ?>
   </select>
   <select name="brand" onchange="this.form.submit()">
@@ -285,7 +285,7 @@ Let's suppose we had a clothing shop and wanted to give our potential customers 
 
     <?php foreach($brand as $item): ?>
       <?php if ($item == "") continue; ?>
-      <option<?php e(isset($data['brand']) && $data['brand'] == $item, ' selected') ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
+      <option<?php e(isset($data['brand']) && $data['brand'] == $item, ' selected') ?> value="<?php echo $item ?>"><?php echo $item ?></option>
     <?php endforeach ?>
   </select>
   <select name="size" onchange="this.form.submit()">
@@ -293,7 +293,7 @@ Let's suppose we had a clothing shop and wanted to give our potential customers 
 
     <?php foreach($size as $item): ?>
       <?php if($item == "") continue; ?>
-      <option<?php e(isset($data['size']) && $data['size'] == $item, ' selected') ?> value="<?php echo $item->html() ?>"><?php echo $item->html() ?></option>
+      <option<?php e(isset($data['size']) && $data['size'] == $item, ' selected') ?> value="<?php echo $item ?>"><?php echo $item ?></option>
     <?php endforeach ?>
   </select>
 </form>
