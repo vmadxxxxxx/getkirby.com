@@ -47,7 +47,7 @@ The Kirby panel is Kirby's web interface, which makes it easier for clients to c
 The easiest way to install Kirby is the (link: https://github.com/getkirby/starterkit text: Starterkit). It can be installed with a single line in the terminal. Navigate to the place where you want to install Kirby and clone the Starterkit code with…
 
 ```
-git clone --recursive https://github.com/getkirby/starterkit.git your-project
+git clone https://github.com/getkirby/starterkit.git your-project
 ```
 
 Navigate to the project folder:
@@ -117,7 +117,29 @@ We can also highly recommend (link: http://git-tower.com text: Tower) if you are
 
 ## Updating Kirby
 
-When you setup your project as described above, the Kirby core and the Panel are already installed as Git submodules. Updating those submodules is super easy.
+If you want to update the Kirby core and the Panel, all you need to do is add those folders as Git submodules once like this:
+
+```
+// change into your project folder
+cd your-project
+
+// remove the panel and kirby folders
+rm -R panel kirby
+
+// stage the changes
+git add .
+
+// add kirby as submodule
+git submodule add https://github.com/getkirby/kirby.git
+
+// add panel as submodule
+git submodule add https://github.com/getkirby/panel.git
+
+// update all submodules
+git submodule update --init --recursive
+```
+
+Now if you want to update to the latest version of the Kirby core and the panel in the future, all you have to do is checkout the master branch and pull the changes:
 
 ```
 git submodule foreach --recursive git checkout master
@@ -158,6 +180,14 @@ From now on you can update your installation with a single line:
 ```
 ./update.sh
 ```
+
+If you want to checkout the development branch to test the latest features, you can do it in the same way:
+
+```
+git submodule foreach --recursive git checkout develop
+git submodule foreach --recursive git pull
+```
+Then stage and commit your changes like above. This way, you can easily switch between the develop and the master branches.
 
 ## Go beyond
 
