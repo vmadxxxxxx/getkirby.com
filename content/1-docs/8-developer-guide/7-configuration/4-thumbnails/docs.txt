@@ -20,6 +20,12 @@ c::set('thumbs.driver', 'gd');
 c::set('thumbs.driver', 'im');
 ```
 
+If the `ImageMagick` command is at a special location, you can define its path with the `thumbs.bin` option:
+
+```php
+c::set('thumbs.bin', '/usr/local/bin/convert');
+```
+
 ## Changing the filename pattern for thumbnails
 
 By default the pattern for thumbnail filenames follows this rule: 
