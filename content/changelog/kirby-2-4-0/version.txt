@@ -1,0 +1,24 @@
+Title: Kirby 2.4.0
+
+----
+
+Date: 
+
+----
+
+Download: http://download.getkirby.com/kirby-2.4.0.zip
+
+----
+
+Text:
+
+## Panel
+
+
+
+## Core
+
+- The `cache.ignore` now only has to contain URIs of the default language
+
+## Toolkit
+
