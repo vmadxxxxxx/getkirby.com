@@ -101,6 +101,12 @@ c::set('algolia.templates', array(
     },
     'fields' => array('excerpt')
   ),
+  'cookbook-section' => array(
+    'filter' => function($page) {
+      return $page->isVisible();
+    },
+    'fields' => array('category', 'description')
+  ),
   'blogarticle' => array(
     'filter' => function($page) {
       return $page->isVisible();
