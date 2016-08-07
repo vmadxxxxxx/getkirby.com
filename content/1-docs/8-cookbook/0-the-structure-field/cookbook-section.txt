@@ -1,0 +1,241 @@
+Title: Make the most of the structure field
+
+----
+
+Date: 04.08.2016
+
+----
+
+Category: content structure
+
+----
+
+Description: The structure field is great for structured data of all kinds. Find out how to use it in blueprints and templates.
+
+----
+
+Tags:
+
+----
+
+Methods: yaml(), toStructure(), shuffle(), limit(), sort(),
+
+----
+
+Text:
+
+(toc)
+
+The structure field is great for storing repeated blocks of data like addresses, events, team members, references and a lot more. In this recipe, we will look at some examples of how to create a form for the field in the panel, and how to render the data in a template.
+
+## Define a structure field in a blueprint
+
+**Note**: If you don't use the Panel, you can skip this part.
+
+We start with defining our structure field in the blueprint, in this example a pretty simple events field:
+
+```
+title: A New Blueprint
+fields:
+  events:
+    label: Events
+    type: structure
+    style: table
+    fields:
+      event_title:
+        label: Title
+        type: text
+      event_date:
+        label: Date
+        type: date
+      event_location:
+        label: Location
+        type: text
+      event_image:
+        label: Image
+        type: image
+```
+
+You can use pretty much any field within a structure field, except another structure field.
+
+There are some options you can use with the structure field:
+
+- entry
+- style
+- modalsize
+- default
+- readonly
+
+You can find more about these options (link: https://getkirby.com/docs/cheatsheet/panel-fields/structure text: in the structure field docs).
+
+## Structure field entries in the content file
+
+The data is saved to the content file as yaml structured data. After we have added some data via the panel, our content file will look somewhat like this:
+
+```
+events:
+
+-
+  event_title: Cabramatta Moon Festival
+  event_date: 2016-09-04
+  event_location: Sydney
+  event_image: cabramatta.jpg
+-
+  event_title: Paris Hip-Hop Festival
+  event_date: 2016-07-04
+  event_location: Paris
+  event_image: hip-hop.jpg
+-
+  event_title: Pyronale
+  event_date: 2016-09-09
+  event_location: Berlin
+  event_image: pyronale.jpg
+
+```
+
+## Accessing the data in a template
+
+To access these entries in a templates, Kirby provides two methods. The `yaml()` method returns an array, while the `toStructure()` method turns your data into a full-blown Kirby collection. We will look at how to work with both methods.
+
+### Working with a data array
+
+We use the `yaml()` method to get an array of all our events entries:
+
+```php
+<?php
+$events = $page->events()->yaml();
+?>
+```
+
+Now we can loop though this array and output all events. Note that we access the individual fields by their keys:
+
+```php
+<?php
+$events = $page->events()->yaml();
+
+foreach($events as $event): ?>
+
+  <h1><?php echo $event['event_title'] ?></h1>
+  <p><?php echo date('Y-m-d', strtotime($event['event_date'])) ?></p>
+  <p><?php echo $event['event_location'] ?></p>
+  <?php e($image = $page->image($event['event_image']), $image, '') ?>
+
+<?php endforeach ?>
+```
+
+When we output the values of the array, we deal with strings, not with an object. We therefore have to use the `html()` or (`kirbytext()`) helpers, and cannot use object notation. So this would **not** work: `<?php echo $event['event_title']->html() ?>`.
+
+What's happening in the following line?
+
+```php
+<?php echo date('Y-m-d', strtotime($event['event_date'])) ?>
+```
+
+The `strtotime()` function turns our date from the content file into a UNIX timestamp, which we can pass to the [PHP `date()` function](http://php.net/manual/en/function.date.php) to format the date.
+
+In the last line of code before the end of the loop, we output the image:
+
+```php
+<?php e($image = $page->image($event['event_image']), $image, '') ?>
+```
+
+We use the `e()` helper to check if the image exists first, and only then do we echo it. If you want more control over how the image is rendered, you can of course use an image or figure tag and only pass the URL of the image to the `src` attribute like this:
+
+```php
+<?php if($image = $page->image($event['event_image'])): ?>
+  <img class="some-class" src="<?php echo $image->url() ?>">
+<?php endif ?>
+```
+
+### Working with a collection
+
+Now, let's do the same with the `toStructure()` method:
+
+```php
+<?php
+// get all events
+$events = $page->events()->toStructure();
+
+// loop through the collection of events:
+foreach($events as $event): ?>
+
+  <h1><?php echo $event->event_title()->html() ?></h1>
+  <p><?php echo date('Y-m-d', strtotime($event->event_date())) ?></p>
+  <p><?php echo $event->event_location()->html() ?></p>
+  <?php e($image = $event->event_image()->toFile(), $image->crop(200), '') ?>
+
+<?php endforeach ?>
+```
+
+When we use the `toStructure()` method, we use object notation to access each individual field of the structure field, and we can also use Kirby's chaining syntax with the `html()`, `kirbytext()` etc. methods.
+
+Also, we can use the `toFile()` method to turn the value from our image field into a file object.
+
+Another cool advantage of using the `toStructure()` method is that we can use all collection methods like `shuffle()`, `sortBy()`, `limit()` etc. on our structure field collection.
+
+For example, let's get three random entries:
+
+```php
+$events = $page->events()->toStructure()->shuffle()->limit(3);
+```
+
+Or let's sort events by date like this:
+
+```php
+$events = $page->events()->toStructure()->sortBy('event_date', 'desc');
+```
+
+So, why then use the `yaml()` method at all? One reason would be your personal preference. Here's another one: If you want to add data to a structure field, you need to fetch the data as array, so you can add new data to it and `yaml::encode()` the array to update the page. For an example see (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from frontend).
+
+## Convert an array to a structure object
+
+Kirby has a pretty useful helper that turns an array into a Kirby structure object: the `structure()` function. You can use this helper to easily convert a yaml array into a structure object:
+
+```php
+$events = $page->events()->yaml();
+$structureObject = structure($events);
+```
+Check out the example (link: docs/cheatsheet/helpers/structure text: in the docs).
+
+## Merging structure fields
+
+If several of your pages contain the same structure field and you want to merge all entries, you can do this by creating a new structure object.
+
+To make this reusable, we create a new function that we save as a plugin into /site/plugins/structure.php
+
+```php
+function createNewStructure($pages, $field) {
+  // instantiate a new structure object
+  $structure = new Structure();
+
+  $key = 0;
+
+  // loop through the pages collection
+  foreach($pages as $p) {
+
+    //loop through the structure object of each page
+    foreach($p->$field()->toStructure() as $item) {
+
+      // append each entry to the new structure object
+      $structure->append($key, $item);
+
+      $key++;
+    }
+  }
+  return $structure;
+}
+```
+
+Now whenever we need to merge the structure entries of multiple pages, we just call this function and pass it a collection of pages and the name of a field:
+
+```php
+// fetch a collection of pages
+$pageCollection = page('events')->children()->find('registrations');
+
+// pass the page collection and the name of the field to the function
+$entries = createNewStructure($pageCollection, 'registrations');
+```
+
+## Beyond the structure field
+
+The structure field only handles the same fields for each entry. If you need more flexibility, check out the (link: text: Kirby Page Builder field by Tim Ötting). It is based on the structure fields, but allows you to predefine content blocks with different field sets that can be used as a page builder.
