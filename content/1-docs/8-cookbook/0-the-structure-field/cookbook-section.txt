@@ -95,7 +95,7 @@ events:
 
 ## Accessing the data in a template
 
-To access these entries in a templates, Kirby provides two methods. The `yaml()` method returns an array, while the `toStructure()` method turns your data into a full-blown Kirby collection. We will look at how to work with both methods.
+To access these entries in a templates, Kirby provides two methods. The `yaml()` method returns an array, while the `toStructure()` method turns your data into a full-blown Kirby collection. Kirby collections are a bit easier to work with, but we will look at how to work with both methods.
 
 ### Working with a data array
 
@@ -118,7 +118,7 @@ foreach($events as $event): ?>
   <h1><?php echo $event['event_title'] ?></h1>
   <p><?php echo date('Y-m-d', strtotime($event['event_date'])) ?></p>
   <p><?php echo $event['event_location'] ?></p>
-  <?php e($image = $page->image($event['event_image']), $image, '') ?>
+  <?php if($image = $page->image($event['event_image'])) echo $image->html() ?>
 
 <?php endforeach ?>
 ```
@@ -136,10 +136,10 @@ The `strtotime()` function turns our date from the content file into a UNIX time
 In the last line of code before the end of the loop, we output the image:
 
 ```php
-<?php e($image = $page->image($event['event_image']), $image, '') ?>
+<?php if($image = $page->image($event['event_image'])) echo $image->html() ?>
 ```
 
-We use the `e()` helper to check if the image exists first, and only then do we echo it. If you want more control over how the image is rendered, you can of course use an image or figure tag and only pass the URL of the image to the `src` attribute like this:
+We check if the image exists first, and only then we echo it. If you want more control over how the image is rendered, you can of course use an image or figure tag and only pass the URL of the image to the `src` attribute like this:
 
 ```php
 <?php if($image = $page->image($event['event_image'])): ?>
@@ -163,7 +163,7 @@ $last = a::last($events);
 // shuffle the array
 $shuffle = a::shuffle($events);
 
-//sort the array by date field
+// sort the array by date field
 $sorted = a::sort($events, 'event_date', 'desc');
 ```
 
@@ -183,7 +183,7 @@ foreach($events as $event): ?>
   <h1><?php echo $event->event_title()->html() ?></h1>
   <p><?php echo date('Y-m-d', strtotime($event->event_date())) ?></p>
   <p><?php echo $event->event_location()->html() ?></p>
-  <?php e($image = $event->event_image()->toFile(), $image->crop(200), '') ?>
+  <?php if($image = $event->event_image()->toFile()) echo $image->html() ?>
 
 <?php endforeach ?>
 ```
@@ -197,17 +197,16 @@ Another cool advantage of using the `toStructure()` method is that we can use al
 Some examples:
 
 ```php
-
 $events = $page->events()->toStructure();
 
-// get three random entries
+// get three random events
 $random = $events->shuffle()->limit(3);
 
-//get the first element
+// get the first event
 $first = $events->first();
 
-//get the last element
-$last = $page->events()->toStructure()->last();
+// get the last event
+$last = $events->last();
 
 // sort events by date
 $events = $events->sortBy('event_date', 'desc');
@@ -223,13 +222,14 @@ Kirby has a pretty useful helper that turns an array into a Kirby structure obje
 $events = $page->events()->yaml();
 $structureObject = structure($events);
 ```
+
 Check out the example (link: docs/cheatsheet/helpers/structure text: in the docs).
 
 ## Merging structure fields
 
 If several of our pages contain the same structure field and we want to merge all entries, we can do this by creating a new structure object.
 
-To make this reusable, we create a new function that we save as a plugin into /site/plugins/structure.php
+To make this reusable, we create a new function that we save as a plugin into `/site/plugins/structure.php`.
 
 ```php
 function createNewStructure($pages, $field) {
@@ -250,6 +250,7 @@ function createNewStructure($pages, $field) {
       $key++;
     }
   }
+
   return $structure;
 }
 ```
@@ -258,9 +259,9 @@ Now whenever we need to merge the structure entries of multiple pages, we just c
 
 ```php
 // fetch a collection of pages
-$pageCollection = page('events')->children()->find('registrations');
+$pageCollection = page('events')->children();
 
-// pass the page collection and the name of the field to the function
+// pass the collection of pages and the name of the field to the function
 $entries = createNewStructure($pageCollection, 'registrations');
 ```
 
