@@ -28,12 +28,18 @@ c::set('routes', array(
     }
   ),
   array(
+    'pattern' => 'docs/solutions',
+    'action'  => function($uid) {
+      return go('docs/cookbook');
+    }
+  ),
+  array(
     'pattern' => 'docs/solutions/(:any)',
     'action'  => function($uid) {
       if($page = page('docs/cookbook/' . $uid)) {
-        go($page);
+        return go($page);
       } else {
-        go('error');
+        return site()->errorPage();
       }
     }
   ),
@@ -43,12 +49,11 @@ c::set('routes', array(
       if($page = page('blog/' . $uid)) {
         return $page;
       }
-      if(!$page = page('blog/' . $uid)) {
-        if($page = page('docs/cookbook/' . $uid)) {
-          go($page);
-        } else {
-          go('error');
-        }
+      
+      if($page = page('docs/cookbook/' . $uid)) {
+        return go($page);
+      } else {
+        return site()->errorPage();
       }
     }
   ),
