@@ -147,6 +147,27 @@ We use the `e()` helper to check if the image exists first, and only then do we 
 <?php endif ?>
 ```
 
+After having created your array with the `yaml()` method, you can use PHP functions or toolkit array functions to do all sorts of manipulations, like sorting, shuffling, or slicing.
+
+Some examples:
+
+```php
+$events = $page->events()->yaml();
+
+// get the first element of the array
+$first = a::first($events);
+
+// get the last element of the array
+$last = a::last($events);
+
+// shuffle the array
+$shuffle = a::shuffle($events);
+
+//sort the array by date field
+$sorted = a::sort($events, 'event_date', 'desc');
+```
+
+
 ### Working with a collection
 
 Now, let's do the same with the `toStructure()` method:
@@ -173,19 +194,26 @@ Also, we can use the `toFile()` method to turn the value from our image field in
 
 Another cool advantage of using the `toStructure()` method is that we can use all collection methods like `shuffle()`, `sortBy()`, `limit()` etc. on our structure field collection.
 
-For example, let's get three random entries:
+Some examples:
 
 ```php
-$events = $page->events()->toStructure()->shuffle()->limit(3);
+
+$events = $page->events()->toStructure();
+
+// get three random entries
+$random = $events->shuffle()->limit(3);
+
+//get the first element
+$first = $events->first();
+
+//get the last element
+$last = $page->events()->toStructure()->last();
+
+// sort events by date
+$events = $events->sortBy('event_date', 'desc');
 ```
 
-Or let's sort events by date like this:
-
-```php
-$events = $page->events()->toStructure()->sortBy('event_date', 'desc');
-```
-
-So, why then use the `yaml()` method at all? One reason would be your personal preference. Here's another one: If you want to add data to a structure field, you need to fetch the data as array, so you can add new data to it and `yaml::encode()` the array to update the page. For an example see (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from frontend).
+So, why then use the `yaml()` method at all? One reason would be your personal preference. Here's another one: If you want to add data to a structure field, you need to fetch the data as array, so you can add new data to it and `yaml::encode()` the array to update the page. For an example, see (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from frontend).
 
 ## Convert an array to a structure object
 
@@ -238,4 +266,4 @@ $entries = createNewStructure($pageCollection, 'registrations');
 
 ## Beyond the structure field
 
-The structure field only handles the same fields for each entry. If you need more flexibility, check out the (link: text: Kirby Page Builder field by Tim Ötting). It is based on the structure fields, but allows you to predefine content blocks with different field sets that can be used as a page builder.
+The structure field only handles the same fields for each entry. If you need more flexibility, check out the (link: text: Kirby Page Builder field by Tim Ötting). It is based on the structure field, but allows you to predefine content blocks with different field sets that can be used as a page builder.
