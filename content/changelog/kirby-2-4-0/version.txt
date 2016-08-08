@@ -14,7 +14,7 @@ Text:
 
 ## Panel
 
-
+- Fix visibility of the text field counter in the file view
 
 ## Core
 
