@@ -2,7 +2,7 @@ Title: Make the most of the structure field
 
 ----
 
-Date: 04.08.2016
+Date: 08.08.2016
 
 ----
 
@@ -26,13 +26,13 @@ Text:
 
 (toc)
 
-The structure field is great for storing repeated blocks of data like addresses, events, team members, references and a lot more. In this recipe, we will look at some examples of how to create a form for the field in the panel, and how to render the data in a template.
+The structure field is great for storing repeated blocks of data like addresses, events, team members, references, and a lot more. In this recipe, we will look at some examples of how to create a form for the field in the panel, and how to render the data in a template.
 
 ## Define a structure field in a blueprint
 
 **Note**: If you don't use the Panel, you can skip this part.
 
-We start with defining our structure field in the blueprint, in this example a pretty simple events field:
+We start with defining a structure field in the blueprint, in this example a pretty simple events field:
 
 ```
 title: A New Blueprint
@@ -56,9 +56,9 @@ fields:
         type: image
 ```
 
-You can use pretty much any field within a structure field, except another structure field.
+The structure field can have any number and sort of fields, except another structure field.
 
-There are some options you can use with the structure field:
+There are some options to use with the structure field:
 
 - entry
 - style
@@ -66,11 +66,11 @@ There are some options you can use with the structure field:
 - default
 - readonly
 
-You can find more about these options (link: https://getkirby.com/docs/cheatsheet/panel-fields/structure text: in the structure field docs).
+Find out more about these options (link: https://getkirby.com/docs/cheatsheet/panel-fields/structure text: in the structure field docs).
 
 ## Structure field entries in the content file
 
-The data is saved to the content file as yaml structured data. After we have added some data via the panel, our content file will look somewhat like this:
+The data is saved to the content file as YAML structured data. After we have added some data via the panel, our content file will look somewhat like this:
 
 ```
 events:
@@ -107,7 +107,7 @@ $events = $page->events()->yaml();
 ?>
 ```
 
-Now we can loop though this array and output all events. Note that we access the individual fields by their keys:
+Now we can loop through this array and output all events. Note that we access the individual fields by their keys:
 
 ```php
 <?php
@@ -123,9 +123,9 @@ foreach($events as $event): ?>
 <?php endforeach ?>
 ```
 
-When we output the values of the array, we deal with strings, not with an object. We therefore have to use the `html()` or (`kirbytext()`) helpers, and cannot use object notation. So this would **not** work: `<?php echo $event['event_title']->html() ?>`.
+When we output the values of the array, we deal with strings, not with an object. We therefore have to use the `html()` or `kirbytext()` helpers, and cannot use object notation. So this would **not** work: `<?php echo $event['event_title']->html() ?>`.
 
-What's happening in the following line?
+Now, what's happening in the following line?
 
 ```php
 <?php echo date('Y-m-d', strtotime($event['event_date'])) ?>
@@ -147,7 +147,7 @@ We use the `e()` helper to check if the image exists first, and only then do we 
 <?php endif ?>
 ```
 
-After having created your array with the `yaml()` method, you can use PHP functions or toolkit array functions to do all sorts of manipulations, like sorting, shuffling, or slicing.
+After having created our array with the `yaml()` method, we can use PHP functions or toolkit array functions to do all sorts of manipulations, like sorting, shuffling, or slicing.
 
 Some examples:
 
@@ -213,11 +213,11 @@ $last = $page->events()->toStructure()->last();
 $events = $events->sortBy('event_date', 'desc');
 ```
 
-So, why then use the `yaml()` method at all? One reason would be your personal preference. Here's another one: If you want to add data to a structure field, you need to fetch the data as array, so you can add new data to it and `yaml::encode()` the array to update the page. For an example, see (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from frontend).
+So, why then use the `yaml()` method at all? One reason would be your personal preference. Here's another one: If we want to add data to a structure field, we need to fetch the data as array, so we can add new data to it and `yaml::encode()` the array to update the page. For an example, see (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from frontend).
 
 ## Convert an array to a structure object
 
-Kirby has a pretty useful helper that turns an array into a Kirby structure object: the `structure()` function. You can use this helper to easily convert a yaml array into a structure object:
+Kirby has a pretty useful helper that turns an array into a Kirby structure object: the `structure()` function. We can use this helper to easily convert an array created with the `yaml()` method into a structure object:
 
 ```php
 $events = $page->events()->yaml();
@@ -227,7 +227,7 @@ Check out the example (link: docs/cheatsheet/helpers/structure text: in the docs
 
 ## Merging structure fields
 
-If several of your pages contain the same structure field and you want to merge all entries, you can do this by creating a new structure object.
+If several of our pages contain the same structure field and we want to merge all entries, we can do this by creating a new structure object.
 
 To make this reusable, we create a new function that we save as a plugin into /site/plugins/structure.php
 
