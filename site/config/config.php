@@ -10,27 +10,52 @@ c::set('routes', array(
       // set the section GET param
       // used for titles, inheritance warnings and the sidebar
       r::set('section', $cheatsheet . '/' . $section);
-      
+
       // check if the page with the exact URL exists
       if($page = page($cheatsheet . '/' . $section . '/' . $item)) {
         return $page;
       }
-      
+
       // try to get the cheat sheet section
       $sectionPage = page($cheatsheet . '/' . $section);
       if(!$sectionPage) return site()->errorPage();
-      
+
       // try to get the inherited child
       $itemPage = $sectionPage->inheritedChildren()->findBy('uid', $item);
       if(!$itemPage) return site()->errorPage();
-      
+
       return $itemPage;
     }
   ),
   array(
-    'pattern' => 'docs/toolkit/generate', 
+    'pattern' => 'docs/solutions/(:any)',
+    'action'  => function($uid) {
+      if($page = page('docs/cookbook/' . $uid)) {
+        go($page);
+      } else {
+        go('error');
+      }
+    }
+  ),
+  array(
+    'pattern' => 'blog/(:any)',
+    'action'  => function($uid) {
+      if($page = page('blog/' . $uid)) {
+        return $page;
+      }
+      if(!$page = page('blog/' . $uid)) {
+        if($page = page('docs/cookbook/' . $uid)) {
+          go($page);
+        } else {
+          go('error');
+        }
+      }
+    }
+  ),
+  array(
+    'pattern' => 'docs/toolkit/generate',
     'action'  => function() {
-      
+
       if(c::get('documentor')) {
 
         $documentor = new Documentor();
@@ -45,7 +70,7 @@ c::set('routes', array(
     }
   ),
   array(
-    'pattern' => 'docs/inspect', 
+    'pattern' => 'docs/inspect',
     'action'  => function() {
 
       if(c::get('inspector')) {
@@ -60,7 +85,7 @@ c::set('routes', array(
     }
   ),
   array(
-    'pattern' => 'blog/feed', 
+    'pattern' => 'blog/feed',
     'action'  => function() {
       go('feed');
     }
