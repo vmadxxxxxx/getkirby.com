@@ -7,7 +7,7 @@ return function($site, $pages, $page) {
 
   if($cat = urldecode(param('category'))) {
     if($cat == 'new') {
-      $items = $page->children()->visible()->filterBy('date', '>', $twoMonthsAgo)->filterBy('date', '<', $today);
+      $items = $page->children()->visible()->filterBy('date', '>', $twoMonthsAgo)->filterBy('date', '<=', $today);
     } else {
       $items = $page->children()->visible()->filterBy('category', $cat);
     }
