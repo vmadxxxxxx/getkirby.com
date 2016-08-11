@@ -1,0 +1,25 @@
+Title: visitor::accepts
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Returns whether a specified MIME type is accepted by the visitor's browser
+
+----
+
+Call: visitor::accepts($type)
+
+----
+
+Return: type: boolean
+text:
+
+----
+
+Params: -
+  name: $type
+  type: string
+  text: MIME type like "text/html"

@@ -1,0 +1,25 @@
+Title: visitor::acceptance
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Returns a number between 0 and 1 that defines how "accepted" a specified MIME type is for the visitor's browser using the HTTP Accept header
+
+----
+
+Call: visitor::acceptance($type)
+
+----
+
+Return: type: int
+text: Number between 0 (not accepted) and 1 (very accepted)
+
+----
+
+Params: -
+  name: $type
+  type: string
+  text: MIME type like "text/html"
