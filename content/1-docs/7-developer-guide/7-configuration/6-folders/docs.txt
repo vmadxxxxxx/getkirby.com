@@ -50,6 +50,16 @@ $kirby->roots->site = '/var/sites/mysite.com';
 
 The site folder can be located anywhere and does not have to be accessible publicly. It might even make sense to move it above the document root for more security.
 
+<since v="2.4.0">
+### Changing other site roots
+
+Since Kirby 2.4, all subdirectories of the `site` directory can now be moved as well:
+
+```php
+$kirby = kirby();
+$kirby->roots->config = '/var/config/mysite.com';
+```
+</since>
 
 ## Changing the thumbs folder
 

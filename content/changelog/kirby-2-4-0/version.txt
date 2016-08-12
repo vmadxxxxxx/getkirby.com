@@ -19,6 +19,7 @@ Text:
 ## Core
 
 - The `cache.ignore` now only has to contain URIs of the default language
+- All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
 
 ## Toolkit
 
