@@ -1,0 +1,422 @@
+Title: Ajax form validation
+
+----
+
+Date: 15.08.2016
+
+----
+
+Category: ajax
+
+----
+
+Description: Find out how to enhance form validation with Ajax.
+
+----
+
+Methods:
+
+----
+Text:
+(toc)
+
+In (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from the frontend), we had already covered server side form validation. Now let's look at how we can embellish that example with some (link: text: AJAX) form validation, so that we don't have to reload the page on each submit.
+
+## What we'll do
+Before we go into details, let's get a basic understanding of what we will be doing:
+
+- we create an event listener that listens for a click on the submit button
+- when the form is submitted, our javascript will send the form data via an AJAX post request to an URL (api/form/validate)
+- the URL is intercepted by a route defined in our config.php
+- in the route action, we call a function called `validateForm()` defined in a plugin file
+- the route returns a json array to our javascript
+- on success, the response is evaluated
+- if the response array contains a success message, a new ajax post is made to a second URL (api/page/append) that handles appending of the form data, otherwise we output an alert or redirect if the honeypot is filled in
+- in the route action of the second route, we call a function that appends the new entry to a structure field
+
+The reason why we use two routes here instead of putting everything into one function/route is the notion of (link: https://en.wikipedia.org/wiki/Separation_of_concerns text: "separation of concerns") by which we put the code for each different task into a separate function and also use different access points to call these functions.
+
+Quite a bit to do, huh? So let's get going.
+
+## The registration form
+First, we need a form again. We put the form into a snippet (`registration-form.php`), which we include in the `/site/templates/event.php` template.
+
+```php
+<!-- /site/snippets/registration-form.php -->
+<form id="event-registration" action="" data-page="<?= $page->url() ?>" method="post">
+
+  <div class="form-element">
+    <label for="firstname">First Name: *</label>
+    <input type="text" id="firstname" name="firstname" placeholder="First name"  value="" required/>
+    <div class="alert"></div>
+  </div>
+
+  <div class="form-element">
+    <label for="lastname">Last Name: *</label>
+    <input type="text" id="lastname" name="lastname" placeholder="Last name"  required/>
+    <div class="alert"></div>
+  </div>
+
+  <div class="form-element">
+    <label for="company">Company: </label>
+    <input type="text" id="company" name="company" placeholder="Company"/>
+  </div>
+
+  <div class="form-element">
+    <label for="email">Email: *</label>
+    <input type="email" id="email" name="email" placeholder ="mail@example.com" required/>
+    <div class="alert"></div>
+  </div>
+
+  <div class="form-element">
+    <label for="message">Message:</label>
+    <textarea name="message" id="message" placeholder="Do you have any comments?"></textarea>
+  </div>
+ <div class="honey">
+     <label for="message">If you are a human, leave this field empty</label>
+     <input type="website" name="website" id="website" placeholder ="http://example.com" />
+ </div>
+  <p>* required</p>
+
+  <button class="button" type="submit" name="register">Register</button>
+
+</form>
+<div class="message"></div>
+```
+If you compare this form with the one from the standard example, you'll notice that it contains hardly any PHP code apart from the page url in the `data-page` attribute, which we will use later in our javascript to build the route URLs.
+
+Since we want to place our alerts directly beneath the input fields where they belong, there is now an alert box for each field and a message box below the form.
+
+## Add jQuery and custom script
+
+Now that we have our form in place, we need to include jQuery and our custom script in the footer before the closing body tag. For convenience sake, we use jQuery.
+
+```php
+<?php
+echo js(array(
+  'assets/js/jquery.min.js',
+  'assets/js/script.js'
+);
+?>
+```
+
+## The JS event listener
+We want to send the form when the button is clicked. In our `script.js` file, we now add an event listener, otherwise nothing would happen when we click the button (because we haven't definded an action attribute). We add a `preventDefault()` to be on the save side (in case we want to add a php script later to enable form submission if javascript is disabled).
+
+```javascript
+// /assets/js/script.js
+$('#event-registration').on('submit', function(e) {
+  e.preventDefault();
+  var url = $(this).data('page');
+      validate = '/api/form/validate';
+      append = '/api/page/append';
+      message = $('.message');
+      data = $(this).serialize();
+
+  console.log(data);
+  // more code here
+
+});
+```
+
+This code does not do a lot yet. Within the event listener, we first define a couple of variables we'll use later on:
+
+- the `url` variable stores the data-page attribute of our form
+- the `validate` and `append` variables store the two routes for form validation and data appending
+- the `data` variable stores the serialized form data
+- the `message` variable stores the message div container
+
+The `console.log()` statement helps us to debug our code, so that we can at each point check if we get the data we expect. You can use these statements everywhere in your code while developing.
+
+## The AJAX post statement
+
+Now let's add the ajax request:
+
+```javascript
+// /assets/js/script.js
+$.ajax({
+  type: "POST",
+  dataType: "json",
+  url: url + validate,
+  data: data,
+
+  // if the ajax call is successful ...
+  success: function(response) {
+    console.log(response);
+    // more code
+  }
+});
+```
+
+This bit of code sends the form data as post request. If the request is successful, we log the response to the console. We'll add the rest of the javascript code later. Let's now head over to our request handling code.
+
+## Define route in config.php
+
+In our config.php file, we define a new (link: https://getkirby.com/docs/developer-guide/advanced/routing text: route):
+
+```php
+// /site/config/config.php
+c::set('routes', array(
+  array(
+    'pattern' => '(:all)/api/form/validate',
+    'method' => 'POST',
+    'action' => function($uri) {
+
+      if(kirby()->request()->ajax()) {
+        $data = kirby()->request()->data();
+        $response = validateForm($data);
+
+          return response::json($response);
+      }
+
+    }
+  )
+));
+```
+
+The route checks if the request is an AJAX request, stores the request data in the `$data` variable and calls a function called `validateForm()` with `$data` as a parameter. It then returns the reponse as JSON encodes array.
+
+## The form validation function
+
+Our `validateForm()` function contains almost the same code as our controller from the standard example. I'll add the explanations as comments to keep this a bit more compact.
+
+```php
+// /site/plugins/ajax-validation.php
+
+function validateForm($data) {
+
+  // define variables
+  $errors = array();
+  $redirect = false;
+  $success = false;
+
+  // check if honeypot was filled, if yes set $redirect to true
+  if(! empty($data['website'])) {
+    $redirect = true;
+  }
+
+  // define the rules for form validation
+  $rules = array(
+    'firstname'  => array('required'),
+    'lastname'  => array('required'),
+    'email' => array('required', 'email'),
+  );
+
+  // define the messages we want to show in case of an error
+  $messages = array(
+    'firstname'  => 'Please enter your first name',
+    'lastname'  => 'Please enter your last name',
+    'email' => 'Please enter a valid email address',
+  );
+
+  // if there is an error in the data, we store the errors in $errors,
+  // otherwise we set $success to true
+  if($invalid = invalid($data, $rules, $messages)) {
+    $errors = $invalid;
+  } else {
+    $success = true;
+  }
+
+  // we store all variables in a response array
+  $response = array(
+    'errors' => $errors,
+    'redirect' => $redirect,
+    'success' => $success
+  );
+
+  // and return the array
+  return $response;
+}
+```
+
+Now if everything went well, and we fill out the form correctly, we should see the JSON encoded response array in our dev tools console:
+
+```
+{errors: Array[0], redirect: false, success: true}
+```
+
+## Evaluating the response
+
+In our javascript, we can now react on the different response elements in the success function, see the comments in the code for details.
+
+```javascript
+
+// /assets/js/script.js
+success: function(response) {
+
+  // check if the honeypot was filled in, if yes, send the bot away (your homepage, the same page)
+  if(response['redirect'] == true) {
+    window.location.href = 'https://www.honeypot.io';
+    return;
+  }
+
+  // if the response contains errors
+  if(response['errors']) {
+
+    var errors = response['errors'];
+
+    // clear old error messages
+    $('.alert').html('');
+
+    // loop through errors array
+    $.each(errors, function(key, value) {
+
+      //find the alert box for each input field
+      var element = $('#event-registration').find('#' + key).next();
+
+      // add the error message for each field
+      element.html(value);
+
+    });
+  }
+
+  // if the form validation was successful, we post the data to a new URL that handles appending the data
+  if(response['success'] == true) {
+
+      // build the URL from the data page attribute plus the route for the append function
+      var element = $('.message');
+
+      // make another ajax post to the append API
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: url + append,
+        data: data,
+        success: function(response){
+
+          // evaluate the response from the second route
+          if(response['success']) {
+
+            // show a success message if the entry was appended and hide the form
+            element.html(response['success']);
+            $('.event-registration').hide();
+
+          } else if (response['error']) {
+
+            // show an error message if appending the entry failed
+            element.html(response['error']);
+
+          }
+        }
+     });
+
+  }
+}
+```
+
+- if the honeypot was filled in, we redirect to another page (e.g. the same page, the home page)
+- if the response contains errors, because fields were not or not correctly filled out, we output some error messages
+- if the validation was successful, we send the data to the second route
+- we evaluate the response and either output a success or a fail message
+
+## The second route
+
+In our second route we first escape the request data and then call a function called `addToStructure()`.
+
+```php
+// /site/config/config.php
+
+c::set('routes', array(
+  array(
+    'pattern' => '(:all)/api/form/validate',
+    'method' => 'POST',
+    'action' => function($uri) {
+      // the action code of the first route
+    }
+  ),
+  array(
+    'pattern' => '(:all)/api/page/append',
+    'method' => 'POST',
+    'action' => function($uri) {
+
+      // check if the request is an ajax request
+      if(kirby()->request()->ajax()) {
+
+        // store request data in $input variable
+        $input = kirby()->request()->data();
+
+        //declare a $response variable
+        $response = array();
+
+        // escape the data to prevent Cross Site Scripting (XSS)
+        $data = array(
+          'firstname'  => esc($input['firstname']),
+          'lastname'  => esc($input['lastname']),
+          'company'  => esc($input['company']),
+          'email' => $input['email'],
+          'message'  => esc($input['message'])
+        );
+        // save return of addToStructure() function in $response
+        $response = addToStructure(page($uri)->find('registrations'), 'registrations', $data);
+
+        // return the response as JSON
+        return response::json($response);
+
+      }
+    }
+  ),
+));
+```
+
+## The addToStructure() function
+
+In the action field of the second route, we call the function addToStructure(). We pass three parameters to it:
+
+- the page object
+- the field to add to
+- the data to be added
+
+Here's the function we need:
+
+```php
+// /site/plugins/ajax-validation.php
+
+function addToStructure($p, $field, $data = array()){
+  $message = array();
+
+  // we use a try-catch block to add user input to the structure field
+  try {
+    // fetch the existing data from the field
+    $fieldData = $p->$field()->yaml();
+
+    // add the new $data array to the array
+    $fieldData[] = $data;
+
+    // yaml encode the new array
+    $fieldData = yaml::encode($fieldData);
+
+    // update the field with the data
+    $p->update(array(
+      $field => $fieldData,
+    ));
+
+    // add a success message to the message array
+    $message['success'] = "Your registration was successful";
+
+  } catch(Exception $e) {
+
+    // in case of an error, add an error message to the message array
+    $message['error'] = 'Your registration failed/' . $e->getMessage();
+
+  }
+
+  return $message;
+}
+```
+
+
+If the ajax request is successful, we can evaluate the response in our javascript (see previous step), and either return a success or a failure message.
+
+If the entry was successfully added to the structure field, we hide the form and just display the success message. It's up to you to change that depending on your needs.
+
+## Enhancements
+
+If you want the form to work even if Javascript is disabled, you can add an action attribute to your form and handle the form submission differently depending on whether you have to deal with an AJAX and or standard post request.
+
+## Download files
+
+The complete set of files for this tutorial can be found (link: https://github.com/getkirby/cookbook  text: in the Cookbook repo).
+
+For testing, you can add the files from each subfolder into the corresponding folders of a Kirby (link: https://github.com/getkirby/starterkit text: Starterkit) or (link: https://github.com/getkirby/plainkit text: Plainkit).
+
+We hope you enjoy this tutorial. You can leave your feedback in the (link: https::/forum.getkirby.com text: forum) or on (link: https://github.com/getkirby/getkirby.com/issues text: GitHub).
