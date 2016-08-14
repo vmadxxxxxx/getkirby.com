@@ -30,7 +30,7 @@ When we develop our Kirby-powered website and all of a sudden all we get is a bl
 
 ## Turn on debugging
 
-An effective but basic method is to turn on debugging during development in `/site/config/config.php`:
+By default, Kirby respects the settings of your php.ini file. The ideal way to enable/disable debugging would therefore in your php.ini file. If you don't want to change this settings for whatever reason, Kirby's debug option offers a quick way to display PHP errors. To enable this option for development, put this line into in `/site/config/config.php`:
 
 ```php
 c::set('debug', true);
@@ -38,11 +38,14 @@ c::set('debug', true);
 
 This option configures PHP so that errors are displayed on the screen. PHP errors contain a message about the type of error together with the file and line number where that error occurred. Note that the error won't always be in the code on the given line, but may occur before or after that line.
 
+
 ## Disable debugging on live server
 
 Now that we have turned on debugging, we should also always remember to disable displaying errors on our production server as we don't want our website visitors to see any nasty error messages.  Apart from the fact that this leaves a bad impression, it is also a potential security risk, because an error message may give away important information about our server.
 
-Kirby makes it easy to not forget this when going live because we can (link: https://getkirby.com/docs/developer-guide/configuration/options/#multi-environment-setup text: use domain specific config.php files). Always set
+Usually, production servers should be configured to no display errors on the screen but log them to a log file. However, if we forget to disable our config setting in our production environment, these server settings will be overwritten.
+
+To avoid that, Kirby makes it easy to not forget this when going live because we can (link: https://getkirby.com/docs/developer-guide/configuration/options/#multi-environment-setup text: use domain specific config.php files). Always set
 
 ```php
 c::set('debug', false);
