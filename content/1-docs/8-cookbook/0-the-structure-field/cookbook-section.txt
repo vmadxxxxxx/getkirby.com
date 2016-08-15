@@ -267,4 +267,4 @@ $entries = createNewStructure($pageCollection, 'registrations');
 
 ## Beyond the structure field
 
-The structure field only handles the same fields for each entry. If you need more flexibility, check out the (link: text: Kirby Page Builder field by Tim Ötting). It is based on the structure field, but allows you to predefine content blocks with different field sets that can be used as a page builder.
+The structure field only handles the same fields for each entry. If you need more flexibility, check out the (link: https://github.com/TimOetting/kirby-builder text: Kirby Page Builder field by Tim Ötting). It is based on the structure field, but allows you to predefine content blocks with different field sets that can be used as a page builder.
