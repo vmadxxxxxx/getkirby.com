@@ -64,6 +64,19 @@ $router->register('api/users/(:any)', array(
 ));
 ```
 
+<since v="2.4.0">
+### Restricting a route to a specific host
+```php
+$router->register('api/users/(:any)', array(
+  'method' => 'GET',
+  'host'   => 'getkirby.com',
+  'action' => function($username) {
+    // the router action code
+  }
+));
+```
+</since>
+
 ## Available placeholders
 
 URL patterns for routes can be static, relative URLs: `some/static/url` or parts of the URL can be defined by dynamic placholders:

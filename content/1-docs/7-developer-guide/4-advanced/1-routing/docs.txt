@@ -164,6 +164,26 @@ c::set('routes', array(
 
 ```
 
+<since v="2.4.0">
+## Hosts
+
+Since Kirby 2.4, routes can also be restricted to match only on a specific host:
+
+```php
+c::set('routes', array(
+  array(
+    'pattern' => 'my/awesome/url',
+    'action'  => function() {
+      // do something here when the URL matches the pattern above
+      // and the specified request method
+    },
+    'method' => 'GET',
+    'host'   => 'getkirby.com'
+  )
+));
+```
+</since>
+
 ## Simulating Wordpress URLs
 
 When you previously had your blog running on Wordpress you are probably used to URLs for your articles like this:

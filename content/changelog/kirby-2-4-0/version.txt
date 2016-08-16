@@ -23,4 +23,5 @@ Text:
 
 ## Toolkit
 
+- Routes can now be restricted to match only on one host, see (link: docs/developer-guide/toolkit/routing text: the docs)
 - Add (toolkit: visitor/acceptance) and (toolkit: visitor/accepts)
