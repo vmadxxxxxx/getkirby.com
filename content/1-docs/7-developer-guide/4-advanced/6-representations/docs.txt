@@ -1,0 +1,95 @@
+Title: Content Representations
+
+----
+
+Since: 2.4.0
+
+----
+
+Text: 
+
+(toc)
+
+One of Kirby's biggest advantages is its content structure. You can use as many fields and field types as you need to create content that isn't just a large WYSIWYG field.
+
+Content Representations allow you to output the content in different formats. Be it JSON for your AJAX script or to use Kirby as API for other tools, an automatic RSS feed representation of your blog or a plain text representation of your résumé.
+
+## Requirements
+
+Content Representations are available since Kirby 2.4. Make sure to update before you use them.
+
+## Creating a representation
+
+In this example we will create a JSON representation of the `default` template. After we are done, all pages with the `default` template will also be available in JSON. We will see below how exactly that works.
+
+A representation is defined by its representation template. For our JSON representation, let's create a file `default.json.php` in our `site/templates` directory with the following content:
+
+```php
+<?php
+
+$data = [
+  'title' => $page->title()->value(),
+  'text'  => $page->text()->kirbytext()
+];
+
+echo json_encode($data);
+```
+
+You can of course output anything in the representation template, but it should be valid JSON for a JSON representation.
+You don't need to send a content type header as Kirby will do that for you based on the representation type.
+
+### Using non-standard extensions
+
+`.json` is pretty straightforward, but what about non-standard extensions like `.rss`? That's possible too.
+
+The following template is called `blog.rss.php`. It uses the (link: docs/cookbook/rss text: feed plugin):
+
+```php
+<?php
+
+echo $page->children()->visible()->flip()->limit(10)->feed(array(
+  'title'       => $page->title(),
+  'description' => $page->description(),
+  'link'        => $page->uri(),
+));
+```
+
+The feed plugin sends an XML content type header for you.
+If you use a plugin that doesn't do that however, you need to send the content type header manually as Kirby can't autodetect it for non-standard extensions:
+
+```php
+<?php
+
+// send an XML content type header
+header::type('text/xml');
+
+// output the feed
+echo yourPlugin($something);
+```
+
+## Accessing the representation
+
+Now that you have a representation template, you can request all pages with the respective template as JSON file.
+Simply add the name of the representation to the end of the the URL. `https://example.com/about` becomes `https://example.com/about.json` and so on.
+
+If the representation exists, the template will be called and Kirby will send a correct content type header if possible.
+If it doesn't exist, the user is redirected to the actual URL of the page to prevent duplicate content.
+
+It is still possible to create pages that contain a dot in their UID. So if you already have a page called `about.json` for some reason, it will continue to work. You can of course get the JSON representation of that page at `https://example.com/about.json.json`.
+
+### Auto-detection with the HTTP `Accept` header
+
+The HTTP `Accept` header can be set by the client to tell the server about the content types the client understands.
+Some APIs use it to define whether the API should return data as JSON or XML.
+
+You can use the same behavior with Content Representations by enabling the [`representations.accept`](/docs/cheatsheet/options/representations-accept) option. Kirby will then select the preferred representation from the `Accept` header if you don't explicitly visit the representation's URL (see above).
+
+**Note**: The feature is disabled by default for a reason. Some browsers such as old WebKit browsers and IE have very strange default `Accept` headers. WebKit would prefer XML over HTML. So if you have an XML representation of a page, every visitor with an old WebKit browser would see it instead of your normal HTML page.
+You should only enable the feature if you either don't use XML, if your site is only consumed by API clients (not browsers) or if you have tested the behavior carefully.
+
+There are some great use-cases for this feature however. You can for example automatically return JSON if your frontend AJAX code requests a resource from the server.
+
+## Representation controllers
+
+You can also have special controllers for each of your representations. Simply create a controller with the name `default.json.php` and it will be used for the JSON representation of the `default` template.
+If no special representation controller exists, the normal one (`default.php` or `site.php`) will be used instead.

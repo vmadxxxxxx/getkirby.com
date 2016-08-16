@@ -1,0 +1,27 @@
+Title: representations.accept
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Enables/disables parsing the `Accept` header for content representations
+
+----
+
+Text: 
+
+Before enabling this feature, you should read more about it (link: docs/developer-guide/advanced/representations text: in the docs).
+
+## Default value
+
+```
+false
+```
+
+## Example
+
+```php
+c::set('representations.accept', true);
+```

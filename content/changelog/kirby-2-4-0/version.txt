@@ -14,6 +14,14 @@ Text:
 
 ## Highlights in 2.4.0
 
+### Content Representations
+
+One of Kirby's biggest advantages is its content structure. You can use as many fields and field types as you need to create content that isn't just a large WYSIWYG field.
+
+Kirby 2.4 has a new core feature called "Content Representations" that allows you to output the content in different formats. Be it JSON for your AJAX script or to use Kirby as API for other tools, an automatic RSS feed representation of your blog or a plain text representation of your résumé.
+
+(link: docs/developer-guide/advanced/representations text: Read more about this feature in the docs).
+
 ### Support for language-specific domains
 
 Kirby now supports using a separate domain for each language out of the box:
@@ -46,6 +54,7 @@ Kirby will detect the language based on the domain and links to other languages,
 
 ## Core
 
+- New (link: docs/developer-guide/advanced/representations text: Content Representations) feature
 - Multi-language sites can now use separate domains per language
 - The `cache.ignore` now only has to contain URIs of the default language
 - All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
