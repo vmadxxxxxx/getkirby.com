@@ -1,0 +1,28 @@
+Title:
+
+$language->path()
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Returns the path component of the language URL
+
+----
+
+Return:
+
+type: string
+text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php echo $site->language('en')->path() ?>
+```

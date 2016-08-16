@@ -12,12 +12,41 @@ Download: http://download.getkirby.com/kirby-2.4.0.zip
 
 Text:
 
+## Highlights in 2.4.0
+
+### Support for language-specific domains
+
+Kirby now supports using a separate domain for each language out of the box:
+
+```php
+c::set('languages', array(
+  array(
+    'code'    => 'en',
+    'name'    => 'English',
+    'default' => true,
+    'locale'  => 'en_US',
+    'url'     => 'https://example.com',
+  ),
+  array(
+    'code'    => 'de',
+    'name'    => 'Deutsch',
+    'locale'  => 'de_DE',
+    'url'     => 'https://example.de',
+  ),
+));
+```
+
+Kirby will detect the language based on the domain and links to other languages, e.g. in language switchers, will just work™.
+
+---
+
 ## Panel
 
 - Fix visibility of the text field counter in the file view
 
 ## Core
 
+- Multi-language sites can now use separate domains per language
 - The `cache.ignore` now only has to contain URIs of the default language
 - All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
 
