@@ -46,6 +46,11 @@ c::set('languages', array(
 
 Kirby will detect the language based on the domain and links to other languages, e.g. in language switchers, will just work™.
 
+### Kirby objects are easier to debug
+
+Kirby objects such as `$page`, `$site` or `$file` have a lot of connections to other objects. The result is that a lot of stuff is printed when debugging those objects with `var_dump()`, `print_r()` or `dump()`.
+Starting with Kirby 2.4, the most complex objects are now printed with their most important information only. Please note that this new feature only works in PHP 5.6 or later.
+
 ---
 
 ## Panel
@@ -56,6 +61,9 @@ Kirby will detect the language based on the domain and links to other languages,
 
 - New (link: docs/developer-guide/advanced/representations text: Content Representations) feature
 - Multi-language sites can now use separate domains per language
+- Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
+- Update Parsedown library
+- Add composer.json file
 - The `cache.ignore` now only has to contain URIs of the default language
 - All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
 
@@ -63,3 +71,4 @@ Kirby will detect the language based on the domain and links to other languages,
 
 - Routes can now be restricted to match only on one host, see (link: docs/developer-guide/toolkit/routing text: the docs)
 - Add (toolkit: visitor/acceptance) and (toolkit: visitor/accepts)
+- Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
