@@ -62,6 +62,8 @@ Starting with Kirby 2.4, the most complex objects are now printed with their mos
 - New (link: docs/developer-guide/advanced/representations text: Content Representations) feature
 - Multi-language sites can now use separate domains per language
 - Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
+- Add support for hook wildcards
+- Inside hooks, `$this` is now set to a new event object with useful information about the event.
 - Update Parsedown library
 - Add composer.json file
 - The `cache.ignore` now only has to contain URIs of the default language

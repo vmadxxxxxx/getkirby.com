@@ -72,6 +72,18 @@ kirby()->hook(['panel.page.create', 'panel.page.update'], function($page) {
 ```
 </since>
 
+<since v="2.4.0">
+Since Kirby 2.4, you can listen to all hooks that match a specific pattern. Let's match all Panel page hooks:
+
+```php
+kirby()->hook('panel.page.*', function($page, $oldPage = null) {
+  var_dump($this->type()); // panel.page.update
+});
+```
+
+As you can see, `$this` is the event object. Its `type()` method contains the exact event that occured.
+</since>
+
 ## Accessing panel, kirby, site and user in a hook callback
 
 In a lot of use-cases it will be helpful or even necessary to access the kirby, panel, site and current user objects from within a hook callback. You can do that with the following methods: 
@@ -82,3 +94,17 @@ $kirby = kirby();
 $site  = site();
 $user  = site()->user();
 ```
+
+<since v="2.4.0">
+Since Kirby 2.4, `$this` is a new event object that contains the information as well:
+
+```php
+kirby()->hook('panel.page.*', function($page, $oldPage = null) {
+  $panel    = $this->panel();
+  $kirby    = $this->kirby();
+  $site     = $this->site();
+  $user     = $this->user();
+  $username = $this->username();
+});
+```
+</since>
