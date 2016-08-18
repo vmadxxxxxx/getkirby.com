@@ -60,6 +60,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 
 ## Panel
 
+- Hooks are now using event objects (see below) with additional useful meta information
 - Fix visibility of the text field counter in the file view
 
 ## Core
