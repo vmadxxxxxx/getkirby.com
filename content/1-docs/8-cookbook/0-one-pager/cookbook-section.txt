@@ -274,7 +274,7 @@ As a final step you should setup a proper `error.php` template. It doesn’t hav
 With those few simple steps, you get a very comfortable setup for your “one-pager” which will be super easy to update and maintain. But please just take this as inspiration for your own project. It’s up to you to stick those pieces together in a way you are most happy with. Working with subfolders not only for full rendered pages can be a very cool way to store and retrieve data with Kirby. Once you get the hang of it, you will be able to come up with pretty anything you have in mind.
 
 ----
-Internals:
+Externals:
 
 Modules Plugin
   link: https://github.com/getkirby-plugins/modules-plugin
