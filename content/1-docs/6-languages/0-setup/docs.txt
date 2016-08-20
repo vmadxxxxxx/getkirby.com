@@ -32,7 +32,7 @@ c::set('languages', array(
 ));
 ```
 
-As soon as more than one languages are setup in the languages array, multi-language support is switched on.
+As soon as one language is setup in the languages array, multi-language support is switched on.
 
 <since v="2.4.0">
 ### Using different domains for each language
