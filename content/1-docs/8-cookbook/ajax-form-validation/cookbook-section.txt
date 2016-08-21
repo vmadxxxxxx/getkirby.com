@@ -1,0 +1,364 @@
+Title: Ajax form validation
+
+----
+
+Date: 15.08.2016
+
+----
+
+Category: ajax
+
+----
+
+Description: Find out how to enhance form validation with Ajax (Kirby 2.4).
+
+----
+
+Methods:
+
+----
+Text:
+(toc)
+
+In (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from the frontend), we covered server side form validation. Now let's look at how we can enhance that example with some (link: text: AJAX) form validation, so that we don't have to reload the page on each submit. If Javascript is enabled, the form is submitted via AJAX, otherwise the default action is called.
+
+**Note**: In this tutorial, we make use of the new (link: docs/developer-guide/advanced/representations text: content representations) feature introduced in Kirby 2.4, so you need to update your Kirby installation for these instructions to work.
+
+## What we'll do
+
+Before we go into details, let's get a basic understanding of what we will be doing. We will be using a single controller, but two templates: The `event.php` template includes the header and footer snippets, and the form snippet, the `event.json.php` template echoes a JSON representation of the response.
+
+- we create an event listener that listens for a click on the submit button
+- when the form is submitted, our javascript will send the form data via an AJAX post request
+- the data is validated by the page controller
+- in the controller, we call a function called `validateForm()`, which is defined in a plugin file
+- if validation is successful, we call another function `addToStructure()` that tries to add the data to the registrations field
+- if the ajax call was successful, the response from the JSON template is returned
+
+The reason why we use two functions here instead of putting everything into the controller is the notion of (link: https://en.wikipedia.org/wiki/Separation_of_concerns text: "separation of concerns"), by which we modularize different tasks. This allows us easily exchange parts of the code, e.g. if we wanted to create subpages instead of adding the data to a structure field.
+
+Quite a bit to do, huh? So let's get going.
+
+## The registration form
+
+First, we need a form. We put the form into a snippet called `registration-form.php`, which we then include in the `/site/templates/event.php` template.
+
+```php
+<!-- /site/snippets/registration-form.php -->
+<?php if(!isset($response['success'])):  ?>
+<form id="event-registration" action="<?= $page->url() ?>"  method="post">
+
+  <div class="form-element">
+    <label for="firstname">First Name: *</label>
+    <input type="text" id="firstname" name="firstname" placeholder="First name"  value="<?= isset($data['firstname']) ? $data['firstname'] : ''  ?>" required/>
+    <div class="alert"><?php if(isset($response['errors']['firstname'])) { echo $response['errors']['firstname']; } ?></div>
+  </div>
+
+  <div class="form-element">
+    <label for="lastname">Last Name: *</label>
+    <input type="text" id="lastname" name="lastname" placeholder="Last name"  value="<?= isset($data['lastname']) ? $data['lastname'] : ''  ?>" required/>
+    <div class="alert"><?php if(isset($response['errors']['lastname'])) { echo $response['errors']['lastname']; } ?></div>
+  </div>
+
+  <div class="form-element">
+    <label for="company">Company: </label>
+    <input type="text" id="company" name="company" placeholder="Company"  value="<?= isset($data['company']) ? $data['company'] : ''  ?>"  />
+  </div>
+
+  <div class="form-element">
+    <label for="email">Email: *</label>
+    <input type="email" name="email" id="email" placeholder ="mail@example.com" value="<?= isset($data['email']) ? $data['email'] : ''  ?>" required/>
+    <div class="alert"><?php if(isset($response['errors']['email'])) { echo $response['errors']['email']; } ?></div>
+  </div>
+
+  <div class="form-element">
+    <label for="message">Message:</label>
+    <textarea name="message" id="message" placeholder="Do you have any comments?"><?= isset($data['message']) ? $data['message'] : ''  ?></textarea>
+  </div>
+ <div class="honey">
+     <label for="message">If you are a human, leave this field empty</label>
+     <input type="website" name="website" id="website" placeholder ="http://example.com" value="<?= isset($data['website']) ? $data['website'] : ''  ?>" />
+ </div>
+  <p>* required</p>
+
+  <button class="button" type="submit" name="register" value="Register" </button>Register</button>
+
+</form>
+<?php endif ?>
+<div class="message"><?php if(isset($response['success'])) { echo $response['success']; } elseif(isset($response['error'])) { echo $response['error']; }  ?></div>
+
+```
+
+Since we want to place our alerts directly beneath the input fields where they belong, there is  an alert box for each field and a message box below the form.
+
+## Add jQuery and custom script
+
+Now that we have our form in place, we need to include our javascript files in the footer before the closing body tag. For convenience sake, we use jQuery.
+
+```php
+<?php
+echo js(array(
+  'assets/js/jquery.min.js',
+  'assets/js/script.js'
+);
+?>
+```
+
+## The controller
+
+Let's have a look at the `event.php` controller:
+
+```php
+<?php
+
+return function($site, $pages, $page) {
+
+  // check if request is a post request
+  if(r::is('POST')) {
+    $data = r::data();
+
+    // call validateForm() with $data as parameter
+    $response = validateForm($data);
+
+    if(isset($response['redirect'])) {
+      $response = $response;
+    }
+    if(isset($response['errors'])) {
+      $response = $response;
+    }
+    if(isset($response['success'])) {
+      $response = addToStructure($page, 'registrations', $data);
+    }
+
+  }
+
+  return compact('response', 'data');
+};
+```
+
+First, we  check if the request is a post request. Then we fetch the request data with `r::data()`. In the next line, we call the function `validateForm()` with the `$data` array as its parameter, and store the result in `$response`.
+
+At this point, let's have a look at what is happening in the `validateForm()` function.
+
+### The `validateForm()` function
+
+```php
+<?php
+
+function validateForm($data) {
+
+  $response = array();
+
+  // if the honeypot is filled, we set the redirect key to true
+  if(!empty($data['website'])) {
+    $response['redirect'] = true;
+
+  } else {
+
+    // array of rules for form validation
+    $rules = array(
+      'firstname'  => array('required'),
+      'lastname'  => array('required'),
+      'email' => array('required', 'email'),
+    );
+
+    // array of messages to return if some of the data is not valid
+    $messages = array(
+      'firstname'  => 'Please enter your first name',
+      'lastname'  => 'Please enter your last name',
+      'email' => 'Please enter a valid email address',
+    );
+
+    // evaluate data and rules using the invalid() helper
+    if($invalid = invalid($data, $rules, $messages)) {
+      $response['errors'] = $invalid;
+    } else {
+      $response['success'] = true;
+    }
+
+  }
+
+  return $response;
+}
+```
+
+If you compare the code in the function with the code from the controller in (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from the frontend), you will notice very little differences. In the first if-statement, we check if the honeypot was filled in, if not, we set up a set of rules and messages and use the `invalid()` helper to check if the data matches our rules. Depending on the result, a different response is returned.
+
+Now back to our `event.php` controller.
+
+```php
+$response = validateForm($data);
+
+if(isset($response['redirect'])) {
+  $response = $response;
+}
+if(isset($response['errors'])) {
+  $response = $response;
+}
+
+// if form validation succeeds, we try to add the data to the structure field
+if(isset($response['success'])) {
+  $response = addToStructure($page, 'registrations', $data);
+}
+```
+
+Depending on the type of response we get from the `validateForm()` function, we either just return a response, or, if `$response['success']` is set, we call a second function `addToStructure()`.
+
+### The `addToStructure()` function
+
+In the `addToStructure()` function we combine the `addToStructure()` function from the (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from the frontend) tutorial with the `try/catch` block from the controller in the same tutorial, so if you haven't read that, check it out for details.
+
+```php
+function addToStructure($p, $field, $data = array()){
+
+  $response = array();
+
+  // escape user data
+  $data = array(
+        'firstname'  => esc($data['firstname']),
+        'lastname'  => esc($data['lastname']),
+        'company'  => esc($data['company']),
+        'email' => $data['email'],
+        'message'  => esc($data['message']),
+      );
+
+  // try to add data to field
+  try {
+    $fieldData = $p->$field()->yaml();
+    $fieldData[] = $data;
+    $fieldData = yaml::encode($fieldData);
+    $p->update(array(
+      $field => $fieldData,
+    ));
+
+    // if successful, add success message to $response array
+    $response['success'] = "Your registration was successful";
+
+  } catch(Exception $e) {
+
+    // if it fails, add error message to $response array
+    $response['error'] = 'Your registration failed: ' . $e->getMessage();
+
+  }
+
+  return $response;
+  ```
+
+With this setup, we now have a fully functional form with a PHP action script. Now, let's add the Javascript.
+
+## The Javascript
+
+If javascript is enabled on the client, we want to send the form via javascript when the button is clicked. In our `script.js` file, we now create an event listener with a `preventDefault()` to override the standard action. Here is the complete file:
+
+```javascript
+// assets/js/script.js
+$('#event-registration').on('submit', function(e) {
+  e.preventDefault();
+  // clear alerts
+  $('.alert').text('');
+
+  // define some variables
+  var form = $(this);
+      url = form.attr('action') + '.json';
+      data = form.serialize();
+
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    url: url,
+    data: data,
+
+    // if the ajax call is successful ...
+    success: function(response) {
+
+      // check if the honeypot was filled out, if yes, redirect somewhere (your homepage, the same page)
+      if(response['redirect'] == true) {
+        return;
+      }
+
+      // in case form validation has errors
+      if(response['errors']) {
+
+        // loop through errors array
+        $.each(response['errors'], function(key, message) {
+
+          //find the alert box for each input field
+          var element = form.find('#' + key).next();
+
+          // add the error message to the field
+          element.text(message);
+        });
+
+      }
+
+      // if registration was successful
+      if(response['success']) {
+
+              element = $('.message');
+              // show success message and hide form
+              element.text(response['success']);
+              form.hide();
+
+      }
+      // if registration failed
+      if(response['error']) {
+
+              element = $('.message');
+              // show error message
+              element.text(response['error']);
+      }
+
+    }
+  });
+});
+
+```
+Let's go through this one step at a time.
+
+1. With `$('.alert').text('')` we clear all divs with the class `alert`.
+2. We define a couple of variables:
+
+    ```javascript
+    var form = $(this);
+        url = form.attr('action') + '.json';
+        data = form.serialize();
+    ```
+3. The next step is the AJAX call itself:
+
+    ```javascript
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: url,
+      data: data,
+
+      // if the ajax call is successful ...
+      success: function(response) {
+      ...
+      }
+    ```
+
+    We send the data as post request to the url with the extension `.json`. This URL calls our JSON template mentioned at the beginning of this tutorial instead of the default PHP template.
+
+4. The rest of the code within the success function consists of a couple of if statements depending on the response we get from the JSON template. If the honeypot was filled in, we do nothing. In case of error messages, we display them in the corresponding `.alert` divs. If all data was correct and the registration was successful, we hide the form and display a success message. If the data was correct but could not be stored in the content file, we display an error message.
+
+## The JSON template
+
+Now for the last missing link, the JSON template (`event.json.php`):
+
+```php
+<?php
+
+echo json_encode($response, ARRAY_FILTER_USE_KEY);
+```
+
+Not of lot of code here. All we do, is to `json_encode()` the $response variable passed to the template by our `event.php` controller, so that is can be handled by javascript. When the AJAX call is made to the URL with the extension JSON, this template is used and returns the response to our javascript.
+
+
+## Download files
+
+The complete set of files for this tutorial can be found (link: https://github.com/getkirby/cookbook  text: in the Cookbook repo).
+
+For testing, you can add the files from each subfolder into the corresponding folders of a Kirby (link: https://github.com/getkirby/starterkit text: Starterkit) or (link: https://github.com/getkirby/plainkit text: Plainkit).
+
+We hope you enjoy this tutorial. You can leave your feedback in the (link: https::/forum.getkirby.com text: forum) or on (link: https://github.com/getkirby/getkirby.com/issues text: GitHub).
