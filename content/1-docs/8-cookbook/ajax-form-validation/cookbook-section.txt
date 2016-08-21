@@ -352,7 +352,7 @@ Now for the last missing link, the JSON template (`event.json.php`):
 echo json_encode($response, ARRAY_FILTER_USE_KEY);
 ```
 
-Not of lot of code here. All we do, is to `json_encode()` the $response variable passed to the template by our `event.php` controller, so that is can be handled by javascript. When the AJAX call is made to the URL with the extension JSON, this template is used and returns the response to our javascript.
+Not of lot of code here. All we do, is to `json_encode()` the `$response` variable passed to the template by our `event.php` controller, so that is can be handled by javascript. When the AJAX call is made to the URL with the extension JSON, this template is used and returns the response to our javascript.
 
 
 ## Download files
