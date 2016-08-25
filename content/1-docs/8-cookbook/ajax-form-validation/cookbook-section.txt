@@ -20,7 +20,7 @@ Methods:
 Text:
 (toc)
 
-In (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from the frontend), we covered server side form validation. Now let's look at how we can enhance that example with some (link: text: AJAX) form validation, so that we don't have to reload the page on each submit. If Javascript is enabled, the form is submitted via AJAX, otherwise the default action is called.
+In (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from the frontend), we covered server side form validation. Now let's look at how we can enhance that example with some (link: text: AJAX) form validation, so that we don't have to reload the page on each submit. If JavaScript is enabled, the form is submitted via AJAX, otherwise the default action is called.
 
 **Note**: In this tutorial, we make use of the new (link: docs/developer-guide/advanced/representations text: content representations) feature introduced in Kirby 2.4, so you need to update your Kirby installation for these instructions to work.
 
@@ -113,19 +113,14 @@ Let's have a look at the `event.php` controller:
 
 return function($site, $pages, $page) {
 
-  // check if request is a post request
+  // check if request is a POST request
   if(r::is('POST')) {
     $data = r::data();
 
     // call validateForm() with $data as parameter
     $response = validateForm($data);
 
-    if(isset($response['redirect'])) {
-      $response = $response;
-    }
-    if(isset($response['errors'])) {
-      $response = $response;
-    }
+    // if form validation succeeds, we try to add the data to the structure field
     if(isset($response['success'])) {
       $response = addToStructure($page, 'registrations', $data);
     }
@@ -136,7 +131,7 @@ return function($site, $pages, $page) {
 };
 ```
 
-First, we  check if the request is a post request. Then we fetch the request data with `r::data()`. In the next line, we call the function `validateForm()` with the `$data` array as its parameter, and store the result in `$response`.
+First, we check if the request is a POST request. Then we fetch the request data with `r::data()`. In the next line, we call the function `validateForm()` with the `$data` array as its parameter, and store the result in `$response`.
 
 At this point, let's have a look at what is happening in the `validateForm()` function.
 
@@ -189,38 +184,31 @@ Now back to our `event.php` controller.
 ```php
 $response = validateForm($data);
 
-if(isset($response['redirect'])) {
-  $response = $response;
-}
-if(isset($response['errors'])) {
-  $response = $response;
-}
-
 // if form validation succeeds, we try to add the data to the structure field
 if(isset($response['success'])) {
   $response = addToStructure($page, 'registrations', $data);
 }
 ```
 
-Depending on the type of response we get from the `validateForm()` function, we either just return a response, or, if `$response['success']` is set, we call a second function `addToStructure()`.
+Depending on the type of response we get from the `validateForm()` function, we either just return the response, or, if `$response['success']` is set, we call a second function `addToStructure()`.
 
 ### The `addToStructure()` function
 
 In the `addToStructure()` function we combine the `addToStructure()` function from the (link: docs/cookbook/creating-pages-from-frontend text: Creating pages from the frontend) tutorial with the `try/catch` block from the controller in the same tutorial, so if you haven't read that, check it out for details.
 
 ```php
-function addToStructure($p, $field, $data = array()){
+function addToStructure($p, $field, $data = array()) {
 
   $response = array();
 
   // escape user data
   $data = array(
-        'firstname'  => esc($data['firstname']),
-        'lastname'  => esc($data['lastname']),
-        'company'  => esc($data['company']),
-        'email' => $data['email'],
-        'message'  => esc($data['message']),
-      );
+    'firstname' => esc($data['firstname']),
+    'lastname'  => esc($data['lastname']),
+    'company'   => esc($data['company']),
+    'email'     => $data['email'],
+    'message'   => esc($data['message']),
+  );
 
   // try to add data to field
   try {
@@ -242,29 +230,32 @@ function addToStructure($p, $field, $data = array()){
   }
 
   return $response;
-  ```
 
-With this setup, we now have a fully functional form with a PHP action script. Now, let's add the Javascript.
+}
+```
 
-## The Javascript
+With this setup, we now have a fully functional form with a PHP action script but without the AJAX magic. Now, let's add the JavaScript for it.
 
-If javascript is enabled on the client, we want to send the form via javascript when the button is clicked. In our `script.js` file, we now create an event listener with a `preventDefault()` to override the standard action. Here is the complete file:
+## The JavaScript
+
+If JavaScript is available on the client and there is no execution error, we want to send the form via JavaScript when the button is clicked. In our `script.js` file, we now create an event listener with a `preventDefault()` to prevent a standard form submission. Here is the complete file:
 
 ```javascript
 // assets/js/script.js
 $('#event-registration').on('submit', function(e) {
   e.preventDefault();
+
   // clear alerts
   $('.alert').text('');
 
   // define some variables
   var form = $(this);
-      url = form.attr('action') + '.json';
-      data = form.serialize();
+  var url  = form.attr('action') + '.json';
+  var data = form.serialize();
 
   $.ajax({
-    type: "POST",
-    dataType: "json",
+    type: 'POST',
+    dataType: 'json',
     url: url,
     data: data,
 
@@ -272,17 +263,16 @@ $('#event-registration').on('submit', function(e) {
     success: function(response) {
 
       // check if the honeypot was filled out, if yes, redirect somewhere (your homepage, the same page)
-      if(response['redirect'] == true) {
+      if(response.redirect == true) {
         return;
       }
 
       // in case form validation has errors
-      if(response['errors']) {
+      if(response.errors) {
 
         // loop through errors array
-        $.each(response['errors'], function(key, message) {
-
-          //find the alert box for each input field
+        $.each(response.errors, function(key, message) {
+          // find the alert box for each input field
           var element = form.find('#' + key).next();
 
           // add the error message to the field
@@ -292,53 +282,53 @@ $('#event-registration').on('submit', function(e) {
       }
 
       // if registration was successful
-      if(response['success']) {
+      if(response.success) {
+        element = $('.message');
 
-              element = $('.message');
-              // show success message and hide form
-              element.text(response['success']);
-              form.hide();
-
+        // show success message and hide form
+        element.text(response.success);
+        form.hide();
       }
-      // if registration failed
-      if(response['error']) {
 
-              element = $('.message');
-              // show error message
-              element.text(response['error']);
+      // if registration failed
+      if(response.error) {
+        element = $('.message');
+
+        // show error message
+        element.text(response.error);
       }
 
     }
   });
 });
-
 ```
+
 Let's go through this one step at a time.
 
 1. With `$('.alert').text('')` we clear all divs with the class `alert`.
 2. We define a couple of variables:
 
     ```javascript
-    var form = $(this);
-        url = form.attr('action') + '.json';
-        data = form.serialize();
+    var form = $(this); // a jQuery object of the form
+    var url = form.attr('action') + '.json'; // the URL the form should be sent to
+    var data = form.serialize(); // object with form data
     ```
 3. The next step is the AJAX call itself:
 
     ```javascript
     $.ajax({
-      type: "POST",
-      dataType: "json",
+      type: 'POST',
+      dataType: 'json',
       url: url,
       data: data,
 
       // if the ajax call is successful ...
       success: function(response) {
-      ...
+        ...
       }
     ```
 
-    We send the data as post request to the url with the extension `.json`. This URL calls our JSON template mentioned at the beginning of this tutorial instead of the default PHP template.
+    We send the data as post request to the url with the extension `.json`. This URL calls our JSON template mentioned at the beginning of this tutorial and implemented below instead of the default PHP template.
 
 4. The rest of the code within the success function consists of a couple of if statements depending on the response we get from the JSON template. If the honeypot was filled in, we do nothing. In case of error messages, we display them in the corresponding `.alert` divs. If all data was correct and the registration was successful, we hide the form and display a success message. If the data was correct but could not be stored in the content file, we display an error message.
 
@@ -352,7 +342,7 @@ Now for the last missing link, the JSON template (`event.json.php`):
 echo json_encode($response, ARRAY_FILTER_USE_KEY);
 ```
 
-Not of lot of code here. All we do, is to `json_encode()` the `$response` variable passed to the template by our `event.php` controller, so that is can be handled by javascript. When the AJAX call is made to the URL with the extension JSON, this template is used and returns the response to our javascript.
+Not of lot of code here. All we do is to `json_encode()` the `$response` variable passed to the template by our `event.php` controller, so that is can be handled by our JavaScript code. When the AJAX call is made to the URL with the extension `.json`, this template is used and returns the response to our JavaScript.
 
 
 ## Download files
@@ -361,4 +351,4 @@ The complete set of files for this tutorial can be found (link: https://github.c
 
 For testing, you can add the files from each subfolder into the corresponding folders of a Kirby (link: https://github.com/getkirby/starterkit text: Starterkit) or (link: https://github.com/getkirby/plainkit text: Plainkit).
 
-We hope you enjoy this tutorial. You can leave your feedback in the (link: https::/forum.getkirby.com text: forum) or on (link: https://github.com/getkirby/getkirby.com/issues text: GitHub).
+We hope you enjoyed this tutorial. You can leave your feedback in the (link: https::/forum.getkirby.com text: forum) or on (link: https://github.com/getkirby/getkirby.com/issues text: GitHub).
