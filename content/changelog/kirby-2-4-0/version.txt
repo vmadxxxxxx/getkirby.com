@@ -40,7 +40,7 @@ c::set('languages', array(
     'name'    => 'Deutsch',
     'locale'  => 'de_DE',
     'url'     => 'https://example.de',
-  ),
+  )
 ));
 ```
 
@@ -61,6 +61,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 ## Panel
 
 - Hooks are now using event objects (see below) with additional useful meta information
+- Better error handling for forms
 - Fix visibility of the text field counter in the file view
 
 ## Core
