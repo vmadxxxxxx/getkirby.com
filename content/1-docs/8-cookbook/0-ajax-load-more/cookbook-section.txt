@@ -186,9 +186,9 @@ $data['more'] = $more;
 echo json_encode($data);
 ```
 
-With this template set up, we can now make a call to `http://example.com/projects.json` in our Javascript code and the template will echo the JSON encoded data. But let's go through this in a little bit more detail.
+With this template set up, we can now make the Ajax request to `http://example.com/projects.json` in our Javascript code, and the template will echo the JSON encoded data. But let's go through this in a little bit more detail.
 
-We first define a variable `$html` as an empty string. As in the standard template, we loop through the projects passed from the controller. We then add the HTML/PHP code for each project to the `$html` variable.
+First, we define a variable `$html` as an empty string. We then loop through the projects returned from the controller and add the HTML/PHP code for each project to the `$html` variable.
 
 Next, the`$html` and `$more` variables are added to the `$data` array. And finally, we `json_encode()` the `$data` array, so that the data can be handled by our JavaScript code.
 
@@ -261,7 +261,7 @@ Let's go through this step by step:
     });
     ```
 
-3. The `loadMore()` function now contains the Ajax call:
+3. The `loadMore()` function contains the Ajax request:
 
     ```javascript
     function loadMore() {
@@ -291,13 +291,21 @@ Let's go through this step by step:
     }
     ```
 
-    With the Ajax request, we send the values for limit and offset to the `project.php` controller. If the POST request was successful, we append the HTML to the last child element of the `.projects` container:
+    With the Ajax request, we send the values for limit and offset to the `project.php` controller. If the POST request was successful…
+
+    ```
+    request.done(function(data) {
+    // ...
+    });
+    ```
+
+    …we append the HTML to the last child element of the `.projects` container:
 
     ```javascript
     element.children().last().after(data.html);
     ```
 
-    We hide the button if there are no more projects left:
+    If there are no more projects left, we hide the "load more" button:
 
     ```javascript
     if(data.more === false) {
@@ -305,7 +313,7 @@ Let's go through this step by step:
     }
     ```
 
-    Finally, we increase the `offset` by the `limit` value.
+    Finally, we increase the `offset` by the value of `limit`.
 
     ```javascript
     offset += limit;
@@ -324,6 +332,11 @@ We are almost there. Now let's not forget to add jQuery and our script file to o
 ?>
 ```
 Note that we include a local copy of jQuery in this example. As an alternative, you can load it from a CDN. Or rewrite to code to use vanilla JavaScript instead of jQuery, of course.
+
+## If Javascript is not available…
+
+Depending on your use case, you may want to either hide the button if JavaScript is not available, or provide a fallback with a link to the complete list of projects.
+
 
 ## Download files
 
