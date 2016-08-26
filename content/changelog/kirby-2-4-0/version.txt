@@ -78,6 +78,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 
 ## Toolkit
 
+- (toolkit: html/a) now automatically adds `rel="noopener"` when you set `target="_blank"` to improve the security and performance of such links. 
 - Routes can now be restricted to match only on one host, see (link: docs/developer-guide/toolkit/routing text: the docs)
 - Add (toolkit: visitor/acceptance) and (toolkit: visitor/accepts)
 - Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
