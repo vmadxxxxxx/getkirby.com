@@ -53,20 +53,7 @@ Let's start with the `projects.php` template.
 
       <!-- Loop through the projects -->
       <?php foreach($projects as $project): ?>
-
-        <li class="project">
-          <a href="<?= $project->url() ?>" class="project-link">
-
-            <!-- We want to get the first image of each project. We first check if it exists! -->
-            <?php if($image = $project->images()->first()): ?>
-              <img src="<?= $image->url() ?>" alt="<?= $image->alt_text()->html() ?>" />
-            <?php endif ?>
-            <div class="project-caption">
-              <h3 class="project-title"><?= $project->title()->html() ?></h3>
-            </div>
-          </a>
-        </li>
-
+      <?php snippet('project', compact('project')) ?>
       <?php endforeach ?>
 
     </ul>
@@ -76,6 +63,24 @@ Let's start with the `projects.php` template.
 
 <?php snippet('footer') ?>
 ```
+
+We put the list item for each project in a separate snippet. We'll need that a second time and can avoid to write redundant code that way.
+
+```php
+<!-- /site/snippets/project.php -->
+<li class="project">
+  <a href="<?= $project->url() ?>" class="project-link">
+    <!-- We want to get the first image of each project. We first check if it exists! -->
+    <?php if($image = $project->image()): ?>
+    <img src="<?= $image->url() ?>" alt="<?= $image->alt_text()->html() ?>" />
+    <?php endif ?>
+    <div class="project-caption">
+      <h2 class="project-title"><?= $project->title()->html() ?></h2>
+    </div>
+  </a>
+</li>
+```
+
 
 Apart from our HTML for the project, we have included a button with the class `load-more`. Also, we added two data attributes `data-page` and `data-limit` to pass the current page and the limit value to our JavaScript code.
 
@@ -89,31 +94,32 @@ The controller is the place where we add our template logic:
 <!-- /site/controllers/projects.php -->
 <?php
 
-  return function($site, $pages, $page) {
+return function($site, $pages, $page) {
 
-    $projects = $page->children()->visible();
-    $count = $projects->count();
+  $projects = $page->children()->visible();
+  $count    = $projects->count();
 
-    // check if the request is an Ajax request and if the limit and offset keys are set
-    if(r::ajax() && r::get('offset') && r::get('limit')) {
+  // check if the request is an Ajax request and if the limit and offset keys are set
+  if(r::ajax() && get('offset') && get('limit')) {
 
-      // convert limit and offset values to integer
-      $offset = intval(r::get('offset'));
-      $limit  = intval(r::get('limit'));
+    // convert limit and offset values to integer
+    $offset = intval(get('offset'));
+    $limit  = intval(get('limit'));
 
-      // limit projects using offset and limit values
-      $projects = $projects->offset($offset)->limit($limit);
+    // limit projects using offset and limit values
+    $projects = $projects->offset($offset)->limit($limit);
 
-      // check if there are more projects left
-      $more = $count > $offset+1? true : false;
+    // check if there are more projects left
+    $more = $count > $offset + 1;
 
-    // otherwise set the number of projects initially displayed
-    } else {
+  // otherwise set the number of projects initially displayed
+  } else {
 
-      $limit=2;
-      $projects = $projects->limit($limit);
-    }
+    $offset   = 0;
+    $limit    = 2;
+    $projects = $projects->limit($limit);
 
+  }
 
   return compact('offset', 'limit', 'projects', 'more');
 
@@ -125,31 +131,32 @@ First, we fetch all visible children of the `projects` page and store it in the 
 Then we check if the request is an Ajax request, and if the request contains the `offset` and `limit` keys:
 
 ```php
-if(r::ajax() && r::get('offset') && r::get('limit')) {
+if(r::ajax() && get('offset') && get('limit')) {
 
 // ...
 
 } else {
 
-  $limit=2;
+  $offset   = 0;
+  $limit    = 2;
   $projects = $projects->limit($limit);
 }
 ```
 
-If the request is not an Ajax request, we set the `$limit` variable and limit the number of projects to be displayed on first page load.
+If the request is not an Ajax request, we set the `$offset` and `$limit` variables and limit the number of projects to be displayed on first page load.
 
 If the request is an Ajax request, the code within the braces is executed:
 
 ```php
 // convert limit and offset values to integer
-$offset = intval(r::get('offset'));
-$limit  = intval(r::get('limit'));
+$offset = intval(get('offset'));
+$limit  = intval(get('limit'));
 
 // limit projects using offset and limit values
 $projects = $projects->offset($offset)->limit($limit);
 
 // check if there are more projects left
-$more = $count > $offset+1? true : false;
+$more = $count > $offset+1;
 ```
 
 We first convert the values for `offset` and `limit` to integer. Then we apply those values to the `offset()` and `limit()` methods we call on `$projects`. In the last step, we check if the number of projects is still greater than the value of `$offset` plus 1 and depending on the result, we set `$more` to `true` or `false`.
@@ -161,21 +168,18 @@ At the end of the controller, we return all variables so that they can be used b
 Now we create a second, content specific template for the JSON representation: `projects.json.php`. Let's take a look at the file:
 
 ```php
-<!-- /site/templates/projects.json..php -->
+<!-- /site/templates/projects.json.php -->
 <?php
 
 $html = '';
 
 foreach($projects as $project) {
 
-  // create a string with the same HTML code for the project that we used in the template
-  $html .= '<li class="project"><a href="' . $project->url() . '">';
-  if($image = $project->images()->first()):
-    $html .= '<img src="' . $image->url() .'" alt="' . $image->alt_text()->html() . '"/>';
-  endif;
-  $html .= '<div class="project-caption"><h3 class="project-title">';
-  $html .= $project->title()->html();
-  $html .= '</h3></div></a></li>';
+  // reuse the project snippet to create the HTML for each project
+  // we need to set the third parameter to true, to return the 
+  // snippet content instead of echoing it
+  $html .= snippet('project', compact('project'), true);
+
 }
 
 // add $html and $more to the $data array
@@ -186,11 +190,11 @@ $data['more'] = $more;
 echo json_encode($data);
 ```
 
-With this template set up, we can now make the Ajax request to `http://example.com/projects.json` in our Javascript code, and the template will echo the JSON encoded data. But let's go through this in a little bit more detail.
+With this template set up, we can now make a call to `http://example.com/projects.json` in our Javascript code and the template will echo the JSON encoded data. But let's go through this in a little bit more detail.
 
 First, we define a variable `$html` as an empty string. We then loop through the projects returned from the controller and add the HTML/PHP code for each project to the `$html` variable.
 
-Next, the`$html` and `$more` variables are added to the `$data` array. And finally, we `json_encode()` the `$data` array, so that the data can be handled by our JavaScript code.
+Next, the `$html` and `$more` variables are added to the `$data` array. And finally, we `json_encode()` the `$data` array, so that the data can be handled by our JavaScript code.
 
 ## The JavaScript
 
@@ -198,44 +202,30 @@ To make our example work, we now have to create the JavaScript code (jQuery in t
 
 ```javascript
 // assets/js/script.js
-$(document).ready(function(){
+$(function(){
 
   var element = $('.projects');
-  var limit = parseInt(element.data('limit'));
-  var offset = limit;
-  var url = element.data('page') + '.json';
-
+  var url     = element.data('page') + '.json';
+  var limit   = parseInt(element.data('limit'));
+  var offset  = limit;
 
   $('.load-more').on('click', function(e) {
+
     e.preventDefault();
-    loadMore();
-  });
 
-  function loadMore() {
+    $.get(url, {limit: limit, offset: offset}, function(data) {
 
-    var request = $.ajax({
-        url:url,
-        type: 'post',
-        dataType: 'json',
-        data: {
-          'limit': limit,
-          'offset': offset
-        }
-    });
-
-    request.done(function(data) {
-
-      if(data['more'] === false) {
+      if(data.more === false) {
         $('.load-more').hide();
       }
 
-      element.children().last().after(data['html']);
+      element.children().last().after(data.html);
+
+      offset += limit;
 
     });
 
-    offset += limit;
-
-    }
+  });
 
 });
 ```
@@ -246,66 +236,45 @@ Let's go through this step by step:
 
     ```javascript
     var element = $('.projects');
-    var limit = parseInt(element.data('limit'));
-    var offset = limit;
-    var url = element.data('page') + '.json';
+    var url     = element.data('page') + '.json';
+    var limit   = parseInt(element.data('limit'));
+    var offset  = limit;
     ```
 
     We get the `limit` and the base part of the `url` variables from the data attributes we defined in the `projects.php` template above. Note that we add the `json` suffix to the URL, so that our JSON content representation will be fetched instead of the standard template.
 
-2. We add the event listener, which is triggered when the `load-more` button is clicked. On click, the `loadMore()` function is called:
+2. We add the event listener, which is triggered when the `load-more` button is clicked. 
 
     ```javascript
     $('.load-more').on('click', function(e) {
-      loadMore();
+      
     });
     ```
 
-3. The `loadMore()` function contains the Ajax request:
+3. The function contains the Ajax call:
 
     ```javascript
-    function loadMore() {
+    $.get(url, {limit: limit, offset: offset}, function(data) {
 
-      var request = $.ajax({
-        url: url,
-        type: 'post',
-        dataType: 'json',
-        data: {
-          'limit': limit,
-          'offset': offset
-        }
-      });
+      if(data.more === false) {
+        $('.load-more').hide();
+      }
 
-      request.done(function(data) {
-
-        element.children().last().after(data.html);
-
-        if(data.more === false) {
-          $('.load-more').hide();
-        }
-
-      });
+      element.children().last().after(data.html);
 
       offset += limit;
 
-    }
-    ```
-
-    With the Ajax request, we send the values for limit and offset to the `project.php` controller. If the POST request was successful…
-
-    ```
-    request.done(function(data) {
-    // ...
     });
+
     ```
 
-    …we append the HTML to the last child element of the `.projects` container:
+    With the Ajax request, we send the values for limit and offset to the `project.php` controller. If the GET request was successful, we append the HTML to the last child element of the `.projects` container:
 
     ```javascript
     element.children().last().after(data.html);
     ```
 
-    If there are no more projects left, we hide the "load more" button:
+    We hide the button if there are no more projects left:
 
     ```javascript
     if(data.more === false) {
@@ -325,10 +294,11 @@ We are almost there. Now let's not forget to add jQuery and our script file to o
 
 ```php
 <!-- /site/snippets/footer.php -->
-<?php
-<?php
-  echo js('assets/js/jquery.min.js');
-  echo js('assets/js/script.js');
+<?php 
+  echo js([
+    'assets/js/jquery.min.js',
+    'assets/js/script.js'
+  ]);
 ?>
 ```
 Note that we include a local copy of jQuery in this example. As an alternative, you can load it from a CDN. Or rewrite to code to use vanilla JavaScript instead of jQuery, of course.
