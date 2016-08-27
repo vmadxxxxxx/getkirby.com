@@ -176,7 +176,7 @@ $html = '';
 foreach($projects as $project) {
 
   // reuse the project snippet to create the HTML for each project
-  // we need to set the third parameter to true, to return the 
+  // we need to set the third parameter to true, to return the
   // snippet content instead of echoing it
   $html .= snippet('project', compact('project'), true);
 
@@ -211,8 +211,6 @@ $(function(){
 
   $('.load-more').on('click', function(e) {
 
-    e.preventDefault();
-
     $.get(url, {limit: limit, offset: offset}, function(data) {
 
       if(data.more === false) {
@@ -243,11 +241,11 @@ Let's go through this step by step:
 
     We get the `limit` and the base part of the `url` variables from the data attributes we defined in the `projects.php` template above. Note that we add the `json` suffix to the URL, so that our JSON content representation will be fetched instead of the standard template.
 
-2. We add the event listener, which is triggered when the `load-more` button is clicked. 
+2. We add the event listener, which is triggered when the `load-more` button is clicked.
 
     ```javascript
     $('.load-more').on('click', function(e) {
-      
+
     });
     ```
 
@@ -294,7 +292,7 @@ We are almost there. Now let's not forget to add jQuery and our script file to o
 
 ```php
 <!-- /site/snippets/footer.php -->
-<?php 
+<?php
   echo js([
     'assets/js/jquery.min.js',
     'assets/js/script.js'
