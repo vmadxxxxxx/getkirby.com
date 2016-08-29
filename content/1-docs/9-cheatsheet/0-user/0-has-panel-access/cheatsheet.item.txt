@@ -6,7 +6,7 @@ Title:
 
 Excerpt:
 
-Checks if the user is allowed to acces the panel based on its role.
+Checks if the user is allowed to access the Panel based on the role.
 
 ----
 
@@ -23,6 +23,6 @@ Text:
 
 ```php
 <?php if($user = $site->user() and $user->hasPanelAccess()): ?>
-This super secret content is only visible for users with panel access
+This super secret content is only visible for users with Panel access
 <?php endif ?>
 ```

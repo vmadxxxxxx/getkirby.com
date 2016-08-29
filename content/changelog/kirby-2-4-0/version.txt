@@ -14,6 +14,16 @@ Text:
 
 ## Highlights in 2.4.0
 
+### Permissions
+
+The Panel finally supports permissions!
+Each user role can now define a set of rules to restrict each Panel action based on the action type, the current page/file, user, language or even a combination of all of them.
+
+You want to have a translator role that is only able to edit a specific language? Or an editor role that can only create new drafts in the blog but not publish them? Or a role that only allows users to edit their own profile page? It's all possible now!
+In future Kirby releases, we will extend the current set of permissions so that even more complex setups are possible.
+
+(link: docs/panel/permissions text: Read more about this feature in the docs).
+
 ### Content Representations
 
 One of Kirby's biggest advantages is its content structure. You can use as many fields and field types as you need to create content that isn't just a large WYSIWYG field.
@@ -60,6 +70,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 
 ## Panel
 
+- Add support for Panel permissions, see (link: docs/panel/permissions text: permissions docs)
 - Hooks are now using event objects (see below) with additional useful meta information
 - Prefix Panel session variables to prevent overlap with plugins
 - Better error handling for forms
@@ -70,6 +81,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 ## Core
 
 - New (link: docs/developer-guide/advanced/representations text: Content Representations) feature
+- Roles now use their own PHP files that are compatible with the registry, see (link: docs/panel/permissions text: permissions docs)
 - Multi-language sites can now use separate domains per language
 - Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
 - New error view for exceptions powered by [Whoops](https://filp.github.io/whoops/) (only in debug mode)
