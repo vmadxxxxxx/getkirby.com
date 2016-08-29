@@ -64,6 +64,8 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Prefix Panel session variables to prevent overlap with plugins
 - Better error handling for forms
 - Fix visibility of the text field counter in the file view
+- Better var_debug output for various panel objects
+- Fix overflow issue for long checkbox labels
 
 ## Core
 
@@ -79,6 +81,8 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Core dependencies are now managed with Composer, also the core can now be installed via Composer
 - The `cache.ignore` option now only has to contain URIs of the default language
 - All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
+- Custom language files can now be written in YAML
+- (sheet: file/blur) now accepts a blur amount parameter
 
 ## Toolkit
 
