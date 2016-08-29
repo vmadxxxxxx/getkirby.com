@@ -63,9 +63,9 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Hooks are now using event objects (see below) with additional useful meta information
 - Prefix Panel session variables to prevent overlap with plugins
 - Better error handling for forms
-- Fix visibility of the text field counter in the file view
-- Better var_debug output for various panel objects
 - Fix overflow issue for long checkbox labels
+- Fix visibility of the text field counter in the file view
+- Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
 
 ## Core
 
@@ -73,6 +73,8 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Multi-language sites can now use separate domains per language
 - Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
 - New error view for exceptions powered by [Whoops](https://filp.github.io/whoops/) (only in debug mode)
+- Custom language files can now be written in YAML
+- (sheet: file/blur) now accepts a blur amount parameter
 - Add support for hook wildcards
 - Inside hooks, `$this` is now set to a new event object with useful information about the event
 - `link` kirbytag now automatically adds `rel="noopener"` when you set `target="_blank"` to improve the security and performance of such links
@@ -81,8 +83,6 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Core dependencies are now managed with Composer, also the core can now be installed via Composer
 - The `cache.ignore` option now only has to contain URIs of the default language
 - All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
-- Custom language files can now be written in YAML
-- (sheet: file/blur) now accepts a blur amount parameter
 
 ## Toolkit
 
