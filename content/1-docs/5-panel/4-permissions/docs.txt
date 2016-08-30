@@ -1,0 +1,111 @@
+Title: Permissions
+
+----
+
+Since: 2.4.0
+
+----
+
+Description: Assign fine-grained permissions to each user role.
+
+----
+
+Text:
+
+(toc)
+
+Permissions, a new feature in Kirby 2.4, allow you to restrict access to Panel actions or your own frontend features based on the user's role.
+
+## Defining permissions
+
+Permissions are part of (link: docs/panel/roles text: roles). Each role has its own set of permissions. Those permissions will then apply to all users with that role. A role with permissions may look like that:
+
+```php
+<?php
+
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.site.update' => false,
+    'panel.user.*'      => false,
+    'panel.user.update' => function($user) {
+      if(site()->user()->username() === $user->username()) {
+        if(str::contains($user->bio(), 'our competitor') {
+          // users may not put the competitor in their bio
+          return 'Your bio contains the name of our competitor.';
+        }
+        
+        // users are allowed to edit their own information
+        return true;
+      } else {
+        // other users can't be edited
+        return false;
+      }
+    }
+  ]
+];
+```
+
+As you can see, wildcard rules are allowed. When checking permissions, the most specific rule will be used.
+
+### Simple definition
+
+The easiest way to define permissions is to set them to `true` or `false`. If set to `true`, access for matching permissions is granted, otherwise blocked.
+In the example above, everything is allowed by default (`*` rule). The `panel.site.update` permission and user permissions are then blocked again.
+
+### Permission functions
+
+You can also make your permission rules much more fine-grained by using permission functions like in the `panel.user.update` example above.
+Permission functions are called with the relevant data (see the table below).
+
+#### Event metadata
+
+Inside permission functions, `$this` is set to an event object. You can use it to get additional metadata:
+
+```php
+// Kirby objects
+$panel    = $this->panel();
+$kirby    = $this->kirby();
+$site     = $this->site();
+
+// Event type (name of the permission)
+$type     = $this->type();
+
+// Data about the user
+$user     = $this->user();
+$username = $this->username();
+
+// Additional metadata depending on the event
+// See the table below
+```
+
+#### Return values
+
+Permission functions are expected to return either `true`, `false` or a string.
+
+`true` and `false` work just like with simple definitions.
+If you return a string however, the action will be prevented and that string will become the error message that is displayed to the user. You can use error strings for detailed validation errors.
+
+## Available permissions
+
+The Panel currently supports the following permissions:
+
+Permission name | Passed Object(s) | Event metadata
+- | - | -
+panel.access | | 
+
+More fine-grained permission settings will be added in future Kirby releases.
+
+### Managing Panel access
+
+With the `panel.access` permission, you can control whether a role has access to the Panel. It is useful for "frontend roles" that shouldn't have access to the Panel at all. Users will still be able to login with the (link: docs/cheatsheet#user text: $user API).
+
+If you set the `*` permission to `false`, Panel access will automatically be forbidden as well since the `*` permission applies to all permissions that have not been set explicitly.
+There is also the `panel` (link: docs/panel/roles text: role option), which is a shortcut for this permission.
+
+## Using permissions for frontend features
+
+On top of the Panel permissions, you can define your own permissions for the frontend and use them inside templates, controllers or plugins.
+Take a look at the (sheet: user/permission) method for more information.

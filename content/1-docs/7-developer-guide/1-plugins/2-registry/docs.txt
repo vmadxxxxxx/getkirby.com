@@ -155,6 +155,23 @@ $kirby->set('option', 'cache', true);
 
 This is an alternative syntax to `c::set()`, but this syntax can be used inside plugins.
 
+<since v="2.4.0">
+### role
+
+```php
+// The role file must exist at the given location
+$kirby->set('role', 'client', __DIR__ . '/roles/client.php');
+
+// You can also pass a role array directly
+$kirby->set('role', 'client', [
+  'name' => 'Client',
+  'permissions' => [
+    ...
+  ]
+]);
+```
+</since>
+
 ### route
 
 ```php

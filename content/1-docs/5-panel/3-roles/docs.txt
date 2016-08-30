@@ -15,7 +15,7 @@ Kirby's user management is based on a simple role system. By default, Kirby is c
 
 Roles can be assigned to the users in the Users section of the Panel.
 
-The Admin role is mandatory and cannot be removed. Users with that role have all permissions, while editors are by default only allowed to edit their own user profile, but not create, modify or delete other users.
+The Admin role is mandatory and cannot be removed. Users with that role have all permissions, while editors are by default only allowed to edit their own user profile, but not allowed to create, modify or delete other users.
 
 <since v="2.4.0">
 ## Creating your own roles
@@ -35,6 +35,18 @@ return [
 ];
 ```
 
+If you want to create roles that are not allowed to access the Panel at all without configuring permissions, use something like this:
+
+```php
+<?php
+
+return [
+  'name'    => 'Client',
+  'default' => false,
+  'panel'   => false
+];
+```
+
 ### name option
 
 The `name` option sets the human-readable name of the role. It is displayed in the role select field on the user forms in the Panel.
@@ -44,7 +56,37 @@ The `name` option sets the human-readable name of the role. It is displayed in t
 The `default` option determines which role is being selected by default when a new user is being created.
 Only one role can be the default.
 
+### panel option
+
+The `panel` option is a shortcut for the `panel.access` permission. If you set it to `false`, users won't be able to access the Panel at all. This option is useful for pure frontend roles.
+
 ### permissions option
 
-The `permissions` option allows you to control the permissions (in the Panel or for plugin functions) of all users with the role. (link: docs/panel/permissions text: Learn more about permissions.)
+The `permissions` option allows you to control the permissions (in the Panel or for your own frontend features) of all users with the role. (link: docs/panel/permissions text: Learn more about permissions.)
 </since>
+
+## Defining simple roles
+
+If your roles are simple and don't have complex permission rules, you can define roles with a config option instead.
+This is also the feature you need if you are still using an older Kirby version before Kirby 2.4.
+
+```php
+c::set('roles', [
+  [
+    'id'      => 'admin',
+    'name'    => 'Admin',
+    'default' => true,
+    'panel'   => true
+  ],
+  [
+    'id'      => 'editor',
+    'name'    => 'Editor',
+    'panel'   => true
+  ],
+  [
+    'id'      => 'client',
+    'name'    => 'Client',
+    'panel'   => false
+  ]
+]);
+```
