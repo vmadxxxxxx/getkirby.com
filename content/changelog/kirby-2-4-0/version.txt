@@ -87,14 +87,15 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - New error view for exceptions powered by [Whoops](https://filp.github.io/whoops/) (only in debug mode)
 - Custom language files can now be written in YAML
 - (sheet: file/blur) now accepts a blur amount parameter
+- The `cache.ignore` option now only has to contain URIs of the default language
 - Add support for hook wildcards
 - Inside hooks, `$this` is now set to a new event object with useful information about the event
+- All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
+- Update Parsedown library
 - `link` kirbytag now automatically adds `rel="noopener"` when you set `target="_blank"` to improve the security and performance of such links
 - Prefix Kirby session variables to prevent overlap with plugins
-- Update Parsedown library
+- Fix a bug in the controller registry that would allow plugins to override custom controllers
 - Core dependencies are now managed with Composer, also the core can now be installed via Composer
-- The `cache.ignore` option now only has to contain URIs of the default language
-- All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
 
 ## Toolkit
 
