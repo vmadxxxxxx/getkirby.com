@@ -36,6 +36,9 @@ options:
 fields:
   …
 ```
+
+If you set the `template` option to true, panel users can only change templates if the (link: docs/panel/blueprints/subpages-settings text: page settings of the parent blueprint) allow at least two templates.
+
 </since>
 
 
