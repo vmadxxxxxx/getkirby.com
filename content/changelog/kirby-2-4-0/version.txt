@@ -94,6 +94,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Update Parsedown library
 - `link` kirbytag now automatically adds `rel="noopener"` when you set `target="_blank"` to improve the security and performance of such links
 - Prefix Kirby session variables to prevent overlap with plugins
+- Fix a bug in `$field->isTranslated()` that would return incorrect results if the field value was set but identical to the default language
 - Fix a bug in the controller registry that would allow plugins to override custom controllers
 - Core dependencies are now managed with Composer, also the core can now be installed via Composer
 
