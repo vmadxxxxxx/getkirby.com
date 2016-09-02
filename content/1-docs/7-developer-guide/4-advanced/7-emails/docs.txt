@@ -130,7 +130,7 @@ foreach($listOfRecipients as $recipient) {
 
 ## Configuration
 
-You can (link: docs/developer-guide/configuration/email text: configure all email options) in your Kirby config file. 
+You can (link: docs/cheatsheet/helpers/email text: configure all email options) in your Kirby config file. 
 
 ## Write your own email driver
 
