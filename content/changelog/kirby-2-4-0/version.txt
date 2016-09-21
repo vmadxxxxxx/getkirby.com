@@ -102,6 +102,11 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 
 - Routes can now be restricted to match only on one host, see (link: docs/developer-guide/toolkit/routing text: the docs)
 - Add (toolkit: visitor/acceptance) and (toolkit: visitor/accepts)
+- (toolkit: str/random) is now more random in PHP 7.0 and later
+- Add (toolkit: str/quick-random)
 - Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
-- Obj: Fix issue if the `$data` array contains empty keys; those are now ignored
+- `Obj`: Fix issue if the `$data` array contains empty keys; those are now ignored
+- Improve type handling in `html::attr` to support `0` as a float value
+- `html::attr`: Escape quotes in the attribute value
 - (toolkit: html/a) now automatically adds `rel="noopener"` when you set `target="_blank"` to improve the security and performance of such links
+- Remove legacy code in the `Escape` class
