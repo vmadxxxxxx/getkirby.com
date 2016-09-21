@@ -73,6 +73,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Add support for Panel permissions, see (link: docs/panel/permissions text: permissions docs)
 - Hooks are now using event objects (see below) with additional useful meta information
 - Prefix Panel session variables to prevent overlap with plugins
+- Support for a default user blueprint for (link: docs/panel/users#custom-user-form-fields text: custom user form fields)
 - Better error handling for forms
 - Fix overflow issue for long checkbox labels
 - Fix visibility of the text field counter in the file view
@@ -93,6 +94,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
 - Update Parsedown library
 - `link` kirbytag now automatically adds `rel="noopener"` when you set `target="_blank"` to improve the security and performance of such links
+- User login no longer deletes session data, e.g. from plugins
 - Prefix Kirby session variables to prevent overlap with plugins
 - Fix a bug in `$field->isTranslated()` that would return incorrect results if the field value was set but identical to the default language
 - Fix a bug in the controller registry that would allow plugins to override custom controllers
