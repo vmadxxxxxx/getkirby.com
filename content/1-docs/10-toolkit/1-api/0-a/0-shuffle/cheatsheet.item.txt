@@ -15,7 +15,29 @@ text: The shuffled result array
 
 ----
 
-Params: - 
+Params: -
   name: $array
   type: array
   text: The source array
+----
+Text:
+
+## Example
+
+```php
+<?php
+$array = array(
+  'cat'  => 'miao',
+  'dog'  => 'wuff',
+  'bird' => 'tweet'
+);
+
+$shuffled = a::shuffle($array);
+
+// output: array(
+//   'dog' => 'wuff',
+//   'cat' => 'miao',
+//   'bird' => 'tweet'
+// );
+
+```
