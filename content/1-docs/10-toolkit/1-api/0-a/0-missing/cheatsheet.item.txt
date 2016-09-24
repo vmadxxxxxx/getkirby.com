@@ -17,11 +17,33 @@ text: >
 
 ----
 
-Params: - 
+Params: -
   name: $array
   type: array
   text: The source array
-- 
+-
   name: $required
   type: array
   text: An array of required keys
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$array = array(
+  'cat' => 'miao',
+  'dog' => 'wuff',
+  'bird' => 'tweet'
+);
+
+$required = array('cat', 'elephant');
+
+$missing = a::missing($array, $required);
+// missing: array(
+//   'elephant'
+// );
+```

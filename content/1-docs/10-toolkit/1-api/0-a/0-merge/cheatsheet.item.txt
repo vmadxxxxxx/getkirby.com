@@ -15,11 +15,48 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $array1
   type: array
   text:
-- 
+-
   name: $array2
   type: array
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$array1 = array(
+  1 => 'cat',
+  2 => 'dog',
+  3 => 'bird',
+);
+
+$array2 = array(
+  'a' => 'elephant',
+  'b' => 'kangaroo',
+  'c' => 'hippopotamus',
+);
+$merged = a::merge($array1, $array2);
+
+var_dump($merged);
+
+```
+
+Result:
+
+```text
+array
+  1   =>  'cat'
+  2   =>  'dog'
+  3   =>  'bird'
+  'a' =>  'elephant'
+  'b' =>  'kangaroo'
+  'c' =>  'hippopotamus'
+```

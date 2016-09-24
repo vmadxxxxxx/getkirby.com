@@ -15,19 +15,48 @@ text: The filled-up result array
 
 ----
 
-Params: - 
+Params: -
   name: $array
   type: array
   text: The source array
-- 
+-
   name: $limit
   type: int
   text: >
     The number of elements the array should
     contain after filling it up.
-- 
+-
   name: $fill
   type: mixed
   text: >
     The element, which should be used to
     fill the array
+
+----
+Text:
+
+## Example
+
+```php
+<?php
+$array = array(
+   'cat',
+   'dog',
+   'bird',
+);
+
+$result = a::fill($array, 5, 'elephant');
+
+var_dump($result);
+```
+
+Result:
+
+```text
+array (size=5)
+  0 => string 'cat' (length=3)
+  1 => string 'dog' (length=3)
+  2 => string 'bird' (length=4)
+  3 => string 'elephant' (length=8)
+  4 => string 'elephant' (length=8)
+```

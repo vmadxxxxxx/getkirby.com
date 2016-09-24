@@ -17,13 +17,42 @@ text: >
 
 ----
 
-Params: - 
+Params: -
   name: $array
   type: array
   text: The source array
-- 
+-
   name: $echo
   type: boolean
   text: >
     By default the result will be echoed
     instantly. You can switch that off here.
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$array = array(
+  'cat'  => 'miao',
+  'dog'  => 'wuff',
+  'bird' => 'tweet'
+);
+
+a::show($array);
+
+```
+
+Result:
+
+```
+Array
+(
+  [cat] => miao
+  [dog] => wuff
+  [bird] => tweet
+)
+ ```
