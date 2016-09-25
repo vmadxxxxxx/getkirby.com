@@ -15,7 +15,26 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'KIRBY IS A FILE-BASED CMS';
+$newStr = str::ucwords($string);
+echo($newStr);
+```
+
+Result:
+
+```
+Kirby Is A File-Based Cms
+```

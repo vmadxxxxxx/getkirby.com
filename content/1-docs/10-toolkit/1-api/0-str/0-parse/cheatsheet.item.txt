@@ -15,11 +15,32 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
-- 
+-
   name: $mode
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+str::parse('{"test":"cool","super":"genious"}');
+//output: array(
+// 'test' => 'cool',
+// 'super' => 'genious'
+//);
+
+str::parse('<xml><entries><cool>nice</cool></entries></xml>', 'xml');
+//output: array(
+//  'entries' => array(
+//   'cool' => 'nice'
+//)
+//);
+```

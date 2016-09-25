@@ -15,15 +15,31 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $str
   type: string
   text:
-- 
+-
   name: $needle
   type: string
   text:
-- 
+-
   name: $i
   type: boolean
   text: ignore upper/lowercase
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'Kirby is a file-based CMS';
+if(str::contains($string, 'kirby')) {
+  echo 'The string contains the needle.';
+} else {
+  echo 'The needle cannot be found in the haystack.';
+}
+```

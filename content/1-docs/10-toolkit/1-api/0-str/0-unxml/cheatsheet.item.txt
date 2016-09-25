@@ -15,7 +15,19 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+echo str::unxml('some <em>&#252;ber</em> crazy stuff');
+// output: some &uuml;ber crazy stuff
+```  

@@ -15,7 +15,20 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $str
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'kirby';
+echo str::upper($string);
+// 'KIRBY'
+```

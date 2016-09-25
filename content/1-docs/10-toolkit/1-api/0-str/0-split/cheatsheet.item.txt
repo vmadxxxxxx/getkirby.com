@@ -15,15 +15,39 @@ text: An array of found values
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text: The string to split
-- 
+-
   name: $separator
   type: string
   text: The string to split by
-- 
+-
   name: $length
   type: int
   text: The min length of values.
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'Kirby, CMS, file-based';
+$split = str::split($string);
+a::show($split);
+```
+
+Result:
+
+```
+Array
+(
+  [0] => Kirby
+  [1] => CMS
+  [2] => file-based
+)
+```

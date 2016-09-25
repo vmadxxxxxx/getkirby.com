@@ -15,7 +15,21 @@ text: The html string
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+echo str::unhtml('some <em>crazy</em> stuff');
+
+// output: some crazy stuff
+
+```

@@ -15,17 +15,40 @@ text: the generated html
 
 ----
 
-Params: - 
+Params: -
   name: $href
   type: string
   text: The url for the a tag
-- 
+-
   name: $text
   type: mixed
   text: >
     The optional text. If null, the url will
     be used as text
-- 
+-
   name: $attr
   type: array
   text: Additional attributes for the tag
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+echo str::link('https://getkirby.com');
+echo str::link('https://getkirby.com', 'Visit our website');
+echo str::link('https://getkirby.com', 'Visit our website', array(
+  'class' => 'ajax-link',
+));
+```
+
+Result:
+
+```php
+<a href="https://getkirby.com">https://getkirby.com</a>
+<a href="https://getkirby.com">Visit our website</a>
+<a href="https://getkirby.com" class="ajax-link">Visit our website</a>
+```

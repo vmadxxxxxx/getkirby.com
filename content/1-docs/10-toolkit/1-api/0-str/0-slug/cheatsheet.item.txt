@@ -15,13 +15,31 @@ text: The safe string
 
 ----
 
-Params: - 
+Params: -
   name: $text
   type: string
   text: The unsafe string
-- 
+-
   name: $separator
   type: string
   text: >
     To be used instead of space and other
     non-word characters.
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'Kirby is a file-based CMS';
+echo str::slug($string);
+```
+
+Result:
+
+```
+kirby-is-a-file-based-cms
+```

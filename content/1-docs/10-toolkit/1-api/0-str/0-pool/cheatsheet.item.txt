@@ -15,11 +15,17 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $type
   type: string
   text:
-- 
+-
   name: $array
   type: boolean
   text:
+
+----
+
+Text:
+
+## Example
