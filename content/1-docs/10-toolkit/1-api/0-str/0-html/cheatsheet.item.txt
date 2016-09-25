@@ -15,11 +15,27 @@ text: The html string
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
-- 
+-
   name: $keepTags
   type: boolean
   text: 'True: lets stuff inside html tags untouched.'
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+
+echo str::html('some <em>über crazy</em> stuff');
+// output: some <em>&uuml;ber crazy</em> stuff
+
+echo str::html('some <em>über crazy</em> stuff', false);
+// output: some &lt;em&gt;&uuml;ber crazy&lt;/em&gt; stuff
+```

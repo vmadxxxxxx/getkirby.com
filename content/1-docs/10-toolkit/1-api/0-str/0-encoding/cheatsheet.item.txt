@@ -15,7 +15,7 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:

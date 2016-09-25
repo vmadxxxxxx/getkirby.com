@@ -10,11 +10,39 @@ Call: str::words($string)
 
 ----
 
-Return: 
+Return:
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$words = str::words('Kirby is a file‑based CMS. Easy to setup. Easy to use. Flexible as hell.');
+a::show($words);
+```
+
+Result:
+
+```text
+Array
+(
+  [0] => Kirby
+  [1] => file
+  [2] => based
+  [3] => Easy
+  [4] => setup
+  [5] => Easy
+  [6] => Flexible
+  [7] => hell
+)
+```

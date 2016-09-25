@@ -15,7 +15,26 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'Hallo Welt';
+$encoded = str::encode($string);
+var_dump($encoded);
+```
+
+Result:
+
+```
+'&#72;&#97;&#108;&#x6c;&#111;&#x20;&#87;&#x65;&#108;&#116;'
+```

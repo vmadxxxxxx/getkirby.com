@@ -15,17 +15,36 @@ text: the generated html
 
 ----
 
-Params: - 
+Params: -
   name: $href
   type: string
   text: The url for the a tag
-- 
+-
   name: $text
   type: mixed
   text: >
     The optional text. If null, the url will
     be used as text
-- 
+-
   name: $attr
   type: array
   text: Additional attributes for the tag
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+echo str::email('bastian@getkirby.com');
+echo str::email('bastian@getkirby.com', 'mail me');
+```
+
+Result:
+
+```php
+<a href="mailto:bastian@getkirby.com">bastian@getkirby.com</a>
+<a href="mailto:bastian@getkirby.com">mail me</a>
+```

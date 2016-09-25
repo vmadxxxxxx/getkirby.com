@@ -15,7 +15,30 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$sentences = str::sentences('Kirby is a file‑based CMS
+Easy to setup. Easy to use. Flexible as hell.');
+a::show($sentences);
+```
+
+```text
+Array
+(
+  [0] => Kirby is a file‑based CMS.
+  [1] => Easy to setup.
+  [2] => Easy to use.
+  [3] => Flexible as hell.
+)
+```
