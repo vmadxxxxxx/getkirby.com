@@ -103,32 +103,73 @@ The Panel currently supports the following permissions:
 
 Permission name | 
 - 
-panel.access |
-panel.access.options | 
-panel.access.users |
-panel.widget.account | 
-panel.widget.history |
-panel.widget.pages |
-panel.widget.site |
-panel.site.update | 
-panel.page.read |
-panel.page.create |
-panel.page.update |
-panel.page.url |
-panel.page.visibility | 
-panel.file.upload |
-panel.file.replace |
-panel.file.rename |
-panel.file.update |
-panel.file.sort | 
-panel.file.delete | 
-panel.user.read |
-panel.user.create |
-panel.user.update |
-panel.user.delete | 
-panel.avatar.upload |
-panel.avatar.replace |
-panel.avatar.delete | 
+(sheet: permissions/panel-access) |
+(sheet: permissions/panel-access-options) | 
+(sheet: permissions/panel-access-users) |
+(sheet: permissions/panel-widget-account) | 
+(sheet: permissions/panel-widget-history) |
+(sheet: permissions/panel-widget-pages) |
+(sheet: permissions/panel-widget-site) |
+(sheet: permissions/panel-site-update) | 
+(sheet: permissions/panel-page-read) |
+(sheet: permissions/panel-page-create) |
+(sheet: permissions/panel-page-update) |
+(sheet: permissions/panel-page-url) |
+(sheet: permissions/panel-page-visibility) | 
+(sheet: permissions/panel-file-upload) |
+(sheet: permissions/panel-file-replace) |
+(sheet: permissions/panel-file-rename) |
+(sheet: permissions/panel-file-update) |
+(sheet: permissions/panel-file-sort) | 
+(sheet: permissions/panel-file-delete) | 
+(sheet: permissions/panel-user-read) |
+(sheet: permissions/panel-user-create) |
+(sheet: permissions/panel-user-update) |
+(sheet: permissions/panel-user-delete) | 
+(sheet: permissions/panel-avatar-upload) |
+(sheet: permissions/panel-avatar-replace) |
+(sheet: permissions/panel-avatar-delete) | 
+
+## Permission state
+
+In most scenarios, it's useful to be able to decide if an entire feature should be hidden based on permissions, or if the UI for a feature should be available, but the feature may only be fully executed under certain circumstances.
+
+Here's an example: You might want to show the "Add new page" button to a user, but then when the user actually tries to submit the "Add" form, you need to intercept it to check if the user input is actually wanted. 
+
+To allow such fine-grained control, we introduced a concept, which we call Permission states. Most permissions have two states "ui" and "action". If you simply set a permission to true or false, this isn't relevant for you and the entire feature will just be blocked. But you can add a check to your permission function to see, which state is currently handled and react on that. 
+
+Here's the code for the example above:
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.create' => function() {
+
+      if($this->state() === 'ui') {
+        // always show the button
+        return true;
+      }
+
+      if($this->target()->data()['title'] !== 'Some specific title') {
+        return 'You are only allowed to add pages with some specific title';
+      }
+
+      return true;
+
+    }
+  ]
+];
+```
+
+### Context sensitive target data
+
+Depending on the state, you will get different data for the permission event. For example, in the action state of the `panel.file.upload` the target object contains the uploaded file and you can react on that. But in the ui state, which checks if the upload button should be displayed, the uploaded file is of course not available yet. You can find more about each event and the attached target data in our (link: docs/cheatsheet/permissions text: Cheatsheet). 
 
 ## Managing Panel access
 

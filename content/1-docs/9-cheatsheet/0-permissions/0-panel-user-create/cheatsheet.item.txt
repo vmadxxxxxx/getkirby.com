@@ -1,0 +1,36 @@
+Title: panel.user.create
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to create a new user
+
+----
+
+Text:
+
+## Target Data
+
+### action
+```php
+$this->target()->data()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.user.create' => false
+  ]
+];
+```
