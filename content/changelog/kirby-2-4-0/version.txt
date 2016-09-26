@@ -87,6 +87,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
 - New error view for exceptions powered by [Whoops](https://filp.github.io/whoops/) (only in debug mode)
 - Custom language files can now be written in YAML
+- Add (sheet: options/tinyurl-url) option to support separate tinyurl domains
 - (sheet: file/blur) now accepts a blur amount parameter
 - The `cache.ignore` option now only has to contain URIs of the default language
 - Add support for hook wildcards

@@ -1,0 +1,30 @@
+Title: tinyurl.url
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Separate domain for tinyurl links: {url}/{hash}
+
+----
+
+Text: 
+
+This setting overrides (sheet: options/tinyurl-folder) for tinyurl links. The other option is responsible for incoming requests to the tinyurl folder.
+`tinyurl.url` can be used to define a separate domain for tinyurls.
+
+## Example
+
+```php
+c::set('tinyurl.url', 'https://sho.rt');
+```
+
+Kirby will now generate tinyurl links based on the given domain.
+
+**Please note**: You need to make sure that all URLs from `https://sho.rt/*` redirect to `yourdomain/x/*`. You can use a `RewriteRule` like this in the `.htaccess` of the `sho.rt` domain:
+
+```
+RewriteRule (.*) http://example.com/x/$1 [R=301]
+```
