@@ -1,0 +1,43 @@
+Title: panel.page.url
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to change the URL appendix of a page
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->page()
+```
+
+### action
+```php
+$this->target()->page()
+$this->target()->uid()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'              => true,
+    'panel.page.url' => false
+  ]
+];
+```
+

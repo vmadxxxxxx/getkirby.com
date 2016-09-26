@@ -1,0 +1,61 @@
+Title: panel.user.delete
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to delete a user
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->user()
+```
+
+### action
+```php
+$this->target()->user()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.user.delete' => false
+  ]
+];
+```
+
+### Allow to delete yourself
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.user.delete' => function() {
+      return $this->user()->is($this->target()->user());
+    }
+  ]
+];
+```
+
+

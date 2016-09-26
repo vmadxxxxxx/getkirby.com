@@ -1,0 +1,62 @@
+Title: panel.file.delete
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to delete a file
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->page()
+$this->target()->file()
+```
+
+### action
+```php
+$this->target()->page()
+$this->target()->file()
+```
+
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.file.delete' => false
+  ]
+];
+```
+
+### Allow deleting files, based on the page template
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.file.delete' => function() {
+      return $this->target()->page()->template() === 'projects';
+    }
+  ]
+];
+```

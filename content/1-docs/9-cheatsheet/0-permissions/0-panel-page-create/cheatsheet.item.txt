@@ -1,0 +1,104 @@
+Title: panel.page.create
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to create a new page
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->page()
+```
+
+### action 
+```php
+$this->target()->page()
+$this->target()->template()
+$this->target()->blueprint()
+$this->target()->uid()
+$this->target()->data()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.create' => false
+  ]
+];
+```
+
+### Allow new pages, based on the parent template
+
+```php
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.create' => function() {
+      return $this->target()->page()->template() === 'projects';
+    }
+  ]
+];
+```
+
+### Only allow a certain pages with a specific UID 
+
+```php
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.create' => function() {
+      
+      if($this->state() === 'ui') {
+        // always show the add button
+        return true;
+      }
+
+      if($this->target()->uid() !== 'something-really-specific') {
+        return 'You are only allowed to add pages with a very specific URL appendix';
+      }
+
+      return true;
+
+    }
+  ]
+];
+```
+
+### Only allow adding pages in a certain language
+
+```php
+// site/roles/editor.php
+return [
+  'name'        => 'German Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.create' => function() {
+      return $this->language()->code() === 'de';
+    }
+  ]
+];
+```

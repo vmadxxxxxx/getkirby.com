@@ -1,0 +1,109 @@
+Title: panel.file.upload
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to upload a new file
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->page()
+```
+
+### action
+```php
+$this->target()->page()
+$this->target()->upload()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.file.upload' => false
+  ]
+];
+```
+
+### Allow uploads, based on the page template
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.file.upload' => function() {
+      return $this->target()->page()->template() === 'projects';
+    }
+  ]
+];
+```
+
+### Allow uploads, based on the number of files
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.file.upload' => function() {
+      return $this->target()->page()->files()->count() < 5;
+    }
+  ]
+];
+```
+
+### Allow uploads, based on the type of file
+
+In the action state, you get access to the uploaded file. The file is a (toolkit: media) object, with tons of features to check for the size, dimensions, mime types and even exif data.
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.file.upload' => function() {
+      
+      if($this->state() === 'upload') {
+        // always show the upload button
+        return true;
+      }
+
+      if($this->target()->upload()->type() !== 'image') {
+        return 'You are only allowed to upload images';
+      }
+
+      return true;
+
+    }
+  ]
+];
+```

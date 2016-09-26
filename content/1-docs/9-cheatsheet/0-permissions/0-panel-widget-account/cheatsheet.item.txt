@@ -1,0 +1,29 @@
+Title: panel.widget.account
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to see the account widget
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                    => true,
+    'panel.widget.account' => false
+  ]
+];
+```

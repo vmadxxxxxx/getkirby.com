@@ -1,0 +1,32 @@
+Title: panel.access.options
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to access the site options
+
+----
+
+Text:
+
+Set this to false if you want to hide the "Site options" menu item in the panel and deny access to the entire site options section.
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                    => true,
+    'panel.access.options' => false,
+  ]
+];
+```
+

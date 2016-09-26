@@ -1,0 +1,63 @@
+Title: panel.site.update
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to update the site settings
+
+----
+
+Text:
+
+You can block site option updates. This will switch all form fields to readonly fields and hide the save button. 
+
+## Target Data
+
+### ui
+```php
+$this->target()->site()
+```
+
+### action
+```php
+$this->target()->site()
+$this->target()->data()
+```
+
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.site.update' => false
+  ]
+];
+```
+
+### Allow updates for a specific language
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'German Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.site.update' => function() {
+      return $this->language()->code() === 'de';
+    }
+  ]
+];
+```

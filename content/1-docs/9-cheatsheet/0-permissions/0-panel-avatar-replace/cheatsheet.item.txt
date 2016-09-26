@@ -1,0 +1,62 @@
+Title: panel.avatar.replace
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to replace a user avatar
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->user()
+$this->target()->avatar()
+```
+
+### action
+```php
+$this->target()->user()
+$this->target()->avatar()
+$this->target()->upload()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                    => true,
+    'panel.avatar.replace' => false
+  ]
+];
+```
+
+### Only allow replacing your own avatar
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                    => true,
+    'panel.avatar.replace' => function() {
+      return $this->user()->is($this->target()->user());
+    }
+  ]
+];
+```

@@ -1,0 +1,109 @@
+Title: panel.page.update
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to update a page's form
+
+----
+
+Text:
+
+You can block updates for pages. This will switch all form fields to readonly fields and hide the save button. 
+
+## Target Data
+
+### ui
+```php
+$this->target()->page()
+```
+
+### action
+```php
+$this->target()->page()
+$this->target()->data()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.update' => false
+  ]
+];
+```
+
+### Allow updates for by template
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Project Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.update' => function() {
+      return $this->target()->page()->template() === 'project';
+    }
+  ]
+];
+```
+
+### Allow updates for a specific language
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'German Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.update' => function() {
+      return $this->language()->code() === 'de';
+    }
+  ]
+];
+```
+
+### Intercept update data
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'German Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.update' => function() {
+    
+      if($this->state() === 'ui') {
+        // keep the form active
+        return true;
+      }
+
+      if($this->target()->data()['title'] !== 'Keep me!') {
+        return 'You are not allowed to make this update';
+      }
+
+      return true;
+
+    }
+  ]
+];
+```

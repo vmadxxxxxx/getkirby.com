@@ -1,0 +1,32 @@
+Title: panel.access.users
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to access the user management
+
+----
+
+Text:
+
+You can entirely block access to the user management in the panel. This will also hide the "Users" menu item. 
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                  => true,
+    'panel.access.users' => false
+  ]
+];
+```
+

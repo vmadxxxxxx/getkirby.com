@@ -1,0 +1,95 @@
+Title: panel.avatar.upload
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to upload a new user avatar
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->user()
+$this->target()->avatar()
+```
+
+### action
+```php
+$this->target()->user()
+$this->target()->avatar()
+$this->target()->upload()
+```
+
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                   => true,
+    'panel.avatar.upload' => false
+  ]
+];
+```
+
+### Allow uploading avatars to your own account
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                    => true,
+    'panel.avatar.upload' => function() {
+      return $this->user()->is($this->target()->user());
+    }
+  ]
+];
+```
+
+### More control over the uploaded file
+
+In the action state, you get access to the uploaded file. The file is a (toolkit: media) object, with tons of features to check for the size, dimensions, mime types and even exif data if that is of any use. 
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                    => true,
+    'panel.avatar.upload' => function() {
+    
+      if($this->state() === 'ui') {
+        // always show the upload button
+        return true;
+      }     
+        
+      // but check if the uploaded file is square
+      if($this->target()->upload()->isSquare() === false) {
+        return 'The source image really should be square!';
+      } 
+
+      return true;
+
+    }
+  ]
+];
+```

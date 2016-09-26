@@ -1,0 +1,29 @@
+Title: panel.widget.history
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to see the history widget
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                    => true,
+    'panel.widget.history' => false
+  ]
+];
+```
