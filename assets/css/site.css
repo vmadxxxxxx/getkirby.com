@@ -1668,6 +1668,20 @@ input[type="search"]::-webkit-search-cancel-button {
   column-break-inside: avoid;
   display: table; }
 
+.cheatsheet-grid-item.future {
+  opacity: .5;
+  transition: opacity .3s; }
+
+.cheatsheet-grid-item.future:hover {
+  opacity: 1; }
+
+.cheatsheet-grid-item.future h3:after {
+  content: "beta";
+  font-size: .9em;
+  font-weight: normal;
+  color: red;
+  padding-left: .5rem; }
+
 @media screen and (min-width: 35em) {
   .cheatsheet-grid {
     -webkit-column-gap: 3em;
