@@ -43,7 +43,7 @@ return [
 ];
 ```
 
-### Allow deleting files, based on the page template
+### Allow deleting files based on the page template
 
 ```php
 <?php

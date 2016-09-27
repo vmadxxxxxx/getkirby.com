@@ -12,7 +12,7 @@ Excerpt: Permission to access/read a user data set
 
 Text:
 
-You can block access to all information about user profiles. Email Addresses and roles will then be hidden from the user list and the user detail pages are no longer accessible.
+You can block access to all information about user profiles. Email addresses and roles will then be hidden from the user list and the user detail pages are no longer accessible.
 
 ## Target Data
 

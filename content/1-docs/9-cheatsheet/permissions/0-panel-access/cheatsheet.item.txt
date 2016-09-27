@@ -6,13 +6,13 @@ Since: 2.4.0
 
 ----
 
-Excerpt: Permission to access the panel
+Excerpt: Permission to access the Panel
 
 ----
 
 Text:
 
-By setting panel.access to false, you can define roles, which can't login to the panel at all. This is useful if you need frontend user roles, which can do various things on your site based on their logged in state, but are not able to edit anything in the panel.
+By setting panel.access to false, you can define roles which can't login to the Panel at all. This is useful if you need frontend user roles which can do various things on your site based on their logged in state, but are not able to edit anything in the Panel.
 
 ## Example
 
@@ -30,7 +30,7 @@ return [
 ];
 ```
 
-An even more strict way to write this, is to set a wildcard for all panel options
+An even more strict way to write this is to set a wildcard for all Panel options:
 
 ```php
 <?php
@@ -44,4 +44,3 @@ return [
   ]
 ];
 ```
-

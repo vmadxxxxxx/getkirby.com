@@ -44,7 +44,7 @@ return [
 ];
 ```
 
-### Allow new pages, based on the parent template
+### Allow new pages based on the parent template
 
 ```php
 // site/roles/editor.php
