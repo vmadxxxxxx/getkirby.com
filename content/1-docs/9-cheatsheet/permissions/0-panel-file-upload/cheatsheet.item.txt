@@ -41,7 +41,7 @@ return [
 ];
 ```
 
-### Allow uploads, based on the page template
+### Allow uploads based on the page template
 
 ```php
 <?php
@@ -59,7 +59,7 @@ return [
 ];
 ```
 
-### Allow uploads, based on the number of files
+### Allow uploads based on the number of files
 
 ```php
 <?php
@@ -77,7 +77,7 @@ return [
 ];
 ```
 
-### Allow uploads, based on the type of file
+### Allow uploads based on the type of file
 
 In the action state, you get access to the uploaded file. The file is a (toolkit: media) object, with tons of features to check for the size, dimensions, mime types and even exif data.
 

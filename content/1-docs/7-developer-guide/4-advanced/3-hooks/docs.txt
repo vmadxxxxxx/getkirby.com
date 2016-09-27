@@ -105,6 +105,7 @@ kirby()->hook('panel.page.*', function($page, $oldPage = null) {
   $site     = $this->site();
   $user     = $this->user();
   $username = $this->username();
+  $role     = $this->role();
 });
 ```
 </since>

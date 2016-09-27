@@ -43,7 +43,7 @@ return [
 ];
 ```
 
-### Allow updates for by template
+### Allow updates for a specific template
 
 ```php
 <?php
