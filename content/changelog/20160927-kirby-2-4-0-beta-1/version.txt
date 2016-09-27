@@ -1,16 +1,33 @@
-Title: Kirby 2.4.0
+Title: Kirby 2.4.0 Beta 1
 
 ----
 
-Date: 
+Date: 2016-09-27
 
 ----
 
-Download: http://download.getkirby.com/kirby-2.4.0.zip
+Download: 
 
 ----
 
 Text:
+
+## Download
+
+- (link: https://github.com/getkirby/kirby/archive/develop.zip text: Kirby Core 2.4.0 Beta 1)
+- (link: https://github.com/getkirby/panel/archive/develop.zip text: Kirby Panel 2.4.0 Beta 1)
+
+Replace your current kirby and panel folders to install the beta. We are currently working on a new CLI version, which will make betas installable via command line as well.
+
+## Beta!
+
+Be aware that **this version is not ment for production**. Only install it locally to test it with your current projects.
+
+Please use Github issues to report any bugs: 
+
+- (link: https://github.com/getkirby/kirby/issues text: Kirby Core Issues)
+- (link: https://github.com/getkirby/panel/issues text: Kirby Panel Issues)
+- (link: https://github.com/getkirby/toolkit/issues text: Kirby Toolkit Issues)
 
 ## Highlights in 2.4.0
 
@@ -20,7 +37,6 @@ The Panel finally supports permissions!
 Each user role can now define a set of rules to restrict each Panel action based on the action type, the current page/file, user, language or even a combination of all of them.
 
 You want to have a translator role that is only able to edit a specific language? Or an editor role that can only create new drafts in the blog but not publish them? Or a role that only allows users to edit their own profile page? It's all possible now!
-In future Kirby releases, we will extend the current set of permissions so that even more complex setups are possible.
 
 (link: docs/panel/permissions text: Read more about this feature in the docs).
 
@@ -66,6 +82,8 @@ Starting with Kirby 2.4, the most complex objects are now printed with their mos
 Kirby now has a new visual and powerful error view powered by [Whoops](https://filp.github.io/whoops/).
 It becomes active automatically once you enable (link: docs/cheatsheet/options/debug text: debug mode). And on your production site it displays a nice and clean error page instead that doesn't tell attackers anything about the error.
 
+(image: whoops.png link: self)
+
 ---
 
 ## Panel
@@ -94,7 +112,7 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Inside hooks, `$this` is now set to a new event object with useful information about the event
 - All roots can now be (link: docs/developer-guide/configuration/folders text: fully customized) in the `site.php`
 - Update Parsedown library
-- `link` kirbytag now automatically adds `rel="noopener"` when you set `target="_blank"` to improve the security and performance of such links
+- `link` kirbytag now automatically adds `rel="noopener noreferrer"` when you set `target="_blank"` to improve the security and performance of such links
 - User login no longer deletes session data, e.g. from plugins
 - Prefix Kirby session variables to prevent overlap with plugins
 - Fix a bug in `$field->isTranslated()` that would return incorrect results if the field value was set but identical to the default language
@@ -112,4 +130,5 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Improve type handling in `html::attr` to support `0` as a float value
 - `html::attr`: Escape quotes in the attribute value
 - (toolkit: html/a) now automatically adds `rel="noopener"` when you set `target="_blank"` to improve the security and performance of such links
+- New (toolkit: str/from), (toolkit: str/before), (toolkit: str/until) and (toolkit: str/after) methods
 - Remove legacy code in the `Escape` class
