@@ -21,7 +21,7 @@ Replace your current kirby and panel folders to install the beta. We are current
 
 ## Beta!
 
-Be aware that **this version is not ment for production**. Only install it locally to test it with your current projects.
+Be aware that **this version is not meant for production**. Only install it locally to test it with your current projects.
 
 Please use Github issues to report any bugs: 
 
