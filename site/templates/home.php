@@ -1,5 +1,6 @@
 <?php if(c::get('stage')) go('docs') ?>
 <?php snippet('header') ?>
+<?php snippet('clients') ?>
 
 <main class="main" role="main">
 
