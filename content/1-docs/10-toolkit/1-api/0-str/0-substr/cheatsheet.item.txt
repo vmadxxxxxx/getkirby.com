@@ -15,15 +15,35 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $str
   type: string
   text:
-- 
+-
   name: $start
   type: int
   text:
-- 
+-
   name: $length
   type: int
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'Kirby CMS';
+$substr = str::substr($string, 0, 5);
+
+echo $substr;
+```
+
+Result:
+
+```
+Kirby
+```

@@ -1,0 +1,44 @@
+Title: panel.file.sort
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to sort a file via drag and drop
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->page()
+$this->target()->file()
+```
+
+### sort
+```php
+$this->target()->page()
+$this->target()->file()
+$this->target()->sort()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'               => true,
+    'panel.file.sort' => false
+  ]
+];
+```

@@ -1,0 +1,61 @@
+Title: panel.avatar.delete
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to delete a user avatar
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->user()
+$this->target()->avatar()
+```
+
+### action
+```php
+$this->target()->user()
+$this->target()->avatar()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                   => true,
+    'panel.avatar.delete' => false
+  ]
+];
+```
+
+### Only allow deleting your own avatar
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                   => true,
+    'panel.avatar.delete' => function() {
+      return $this->user()->is($this->target()->user());
+    }
+  ]
+];
+```

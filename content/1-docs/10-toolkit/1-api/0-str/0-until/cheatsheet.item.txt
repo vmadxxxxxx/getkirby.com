@@ -1,0 +1,38 @@
+Title: str::until
+
+----
+
+Excerpt: Returns the beginning of a string until the given character
+
+----
+
+Call: str::until($string, $until)
+
+----
+
+Return: type: string
+text: The beginning of the string
+
+----
+
+Params: -
+  name: $string
+  type: string
+  text:
+-
+  name: $until
+  type: string
+  text: 'Character(s) to end at'
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+
+echo str::until('string', 'r');
+// output: str
+```

@@ -1,0 +1,57 @@
+Title: panel.user.read
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to access/read a user data set
+
+----
+
+Text:
+
+You can block access to all information about user profiles. Email addresses and roles will then be hidden from the user list and the user detail pages are no longer accessible.
+
+## Target Data
+
+```php
+$this->target()->user()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'               => true,
+    'panel.user.read' => false
+  ]
+];
+```
+
+### Allow to read your own data
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'               => true,
+    'panel.user.read' => function() {
+      return $this->user()->is($this->target()->user());
+    }
+  ]
+];
+```
+
+

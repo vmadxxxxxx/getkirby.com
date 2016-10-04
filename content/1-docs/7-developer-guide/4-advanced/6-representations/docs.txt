@@ -73,7 +73,7 @@ Now that you have a representation template, you can request all pages with the 
 Simply add the name of the representation to the end of the the URL. `https://example.com/about` becomes `https://example.com/about.json` and so on.
 
 If the representation exists, the template will be called and Kirby will send a correct content type header if possible.
-If it doesn't exist, the user is redirected to the actual URL of the page to prevent duplicate content.
+If it doesn't exist, the error page is displayed like if you didn't use content representations at all.
 
 It is still possible to create pages that contain a dot in their UID. So if you already have a page called `about.json` for some reason, it will continue to work. You can of course get the JSON representation of that page at `https://example.com/about.json.json`.
 

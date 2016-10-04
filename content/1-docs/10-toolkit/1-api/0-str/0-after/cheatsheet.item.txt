@@ -1,0 +1,38 @@
+Title: str::after
+
+----
+
+Excerpt: Returns the end of the string after the given character
+
+----
+
+Call: str::after($string, $after)
+
+----
+
+Return: type: string
+text: The end of the string
+
+----
+
+Params: -
+  name: $string
+  type: string
+  text:
+-
+  name: $after
+  type: string
+  text: 'Character(s) to start after'
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+
+echo str::after('string', 'r');
+// output: ing
+```

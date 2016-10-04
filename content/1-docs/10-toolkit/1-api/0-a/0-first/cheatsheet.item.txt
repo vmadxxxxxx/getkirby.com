@@ -15,7 +15,30 @@ text: The first element
 
 ----
 
-Params: - 
+Params: -
   name: $array
   type: array
   text: The source array
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$array = array(
+  'cat',
+  'dog',
+  'bird',
+);
+$first = a::first($array);
+var_dump($first);
+```
+
+Result:
+
+```text
+'cat'
+```

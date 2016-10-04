@@ -15,11 +15,25 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
-- 
+-
   name: $needle
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'Kirby is a file-based CMS';
+if(str::startsWith($string, 'Kirby')) {
+  echo 'The string starts with "Kirby".';
+}
+```

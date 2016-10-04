@@ -15,15 +15,19 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text:
-- 
+-
   name: $targetEncoding
   type: string
   text:
-- 
+-
   name: $sourceEncoding
   type: string
   text: (optional)
+
+----
+
+Text:

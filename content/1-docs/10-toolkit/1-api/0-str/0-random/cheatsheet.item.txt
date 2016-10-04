@@ -2,7 +2,7 @@ Title: str::random
 
 ----
 
-Excerpt: Generates a random string
+Excerpt: Generates a random string that may be used for cryptographic purposes
 
 ----
 
@@ -19,3 +19,17 @@ Params: -
   name: $length
   type: int
   text: The length of the random string
+- 
+  name: $type
+  type: string
+  text: Pool type (type of allowed characters)
+
+----
+
+Text:
+
+<since v="2.4.0">
+This method now produces more random strings that may be used for cryptographic purposes.
+
+WARNING: The new more random behavior requires PHP 7.0 or later, otherwise Kirby will fall back to (toolkit: str/quick-random).
+</since>

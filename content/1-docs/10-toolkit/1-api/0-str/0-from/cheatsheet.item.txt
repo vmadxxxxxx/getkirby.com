@@ -1,0 +1,38 @@
+Title: str::from
+
+----
+
+Excerpt: Returns the end of the string, starting from the given character
+
+----
+
+Call: str::from($string, $from)
+
+----
+
+Return: type: string
+text: The end of the string
+
+----
+
+Params: -
+  name: $string
+  type: string
+  text:
+-
+  name: $from
+  type: string
+  text: 'Character(s) to start from'
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+
+echo str::from('string', 'r');
+// output: ring
+```

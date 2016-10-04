@@ -15,7 +15,28 @@ text: The JSON string
 
 ----
 
-Params: - 
+Params: -
   name: $array
   type: array
   text: The source array
+
+----
+Text:
+
+## Example
+
+```php
+$array = array(
+  'cat'  => 'miao',
+  'dog'  => 'wuff',
+  'bird' => 'tweet'
+);
+
+echo a::json($array);
+```
+
+Result:
+
+```json
+{"cat":"miao","dog":"wuff","bird":"tweet"}
+```

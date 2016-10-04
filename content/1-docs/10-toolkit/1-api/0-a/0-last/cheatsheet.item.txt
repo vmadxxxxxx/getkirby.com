@@ -15,7 +15,30 @@ text: The last element
 
 ----
 
-Params: - 
+Params: -
   name: $array
   type: array
   text: The source array
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$array = array(
+  'cat',
+  'dog',
+  'bird',
+);
+$last = a::last($array);
+var_dump($last);
+```
+
+Result:
+
+```text
+'bird'
+```

@@ -1,0 +1,182 @@
+Title: Permissions
+
+----
+
+Since: 2.4.0
+
+----
+
+Description: Assign fine-grained permissions to each user role.
+
+----
+
+Text:
+
+(toc)
+
+Permissions, a new feature in Kirby 2.4, allow you to restrict access to Panel actions or your own frontend features based on the user's role.
+
+## Defining permissions
+
+Permissions are part of (link: docs/panel/roles text: roles). Each role has its own set of permissions. Those permissions will then apply to all users with that role. A role with permissions may look like that:
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.site.update' => false,
+    'panel.user.*'      => false,
+    'panel.user.update' => function() {
+
+      if($this->user()->is($this->target()->user())) {                
+        // users are allowed to edit their own information
+        return true;
+      } else {
+        // other users can't be edited
+        return false;
+      }
+
+    }
+  ]
+];
+```
+
+As you can see, wildcard rules are allowed. When checking permissions, the most specific rule will be used.
+
+### Simple definition
+
+The easiest way to define permissions is to set them to `true` or `false`. If set to `true`, access for matching permissions is granted, otherwise blocked.
+In the example above, everything is allowed by default (`*` rule). The `panel.site.update` permission and user permissions are then blocked again.
+
+### Permission functions
+
+You can also make your permission rules much more fine-grained by using permission functions like in the `panel.user.update` example above.
+Permission functions have access to all relevant target data (see the list of permissions below).
+
+#### Event metadata
+
+Inside permission functions, `$this` is set to an event object. You can use it to get additional metadata:
+
+```php
+// Kirby objects
+$panel = $this->panel();
+$kirby = $this->kirby();
+$site  = $this->site();
+
+// The currently logged in user
+$user = $this->user();
+
+// The username of the current user
+$username = $this->username();
+
+// The currently selected language in multi-language setups
+$language = $this->language();
+
+// The selected panel interface translation
+$translation = $this->translation();
+
+// Event type (name of the permission)
+$type = $this->type();
+
+// The event state (see below)
+$state = $this->state();
+
+// Target metadata depending on the event (see below)
+$target = $this->target();
+```
+
+#### Return values
+
+Permission functions are expected to return either `true`, `false` or a string.
+
+`true` and `false` work just like with simple definitions.
+If you return a string however, the action will be prevented and that string will become the error message that is displayed to the user. You can use error strings for detailed validation errors.
+
+## Available permissions
+
+The Panel currently supports the following permissions:
+
+- (sheet: permissions/panel-access)
+- (sheet: permissions/panel-access-options) 
+- (sheet: permissions/panel-access-users)
+- (sheet: permissions/panel-widget-account) 
+- (sheet: permissions/panel-widget-history)
+- (sheet: permissions/panel-widget-pages)
+- (sheet: permissions/panel-widget-site)
+- (sheet: permissions/panel-site-update) 
+- (sheet: permissions/panel-page-read)
+- (sheet: permissions/panel-page-create)
+- (sheet: permissions/panel-page-update)
+- (sheet: permissions/panel-page-url)
+- (sheet: permissions/panel-page-visibility) 
+- (sheet: permissions/panel-file-upload)
+- (sheet: permissions/panel-file-replace)
+- (sheet: permissions/panel-file-rename)
+- (sheet: permissions/panel-file-update)
+- (sheet: permissions/panel-file-sort) 
+- (sheet: permissions/panel-file-delete) 
+- (sheet: permissions/panel-user-read)
+- (sheet: permissions/panel-user-create)
+- (sheet: permissions/panel-user-update)
+- (sheet: permissions/panel-user-delete) 
+- (sheet: permissions/panel-avatar-upload)
+- (sheet: permissions/panel-avatar-replace)
+- (sheet: permissions/panel-avatar-delete) 
+
+## Permission state
+
+In most scenarios, it's useful to be able to decide if an entire feature should be hidden based on permissions, or if the UI for a feature should be available, but the feature may only be fully executed under certain circumstances.
+
+Here's an example: You might want to show the "Add new page" button to a user, but then when the user actually tries to submit the "Add" form, you need to intercept it to check if the user input is actually wanted. 
+
+To allow such fine-grained control, we introduced a concept which we call permission states. Most permissions have two states: "ui" and "action". If you simply set a permission to true or false, this isn't relevant for you and the entire feature will just be blocked. But you can add a check to your permission function to see which state is currently handled and react on that. 
+
+Here's the code for the example above:
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.create' => function() {
+
+      if($this->state() === 'ui') {
+        // always show the button
+        return true;
+      }
+
+      if($this->target()->data()['title'] !== 'Some specific title') {
+        return 'You are only allowed to add pages with some specific title';
+      }
+
+      return true;
+
+    }
+  ]
+];
+```
+
+### Context sensitive target data
+
+Depending on the state, you will get different data for the permission event. For example, in the action state of the `panel.file.upload` event, the target object contains the uploaded file and you can react on that. But in the ui state, which checks if the upload button should be displayed, the uploaded file is of course not available yet. You can find more about each event and the attached target data in our (link: docs/cheatsheet/permissions text: permissions cheat sheet). 
+
+## Managing Panel access
+
+With the `panel.access` permission, you can control whether a role has access to the Panel. It is useful for "frontend roles" that shouldn't have access to the Panel at all. Users will still be able to login with the (link: docs/cheatsheet#user text: $user API).
+
+If you set the `*` permission to `false`, Panel access will automatically be forbidden as well since the `*` permission applies to all permissions that have not been set explicitly.
+There is also the `panel` (link: docs/panel/roles text: role option), which is a shortcut for this permission.
+
+## Using permissions for frontend features
+
+On top of the Panel permissions, you can define your own permissions for the frontend and use them inside templates, controllers or plugins.
+Take a look at the (sheet: user/permission) method for more information.

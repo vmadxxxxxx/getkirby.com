@@ -1,0 +1,36 @@
+Title: str::quickRandom
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Quickly generates a random string
+
+----
+
+Call: str::quickRandom($length = false, $type = 'alphaNum')
+
+----
+
+Return: type: string
+text:
+
+----
+
+Params: - 
+  name: $length
+  type: int
+  text: The length of the random string
+- 
+  name: $type
+  type: string
+  text: Pool type (type of allowed characters)
+
+----
+
+Text:
+
+This method is faster than (toolkit: str/random) in most cases, but should not be considered sufficient for cryptography, etc.
+Please note that `str::random` can sometimes be faster, e.g. when the pool is very large (e.g. 'alphaNum' or 'alpha').

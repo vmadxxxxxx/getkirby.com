@@ -15,7 +15,21 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $str
   type: string
   text:
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'KIRBY';
+echo str::lower($string);
+// 'kirby'
+
+```

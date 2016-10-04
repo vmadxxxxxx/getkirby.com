@@ -15,20 +15,34 @@ text: The shortened string
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text: The string to be shortened
-- 
+-
   name: $chars
   type: int
   text: >
     The final number of characters the
     string should have
-- 
+-
   name: $rep
   type: string
   text: >
     The element, which should be added if
     the string is too long. Ellipsis is the
     default.
+
+----
+
+Text:
+
+## Example
+
+```php
+echo str::short('This is a very, very, very long string', 10);
+// output: This is a…
+
+echo str::short('This is a very, very, very long string', 10, '####');
+// output: This i####
+```

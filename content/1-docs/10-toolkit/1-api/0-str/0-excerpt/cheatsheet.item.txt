@@ -15,24 +15,50 @@ text: The shortened string
 
 ----
 
-Params: - 
+Params: -
   name: $string
   type: string
   text: The string to be shortened
-- 
+-
   name: $chars
   type: int
   text: >
     The final number of characters the
     string should have
-- 
+-
   name: $removehtml
   type: boolean
   text: 'True: remove the HTML tags from the string first'
-- 
+-
   name: $rep
   type: string
   text: >
     The element, which should be added if
     the string is too long. Ellipsis is the
     default.
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$string = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <em>Aenean</em> commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.';
+
+$excerpt = str::excerpt($string, 80, false);
+echo $excerpt;
+
+$excerpt = str::excerpt($string, 80);
+echo $excerpt;
+```
+
+Result:
+
+```
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <em>Aenean</em>…
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula…
+
+```

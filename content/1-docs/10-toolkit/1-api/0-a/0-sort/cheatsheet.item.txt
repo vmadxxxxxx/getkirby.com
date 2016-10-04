@@ -15,19 +15,63 @@ text: The sorted array
 
 ----
 
-Params: - 
+Params: -
   name: $array
   type: array
   text: The source array
-- 
+-
   name: $field
   type: string
   text: The name of the column
-- 
+-
   name: $direction
   type: string
   text: desc (descending) or asc (ascending)
-- 
+-
   name: $method
   type: \const
   text: "A PHP sort method flag or 'natural' for natural sorting, which is not supported in PHP by sort flags"
+
+----
+
+Text:
+
+## Example
+
+```php
+$array[0] = array(
+  'id' => 1,
+  'username' => 'bastian',
+);
+
+$array[1] = array(
+  'id' => 2,
+  'username' => 'peter',
+);
+
+$array[3] = array(
+  'id' => 3,
+  'username' => 'john',
+);
+
+$sorted = a::sort($array, 'username ASC');
+
+// Array
+// (
+//      [0] => Array
+//          (
+//              [id] => 1
+//              [username] => bastian
+//          )
+//      [1] => Array
+//          (
+//              [id] => 3
+//              [username] => john
+//          )
+//      [2] => Array
+//          (
+//              [id] => 2
+//              [username] => peter
+//          )
+// )
+```

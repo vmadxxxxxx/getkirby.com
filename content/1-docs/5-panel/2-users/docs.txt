@@ -47,7 +47,7 @@ fields:
     placeholder: Github username
     icon: github
     width: 1/2  
-```    
+```
 
 You can easily access you new custom fields in your templates:
 
@@ -56,6 +56,12 @@ You can easily access you new custom fields in your templates:
 ```
 
 **Note**: Custom user fields are only editable once a user has been created because you need to have the user object first.
+</since>
+
+<since v="2.4.0">
+### Default user form fields
+
+Since Kirby 2.4.0, you can define a default user blueprint in `site/blueprints/users/default.yml`, which will be used if no role-specific blueprint has been defined.
 </since>
 
 ## Users API

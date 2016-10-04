@@ -22,3 +22,26 @@ Params: -
   name: $callback
   type: function
   text: the callback function
+
+----
+Text:
+
+## Example:
+
+```php
+<?php 
+
+// group items by year
+$groupedItems = $page->children()->visible()->group(function($p){
+  return $p->date('Y');
+});
+
+foreach ($groupedItems as $year => $yearList): ?>
+  <h2><?= $year ?></h2>
+  <ul>
+    <?php foreach($yearList as $article): ?>
+      <li><a href="<?= $article->url() ?>"><?= $article->title() ?></a></li>
+    <?php endforeach ?>
+  </ul>
+<?php endforeach ?>
+```

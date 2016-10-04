@@ -15,11 +15,30 @@ text: The average value
 
 ----
 
-Params: - 
+Params: -
   name: $array
   type: array
   text: The source array
-- 
+-
   name: $decimals
   type: int
   text: The number of decimals to return
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+$array = [2.54, 3.98, 12.99, 15.00];
+
+echo a::average($array);
+```
+
+Output:
+
+```text
+8.75
+```

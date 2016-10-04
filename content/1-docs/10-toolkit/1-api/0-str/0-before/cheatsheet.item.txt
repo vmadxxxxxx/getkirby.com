@@ -1,0 +1,38 @@
+Title: str::before
+
+----
+
+Excerpt: Returns the beginning of a string before the given character
+
+----
+
+Call: str::before($string, $before)
+
+----
+
+Return: type: string
+text: The beginning of the string
+
+----
+
+Params: -
+  name: $string
+  type: string
+  text:
+-
+  name: $before
+  type: string
+  text: 'Character(s) to stop before'
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+
+echo str::before('string', 'r');
+// output: st
+```

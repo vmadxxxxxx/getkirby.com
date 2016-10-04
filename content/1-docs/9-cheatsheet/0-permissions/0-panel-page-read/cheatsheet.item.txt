@@ -1,0 +1,40 @@
+Title: panel.page.read
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to access/read a page in the panel
+
+----
+
+Text:
+
+## Target Data
+
+```php
+$this->target()->page()
+```
+
+You can deny access to certain pages entirely. They will be hidden from all page lists and the user cannot access any of its features.
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'               => true,
+    'panel.page.read' => function() {
+      return $this->target()->page()->template() !== 'secret';
+    }
+  ]
+];
+```
+

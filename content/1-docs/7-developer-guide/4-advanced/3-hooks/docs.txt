@@ -14,7 +14,7 @@ Hooks are available since Kirby 2.1. Make sure to update before you use them.
 
 ## Available hooks
 
-Hook-ID | Passed Object
+Hook ID | Passed Object(s)
 - | - 
 panel.page.create | $page
 panel.page.update | $page, $oldPage (*)
@@ -105,6 +105,7 @@ kirby()->hook('panel.page.*', function($page, $oldPage = null) {
   $site     = $this->site();
   $user     = $this->user();
   $username = $this->username();
+  $role     = $this->role();
 });
 ```
 </since>

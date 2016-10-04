@@ -1,0 +1,43 @@
+Title: panel.page.visibility
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to change the visibility of a page
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->page()
+```
+
+### action
+```php
+$this->target()->page()
+$this->target()->visibility()
+```
+
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                     => true,
+    'panel.page.visibility' => false
+  ]
+];
+```

@@ -2,7 +2,7 @@ Title: str::xml
 
 ----
 
-Excerpt: Converts a string to a xml-safe string Converts it to html-safe first and then it will replace html entities to xml entities
+Excerpt: Converts a string to a xml-safe string. Converts it to html-safe first and then it will replace html entities to xml entities
 
 ----
 
@@ -15,11 +15,23 @@ text:
 
 ----
 
-Params: - 
+Params: -
   name: $text
   type: string
   text:
-- 
+-
   name: $html
   type: boolean
   text: 'True: convert to html first'
+
+----
+Text:
+
+## Example
+
+```php
+<?php
+echo str::xml('some über crazy stuff');
+
+// output: some &#252;ber crazy stuff
+```

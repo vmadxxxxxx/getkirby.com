@@ -35,11 +35,16 @@ These are all possible registry extensions you can register this way:
 $kirby->set('blueprint', 'article', __DIR__ . '/blueprints/article.yml');
 ```
 
-<since v="2.3.1">
-You can also register global field definitions:
+User blueprints can be registered like this:
 
 ```php
-// The blueprint file must exist at the given location
+$kirby->set('blueprint', 'users/admin', __DIR__ . '/blueprints/users/admin.yml');
+```
+
+<since v="2.3.1">
+Since Kirby 2.3.1, you can also register global field definitions:
+
+```php
 $kirby->set('blueprint', 'fields/title', __DIR__ . '/blueprints/fields/title.yml');
 ```
 </since>
@@ -154,6 +159,23 @@ $kirby->set('option', 'cache', true);
 ```
 
 This is an alternative syntax to `c::set()`, but this syntax can be used inside plugins.
+
+<since v="2.4.0">
+### role
+
+```php
+// The role file must exist at the given location
+$kirby->set('role', 'client', __DIR__ . '/roles/client.php');
+
+// You can also pass a role array directly
+$kirby->set('role', 'client', [
+  'name' => 'Client',
+  'permissions' => [
+    ...
+  ]
+]);
+```
+</since>
 
 ### route
 

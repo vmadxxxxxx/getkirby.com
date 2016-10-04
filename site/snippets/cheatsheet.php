@@ -27,8 +27,7 @@
 
     <div class="cheatsheet-grid">
       <?php foreach($child->inheritedChildren() as $doc): ?>
-      <?php if($doc->since()->future()) continue; ?>
-      <div class="cheatsheet-grid-item">
+      <div class="cheatsheet-grid-item<?php e($doc->since()->future(), ' future'); ?>">
         <a href="<?php echo $doc->url($child) ?>">
           <h3 class="gamma"><?php echo html($doc->title($child)) ?></h3>
           <?php echo $doc->excerpt()->kt() ?>

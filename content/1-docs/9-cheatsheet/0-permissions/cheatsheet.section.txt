@@ -1,0 +1,13 @@
+Title: Permissions
+
+----
+
+Excerpt: 
+
+----
+
+Text: 
+
+----
+
+Since: 2.4.0
