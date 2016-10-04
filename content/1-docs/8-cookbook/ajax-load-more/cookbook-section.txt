@@ -53,7 +53,7 @@ Let's start with the `projects.php` template.
 
       <!-- Loop through the projects -->
       <?php foreach($projects as $project): ?>
-      <?php snippet('project', compact('project')) ?>
+        <?php snippet('project', compact('project')) ?>
       <?php endforeach ?>
 
     </ul>
