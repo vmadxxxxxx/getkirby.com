@@ -31,6 +31,7 @@ return [
     '*'                 => true,
     'panel.site.update' => false,
     'panel.user.*'      => false,
+    'panel.user.read'   => true,
     'panel.user.update' => function() {
 
       if($this->user()->is($this->target()->user())) {                
