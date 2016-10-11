@@ -1,0 +1,57 @@
+Title: panel.page.delete
+
+----
+
+Since: 2.4.0
+
+----
+
+Excerpt: Permission to delete a page
+
+----
+
+Text:
+
+## Target Data
+
+### ui
+```php
+$this->target()->page()
+```
+
+### action
+```php
+$this->target()->page()
+```
+
+## Example
+
+```php
+<?php
+
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.delete' => false
+  ]
+];
+```
+
+### Only allow deleting pages based with a specific template
+
+```php
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.delete' => function() {
+      return $this->target()->page()->intendedTemplate() === 'project';
+    }
+  ]
+];
+```
