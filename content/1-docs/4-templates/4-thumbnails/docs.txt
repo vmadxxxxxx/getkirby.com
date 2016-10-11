@@ -41,8 +41,11 @@ echo thumb($image, array('height' => 300));
 echo thumb($image, array('width' => 300, 'height' => 200));
 ```
 
-### New in Kirby 2.2:
+<since v="2.2">
+#### Shorthand
+
 Since Kirby Version 2.2, you can also use the shorthand `resize()` method. Checkout the Cheat Sheet at http://getkirby.com/docs/cheatsheet/file/resize
+</since>
 
 ## Cropping images
 
@@ -60,28 +63,29 @@ echo thumb($image, array('width' => 300, 'crop' => true));
 echo thumb($image, array('width' => 300, 'height' => 400, 'crop' => true));
 ```
 
-### New in Kirby 2.2
+<since v="2.2">
+#### Shorthand
+
 Since Kirby version 2.2, you can also use the shorthand `crop()` method. Check out the Cheat Sheet at http://getkirby.com/docs/cheatsheet/file/crop
+</since>
 
 ## Setting the quality
 
-```
+```php
 echo thumb($image, array('width' => 300, 'quality' => 80));
 ```
 
 ## Blurring
 
-```
+```php
 echo thumb($image, array('width' => 300, 'blur' => true));
 ```
 
 ## Grayscale
 
-```
+```php
 echo thumb($image, array('width' => 300, 'grayscale' => true));
 ```
-
-
 
 ## Using thumb class methods
 
@@ -97,19 +101,17 @@ echo thumb($image, array('width' => 400, 'height' => 250))->height();
 echo thumb($image, array('width' => 400, 'height' => 250))->niceSize();
 ```
 
-The `thumb()` method returns a Kirby Media object. For a full set of available options, please check out the (link: docs/toolkit/api#media text: Media object docs.) 
+The `thumb()` method returns a Kirby Media object. For a full set of available options, please check out the (link: docs/toolkit/api#media text: Media object docs). 
 
+<since v="2.3">
 ## Thumbs for files outside the content folder
 
-The `thumb()` function expects a Kirby Media object in order to work correctly. Images inside the content folder, fetched by the Kirby API are extended Media objects by default, so you don't have to care about anything when using them. But if you want to pass your own image files from outside the content folder, you need to convert them to a Media object first, which is fortunately very easy to do: 
+The `thumb()` function expects a Kirby Media object in order to work correctly. Images inside the content folder, fetched by the Kirby API are extended Media objects by default, so you don't have to care about anything when using them. But if you want to pass your own image files from outside the content folder, you need to convert them to a so-called Asset object first, which is fortunately very easy to do: 
 
 ```php
-$myimage = new Media(
-  // the absolute path for the file
-  '/var/www/myimages/image.jpg',         
-  // the absolute url
-  'http://mydomain.com/images/image.jpg' 
-);
+// pass a relative URI from the root of your site
+$myimage = new Asset('assets/images/myimage.jpg');
 
 echo thumb($myimage, array('width' => 300));
 ```
+</since>

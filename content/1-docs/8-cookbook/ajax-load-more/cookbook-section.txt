@@ -1,0 +1,315 @@
+Title: Load more with Ajax
+
+----
+
+Date: 25.08.2016
+
+----
+
+Category: ajax
+
+----
+
+Description: Learn how to add a load more button to your pages to append data via Ajax.
+
+----
+
+Methods:
+
+----
+Text:
+(toc)
+
+## Intro
+
+****
+
+**Note**: This tutorial makes use of the (link: docs/developer-guide/advanced/representations text: content representations) feature introduced in Kirby 2.4. With a few changes, you can also make this work in older versions of Kirby.
+
+This tutorial assumes that you have a page called `projects` in `/content` with some project subpages. For the example to work, the text file in `/projects` must be called `projects.txt`.
+
+****
+
+Often, you only want to show a limited number of projects, articles or images on a page when it is first loaded. If users want to see more, they can click or tap a button and additional content is appended to the DOM. In this tutorial, we'll go through the steps that are needed to achieve this with Kirby.
+
+Here's a quick wrap-up of what we'll be doing:
+
+We start with a projects page where we display a limited number of projects with their image and title. When the user clicks a "load more" button, our JavaScript event listener makes an Ajax call to the JSON representation of our template. If the call is successful, the content is appended to the page.
+
+
+## The standard template
+
+Let's start with the `projects.php` template.
+
+```php
+<!-- /site/templates/projects.php -->
+<?php snippet('header') ?>
+
+  <main class="main" role="main">
+    <h1><?= $page->title()->html() ?></h1>
+    <?= $page->text()->kirbytext() ?>
+
+    <ul class="projects" data-page="<?= $page->url() ?>" data-limit="<?= $limit ?>">
+
+      <!-- Loop through the projects -->
+      <?php foreach($projects as $project): ?>
+        <?php snippet('project', compact('project')) ?>
+      <?php endforeach ?>
+
+    </ul>
+    <button class="load-more">Load more</button>
+
+  </main>
+
+<?php snippet('footer') ?>
+```
+
+We put the list item for each project in a separate snippet. We'll need that a second time and can avoid to write redundant code that way.
+
+```php
+<!-- /site/snippets/project.php -->
+<li class="project">
+  <a href="<?= $project->url() ?>" class="project-link">
+    <!-- We want to get the first image of each project. We first check if it exists! -->
+    <?php if($image = $project->image()): ?>
+    <img src="<?= $image->url() ?>" alt="<?= $image->alt_text()->html() ?>" />
+    <?php endif ?>
+    <div class="project-caption">
+      <h2 class="project-title"><?= $project->title()->html() ?></h2>
+    </div>
+  </a>
+</li>
+```
+
+
+Apart from our HTML for the project, we have included a button with the class `load-more`. Also, we added two data attributes `data-page` and `data-limit` to pass the current page and the limit value to our JavaScript code.
+
+You will probably have noticed that we haven't defined the variable `$projects` yet, so PHP would issue a warning if we tried to load the page. We'll catch up on this now in our `projects.php` controller.
+
+## The controller
+
+The controller is the place where we add our template logic:
+
+```php
+<!-- /site/controllers/projects.php -->
+<?php
+
+return function($site, $pages, $page) {
+
+  $projects = $page->children()->visible();
+  $count    = $projects->count();
+
+  // check if the request is an Ajax request and if the limit and offset keys are set
+  if(r::ajax() && get('offset') && get('limit')) {
+
+    // convert limit and offset values to integer
+    $offset = intval(get('offset'));
+    $limit  = intval(get('limit'));
+
+    // limit projects using offset and limit values
+    $projects = $projects->offset($offset)->limit($limit);
+
+    // check if there are more projects left
+    $more = $count > $offset + 1;
+
+  // otherwise set the number of projects initially displayed
+  } else {
+
+    $offset   = 0;
+    $limit    = 2;
+    $projects = $projects->limit($limit);
+
+  }
+
+  return compact('offset', 'limit', 'projects', 'more');
+
+};
+```
+
+First, we fetch all visible children of the `projects` page and store it in the `$projects` variable. We also store the number of subpages in `$count`.
+
+Then we check if the request is an Ajax request, and if the request contains the `offset` and `limit` keys:
+
+```php
+if(r::ajax() && get('offset') && get('limit')) {
+
+// ...
+
+} else {
+
+  $offset   = 0;
+  $limit    = 2;
+  $projects = $projects->limit($limit);
+}
+```
+
+If the request is not an Ajax request, we set the `$offset` and `$limit` variables and limit the number of projects to be displayed on first page load.
+
+If the request is an Ajax request, the code within the braces is executed:
+
+```php
+// convert limit and offset values to integer
+$offset = intval(get('offset'));
+$limit  = intval(get('limit'));
+
+// limit projects using offset and limit values
+$projects = $projects->offset($offset)->limit($limit);
+
+// check if there are more projects left
+$more = $count > $offset+1;
+```
+
+We first convert the values for `offset` and `limit` to integer. Then we apply those values to the `offset()` and `limit()` methods we call on `$projects`. In the last step, we check if the number of projects is still greater than the value of `$offset` plus 1 and depending on the result, we set `$more` to `true` or `false`.
+
+At the end of the controller, we return all variables so that they can be used by the template(s).
+
+## The JSON template
+
+Now we create a second, content specific template for the JSON representation: `projects.json.php`. Let's take a look at the file:
+
+```php
+<!-- /site/templates/projects.json.php -->
+<?php
+
+$html = '';
+
+foreach($projects as $project) {
+
+  // reuse the project snippet to create the HTML for each project
+  // we need to set the third parameter to true, to return the
+  // snippet content instead of echoing it
+  $html .= snippet('project', compact('project'), true);
+
+}
+
+// add $html and $more to the $data array
+$data['html'] = $html;
+$data['more'] = $more;
+
+// JSON encode the $data array
+echo json_encode($data);
+```
+
+With this template set up, we can now make a call to `http://example.com/projects.json` in our Javascript code and the template will echo the JSON encoded data. But let's go through this in a little bit more detail.
+
+First, we define a variable `$html` as an empty string. We then loop through the projects returned from the controller and add the HTML/PHP code for each project to the `$html` variable.
+
+Next, the `$html` and `$more` variables are added to the `$data` array. And finally, we `json_encode()` the `$data` array, so that the data can be handled by our JavaScript code.
+
+## The JavaScript
+
+To make our example work, we now have to create the JavaScript code (jQuery in this case).
+
+```javascript
+// assets/js/script.js
+$(function(){
+
+  var element = $('.projects');
+  var url     = element.data('page') + '.json';
+  var limit   = parseInt(element.data('limit'));
+  var offset  = limit;
+
+  $('.load-more').on('click', function(e) {
+
+    $.get(url, {limit: limit, offset: offset}, function(data) {
+
+      if(data.more === false) {
+        $('.load-more').hide();
+      }
+
+      element.children().last().after(data.html);
+
+      offset += limit;
+
+    });
+
+  });
+
+});
+```
+
+Let's go through this step by step:
+
+1. We define a couple of variables that we will need later in the code.
+
+    ```javascript
+    var element = $('.projects');
+    var url     = element.data('page') + '.json';
+    var limit   = parseInt(element.data('limit'));
+    var offset  = limit;
+    ```
+
+    We get the `limit` and the base part of the `url` variables from the data attributes we defined in the `projects.php` template above. Note that we add the `json` suffix to the URL, so that our JSON content representation will be fetched instead of the standard template.
+
+2. We add the event listener, which is triggered when the `load-more` button is clicked.
+
+    ```javascript
+    $('.load-more').on('click', function(e) {
+
+    });
+    ```
+
+3. The function contains the Ajax call:
+
+    ```javascript
+    $.get(url, {limit: limit, offset: offset}, function(data) {
+
+      if(data.more === false) {
+        $('.load-more').hide();
+      }
+
+      element.children().last().after(data.html);
+
+      offset += limit;
+
+    });
+
+    ```
+
+    With the Ajax request, we send the values for limit and offset to the `project.php` controller. If the GET request was successful, we append the HTML to the last child element of the `.projects` container:
+
+    ```javascript
+    element.children().last().after(data.html);
+    ```
+
+    We hide the button if there are no more projects left:
+
+    ```javascript
+    if(data.more === false) {
+      $('.load-more').hide();
+    }
+    ```
+
+    Finally, we increase the `offset` by the value of `limit`.
+
+    ```javascript
+    offset += limit;
+    ```
+
+We are almost there. Now let's not forget to add jQuery and our script file to our footer.
+
+## Include JavaScript in footer
+
+```php
+<!-- /site/snippets/footer.php -->
+<?php
+  echo js([
+    'assets/js/jquery.min.js',
+    'assets/js/script.js'
+  ]);
+?>
+```
+Note that we include a local copy of jQuery in this example. As an alternative, you can load it from a CDN. Or rewrite to code to use vanilla JavaScript instead of jQuery, of course.
+
+## If Javascript is not available…
+
+Depending on your use case, you may want to either hide the button if JavaScript is not available, or provide a fallback with a link to the complete list of projects.
+
+
+## Download files
+
+The complete set of files (except for the jQuery library) for this tutorial can be found (link: https://github.com/getkirby/cookbook  text: in the Cookbook repo).
+
+For testing, you can add the files from each subfolder into the corresponding folders of a Kirby (link: https://github.com/getkirby/starterkit text: Starterkit) or (link: https://github.com/getkirby/plainkit text: Plainkit).
+
+We hope you enjoyed this tutorial. You can leave your feedback in the (link: https::/forum.getkirby.com text: forum) or on (link: https://github.com/getkirby/getkirby.com/issues text: GitHub).

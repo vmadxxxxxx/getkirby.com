@@ -55,6 +55,35 @@ pages:
 …
 ```
 
+## Sorting of subpages
+
+Subpages can be sorted in the panel by a field or pages method. You can also indicate the sort direction.
+
+**Sort by custom field**
+```
+…
+pages:
+  sort: year asc
+…
+```
+
+**Sort by page method**
+
+```
+…
+
+pages:
+  sort: template desc
+…
+```
+
+```
+…
+pages:
+  sort: hasImages desc
+…
+```
+
 ## Reverse sorting of subpages
 
 Sometimes it is helpful to display subpages in reverse order in the panel. You can achieve this by setting `sort: flip`
