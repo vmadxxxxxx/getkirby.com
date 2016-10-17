@@ -1,8 +1,8 @@
-Title: Kirby 2.4.0 Beta 1
+Title: Kirby 2.4.0 Beta 2
 
 ----
 
-Date: 2016-09-27
+Date: 2016-10-17
 
 ----
 
@@ -14,10 +14,87 @@ Text:
 
 ## Download
 
-- (link: https://github.com/getkirby/kirby/archive/develop.zip text: Kirby Core 2.4.0 Beta 1)
-- (link: https://github.com/getkirby/panel/archive/develop.zip text: Kirby Panel 2.4.0 Beta 1)
+- (link: https://github.com/getkirby/kirby/archive/develop.zip text: Kirby Core 2.4.0 Beta 2)
+- (link: https://github.com/getkirby/panel/archive/develop.zip text: Kirby Panel 2.4.0 Beta 2)
 
-Replace your current kirby and panel folders to install the beta. We are currently working on a new CLI version, which will make betas installable via command line as well.
+Replace your current kirby and panel folders to install the beta. 
+
+## CLI Beta
+
+You can now also test the beta for our new CLI version and use that to get the beta even faster. 
+
+### Get the CLI Beta
+
+#### Install the CLI from scratch
+
+If you don't have the CLI yet, run the following command (composer required):
+
+```
+composer global require getkirby/cli:dev-develop
+```
+
+Make sure to place the…
+
+```
+~/.composer/vendor/bin
+…directory in your PATH so the kirby executable can be located by your system.
+```
+
+#### Update the CLI 
+
+If you want to update from the last CLI version, run the following: 
+
+```
+composer global remove getkirby/cli
+composer global require getkirby/cli:dev-develop
+```
+
+### Use the CLI to get the beta
+
+#### New Installation
+
+```
+kirby install --dev
+```
+
+To install the plainkit or langkit run…
+
+```
+kirby install --dev --kit plainkit
+kirby install --dev --kit langkit
+```
+
+#### Update an existing installation
+
+```
+kirby update --dev
+```
+
+## Changes in Beta 2
+
+### Core
+- Small bug fixes 
+
+### Panel
+- Translation updates
+- Improved datetime field 
+- Huge performance improvement for sorting files
+- Decreased padding before headline fields
+- Fixed checkboxes issue with wrong fallback content in multi-language sites
+- Basic composer file
+- Fixed broken label translation in template switcher
+- Better handling of readonly user accounts 
+- Fixed z-index issue for submit buttons
+- Fixed field issues after html::attr now uses htmlspecialchars
+- Fixed html encoding issues in forms
+- Improved icon rendering
+- Fixed broken preview URLs
+- Fixed notice error for site option updates
+- Fixed permission issue in user section
+
+### Toolkit
+- Small bug fixes
+
 
 ## Beta!
 
