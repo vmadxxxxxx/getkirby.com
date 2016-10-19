@@ -312,4 +312,4 @@ The complete set of files (except for the jQuery library) for this tutorial can 
 
 For testing, you can add the files from each subfolder into the corresponding folders of a Kirby (link: https://github.com/getkirby/starterkit text: Starterkit) or (link: https://github.com/getkirby/plainkit text: Plainkit).
 
-We hope you enjoyed this tutorial. You can leave your feedback in the (link: https::/forum.getkirby.com text: forum) or on (link: https://github.com/getkirby/getkirby.com/issues text: GitHub).
+We hope you enjoyed this tutorial. You can leave your feedback in the (link: https://forum.getkirby.com text: forum) or on (link: https://github.com/getkirby/getkirby.com/issues text: GitHub).
