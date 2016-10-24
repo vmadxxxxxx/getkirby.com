@@ -14,6 +14,10 @@ Comments: off
 
 ----
 
+Kosmos-Subscription: on
+
+----
+
 Text:
 
 Over the last month since our first Kirby Kosmos episode the community has been really busy creating lots of extensions for Kirby. In this second edition, we'll feature some of these exciting new plugins. Big thanks to everyone who has contributed to making Kirby better and more versatile every day! You are awesome.
