@@ -41,7 +41,7 @@
       <?php endif ?>
       <?php endif ?>
 
-      <?php if($page->subscription_form() !== 'off') {
+      <?php if($page->kosmos_subscription()->bool()) {
         snippet('kosmos.subscription');
       } ?>
 
