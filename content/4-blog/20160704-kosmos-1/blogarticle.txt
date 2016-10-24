@@ -6,7 +6,7 @@ Date: 04.07.2016
 
 ----
 
-Tags: 
+Tags:
 
 ----
 
@@ -14,7 +14,11 @@ Comments: off
 
 ----
 
-Text: 
+Kosmos-Subscription: on
+
+----
+
+Text:
 
 In our last newsletter we introduced you to some pretty amazing Kirby community projects. We have decided that we are going to start a monthly newsletter where we collect the most exciting stuff for you in a compact and easy to digest format. This is the first episode of our series called "Kirby Kosmos".
 

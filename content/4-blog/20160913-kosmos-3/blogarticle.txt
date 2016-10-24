@@ -14,6 +14,10 @@ Comments: off
 
 ----
 
+Kosmos-Subscription: on
+
+----
+
 Text:
 
 Even hot summer days (at least in our part of the world) could not stop the Kirby community from creating great Kirby extensions, and so we have lots of new stuff to share with you in our third Kosmos episode.

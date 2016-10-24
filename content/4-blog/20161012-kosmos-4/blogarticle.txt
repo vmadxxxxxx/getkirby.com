@@ -14,6 +14,10 @@ Comments: off
 
 ----
 
+Kosmos-Subscription: on
+
+----
+
 Text:
 
 Another month has passed since our last Kosmos episode and we are super excited to share a ton of hot news, interesting resources and useful links with you.

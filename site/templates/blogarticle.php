@@ -41,6 +41,10 @@
       <?php endif ?>
       <?php endif ?>
 
+      <?php if($page->kosmos_subscription()->bool()) {
+        snippet('kosmos.subscription');
+      } ?>
+
     </div>
 
     <aside class="sidebar col-2-6 last">
