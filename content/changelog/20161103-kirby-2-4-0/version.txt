@@ -16,9 +16,11 @@ Text:
 
 ### A new Starterkit!
 
-We've secretly been working on a massive update for the starterkit. Fabian has come up with a great new design, lots of new content and documentation and many new built-in features. We are very happy about the result and hope you will like it too. It's included in every standard (link: https://download.getkirby.com text: download). The (link: https://github.com/getkirby/starterkit text: full source code) can also be found on Github. 
+We've secretly been working on (link: blog/a-new-starterkit-for-kirby text: **a massive update for the starterkit**). Fabian has come up with a great new design, lots of new content and documentation and many new built-in features. We are very happy about the result and hope you will like it too. It's included in every standard (link: https://download.getkirby.com text: download). The (link: https://github.com/getkirby/starterkit text: full source code) can also be found on Github. 
 
-(image: starterkit.png link: https://download.getkirby.com)
+(link: blog/a-new-starterkit-for-kirby text: Read more about the new starterkit…)
+
+(image: starterkit.png link: blog/a-new-starterkit-for-kirby)
 
 ### Permissions
 

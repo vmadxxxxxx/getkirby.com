@@ -6,7 +6,7 @@ text:
 
 (image: intro.png)
 
- _With the release of Kirby 2.4.0, Kirby also got a brand-new Starterkit. We are very excited to share our ideas and thoughts behind the re-design in this article to give you an insight into the process._ 
+ _With the release of (link: changelog/kirby-2-4-0 text: Kirby 2.4.0), Kirby also got a brand-new (link: https://github.com/getkirby/starterkit text: Starterkit). We are very excited to share our ideas and thoughts behind the re-design in this article to give you an insight into the process._ 
 
 ## Why?
 
@@ -52,4 +52,4 @@ However, there were also things we decided to leave out. The most obvious one is
 
 The new Starterkit is a huge step forward compared to the old one in terms of design, code and the features it demonstrates. It was both a challenging and a very interesting process. We thought a lot about common use-cases for Kirby and its growing set of features and how they could be demonstrated. Also, this was the first project where [Fabian](https://fabianmichael.de/) — our latest team member – was involved. We hope that the new Starterkit works great for you and if you want to give us any feedback or ideas for further improvements, don’t hesitate to send your thoughts to [feedback@getkirby.com](mailto:feedback@getkirby.com) .
 
- _Have a great day!_
+_Have a great day!_
