@@ -13,7 +13,6 @@
       <p><?php echo str::email($site->email()) ?></p>
             <p>In the meantime you might want to check out our <a href="http://getkirby.com/docs">docs</a> where we already collected a whole bunch of stuff.</p>
 
-
       <?php else: ?>
 
       <?php snippet('upcoming') ?>
@@ -93,6 +92,19 @@
       <li><a href="<?php echo $next->url($page->inheritingParent()) ?>"><small>&rarr;</small> <?php echo html($next->title()) ?></a></li>
       <?php endif ?>
     </ul>
+
+    <?php if($page->author()->isNotEmpty() && $author = page('authors/' . $page->author())): ?>
+    <figure class="author">
+      <a href="<?= $author->link() ?>">
+        <?= $author->image() ?>
+        <figcaption>
+          <strong><?= $author->title()->html() ?></strong><br>
+          <i><?= $author->subtitle()->html() ?></i>
+        </figcaption>
+      </a>
+    </figure>
+    <?php endif ?>
+
   </nav>
 
 </main>

@@ -2,6 +2,10 @@ Title: Using Capistrano to deploy Kirby
 
 ----
 
+Author: august-miller
+
+----
+
 Description: Learn how to set up Capistrano for worry-free deployments.
 
 ----

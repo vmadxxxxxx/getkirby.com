@@ -1580,3 +1580,21 @@ input[type="search"]::-webkit-search-cancel-button {
     padding-left: 2rem;
   }
 }
+
+
+.author {
+
+  padding: 3rem 0;
+
+  line-height: 1.5em;
+
+  img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  } 
+
+  i {
+    color: #777;
+  }
+}

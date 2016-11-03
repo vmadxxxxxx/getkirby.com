@@ -2328,3 +2328,13 @@ input[type="search"]::-webkit-search-cancel-button {
   .clients li {
     width: 16.66%;
     padding-left: 2rem; } }
+
+.author {
+  padding: 3rem 0;
+  line-height: 1.5em; }
+  .author img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%; }
+  .author i {
+    color: #777; }
