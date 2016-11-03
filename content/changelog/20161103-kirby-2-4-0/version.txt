@@ -36,7 +36,7 @@ You want to have a translator role that is only able to edit a specific language
 
 One of Kirby's biggest advantages is its content structure. You can use as many fields and field types as you need to create content that isn't just a large WYSIWYG field.
 
-Kirby 2.4 has a new core feature called "Content Representations" that allows you to output the content in different formats. Be it (link: docs/cookbook/ajax-form-validation text: JSON for your AJAX script) or to use Kirby as API for other tools, an automatic RSS feed representation of your blog or a plain text representation of your résumé.
+Kirby 2.4 comes with a new core feature called "Content Representations" that allows you to output content in different formats. This could be (link: docs/cookbook/ajax-form-validation text: JSON for your AJAX script) or using Kirby as an API for other tools, an automatic RSS feed representation of your blog, or a plain text representation of your résumé.
 
 (link: docs/developer-guide/advanced/representations text: Read more about this feature in the docs).
 
@@ -62,7 +62,7 @@ c::set('languages', [
 ]);
 ```
 
-Kirby will detect the language based on the domain and links to other languages, e.g. in language switchers, will just work™.
+Kirby will detect the language based on the domain, and links to other languages, e.g. in language switchers, will just work™.
 
 ### Kirby objects are easier to debug
 
@@ -71,14 +71,14 @@ Starting with Kirby 2.4, the most complex objects are now printed with their mos
 
 ### Improved exception handling
 
-Kirby now has a new visual and powerful error view powered by [Whoops](https://filp.github.io/whoops/).
-It becomes active automatically once you enable (link: docs/cheatsheet/options/debug text: debug mode). And on your production site it displays a nice and clean error page instead that doesn't tell attackers anything about the error.
+Kirby now has a new powerful visual error view powered by [Whoops](https://filp.github.io/whoops/).
+It becomes active automatically once you enable (link: docs/cheatsheet/options/debug text: debug mode). And on your production site it displays a nice and clean error page that doesn't tell attackers anything about the error.
 
 (image: whoops.png link: self)
 
 ### A big CLI Update
 
-Our (link: https://github.com/getkirby/cli text: command line interface) got a big update as well. With many new commands, it's now even more powerful than before. Check out the (link: https://github.com/getkirby/cli text: CLI readme) for more information. 
+Our (link: https://github.com/getkirby/cli text: command line interface) got a big update as well. With many new commands, it is now even more powerful than before. Check out the (link: https://github.com/getkirby/cli text: CLI readme) for more information.
 
 ---
 
@@ -93,7 +93,7 @@ Our (link: https://github.com/getkirby/cli text: command line interface) got a b
 - Fix visibility of the text field counter in the file view
 - Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
 - Translation updates
-- Improved datetime field 
+- Improved datetime field
 - Huge performance improvement for sorting files
 - Decreased padding before headline fields
 - Fixed checkboxes issue with wrong fallback content in multi-language sites
