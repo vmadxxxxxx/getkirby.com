@@ -8,7 +8,7 @@ text:
 
 (image: intro.png)
 
- _With the release of (link: changelog/kirby-2-4-0 text: 2.4.0), Kirby also got a brand-new (link: https://github.com/getkirby/starterkit text: Starterkit). We are very excited to share our ideas and thoughts behind the re-design in this article to give you an insight into the process._ 
+ _With the release of (link: changelog/kirby-2-4-0 text: 2.4.0), Kirby also got a brand-new (link: https://github.com/getkirby/starterkit text: Starterkit) ((link: https://getkirby.com/kits/starterkit text: Demo)). We are very excited to share our ideas and thoughts behind the re-design in this article to give you an insight into the process._ 
 
 ## Why?
 
