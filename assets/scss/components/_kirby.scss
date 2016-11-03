@@ -283,10 +283,10 @@ img {
 }
 .text figure figcaption {
   display: block;
-  margin-top: 8px;
-  margin-bottom: -8px;
+  margin-bottom: 1.5rem;
   color: #999;
-  font-size: .9em;
+  font-size: .8em;
+  line-height: 1.5em;
 }
 .text .img-left {
   float: left;
