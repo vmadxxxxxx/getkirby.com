@@ -2,12 +2,9 @@
 
 return function($site, $pages, $page) {
 
-  $today = mktime(0, 0, 0, date("m"), date("d"),   date("Y"));
-  $twoMonthsAgo = mktime(0, 0, 0, date("m")-2, date("d"),   date("Y"));
-
   if($cat = urldecode(param('category'))) {
     if($cat == 'new') {
-      $items = $page->children()->visible()->filterBy('date', '>', $twoMonthsAgo)->filterBy('date', '<=', $today);
+      $items = $page->children()->visible()->sortBy('date', 'desc')->limit(6);
     } else {
       $items = $page->children()->visible()->filterBy('category', $cat);
     }

@@ -2,6 +2,10 @@ Title: Using Capistrano to deploy Kirby
 
 ----
 
+Date: 2016-11-03
+
+----
+
 Author: august-miller
 
 ----
