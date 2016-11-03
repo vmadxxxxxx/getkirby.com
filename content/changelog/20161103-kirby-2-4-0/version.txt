@@ -1,116 +1,29 @@
-Title: Kirby 2.4.0 Beta 2
+Title: Kirby 2.4.0
 
 ----
 
-Date: 2016-10-17
+Date: 2016-11-03
 
 ----
 
-Download: 
+Download: http://download.getkirby.com/kirby-2.4.0.zip
 
 ----
 
 Text:
 
-## Download
-
-- (link: https://github.com/getkirby/kirby/archive/develop.zip text: Kirby Core 2.4.0 Beta 2)
-- (link: https://github.com/getkirby/panel/archive/develop.zip text: Kirby Panel 2.4.0 Beta 2)
-
-Replace your current kirby and panel folders to install the beta. 
-
-## CLI Beta
-
-You can now also test the beta for our new CLI version and use that to get the beta even faster. 
-
-### Get the CLI Beta
-
-#### Install the CLI from scratch
-
-If you don't have the CLI yet, run the following command (composer required):
-
-```
-composer global require getkirby/cli:dev-develop
-```
-
-Make sure to place the…
-
-```
-~/.composer/vendor/bin
-…directory in your PATH so the kirby executable can be located by your system.
-```
-
-#### Update the CLI 
-
-If you want to update from the last CLI version, run the following: 
-
-```
-composer global remove getkirby/cli
-composer global require getkirby/cli:dev-develop
-```
-
-### Use the CLI to get the beta
-
-#### New Installation
-
-```
-kirby install --dev
-```
-
-To install the plainkit or langkit run…
-
-```
-kirby install --dev --kit plainkit
-kirby install --dev --kit langkit
-```
-
-#### Update an existing installation
-
-```
-kirby update --dev
-```
-
-## Changes in Beta 2
-
-### Core
-- Small bug fixes 
-
-### Panel
-- Translation updates
-- Improved datetime field 
-- Huge performance improvement for sorting files
-- Decreased padding before headline fields
-- Fixed checkboxes issue with wrong fallback content in multi-language sites
-- Basic composer file
-- Fixed broken label translation in template switcher
-- Better handling of readonly user accounts 
-- Fixed z-index issue for submit buttons
-- Fixed field issues after html::attr now uses htmlspecialchars
-- Fixed html encoding issues in forms
-- Improved icon rendering
-- Fixed broken preview URLs
-- Fixed notice error for site option updates
-- Fixed permission issue in user section
-
-### Toolkit
-- Small bug fixes
-
-
-## Beta!
-
-Be aware that **this version is not meant for production**. Only install it locally to test it with your current projects.
-
-Please use Github issues to report any bugs: 
-
-- (link: https://github.com/getkirby/kirby/issues text: Kirby Core Issues)
-- (link: https://github.com/getkirby/panel/issues text: Kirby Panel Issues)
-- (link: https://github.com/getkirby/toolkit/issues text: Kirby Toolkit Issues)
-
 ## Highlights in 2.4.0
+
+### A new Starterkit!
+
+We've secretly been working on a massive update for the starterkit. Fabian has come up with a great new design, lots of new content and documentation and many new built-in features. We are very happy about the result and hope you will like it too. It's included in every standard (link: https://download.getkirby.com text: download). The (link: https://github.com/getkirby/starterkit text: full source code) can also be found on Github. 
+
+(image: starterkit.png link: https://download.getkirby.com)
 
 ### Permissions
 
 The Panel finally supports permissions!
+
 Each user role can now define a set of rules to restrict each Panel action based on the action type, the current page/file, user, language or even a combination of all of them.
 
 You want to have a translator role that is only able to edit a specific language? Or an editor role that can only create new drafts in the blog but not publish them? Or a role that only allows users to edit their own profile page? It's all possible now!
@@ -130,21 +43,21 @@ Kirby 2.4 has a new core feature called "Content Representations" that allows yo
 Kirby now supports using a separate domain for each language out of the box:
 
 ```php
-c::set('languages', array(
-  array(
+c::set('languages', [
+  [
     'code'    => 'en',
     'name'    => 'English',
     'default' => true,
     'locale'  => 'en_US',
     'url'     => 'https://example.com',
-  ),
-  array(
+  ],
+  [
     'code'    => 'de',
     'name'    => 'Deutsch',
     'locale'  => 'de_DE',
     'url'     => 'https://example.de',
-  )
-));
+  ]
+]);
 ```
 
 Kirby will detect the language based on the domain and links to other languages, e.g. in language switchers, will just work™.
@@ -161,6 +74,10 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 
 (image: whoops.png link: self)
 
+### A big CLI Update
+
+Our (link: https://github.com/getkirby/cli text: command line interface) got a big update as well. With many new commands, it's now even more powerful than before. Check out the (link: https://github.com/getkirby/cli text: CLI readme) for more information. 
+
 ---
 
 ## Panel
@@ -173,6 +90,15 @@ It becomes active automatically once you enable (link: docs/cheatsheet/options/d
 - Fix overflow issue for long checkbox labels
 - Fix visibility of the text field counter in the file view
 - Complex objects are now printed with their most important information only when debugging (PHP 5.6+)
+- Translation updates
+- Improved datetime field 
+- Huge performance improvement for sorting files
+- Decreased padding before headline fields
+- Fixed checkboxes issue with wrong fallback content in multi-language sites
+- Basic composer file
+- Fixed broken label translation in template switcher
+- Fixed z-index issue for submit buttons
+- Improved icon rendering
 
 ## Core
 
