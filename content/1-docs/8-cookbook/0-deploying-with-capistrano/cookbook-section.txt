@@ -1,0 +1,395 @@
+Title: Using Capistrano to deploy Kirby
+
+----
+
+Description: Learn how to set up Capistrano for worry-free deployments.
+
+----
+
+Category: deployment
+
+----
+
+Text:
+
+In this guide, we'll walk through the process of setting up Capistrano to deploy a website built on Kirby. You'll learn a bit about server configuration and best practices, and how to improve your process for updating projects.
+
+## What is Capistrano?
+
+[Capistrano is an open-source deployment tool](http://capistranorb.com/documentation/overview/what-is-capistrano/) that, at its core, provides “remote server automation.” For our purposes, Capistrano provides a simple, reliable way to introduce new code onto a server with zero downtime.
+
+``` 
+$ cap production deploy
+```
+
+*Automation* is the key, here. Capistrano will help you codify your deployment process by running a set of defined tasks, most of which are “sane defaults.” Those defaults probably represent a few things you've been doing by hand, up to this point— but don't worry! Pretty much everything can be customized to your taste.
+
+Out-of-the-box, the process can be broken into two basic steps:
+
+1. Get new code onto the remote machine
+2. Point the web server at the new code
+ 
+Without a deployment tool, those two steps are often part of the same clunky operation, like uploading files via FTP, `rsync` or `scp` directly into the live web root.
+
+Having access to git on a server simplifies and expedites the first step, but doesn't do anything for the second. Don't forget to bundle and minify your stylesheets and scripts! Things can get out of hand pretty quickly, and it's easy to miss a step.
+
+Take a look at Capistrano's [key features](https://github.com/capistrano/capistrano/blob/master/README.md#features), and remember that at the end of the day, “it's just SSH.”
+
+Capistrano plays nice with Kirby. No more worrying about squashing a `content` folder or forgetting to upload your compiled assets.
+
+## Prerequisites
+
+### For You
+
+This tutorial assumes you have experience with the command line on a UNIX-based operating system (including via SSH) as well as version control software like git. Capistrano is written in Ruby, so you should be comfortable edting basic Ruby code.
+
+The most common problems when dealing with deployment tends to be file and folder permissions
+
+This demo will reference code from [this repository](https://github.com/AugustMiller/plainkit). Feel free to poke around before getting started— everything you need to know about it will be addressed, below. _Do note, however, that unlike the repo above, this guide assumes Kirby and the Panel live at the top-level of your project. For security purposes, you should consider keeping configuration and source files out of your webroot, but that strategy is not within the scope of this guide._
+
+### For Your Technology
+
+Capistrano has very few requirements for your server, but the hard-and-fast ones are SSH access, and `git`.
+
+Go ahead and verify that you can log in to your server via SSH, if you haven't done it before:
+
+``` 
+$ ssh user@domain.com
+```
+
+*On shared hosts, SSH connections may not be allowed directly to your server, but via another domain or port— check with your provider for details.*
+
+If you have a non-managed VPS and want to learn more about configuring servers for secure access, [check out this guide](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04).
+
+You should see a new prompt, on the remote server.
+
+``` 
+# git --version
+```
+
+> Psst! This guide will use `$` for the local command prompt and `#` for remote prompts.
+
+Type `exit` and press *Enter* to get back to your local machine.
+
+``` 
+# exit
+```
+
+This guide assumes that you're using Apache, and that you have control over your site's `DocumentRoot`, but neither are absolute requirements— we just won't get in to configuration on other types of servers. Whatever software you are using should be allowed to traverse symbolic links, though. In Apache, this setting is known as `FollowSymLinks`.
+
+Locally, you should be on a system with a modern Ruby installation
+
+## The Deployment Process
+
+The basic flow of a deployment with Capistrano looks like this:
+
+1. Establish an SSH connection to your server
+2. Create a new "Release" directory on the server
+3. Update repository on the server
+4. Make a copy of the repo in the release directory
+5. [Symlink](https://en.wikipedia.org/wiki/Symbolic_link) common folders and files
+6. Clean up old releases
+7. Point web root at the new directory
+ 
+You can run additional tasks before and after each of the primary steps, but the above holds true, without any intervention.
+
+On the server, a typical Capistrano-managed project looks something like this:
+
+``` 
+├── releases/
+│   ├── 20160925000000/ (A complete, working copy of your site)
+│   ├── 20160924000000/
+│   ├── 20160923000000/
+│   ├── 20160922000000/
+│   └── 20160921000000/
+├── current -> /var/www/project-name/releases/20160926000000 (A symbolic link to the current release)
+├── repo/ (The canonical git repository)
+├── shared/ (Any "linked" files, which we'll cover in a moment)
+│   ├── content/
+│   ├── site/
+│   └── etc/
+└── revisions.log
+```
+Later on, we're going to refer to this entire directory as the “`deploy_to`” location.
+
+- It all starts with the `releases` folder. After a few deployments, you'll start to see see a number of copies of your site, each in their own time-stamped directory. The example above shows five example releases, each “deployed” at midnight on consecutive days.
+- `current` is a symbolic link to *one* release (usually the most recent one), and should be set as your `DocumentRoot` on an Apache server. More on this in a bit.
+- `repo` is where Capistrano maintains the canonical git repo, and is mostly a way to speed up deployments— instead of re-cloning the entire repo, it can fetch incremental changes.
+- `shared` holds all the files that should be available across releases. In other words, if you don't want to lose content, accounts, cache files, thumbs or assets, we'll make sure they live here and not in a release directory.
+- `revisions.log` is just a place for diagnostic information about the history of deployments, and lists the commit that was deployed as a given release.
+ 
+During a deployment, a new release directory (like `releases/20160926000000`) is created, and everything is set up, *prior* to switching where the `current` symlink points. This means the new code will all be simultanously and instantaneously available upon a successful deployment. Cool, right?
+
+## Setting Up
+
+After [initializing Capistrano](https://github.com/capistrano/capistrano/blob/master/README.md#capify-your-project) in your local project's root with `$ cap install`, you should have a few new files:
+
+``` 
+├── Capfile
+├── config
+│   ├── deploy
+│   │   ├── production.rb
+│   │   └── staging.rb
+│   └── deploy.rb
+└── lib
+    └── capistrano
+        └── tasks
+```
+The default setup assumes you want configurations for `staging` and `production` environments, but we'll only cover the setup of one. You can rename it whatever you like.
+
+- At your project root, a `Capfile` takes care of some high-level setup, like loading the libraries and modules that Capistrano depends on.
+- Within `config` are your stage-specific deploy configuration files, and a main `deploy.rb` that contains options that should be used as defaults across all stages.
+- Finally, the `lib/capistrano/tasks` folder will store any custom “tasks” that you need to run locally (or on the server) to tailor the deployment to your particular site. We'll implement one task to upload static assets that you may not check in to version control.
+ 
+Each file in `config/deploy` represents a “stage” that you can deploy to:
+
+``` 
+$ cap {stage} deploy
+```
+Running those commands now won't do much, since we haven't provided any important info about our project!
+
+### Configuration
+
+Let's start with `config/deploy.rb`. There are a couple lines at the top that need updating:
+
+```rb
+set :application, 'kirby-cap-demo'
+set :repo_url, 'git@github.com:username/repo-name.git'
+```
+`:application` is simply an identifier for your site. `:repo_url` is the HTTPs or SSH clone URL of your repo. Easy!
+
+### Submodules
+
+If your site doesn't include Kirby and the Panel (or any plugins) as submodules, you can probably breeze past this section— but if you do, or are curious about switching, Capistrano can be extended to [recursively copy submodules](https://github.com/ekho/capistrano-git-submodule-strategy) along with your code.
+
+First, let's back up to your `Capfile`, and add the following line to import the module:
+
+```rb
+require 'capistrano/git-submodule-strategy'
+```
+At this point, you may also want to declare your Capistrano and “Submodule Strategy” dependencies in a `Gemfile`, next to your `Capfile`:
+
+```rb
+source 'https://rubygems.org'
+
+group :development do
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-git-submodule-strategy', '~> 0.1', :github => 'ekho/capistrano-git-submodule-strategy'
+end
+```
+
+Be sure to `$ bundle install` your newly declared gems! This makes sure anyone who comes along later will be able to figure out what Ruby libraries your project depends on.
+
+Back in `deploy.rb`, let's make sure Capistrano knows what "strategy" to use when cloning your code. The follow lines can be placed just about anywhere, but somewhere around where you set your version control scheme (`set :scm, :git`) makes sense:
+
+```rb
+# Git Submodule Strategy Options
+set :git_strategy, Capistrano::Git::SubmoduleStrategy
+set :git_keep_meta, false # Discard `.git` and other cruft
+```
+
+### Common Files
+
+The next step is to define files that should stay put when we are deploying new code to the site. Here's where the `shared` folder comes in.
+
+Back in `config/deploy.rb`, look for the `:linked_dirs` option:
+
+```rb
+set :linked_dirs, fetch(:linked_dirs, []).push(
+  'content',
+  'site/accounts',
+  'site/cache',
+  'thumbs',
+  'assets/avatars'
+)
+```
+
+Each path specified here will be symbolically linked to its corresponding path inside the `shared` folder. Any time to add a folder to the `:linked_dirs` array, be sure you create it on your server, first. Capistrano will abort a deploy if the destination of a linked directory does not exist. To quickly create these folders in one pass, log in to your server, `$ cd /path/to/your/capistrano/project` and run:
+
+``` 
+# mkdir -p shared/content shared/site/accounts shared/site/cache shared/thumbs shared/assets/avatars
+```
+
+If you manage your own server, it's a good idea to make the directories writable to your user and `www-data` or whoever user runs your HTTP server:
+
+``` 
+# chmod -R 775 /path/to/project/shared
+```
+
+Not all sites will necessarily need all these folders to be linked, but it's a good set to start with. Additionally, if you've (link: docs/developer-guide/configuration/folders text: changed the location of any of these directories), you may have a bit of extra configuration ahead of you.
+
+Before your first deploy, copy your existing content and users to the server, and double-check that permissions are set properly.
+
+### Stage-specific Configuration
+
+Let's look at a stage-specific config file. For now, we'll use `config/deploy/staging.rb`.
+
+You'll notice right off the bat that there are some unique options within this specific file, including a new `server` directive. `server` is how you register a new server that Capistrano will communicate with. More complicated applications may require updates be pushed out to multiple servers (for example, behind a load balancer), but we'll just add one:
+
+```rb
+server 'your-domain.com', user: 'username', roles: ['web']
+```
+
+The arguments here should be pretty clear— the first argument, the `domain` (or IP) and `user` param should match whatever you provide when using SSH to log in to your server. `roles`, as we'll find out, is a way of tagging servers as targets for specific tasks that may need to run, later.
+
+The second option we need to set is where the project will deploy to, on your server. The directory you specify will become the root of the Capistrano-managed file structure— check out the diagram in *The Deployment Process* if you need a quick refresher on what that'll look like.
+
+```rb
+set :deploy_to, '/var/www/your-domain.com'
+```
+
+If you are on a shared hosting environment, your config may look more like this:
+
+```rb
+set :deploy_to, '/home/username/your-domain.com'
+```
+
+Be aware that this *should not* be your web root. The `current` symlink inside the `:deploy_to` directory is where your server needs to be told to begin serving your website.
+
+### Kirby Multi-environment Config Files
+
+Kirby will try and include [environment-specific configuration files](https://getkirby.com/docs/developer-guide/configuration/options#multi-environment-setup). While this behavior is not part of Capistrano, we should be aware that many projects will include multiple config files (some tracked, others not). This setup will assume that you keep general options in `site/config/config.php`, and have it checked in to git.
+
+We'll assume your additional environment config files contain sensitive information (like test and production API keys), and are not tracked. To illustrate, your `.gitignore` might look like this:
+
+``` 
+/site/config/*
+!/site/config/config.php
+```
+
+So, our task now is to link the config file that matches our stage domain. Scroll down to the provided "Configuration" section of `config/deploy/staging.rb` and add the following:
+
+```rb
+set :linked_files, fetch(:linked_files, []).push(
+  'app/site/config/config.your-domain.com.php'
+)
+```
+
+Remember when we set up `:linked_dirs`? This is pretty similar, except we're able to link individual files. Even if we have to link other files in the main `config/deploy.rb` file, the directive above will *add* to that list, not replace it, so files you add to `config/deploy/staging.rb` will only get linked _on this stage_.
+
+> Note: If Capistrano determines that a linked file doesn't exist, the deploy will fail— be sure you create this (even if it's empty) before running `$ cap staging deploy`.
+
+### SSH Forwarding
+
+In the last section of `config/deploy/staging.rb`, "Custom SSH Options," it's good to add the following:
+
+```rb
+set :ssh_options, forward_agent: true
+```
+
+This will make any SSH keys you've added with `$ ssh add ~/.ssh/path/to/a/key` available to the server— particularly important if you're pulling code down from GitHub or another git service that supports SSH cloning.
+
+### Static Assets
+
+Some of you may use CSS and JS preprocessors to bundle assets prior to uploading. If you already track the output of that (i.e. both the `.sass` files *and* `.css` files are in your repo), you can skip this— but for everyone else that's in the habit of preprocessing assets prior to uploading should spend a moment to configure a Capistrano `task`.
+
+Tasks live in `lib/capistrano/tasks`. Let's create a new one called `assets.rake`. We'll break it down in just a sec:
+
+```rb
+namespace :assets do
+  desc 'Compile Sass and CoffeeScript with Gulp'
+  task :compile do
+    run_locally do
+      execute 'gulp build'
+    end
+  end
+
+  desc 'Upload Static Assets'
+  task :upload do
+    on roles(:web) do
+      ['assets/css', 'assets/js'].each do |asset|
+        upload! asset, "#{release_path}/#{asset}", recursive: true
+      end
+    end
+  end
+end
+```
+
+The top-level `namespace` wrapper is just a way of grouping the tasks by name. You can change it if you like, but we'll be using it again back in `deploy/deploy.rb`, so keep track of it. Each task is preceded with a `desc` directive, which helps identify a running task in Capistrano's output on the command line.
+
+The first task, `:compile` is a simple "local" command— it runs on your local machine. `execute` accepts a string just like you'd enter on the command line. If you use Grunt, you might use `execute grunt your-task-name` , but in our example, the developer has a Gulp task named `build` to compile and minify assets for production.
+
+The second task, `:upload` is responsible for actually getting the static assets onto the server. Here's where `roles` come in handy. Even though we just have one server, we're still going to make sure we only upload the static assets to those tagged with `web`.
+
+This task takes two directories (`assets/css` and `assets/js`) and recursively copies them into the same location within the `release_path` on the server. `release_path` is a special variable that corresponds to the absolute location of the currently-deploying release. If you were able to look inside this variable during a deployment, it'd be something like:
+
+``` 
+/home/username/your-domain.com/releases/20160928000000/
+```
+
+Ok, so now they we've defined the tasks, we have to specify when they're run. Each step of the deploy [can run tasks `before` or `after` it](http://capistranorb.com/documentation/getting-started/before-after/), and the two we're looking for are before the deployment begins (to compile static assets), and after the updated code has been pulled into a new release (to add the assets into the `release_path`).
+
+Back in `config/deploy.rb`, add these lines to the bottom:
+
+```rb
+before :deploy, 'assets:compile'
+after 'deploy:updated', 'assets:upload'
+```
+
+`assets:compile` and `assets:upload` are how we refer to the namespace and task from our `assets.rake` file.
+
+## Your First Deployment
+
+Now for the easy part. On your local machine:
+
+``` 
+$ cap staging deploy
+```
+
+Watch your console— there's apt to be a lot of output. If it's too overwhelming, try changing your `:log_level` in `deploy.rb`:
+
+```rb
+set :log_level, :info
+```
+
+If something goes wrong, Capistrano will let you know. The most common problems in your first few deployment attempts will be permissions or missing files— take a moment to comb through your `:linked_dirs` and the `shared` folder, verify permissions are set properly, and try again. The console will tell you what happened, and any input that gets truncated is available in `log/capistrano.log`.
+
+Sprinkled throughout the *Setting Up* section, above, there are some cautionary notes that should prevent most basic snags with migrating to Capistrano, but each application and environment is different.
+
+### Migrating to Capistrano with a live site
+
+If this feels a little scary, try it on a new test project, first. Clone the Kirby Startetkit, and follow the guide top-to-bottom— once you have a fresh site launched with Capistrano, then apply what you've learned along the way to an existing project. It can be nerve-wracking to migrate a live site to a new deployment scheme, but it can be done with relative ease.
+
+1. Stub out the Capistrano directory next to your existing web root.
+2. Make your first deployment, and troubleshoot any errors you encounter (repeat this until you've successfully deployed what looks like a complete copy of your site).
+3. Overwrite the `current` symlink manually, but point it at your existing web root.
+4. Change yout web root to the `current` symlink (you may need to wait a few minutes to verify that this was successful— not all hosts do it immediately).
+5. Deploy your site again to replace the `current` symlink with one that points to a fresh release.
+ 
+During subsequent deployments, if something doesn't feel right to Capistrano (i.e. a connection is dropped or a file's missing), it'll bail. Unless it's certain a deploy has succeeded, it won't switch where `current` points, and your site will continue to operate exactly as it has.
+
+## As Always, Caveats
+
+### HTTP Cacheing
+
+There are a lot of factors that affect how quickly users will see your changes. You may need to devise your own cache-busting strategy to prevent users from being served assets that don't match what you've just deployed.
+
+### opcache
+
+PHP caches compiled code at a low level, and despite the path changing during each release, sometimes old files can get "stuck"— it may take a moment for the server to clean house, but it's best to just disable opcache entirely. Kirby is lean and fast enough that you probably don't even need opcache. If your pages are expensive to generate, consider using Kirby's built-in HTML cache.
+
+### “Hotfixing”
+
+If you need to make a quick update to code on your server, it's still possible— just look at where the `current` symlink points, and dig into that release's folder. Be aware, though, that when you make changes in a release directory, your changes will be lost on the next deployment.
+
+## Colophon
+
+### Questions
+
+The Kirby forum is a great place for answers. Please visit us there if you would like help implementing Capistrano.
+
+### Author
+
+This guide was contributed by [oof. Studio](https://oof.studio/). We'd love to hear your feedback!
+
+----
+
+Blog posts:
+
+----
+
+Externals:
+
+----
+
+Docs:
