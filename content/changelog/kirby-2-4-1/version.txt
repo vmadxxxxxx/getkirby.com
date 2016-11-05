@@ -1,0 +1,27 @@
+Title: Kirby 2.4.1
+
+----
+
+Date: 
+
+----
+
+Download: 
+
+----
+
+Text:
+
+This release contains bug fixes and improvements for Kirby 2.4.0.
+It is strongly recommended to upgrade to Kirby 2.4.1.
+
+## Panel
+
+
+
+## Core
+
+- Fix a bug where hooks that were declared by function name would throw an error
+ 
+## Toolkit
+
