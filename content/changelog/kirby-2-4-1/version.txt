@@ -22,6 +22,7 @@ It is strongly recommended to upgrade to Kirby 2.4.1.
 ## Core
 
 - Fix a bug where hooks that were declared by function name would throw an error
+- Tinyurls now work again in multi-language setups (introduced in 2.4.0)
  
 ## Toolkit
 
