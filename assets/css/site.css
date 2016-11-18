@@ -2297,6 +2297,31 @@ input[type="search"]::-webkit-search-cancel-button {
   .newsletter form p:last-child {
     width: 20%; } }
 
+/*
+ :::  Kosmos Columns
+-------------------------------------------------- */
+ul.columns {
+  margin: 2rem -2rem 0 0;
+  box-sizing: border-box; }
+
+.column {
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 2rem;
+  width: 100%; }
+
+@media screen and (min-width: 36em) {
+  .columns-1 .column {
+    width: 100%; }
+  .columns-2 .column {
+    width: 50%; }
+  .columns-3 .column {
+    width: 33.33%; }
+  .columns-4 .column {
+    width: 25%; }
+  .columns-5 .column {
+    width: 20%; } }
+
 /* Clients section */
 .clients {
   overflow: hidden;
