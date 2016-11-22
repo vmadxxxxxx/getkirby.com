@@ -59,7 +59,7 @@ fields:
 
 Option   | Default      | Description
 -------- | ------------ | -----------
-page     | current page | Any page URI. This is a powerful way to fetch any kind of data from any other page. You can even use relative paths to step up levels in the hirarchy. For example: ../../ to go two levels up or / to get to the top level.
+page     | current page | Any page URI. This is a powerful way to fetch any kind of data from any other page. You can even use relative paths to step up levels in the hierarchy. For example: ../../ to go two levels up or / to get to the top level.
 fetch    | children     | See the list above for possible options
 value    | {{uid}}      | A string to be used for the value attribute. You can use {{varname}} for any object method from the passed object (page or file)
 text     | {{title}}    | A string to be used for the displayed option text. You can use {{varname}} for any object method from the passed object (page or file)
@@ -92,7 +92,7 @@ This works best for [tags fields](tags) as source fields.
 
 Option    | Default      | Description
 --------- | ------------ | -----------
-page      | current page | Any page URI. This is a powerful way to fetch any kind of data from any other page. You can even use relative paths to step up levels in the hirarchy. For example: ../../ to go two levels up or / to get to the top level.
+page      | current page | Any page URI. This is a powerful way to fetch any kind of data from any other page. You can even use relative paths to step up levels in the hierarchy. For example: ../../ to go two levels up or / to get to the top level.
 name      | tags         | Name of the source field
 separator | ,            | Separator by which the source field will be split up into the options
 
