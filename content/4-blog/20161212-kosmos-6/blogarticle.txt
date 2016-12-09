@@ -19,9 +19,9 @@ Kosmos-Subscription: on
 ----
 
 Text:
-Hey everyone,
 
-this episode marks the 6-month anniversary of Kirby Kosmos and the last one for this year. A lot has happened around Kirby and its vibrant community over the last half a year: a big Kirby release, a brand new Starterkit, tons of Kirby plugins and countless new Kirby powered sites. We are really thrilled with what you are creating.
+
+This episode marks the 6-month anniversary of Kirby Kosmos and the last one for this year. A lot has happened around Kirby and its vibrant community over the last half a year: a big Kirby release, a brand new Starterkit, tons of Kirby plugins and countless new Kirby powered sites. We are really thrilled with what you are creating.
 
 ## Powered by Kirby
 
