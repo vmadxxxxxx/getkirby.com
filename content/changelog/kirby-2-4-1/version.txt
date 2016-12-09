@@ -44,6 +44,7 @@ It is strongly recommended to upgrade to Kirby 2.4.1.
   ```
 - Fixed "Invalid route or request method" error on multilang installations without a language at the root
 - Fixed plugin assets on multilang installations
+- Params and query strings on the homepage are now preserved when language detection is enabled for multilang installations
  
 ## Toolkit
 

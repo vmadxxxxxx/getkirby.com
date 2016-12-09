@@ -12,8 +12,9 @@ Login the user with the given password if the password matches the user's passwo
 Params:-
   name: $password
   type: string
+  text:
 
----
+----
 
 Return:
 
