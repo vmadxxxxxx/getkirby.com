@@ -65,5 +65,5 @@ It is strongly recommended to upgrade to Kirby 2.4.1.
   ```php
   s::$fingerprint = function() {
       return 'custom fingerprint';
-  }
+  };
   ```
