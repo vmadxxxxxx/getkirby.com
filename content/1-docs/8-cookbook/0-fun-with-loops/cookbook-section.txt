@@ -167,7 +167,7 @@ $first = $items->first();
 
 ## Search a set of pages
 
-You can even search a set of pages with the `find()` metho or the `findBy()` methods:
+You can even search a set of pages with the `find()` method or the `findBy()` methods:
 
 ```php
 $items = $pages->find('projects')->children();
