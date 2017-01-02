@@ -10,6 +10,10 @@ Using Algolia requires an [account](https://www.algolia.com/users/sign_up). Free
 
 You can read more about Algolia on their [website](https://www.algolia.com) and in their [documentation](https://www.algolia.com/doc).
 
+## Requirements
+
+This plugin requires Kirby 2.3 or later and an account at Algolia.
+
 ## Installation
 
 To install the plugin, please put it in the `site/plugins` directory and add the necessary configuration options (see below) to your `site/config.php`.
@@ -105,6 +109,14 @@ If you only want to use manual indexing, you can disable the automatic indexing 
 c::set('algolia.autoindex', false);
 ```
 
+#### Indexing widget
+
+The Algolia plugin includes a Panel widget that allows Panel users to manually index the site. You can disable this widget with the following option:
+
+```php
+c::set('algolia.widget', false);
+```
+
 ### Search options
 
 Algolia has [many search options](https://www.algolia.com/doc/php#full-text-search-parameters) to fine-tune the search results. You can set these in your configuration like this:
@@ -129,6 +141,8 @@ algolia()->index();
 
 This will create a new temporary index, upload all indexable pages and replace the main index with the temporary index.
 Please note that manual indexing will use roughly as many Algolia "Operations" as you have indexable pages each time you call the `index` method. The amount of included/free "Operations" per month depends on your Algolia plan.
+
+There is also a Panel widget for this that is enabled by default.
 
 ## Search
 
