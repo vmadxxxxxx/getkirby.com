@@ -29,8 +29,6 @@ Those files can contain as many custom variables as you need.
 
 l::set('submit', 'Submit');
 l::set('cancel', 'Cancel');
-
-?>
 ```
 
 #### /site/languages/de.php
@@ -40,8 +38,6 @@ l::set('cancel', 'Cancel');
 
 l::set('submit', 'Abschicken');
 l::set('cancel', 'Abbrechen');
-
-?>
 ```
 
 `l::set` also accepts an associative array:
