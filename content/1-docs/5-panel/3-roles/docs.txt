@@ -70,6 +70,8 @@ The `permissions` option allows you to control the permissions (in the Panel or 
 If your roles are simple and don't have complex permission rules, you can define roles with a config option instead.
 This is also the feature you need if you are still using an older Kirby version before Kirby 2.4.
 
+**Do not use these role definitions when definining role permissions in `site/roles`.**
+
 ```php
 c::set('roles', [
   [
