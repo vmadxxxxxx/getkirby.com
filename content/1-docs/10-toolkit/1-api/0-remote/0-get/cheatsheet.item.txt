@@ -6,6 +6,20 @@ Excerpt: Static method to send a GET request
 
 ----
 
+Text:
+
+The supplied `$params` are merged with the [default GET request arguments](https://github.com/getkirby/toolkit/blob/master/lib/remote.php#L206-L209), which means any URL _query parameters_ should be passed as a `data` key:
+
+```php
+$response = remote::get('https://baseurl.com', [
+  'data' => [
+    'param' => 'val'
+  ]
+]);
+```
+
+----
+
 Call: remote::get($url, $params = array())
 
 ----
