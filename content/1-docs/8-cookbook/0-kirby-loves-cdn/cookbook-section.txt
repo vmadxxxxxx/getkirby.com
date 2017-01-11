@@ -66,7 +66,7 @@ It would be really painful to do this by hand or create some rewrite rules for i
 
 To simplify those steps, I've written a plugin that takes care of modifying the URLs for you:
 
-**<https://github.com/getkirby/plugins/tree/master/cdn>**
+**<https://github.com/getkirby-plugins/cdn-plugin>**
 
 ### Installation
 
@@ -104,13 +104,13 @@ http://assets.getkirby.com/assets/css/kirby.1420209362.css
 
 But instead of manually updating the timestamp or version number on each update Kirby has another plugin, which simply adds the modification time of a file to the filename of a css or js file automatically.
 
-**<https://github.com/getkirby/plugins/tree/master/cachebuster>**
+**<https://github.com/getkirby-plugins/cachebuster-plugin>**
 
 ## Installation
 
 The steps to install the cachebuster plugin are very similar to the installation of the CDN plugin.
 
-1. grab the (link: https://github.com/getkirby/plugins/archive/master.zip text: plugins zip)
+1. grab the (link: https://github.com/getkirby-plugins/cachebuster-plugin/archive/master.zip text: cachebuster plugin zip)
 2. copy the cachebuster folder into site/plugins
 3. Add the following lines to your htaccess file right below the RewriteBase rule:
 
