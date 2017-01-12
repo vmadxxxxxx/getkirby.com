@@ -76,7 +76,7 @@ $user = $this->user();
 $username = $this->username();
 
 // The currently selected language in multi-language setups
-$language = $this->language();
+$language = $this->site()->language();
 
 // The selected panel interface translation
 $translation = $this->translation();
