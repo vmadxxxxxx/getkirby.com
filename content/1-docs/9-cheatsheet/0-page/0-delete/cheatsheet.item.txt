@@ -10,6 +10,13 @@ Deletes the $page object and all its data and files. This cannot be undone!
 
 ----
 
+Params: -
+  name: $force
+  type: boolean
+  text: If set to `true` the page is deleted even if there are subpages
+
+----
+
 Return:
 
 type: boolean
