@@ -31,7 +31,7 @@ Text:
 ```php
 <?php
 try {
-  $page->move('a-new-uid') ?>
+  $page->move('a-new-uid');
 
 } catch(Exception $e) {
 
