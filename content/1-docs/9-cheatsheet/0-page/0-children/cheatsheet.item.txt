@@ -8,13 +8,6 @@ Returns a $pages collection with all children of the page
 
 ----
 
-Params: -
-  name: $force
-  type: boolean
-  text: If set to `true` the page is deleted even if there are subpages
-
-----
-
 Return:
 
 type: $pages
