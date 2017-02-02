@@ -96,7 +96,7 @@ Kirby output is not limited to HTML. You can also render JSON or XML, e.g. to cr
 
 Here are some resources:
 (link: blog/json text: Creating a JSON api)
-(link: docs/solutions/blog/rss text: Creating an RSS feed)
+(link: docs/cookbook/rss text: Creating an RSS feed)
 
 **Advanced reading**:
 Modularizing your code: The (link: https://github.com/getkirby-plugins/patterns-plugin text: Patterns plugin) goes even further than snippets in modularizing and reusing code blocks.
@@ -174,7 +174,7 @@ This Getting Started Guide can't possibly answer all the question you may ever h
 Once you have familiarized yourself with the basics, the (link: https://getkirby.com/docs/cheatsheet text: Cheat Sheet) is probably the number one resource you will keep getting back to. It lists all Kirby and Toolkit API methods, helpers, Panel fields, and configuration options. Check it out!
 
 ### The rest of the docs
-There are a lot more documents out there than I have listed here as a first overview. You might find the (link: docs/solutions text: Solutions) section helpful for specific topics like creating menus, creating a blog, or filtering content. The (link: docs/developer-guide text: Developer Guide) offers more advanced stuff like extending Kirby with plugins, using routes and hooks, and many more topics.
+There are a lot more documents out there than I have listed here as a first overview. You might find the (link: docs/cookbook text: Cookbook) section helpful for specific topics like creating menus, creating a blog, or filtering content. The (link: docs/developer-guide text: Developer Guide) offers more advanced stuff like extending Kirby with plugins, using routes and hooks, and many more topics.
 
 ### The Forum
 The community in the (link: https://forum.getkirby.com text: Kirby Forum) is always there to help out whenever you get stuck. It's likely that someone already had the same problem, so using the search function might uncover a solution to your problem within seconds. If you can't find anything, drop us your question.
