@@ -5,7 +5,7 @@
   <h1 class="alpha margin-bottom">Made with Kirby and <b class="red">&#9829;</b class="love"></h1>
 
   <ul class="reference-list list-3">
-    <?php $references = $page->children()->flip()->paginate(30) ?>
+    <?php $references = $page->children()->visible()->flip()->paginate(30) ?>
     <?php foreach($references as $reference): ?><!--
  --><li class="screenshot">
       <div class="screen-wrap">

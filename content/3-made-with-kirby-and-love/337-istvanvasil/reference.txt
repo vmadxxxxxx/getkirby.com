@@ -2,10 +2,12 @@ Title: Istvan Vasil
 
 ----
 
-Text:
+Text: 
 
 ----
 
 Link: http://istvanvasil.com/
 
 ----
+
+Check: 2017-02-06 10:02:00

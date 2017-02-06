@@ -13,9 +13,6 @@
         <a class="sponsors-algolia" href="https://algolia.com">
           <img src="<?php echo url('assets/images/algolia.svg') ?>" alt="Search by Algolia">
         </a>
-        <a class="sponsors-codetree" href="https://codetree.com">        
-          <img src="<?php echo url('assets/images/codetree.svg') ?>" alt="Issue tracking by Codetree">
-        </a>
       </p>
     </div>
 

@@ -2,10 +2,12 @@ Title: LPDi
 
 ----
 
-Text:
+Text: 
 
 ----
 
 Link: http://www.lpdi.org
 
 ----
+
+Check: 2017-02-06 10:02:00
