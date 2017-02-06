@@ -41,6 +41,21 @@ If you set the `template` option to true, panel users can only change templates 
 
 </since>
 
+<since v="2.4.0">
+### Prevent editing
+
+Use the `update` option to prevent editing of a page for all editors via a blueprint setting. If you want to prevent editing of a page based on user role, check out (link: docs/panel/permissions text: permissions). Note that with this option set to `false`, it is still possible to change the visibility of a page unless you set `status: false`as well.
+
+```
+title: My blueprint
+pages: true
+files: true
+options:
+  update: false
+fields:
+  …
+```
+</since>
 
 ## Page preview
 

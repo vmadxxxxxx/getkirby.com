@@ -34,7 +34,7 @@ Text:
 
 ```php
 $token = get('csrf');
-if(csrf($token)) {
+if(csrf($token) === true) {
   // Success
 } else {
   // Token doesn't match

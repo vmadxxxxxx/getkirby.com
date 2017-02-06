@@ -311,7 +311,7 @@ Now that we are almost finished, let's complete our `event.php` so that it shows
 // if the form was successfully submitted and the page created, show the success message
 if(isset($success)): ?>
   <div class="message">
-    <?php echo $message; ?>
+    <?php echo $success; ?>
   </div>
 <?php endif ?>
 

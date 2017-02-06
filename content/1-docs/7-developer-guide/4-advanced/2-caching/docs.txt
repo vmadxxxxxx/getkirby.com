@@ -45,10 +45,12 @@ The default cache driver stores files in `/site/cache`. Make sure that the cache
 c::set('cache.driver', 'file');
 ```
 
-You can change the cache directory like this:
+You can change the cache folder in the cache options like this:
 
 ```php
-c::set('cache.root', '/var/cache');
+c::set('cache.options', array(
+  'root' => 'some_folder'
+));
 ```
 
 ### Memcached
