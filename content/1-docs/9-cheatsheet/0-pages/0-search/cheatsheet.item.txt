@@ -30,6 +30,17 @@ text:
 
 Text:
 
+## Parameter options and defaults
+
+```
+$defaults = array(
+  'minlength' => 2,
+  'fields'    => array(),
+  'words'     => false,
+  'score'     => array()
+);
+```   
+
 ## Examples
 
 ```php
@@ -46,9 +57,10 @@ $results = $pages->search('my awesome search')->paginate(20);
 $results = $pages->search('my awesome search', 'title|text');
 
 // search for full words only
-$results = $pages->search('my awesome->search', array('words' => true));
+$results = $pages->search('my awesome->search', array('words' => true, 'minlength' => 4));
 
 // feed the search with a get parameter -> http://yourdomain.com/?q=awesome
 $results = $pages->search(get('q'));
 
 ```
+
