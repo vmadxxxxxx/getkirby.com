@@ -89,6 +89,14 @@ RewriteRule ^kirby/(.*) index.php [L]
 
 By browsing to http://yourdomain.com/kirby/kirby.php you can make sure that you will be correctly redirected to the error page. 
 
+## Prevent directory listings
+
+Check if your provider/system administrator has disabled (link: https://wiki.apache.org/httpd/DirectoryListings text: directory listings), so that the contents of your directories are not listed if accessed directly. If directory listings are enabled and you don't have access to the server configuration, add the following command in your .htaccess file:
+
+```
+Options -Indexes
+```
+
 ## File Permissions
 
 Never set the file permissions on your server too open (777). Especially on a shared hosting environment, other users could get access to important files of your site and overwrite or read them. 
