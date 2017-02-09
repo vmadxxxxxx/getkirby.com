@@ -19,6 +19,17 @@ text:
 
 Text:
 
+## Possible parameters/defaults
+
+```
+$defaults = array(
+  'minlength' => 2,
+  'fields'    => array(),
+  'words'     => false,
+  'score'     => array()
+);
+```  
+
 ## Example
 
 ```php
