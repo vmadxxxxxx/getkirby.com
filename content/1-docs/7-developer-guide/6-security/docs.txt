@@ -105,7 +105,7 @@ We are working on our own dedicated docs on secure file permissions, but you can
 
 ## Secure data in git repositories 
 
-### .gitgnore /site/accounts
+### .gitignore /site/accounts
 
 When you use a public repository for your website (for example on Github or Bitbucket) you must make sure to not check in your account files and push them to Github. Kirby's starterkits come with a .gitignore file, which automatically ignores the /site/accounts folder to avoid this. If you start your own repository from scratch, please double-check to add the same rule to your .gitignore file.
 
