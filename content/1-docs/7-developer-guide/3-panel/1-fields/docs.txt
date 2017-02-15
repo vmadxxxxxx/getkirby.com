@@ -58,11 +58,11 @@ Just like you can use the `$page` variable in your templates to access the curre
       <i class="icon fa fa-font"></i>
     </div>
 
-    <!-- help -->
-    <div class="field-help marginalia text">
-      Help text for the field
-    </div>
+  </div>
 
+  <!-- help -->
+  <div class="field-help marginalia text">
+    Help text for the field
   </div>
 
 </div>
