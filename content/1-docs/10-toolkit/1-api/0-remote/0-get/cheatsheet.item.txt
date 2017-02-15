@@ -6,6 +6,26 @@ Excerpt: Static method to send a GET request
 
 ----
 
+Text:
+
+## Example
+
+### Query Parameters
+
+Pass query parameters by providing a `data` key in the `$params` argument:
+
+```php
+$response = remote::get('https://baseurl.com', [
+  'data' => [
+    'param' => 'val'
+  ]
+]);
+
+// -> GET https://baseurl.com?param=val
+```
+
+----
+
 Call: remote::get($url, $params = array())
 
 ----

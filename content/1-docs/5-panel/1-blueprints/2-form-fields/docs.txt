@@ -51,6 +51,18 @@ fields:
     default: Sesamestreet 23
 ```
 
+## Readonly fields
+
+To make a field readable but not editable by a user, you can use the `readonly` option. This can be useful if you auto-fill fields, either via a hook or a default value.
+
+```
+fields:
+  createdby:
+    label: User
+    type: user
+    readonly: true
+```
+
 
 ## Validation
 
