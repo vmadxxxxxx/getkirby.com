@@ -75,7 +75,6 @@ Text:
 - (link: docs/toolkit/api text: Toolkit Api cheat sheet)
 - (link: docs/developer-guide/toolkit/thumb-driver text: How to create a custom thumb driver)
 - (link: docs/developer-guide/toolkit/email-driver text: How to create a custom email driver)
-- (link: docs/developer-guide/toolkit/cache-driver text: How to create a custom cache driver)
 - (link: docs/developer-guide/toolkit/database text: How to use Kirby's database class)
 - (link: docs/developer-guide/toolkit/upload text: How to use the toolkit upload class)
 - (link: docs/developer-guide/toolkit/routing text: How to use the toolkit router class)
