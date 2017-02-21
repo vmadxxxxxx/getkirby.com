@@ -19,7 +19,7 @@ Text:
 
 (toc)
 
-Images are an important part of almost any website, and there are many ways to integrate them into your's: as single inline images or as galleries, as full screen images or preview thumbs. In this recipe, we will cover the most important things you need to know when working with images in the Panel and in your templates.
+Images are an important part of almost any website, and there are many ways to integrate them into yours: as single inline images or as galleries, as full screen images or preview thumbs. In this recipe, we will cover the most important things you need to know when working with images in the Panel and in your templates.
 
 ## Restrict image upload in the Panel
 
@@ -71,7 +71,7 @@ If (link: docs/panel/blueprints/file-settings#sortable-files text: manual sortin
 
 ## Adding meta data to images
 
-Ofter, we want to add captions or other information to our images. We can do so via a meta data file. The fields to be used in the meta data file are also defined in the blueprint like this:
+Often, we want to add captions or other information to our images. We can do so via a meta data file. The fields to be used in the meta data file are also defined in the blueprint like this:
 
 ```
 …
@@ -124,7 +124,7 @@ If you like, you can also use external services to optimize images using hooks.
 ## Adding images to pages
 
 ### Add images in textarea fields
-To place an image in your text fields, drag and drop the image from the sidebar into the textarea. Kirby automatically adds a Kirbytag that looks like this:
+To place an image into your text fields, drag and drop the image from the sidebar into the textarea. Kirby automatically adds a Kirbytag that looks like this:
 
 ```
 (\image: example-image.jpg)
@@ -227,7 +227,7 @@ $images = $page->images()->limit(6);
 // an empty div container if there are no images
 if($images->count()) ?>
 <div class="image-grid">
-      <?php foreach($images as $image): ?>
+    <?php foreach($images as $image): ?>
       <img src="<?= $image->url() ?>" alt="">
     <?php endforeach ?>  
   </div>
@@ -242,6 +242,7 @@ When we use the image field, Kirby saves the filename of the image in the conten
 <?php
 // suppose the filename is stored in a field called cover_image
 $image = $page->cover_image()->toFile();
+
 // always check if the image exists!
 if($image):
 ?>
@@ -249,7 +250,7 @@ if($image):
 <?php endif ?>
 ```
 
-**Notice, that we try to store the image object in the `$image` variable first and then check if the object exists. This is necessary to avoid errors when we later call the `url()` (or any other file method) on it. With this check we are on the safe side in case the field is empty, or the image does not exist in the folder.**
+**Notice that we try to store the image object in the `$image` variable first and then check if the object exists. This is necessary to avoid errors when we later call the `url()` (or any other file method) on it. With this check we are on the safe side in case the field is empty, or the image does not exist in the folder.**
 
 ### Accessing an image from another page
 
@@ -276,13 +277,16 @@ To access images from a structure field, we can use the [`toStructure()`](../che
 ```php
 <?php
 $galleryItems = $page->gallery()->toStructure();
+
 foreach($galleryItems as $galleryItem):
-// try to get an image object from the filename
-$image = $galleryItem->cover_image()->toFile();
-// check if the image object exists
-if($image): ?>
-  <img src="<?= $image->url() ?>" alt="">
-<?php endif ?>
+
+  // try to get an image object from the filename
+  $image = $galleryItem->cover_image()->toFile();
+  // check if the image object exists
+  if($image): ?>
+    <img src="<?= $image->url() ?>" alt="">
+  <?php endif ?>
+<?php endforeach ?>  
 ```
 
 ## Using and accessing image meta data
