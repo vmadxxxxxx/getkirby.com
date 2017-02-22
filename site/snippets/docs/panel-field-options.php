@@ -113,7 +113,7 @@ fields:
     options: http://example.com/api/categories.json
 ```
 
-The json must be have the following format:
+The json must have the following format:
 
 ```
 {
