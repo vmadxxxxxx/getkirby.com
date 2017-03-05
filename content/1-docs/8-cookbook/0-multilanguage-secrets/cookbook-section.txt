@@ -1,0 +1,228 @@
+Title: Multilanguage secrets
+
+----
+
+Date: 25.02.2017
+
+----
+
+Category: languages
+
+----
+
+Description: Get the most out of your multilanguage Kirby site using advanced features
+
+----
+
+Text:
+
+There is already extensive documentation about setting up a Kirby multilanguage site (link: docs/languages text: in the docs). In this Cookbook recipe, we will be looking into some more advanced functions. The (link: https://github.com/getkirby/langkit text: Kirby Langkit) is a good starting point if you want to play around with the suggestions in this recipe.
+
+(image: langkit.jpg)
+
+(toc)
+
+## Understanding default multilanguage behavior
+
+- When a new page is created in the Panel, Kirby always creates a content file for the default language, no matter what language is currently selected. Only if we save the non-default language page, a new content file for the currently selected language is created.
+- Once we have created content in the default language and switch to another language, the Panel prefills all fields in all other languages with the contents of the default language. This is a design decision intended to help with translating content. 
+
+  If we don't replace this content and save the page, the original contents are saved in the new content file. If we delete the prefilled content without replacing the content with a translation and save an empty field, the Panel will again show the default language content again. Currently, this behavior cannot be prevented.
+- If a page or a field does not have a translation, Kirby falls back to showing the contents of the default language in the frontend.
+
+
+## Filtering content by language
+Sometimes, we don't want to translate all pages in a multilanguage environment. A typical example are blog pages.
+
+As explained above, Kirby's default behavior is to fall back to the default language if there is no translation for a given language. If we only want to show articles with translated content in our bloglist, we therefore have to filter our articles using the [`filter()`](../cheatsheet/pages/filter) method.
+
+```php
+<?php
+$articles = $page->children()->visible()->filter(function($child){
+  return $child->content($site->language()->code())->exists();
+ });
+```
+Within the callback function, we check if the content file for the current language exists.
+
+**Important: Since we learned that the content file for the default language always exists if we create content via the Panel, this method consequently won't work for the default language.** For a solution for the default language, (link: #using-an-explicit-translation-field text: see below).
+
+If we need this functionality more often, we can save it as a custom pages method in a plugin file, e.g. `pages-methods.php`:
+
+```php
+<?php
+pages::$methods['onlyTranslated'] = function($pages) {
+  return $pages->filter(function($page) {
+    return $page->content(site()->language()->code())->exists();
+  });
+};
+```
+Now we can then use this method in our controller/template like this:
+
+```php
+$articles = $page->children()->visible()->onlyTranslated();
+```
+
+A lot shorter, isn't it?
+
+## Prevent creation of non-default language pages
+
+We can use permissions to prevent the creation of non-default language content files for certain pages by user role. Here is an example for the editor role. 
+
+**You need to define this rule for every Panel user role separately.**
+
+```php
+<?php
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.update' => function() {
+      return $this->site()->language()->default();
+    }
+  ]
+];
+```
+
+With this rule in place, an editor will not be able to create any pages in any non-default language. Let's refine this rule a bit and limit this behavior to blog posts that use the `article` template:
+
+```php
+<?php
+// site/roles/editor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.update' => function() {
+      return $this->site()->language()->default() || $this->target()->page()->template() !== 'article';
+    }
+  ]
+];
+
+```
+
+Apart from preventing the creation of content in other than the default language, we can use permissions to limit editing languages to specific user roles, for example to create a user role that can only update German content; and another that can only update French content etc.
+
+
+```php
+<?php
+// site/roles/germaneditor.php
+return [
+  'name'        => 'Editor',
+  'default'     => false,
+  'permissions' => [
+    '*'                 => true,
+    'panel.page.update' => function() {
+      return $this->site()->language()->code() == 'de';
+    }
+  ]
+];
+```
+(image: germaneditor.gif)
+
+## Using an explicit translation field
+
+If we want to make sure that a page is translated into a specific language, the best way is to use a specific field we can filter by:
+
+```
+…
+fields:
+  translationComplete:
+    label: Translation
+    type: checkbox
+    default: false
+    text: Translation complete?
+ …
+```   
+(image: translate-field.jpg) 
+
+Now we can filter our articles by this field, and will only fetch articles that have been explicitly marked as translations:
+ 
+```php
+ $articles = page('blog')->children()->visible()->filterBy('translationComplete', '1');
+```
+Or check if the page has been translated before trying to output its contents and reroute to the error page if not:
+
+```php
+<?php
+if($page->translationComplete()->bool()) {
+  // render page content
+} else {
+  go('error');
+}  
+```  
+The beauty of this method is that it works for the default language as well.
+
+## Prevent translation of fields
+
+Sometimes we don't want to translate the content of individual fields, because the value should be the same in each language, for example a category, inventory information, a price tag or an image.
+
+To prevent translations for a field, you can use the `translate` option in your blueprint field settings.
+
+```
+…
+fields:
+  inStock:
+    label: No. of items in stock
+    type: number
+    translate: false
+…
+```
+
+With this setting, the content of the field can only be modified in the default language. In all other languages, the field will be read-only.
+
+## Checking if a field is translated
+
+On a per field basis we can use the [`isTranslated()`](/docs/cheatsheet/field-methods/isTranslated) field method to check if a field is translated.
+
+```php
+<?php
+if($page->text()->isTranslated()) {
+  echo $page->text()->kirbytext();
+}
+```
+The `isTranslated()` method compares the content of the field in the current language to the content of the field in the default language. If it is different, the field is regarded as translated. Needless to say that this does not necessarily mean that the field has been fully translated.
+
+## Using language variables to translate field options
+
+Language variables can not only be used to translate strings for buttons or form fields, they are also useful for translating the options used in checkboxes or select fields.
+
+Let's suppose we have a select field like the following:
+
+```
+fields:
+  category:
+    label: Category
+    type: select
+    options:
+      design:
+        en: Design
+        es: Diseño
+      travel:
+        en: Tourism
+        es:  Turismo
+      Beauty:
+        en: Beauty
+        es: Bellezza
+ ```
+ 
+When a user selects an option, the key of the option (design, travel, beauty) is saved to file.
+
+Using Kirby's built-in (link: docs/languages/variables text: language variable management), we can translate these options in the language files in `/site/languages`
+
+```
+// es.yml
+design: diseño
+travel: turismo
+beauty: bellezza
+```                   
+
+And use them in our templates like this:
+
+```php	
+<?= l($page->category()->value()); ?> 
+```
+Note the use of the [`value()`](../cheatsheet/field-methods/value) field method to pass a string representation of the field to the [`l()` helper](../cheatsheet/helpers/l).
+
