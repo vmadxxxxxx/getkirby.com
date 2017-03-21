@@ -85,10 +85,6 @@ The sitemap template will automatically try to create priorites for each page, b
 
 The home page will automatically get a priority of 1. You can easily change priorities or remove them entirely if you prefer.
 
-## Demo
-
-To see a full example of a generated sitemap, check out the sitemap of the Kirby site: <http://getkirby.com/sitemap.xml>
-
 
 ## Submitting your sitemap to a search engine
 
