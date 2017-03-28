@@ -23,6 +23,7 @@ visibleChildren   | List of options with all visible children
 invisibleChildren | List of options with all invisible children
 visibleSiblings   | List of options with all visible siblings
 invisibleSiblings | List of options with all invisible siblings
+index             | List of options with all descendants
 pages             | List of options with all pages of the site
 siblings          | List of options with all siblings
 files             | List of options with all files of the page
