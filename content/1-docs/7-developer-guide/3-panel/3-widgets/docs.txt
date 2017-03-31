@@ -111,7 +111,7 @@ This will remove the bottom margin of the headline.
 
 ## Widget options
 
-A widget can optionally have one ore more option links with icon in the top right corner of the widget box. It's not recommended to add more than two options though. 
+A widget can optionally have one or more option links with icon in the top right corner of the widget box. It's not recommended to add more than two options though. 
 
 ```php 
 return array(
