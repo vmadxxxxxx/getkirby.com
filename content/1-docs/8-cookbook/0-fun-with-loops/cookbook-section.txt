@@ -26,7 +26,7 @@ Foreach loops are needed all over the place. No matter if you build a menu, a si
 <nav>
   <ul>
     <?php foreach($pages->visible() as $item): ?>
-    <li><a href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></li>
+    <li><a href="<?php echo $item->url() ?>"><?php echo html($item->title()) ?></a></li>
     <?php endforeach ?>
   </ul>
 </nav>
