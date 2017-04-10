@@ -41,7 +41,7 @@ Content in Kirby is organized in folders. Basically, each folder is a single pag
 
 What makes Kirby really great is the possibility to create as many fields as you need, for content as well as meta data files. Kirby's web interface, (link: #the-panel text: the Panel), comes with (link: docs/cheatsheet#panel-fields text: many predefined field types), that help to structure your content.
 
-Each page folder is accessible via its URL, e.g., you can access the `projects` folder by entering your domain name followed by the UID of the folder into your browser's address bar: http://yourdomain.com/projects. The subpage `project-a` is therefore accessible via http://yourdomain.com/projects/project-a etc.
+Each page folder is accessible via its URL, e.g., you can access the `projects` folder by entering your domain name followed by the UID of the folder into your browser's address bar: http://example.com/projects. The subpage `project-a` is therefore accessible via http://example.com/projects/project-a etc.
 
 If you want to use pages to create a one-page website, that is no problem with Kirby, either. (link: docs/solutions/one-pager text: Learn how to create a one-pager).
 
