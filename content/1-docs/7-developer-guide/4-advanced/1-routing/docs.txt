@@ -119,6 +119,8 @@ function() {
 }
 ```
 
+To access data from a route in a controller, you can use a (link: docs/developer-guide/advanced/controllers#arguments-from-the-router text: fourth parameter).
+
 ### Returning a response object
 
 ```php
