@@ -1,0 +1,333 @@
+Title: Sorting and grouping
+
+----
+
+Date: 01.05.2017
+
+----
+
+Category: content structure
+
+----
+
+Description: In this cookbook recipe we will look into how you can use Kirby's API to sort and group content like articles or events. 
+
+----
+
+Text:
+(image: grouping-and-sorting.png)
+
+(toc)
+
+Sorting and grouping content is a common developer's task when dealing with all sorts of content collections: articles, events, images, or similar data want to be sorted by date or by title, and/or grouped by categories or years.
+
+Kirby's API comes with three built-in methods for sorting and grouping:
+
+- sortBy()
+- groupBy()
+- group($callback)
+
+Let's look at some typical use cases where these methods are super useful.
+
+## Sorting by a single field
+Probably the use case most often required is simple sorting of blog articles by date in reversed order, so that the most recent article appears first in the list:
+
+```php
+<?php
+// let's fetch all visible children from the blog page and sort them by their date field
+$articles = page('blog')->children()->visible()->sortBy('date', 'desc');
+
+// let's loop through the collection and output date and title
+foreach($articles as $article): ?>
+  <span><?= $article->date('Y-m-d') ?></span>
+  <h2><?= $article->title()->html() ?></h2>
+<?php endforeach ?>
+```
+
+As you can see, we passed two parameters to the `sort()` method: the field we want to sort by (`date`), and the sort order, here `desc` for descending. If you don't pass a sort order parameter, the default is ascending order.
+
+The method takes an optional third parameter, the sort flag. The default is `SORT_REGULAR`, but if you want to sort by numeric values, you can use `SORT_NUMERIC` or other sort flags instead.
+
+## Sorting by multiple fields
+Sometimes, you don't want to limit the sorting to a single field. Let's assume you wanted to sort a list of books by the author's last and first names:
+
+```php
+<?php
+$books = page('books')->children()->visible()->sortBy('lastname', 'asc', 'firstname', 'asc');
+?>
+```
+
+Here we have passed two sort fields with their sort order as parameters.
+
+## Sorting structure field entries
+The same sorting methods outlined above can also be used with structure field entries - if you use the `toStructure()` method.
+
+An example: Suppose we have defined a structure field with three fields in our events blueprint:
+
+```
+# events.yml
+fields:
+  events:
+    label: events
+    type: structure
+    fields:
+      title:
+        label: Event title
+        type: text
+      date:
+        label: Event date
+        type: date
+      location:
+        label: Event location
+        type: text  
+```
+
+Let's fetch the events, sort them by date and loop through them to output their content.
+
+```php
+<?php
+$events = page('events')->events()->toStructure();
+$sortedEvents = $events->sortBy('date', 'asc');
+
+foreach($sortedEvents as $event): ?>
+  <span><?= $event->date('Y-m-d') ?></span>
+  <h2><?= $event->title()->html() ?></h2>
+  <?= $event->location()->kirbytext() ?>
+<?php endforeach ?>    
+``` 
+
+If you use `yaml()` to create an array of events instead of a collection, and you want to sort that array, you can use the [`a::sort()`](../toolkit/api/a/sort) method from the toolkit, or check out the (link: http://php.net/manual/de/array.sorting.php text: different ways to sort arrays ) in the PHP manual.
+        
+## Simple grouping by field values
+
+The most straighforward way to group collections is by using the `groupBy()` method. Let's suppose our collection of projects had a year field like in the Kirby Starterkit and we want to group these projects by year.
+
+```php
+// get a grouped collection
+$years = page('projects')->children()->visible()->groupBy('year');
+```
+
+If we `dump($years)`, we get a collection that looks like this:
+
+```
+Collection Object
+(
+    [2014] => Pages Object
+        (
+            [0] => projects/project-a
+        )
+
+    [2013] => Pages Object
+        (
+            [0] => projects/project-b
+            [1] => projects/project-d
+        )
+
+    [2012] => Pages Object
+        (
+            [0] => projects/project-c
+            [1] => projects/project-e
+        )
+
+)
+```
+Now let's see how to output that collection object:
+
+```php
+<?php
+// loop through the years
+foreach($years as $year => $itemsPerYear): ?>
+    <h2><?php echo $year ?></h2>
+    <ul>
+      <?php foreach($itemsPerYear as $item) : ?>
+      <li><?php echo $item->title() ?></li>
+      <?php endforeach; ?>
+    </ul>
+<?php endforeach ?>
+
+```
+
+As you can see, we use two foreach loops here, one for the category we group by, and then a second one for the items that belong to each group.
+
+**Note that trying to group pages will throw an error if pages in the collection are missing the field to group by, or the field is empty.** If the field is not required, make sure to filter the collection to only include items with values. When using `group()` you can also use if statements in the callback to react on empty or non-existing fields (see last example in the files section).
+
+## Complex grouping
+
+Sometimes, the simple `group()` method has its limits. For example, suppose in the above example we didn't have a simple year field, but a normal date field, but we still wanted to group by year. That wouldn't be possible. The `group()` method with a callback to the rescue.
+
+```php
+<?php
+
+// function that returns the formatted date
+$callback = function($p) {
+  return $p->date('Y');
+};
+// group items using $callback
+$groupedItems = page('projects')->children()->visible()->group($callback);
+
+// output items by year
+foreach($groupedItems as $year => $itemsPerYear): ?>
+    <h2><?php echo $year ?></h2>
+    <ul>
+      <?php foreach($itemsPerYear as $item) : ?>
+      <li><?php echo $item->title() ?></li>
+      <?php endforeach; ?>
+    </ul>
+<?php endforeach ?>
+```
+
+We first define the callback function, which returns the date in year format. Then we pass that function as parameter to the `group()` method.
+
+Here is another interesting example that allows us to group by points in time or time ranges, to which we assign category names to group by like "today", "this week", or "this month".
+
+```php
+<?php
+$groups = $page->children()->visible()->group(function($article) {
+  if($article->date('Y-m-d') == date('Y-m-d')) return 'today';
+  if($article->date() > strtotime('-7 day'))   return 'this week';
+  if($article->date() > strtotime('-1 month')) return 'this month';
+  return 'older articles';
+});
+
+<?php foreach($groups as $description => $items): ?>
+  <h2><?php echo $description ?></h2>
+  
+  <?php foreach($items->sortBy('clicks', 'desc') as $item): ?>
+    <h2><?= $item->title()->html() ?></h2>
+  <?php endforeach ?>
+<?php endforeach ?>
+```
+
+## Combining methods for more complex grouping scenarios
+We can make things even more complex. Have a look at this example:
+
+```php
+$groupedItems = page('events')->children()->visible()->map(function($p) {
+    $p->eventDate = $p->date('d.m.Y', 'from') . ' - ' . $page->date('d.m.Y', 'to');
+
+    return $page;
+})->groupBy('eventDate');
+```
+
+In this example we want to group our items by a combination of two date fields, `from` and `to`. We use the [`map()` method](../cheatsheet/pages/map) with a callback to create a "virtual" field called `eventDate`, then we pass this field to the `groupBy()` method.
+
+## Sorting and grouping files
+
+### Sorting files
+Sorting files works just like with pages. We can sort by any file meta data field, or using built-in methods like `modified()`, `filename()` etc.
+
+Some examples:
+
+```php
+// sort by manual sort field
+$files = $page->files()->sortBy('sort');
+
+// sort by filename
+$files = $page->files()->sortBy('filename');
+
+// sort by caption
+$files = $page->files()->sortBy('caption', 'desc');
+```
+
+### Grouping files
+Basically, we can use both `group()` and `groupBy()`, but only with a **collection** of files. These methods currently won't work with a Files object. Let's look at these examples:
+
+```php
+// when we use the `files()` method with a single page, we get a files object:
+$files = $page->files();
+
+// returns for example
+/*
+Files Object
+(
+    [0] => closeup.jpg
+    [1] => creative-tools.jpg
+    [2] => folding-rule.jpg
+)
+*/
+
+// when we use the `files()` method with a collection of pages, we get a Collection object
+$collection = $page->siblings()->files();
+
+// returns for example
+/*
+Collection Object
+(
+    [projects/project-a/closeup.jpg] => File Object
+        (...) 
+    [projects/project-a/creative-tools.jpg] => File Object
+        (...)
+    [projects/project-a/folding-rule.jpg] => File Object
+        (...)
+)      
+*/
+```  
+
+In the first case, we can't use `group()` or `groupBy()`. In the second case, we can. An example:
+
+```php
+// get all files where the category field is not empty
+$groupedFiles = $page->siblings()->images()->filterBy('category', '!=', '')->groupBy('category');
+
+// loop through the collection and output the category name
+foreach($groupedFiles as $category => $images): ?>
+  <h2><?= $category ?></h2>
+  <?php 
+    // loop through the images
+    foreach($images as $image): ?> 
+    <img src="<?= $image->url() ?>" alt="">
+  <?php endforeach ?>
+<?php endforeach ?>
+```    
+
+The `group()`with callback example works in the same way as with page collections. An example to finish this recipe:
+
+```php
+<?php
+$callback = function($f) {
+  if($f->date() && $f->date()->isNotEmpty()) {
+    return $f->date('Y');
+  } else {
+    return 'undated';
+  }  
+};
+$groupedFiles = page('projects')->children()->files()->group($callback);
+
+foreach($groupedFiles as $year => $images): ?>
+  <h2><?= $year ?></h2>
+  <?php 
+    // loop through the images
+    foreach($images as $image): ?> 
+    <img src="<?= $image->url() ?>" alt="">
+  <?php endforeach ?>
+<?php endforeach ?>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
