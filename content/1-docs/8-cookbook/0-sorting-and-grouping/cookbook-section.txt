@@ -19,15 +19,17 @@ Text:
 
 (toc)
 
-Sorting and grouping content is a common developer's task when dealing with all sorts of content collections: articles, events, images, or similar data want to be sorted by date or by title, and/or grouped by categories or years.
+Sorting and grouping is an everyday developer's task when dealing with all sorts of content collections: articles, events, images or similar data want to be sorted by , for example, date or by title, and/or grouped by categories or years.
 
 Kirby's API comes with three built-in methods for sorting and grouping:
 
-- sortBy()
-- groupBy()
-- group($callback)
+- [sortBy()](https://getkirby.com/docs/cheatsheet/pages/sort-by)
+- [groupBy()](https://getkirby.com/docs/cheatsheet/pages/group-by)
+- [group($callback)](https://getkirby.com/docs/cheatsheet/pages/group)
 
 Let's look at some typical use cases where these methods are super useful.
+
+While sorting works with all sorts of collections (pages, files, users and structure field items), grouping is currently limited to pages and file collections (except Files objects, see below).
 
 ## Sorting by a single field
 Probably the use case most often required is simple sorting of blog articles by date in reversed order, so that the most recent article appears first in the list:
@@ -44,12 +46,12 @@ foreach($articles as $article): ?>
 <?php endforeach ?>
 ```
 
-As you can see, we passed two parameters to the `sort()` method: the field we want to sort by (`date`), and the sort order, here `desc` for descending. If you don't pass a sort order parameter, the default is ascending order.
+As you can see, we pass two parameters to the `sort()` method: the field we want to sort by (`date`), and the sort order, here `desc` for descending. If you don't pass a sort order parameter, the default is ascending order.
 
-The method takes an optional third parameter, the sort flag. The default is `SORT_REGULAR`, but if you want to sort by numeric values, you can use `SORT_NUMERIC` or other sort flags instead.
+The method takes an optional third parameter, the sort flag. The default is `SORT_REGULAR`, but if you want to sort by numeric values, you can use `SORT_NUMERIC` or other (link: http://php.net/manual/de/function.sort.php/#refsect1-function.sort-parameters text: sort flags) instead.
 
 ## Sorting by multiple fields
-Sometimes, you don't want to limit the sorting to a single field. Let's assume you wanted to sort a list of books by the author's last and first names:
+Sometimes, we don't want to limit sorting to a single field. Let's assume we wanted to sort a list of books by the authors' last and first names:
 
 ```php
 <?php
@@ -57,7 +59,7 @@ $books = page('books')->children()->visible()->sortBy('lastname', 'asc', 'firstn
 ?>
 ```
 
-Here we have passed two sort fields with their sort order as parameters.
+Here we have passed two sort fields with their sort order as parameters. Authors will now be sorted by lastname first, then by firstname.
 
 ## Sorting structure field entries
 The same sorting methods outlined above can also be used with structure field entries - if you use the `toStructure()` method.
@@ -280,7 +282,7 @@ foreach($groupedFiles as $category => $images): ?>
 <?php endforeach ?>
 ```    
 
-The `group()`with callback example works in the same way as with page collections. An example to finish this recipe:
+The `group()`with callback example works in the same way as with page collections. An example:
 
 ```php
 <?php
@@ -302,8 +304,6 @@ foreach($groupedFiles as $year => $images): ?>
   <?php endforeach ?>
 <?php endforeach ?>
 ```
-
-
 
 
 
