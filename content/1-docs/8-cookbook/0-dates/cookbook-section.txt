@@ -16,7 +16,7 @@ You could always add a simple field to your content files and write a date their
 
     Title: Super Nice Content
     ----
-    SomeDate: 15/12/2011
+    SomeDate: 12/15/2011
     ----
 
 …and afterwards in your template you could just parse that date with PHP and generate whatever you need:
@@ -38,7 +38,7 @@ Whenever you need a date for your content, just add a date field to your content
 
     Title: Super Nice Content
     ----
-    Date: 15/12/2011
+    Date: 12/15/2011
     ----
 
 Make sure the format you use for your date is parsable by php. Anything like `dd/mm/YYYY` or `YYYY-mm-dd` or many other formats will do. Read more about it (link: http://php.net/manual/en/function.strtotime.php text:here).
