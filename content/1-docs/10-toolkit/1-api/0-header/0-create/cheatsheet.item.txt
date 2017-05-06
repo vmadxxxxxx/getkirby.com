@@ -1,0 +1,44 @@
+Title: header::create
+
+----
+
+Since: 2.4.2
+
+----
+
+Excerpt: Creates headers by key and value
+
+----
+
+Call: header::create($key, $value = null)
+
+----
+
+Return: type: string
+text:
+
+----
+
+Params: - 
+  name: $key
+  type: string/array
+  text: 
+- 
+  name: $value
+  type: string
+  text: 
+
+----
+
+Text:
+
+## Example
+
+```php
+header::create('Link', '<' . url('feed') . '>; rel="alternate"');
+
+header::create([
+  'Link'   => '<' . url('feed') . '>; rel="alternate"',
+  'Server' => 'Kirby'
+]);
+```

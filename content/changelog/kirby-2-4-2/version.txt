@@ -1,0 +1,58 @@
+Title: Kirby 2.4.2
+
+----
+
+Date: 
+
+----
+
+Download: 
+
+----
+
+Text:
+
+This release contains further bug fixes for Kirby 2.4.0 and also has a few small but interesting new features.
+
+## Panel
+
+- Pages with subpages can now be deleted after confirming a warning message
+- Updated translations
+- Added support for importing whole field groups in blueprints
+- Added (sheet: options/panel-favicon) option
+- Structure fields no longer require the `title` field
+- Hidden fields are no longer displayed in structure fields of type `table`
+- Several other fixes for the structure field
+- More clever thumb deletion on updates
+- Fixed (link: docs/panel/blueprints/subpages-settings#hide-subpages text: Hide subpages option)
+- Make sure that pages with the `update` option set to `false` can't be updated in the backend
+
+## Core
+
+- Updated Smartypants library
+- Fixed issue where Kirby would output a misleading error message if the directory structure was invalid [#549](https://github.com/getkirby/kirby/issues/549)
+- The `url` option is now automatically corrected if there is an unnecessary trailing slash [#564](https://github.com/getkirby/kirby/issues/564)
+- The `$users` object can now be grouped with `$users->groupBy()` [#577](https://github.com/getkirby/kirby/issues/577)
+
+## Toolkit
+
+- (toolkit: l/get) now supports string templating [#208](https://github.com/getkirby/toolkit/issues/208) [#221](https://github.com/getkirby/toolkit/issues/221)
+- New (toolkit: str/between) helper
+- New (toolkit: header/create) method
+- Support for `Cc` and `Bcc` when sending emails with the `email` class
+- The (toolkit: header/status) method now supports more status codes and you can pass custom status messages [#218](https://github.com/getkirby/toolkit/pull/218)
+- Added (toolkit: header/gone) method [#218](https://github.com/getkirby/toolkit/pull/218)
+- Improvements to the (toolkit: helpers/invalid) helper [#205](https://github.com/getkirby/toolkit/pull/205)
+- `$brick->removeAttr()` is now chainable
+- You can now make the `Html` class use XHTML-style void tags:
+	```php
+	html::$void = ' />';
+	```
+- The (toolkit: str/parse) method can now parse `query` strings
+- Improved (toolkit: f/mime) to be better at detecting SVG files
+- The `(:num)` pattern in routes now supports negative integers as well
+- The substring methods in the `str` class now return `false` if the needle doesn't exist [#207](https://github.com/getkirby/toolkit/issues/207)
+- Added (toolkit: remote/patch)
+- Added support for youtube-nocookie.com URLs in (toolkit: embed/youtube)
+- Fixed nested (toolkit: database-query/where) queries [#209](https://github.com/getkirby/toolkit/issues/209)
+- Don't throw an error if an image without EXIF data is printed [#219](https://github.com/getkirby/toolkit/issues/219)

@@ -1,0 +1,25 @@
+Title: remote::patch
+
+----
+
+Excerpt: Static method to send a PATCH request
+
+----
+
+Call: remote::patch($url, $params = array())
+
+----
+
+Return: type: object
+text: Response
+
+----
+
+Params: - 
+  name: $url
+  type: string
+  text:
+- 
+  name: $params
+  type: array
+  text:

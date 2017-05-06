@@ -17,11 +17,35 @@ text:
 
 Params: - 
   name: $code
-  type: int
-  text: The HTTP status code
+  type: int/string
+  text: The HTTP status code or custom message
 - 
   name: $send
   type: boolean
   text: >
     If set to false the header will be
     returned instead
+
+----
+
+Text:
+
+## Example
+
+```php
+// sends a "404 Not Found" header
+header::status(404);
+
+// returns the text for "500 Internal Server Error"
+$status = header::status(500, false);
+```
+
+<since v="2.4.2">
+## Custom headers
+
+You can also pass your own custom headers in case you need a special one that isn't supported by the Toolkit. Be careful with made-up ones though.
+
+```php
+header::status('999 Custom Header');
+```
+</since>

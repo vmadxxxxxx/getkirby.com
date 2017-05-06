@@ -1,0 +1,23 @@
+Title: panel.favicon
+
+----
+
+Since: 2.4.2
+
+----
+
+Excerpt: Path to a custom Panel favicon
+
+----
+
+Text: 
+
+## Default value
+
+By default the Panel uses no favicon and falls back to the one at `/favicon.ico`.
+
+## Example
+
+```php
+c::set('panel.favicon', 'assets/img/panel-favicon.ico');
+```

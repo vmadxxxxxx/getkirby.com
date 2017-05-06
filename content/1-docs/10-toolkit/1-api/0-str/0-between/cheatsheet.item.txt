@@ -1,0 +1,46 @@
+Title: str::between
+
+----
+
+Since: 2.4.2
+
+----
+
+Excerpt: Returns everything between two strings from the first occurrence of a given string
+
+----
+
+Call: str::between($string, $start, $end)
+
+----
+
+Return: type: string
+text: The part of the string between the two given strings
+
+----
+
+Params: -
+  name: $string
+  type: string
+  text:
+-
+  name: $start
+  type: string
+  text: 'Character(s) to start after'
+-
+  name: $end
+  type: string
+  text: 'Character(s) to stop before'
+
+----
+
+Text:
+
+## Example
+
+```php
+<?php
+
+echo str::between('string', 't', 'n');
+// output: ri
+```

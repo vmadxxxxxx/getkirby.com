@@ -50,7 +50,7 @@ $rules = array(
 $messages = array(
   'fname' => 'Please enter a valid first name',
   'lname' => 'Please enter a valid last name',
-  'email' => 'Please enter a valid email addresss'
+  'email' => 'Please enter a valid email address'
 );
 
 if($invalid = invalid($data, $rules, $messages)) {
@@ -58,5 +58,19 @@ if($invalid = invalid($data, $rules, $messages)) {
 } else {
   dump('Nice data!');
 }
-
 ```
+
+<since v="2.4.2">
+You can also separately define a message for each validation rule:
+
+```php
+$messages = array(
+  'fname' => 'Please enter a valid first name',
+  'lname' => 'Please enter a valid last name',
+  'email' => [
+    'Please enter an email address',
+    'The email address is invalid'
+  ]
+);
+```
+</since>
