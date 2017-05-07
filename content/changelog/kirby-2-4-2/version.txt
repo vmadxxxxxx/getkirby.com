@@ -20,12 +20,15 @@ This release contains further bug fixes for Kirby 2.4.0 and also has a few small
 - Updated translations
 - Added support for importing whole field groups in blueprints
 - Added (sheet: options/panel-favicon) option
+- The (sheet: panel-fields/select), (sheet: panel-fields/checkboxes) and (sheet: panel-fields/radiobuttons) fields now support options from a JSON file with a relative URL
 - Structure fields no longer require the `title` field
 - Hidden fields are no longer displayed in structure fields of type `table`
 - Several other fixes for the structure field
 - More clever thumb deletion on updates
 - Fixed (link: docs/panel/blueprints/subpages-settings#hide-subpages text: Hide subpages option)
+- Input list fields (checkboxes and radio) no longer have a clickable label [#1032](https://github.com/getkirby/panel/issues/1032)
 - Make sure that pages with the `update` option set to `false` can't be updated in the backend
+- The (sheet: panel-fields/user) field can no longer be configured to use a different set of options [#1034](https://github.com/getkirby/panel/issues/1034)
 
 ## Core
 

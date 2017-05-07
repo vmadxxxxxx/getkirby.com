@@ -125,3 +125,19 @@ The json must have the following format:
   "web": "Web"
 }
 ```
+
+<since v="2.4.2">
+You can also use relative URLs and get the options from the same site:
+
+```
+fields:
+  category:
+    label: Category
+    type: <?= $field ?> 
+    default: architecture
+    options: url
+    url: api/categories.json
+```
+
+Please note that the syntax is different as relative URLs are not detected automatically.
+</since>
