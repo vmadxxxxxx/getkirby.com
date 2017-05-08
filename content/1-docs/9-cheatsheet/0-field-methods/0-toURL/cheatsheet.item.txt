@@ -1,4 +1,4 @@
-Title: $field->toURL()
+Title: $field->toUrl()
 
 ----
 
@@ -19,5 +19,5 @@ Text:
 ## Example
 
 ```php
-<?php echo $page->title()->toURL() ?>
+<?php echo $page->title()->toUrl() ?>
 ```
