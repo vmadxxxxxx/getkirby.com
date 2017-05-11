@@ -55,7 +55,7 @@ echo '<?xml version="1.0" encoding="utf-8"?>';
 
 Copy the entire code from above and put it in your `site/templates` directory in a new file called `xmlsitemap.php`
 
-Go to your content folder and create a new invisible folder called `sitemap` and also add a text file to it called `xmlsitemap.txt`
+Go to your content folder and create a new invisible folder called `sitemap` and also add a text file to it called `xmlsitemap.txt` (and don't forget to add the language extensions if you are on a multi-language site).
 
 (image: 01.png)
 
