@@ -2,7 +2,7 @@ Title: a::missing
 
 ----
 
-Excerpt: Checks for missing elements in an array
+Excerpt: Checks if a given element is empty.
 
 ----
 
@@ -12,7 +12,7 @@ Call: a::missing($array, $required = array())
 
 Return: type: array
 text: >
-  An array of missing fields. If this is
+  An array of empty fields. If this is
   empty, nothing is missing.
 
 ----
@@ -30,6 +30,8 @@ Params: -
 
 Text:
 
+This methods checks if an element is empty. And element is empty if the key does not exist or the value evaluates to false.
+
 ## Example
 
 ```php
@@ -37,13 +39,14 @@ Text:
 $array = array(
   'cat' => 'miao',
   'dog' => 'wuff',
-  'bird' => 'tweet'
+  'bird' => 'tweet',
+  'hippo' => 0
 );
 
-$required = array('cat', 'elephant');
+$required = array('cat', 'elephant', 'hippo');
 
 $missing = a::missing($array, $required);
 // missing: array(
-//   'elephant'
+//   'elephant', 'hippo'
 // );
 ```
