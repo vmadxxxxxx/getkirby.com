@@ -22,7 +22,7 @@ Text:
 
 To log in to a site or service, you often have two choices: Either log in with a social media account like a Twitter, GitHub or Google account or register with your email address.
 
-Social media services may go away – you don't control their domain. So it may happen that you are at some point locked out from the site or service you were logging in to with that social media account. On the other hand, this method is quite easy.
+Social media services may go away some day – you don't control their domain. So it may happen that you are at some point locked out from the site or service, you were logging in to with that social media account. On the other hand, this method is quite easy.
 Email addresses (at least on your own domain) stay the same. But registering with an email address is complicated and takes quite long.
 
 ## What is RelMeAuth/IndieAuth?
@@ -31,7 +31,7 @@ Email addresses (at least on your own domain) stay the same. But registering wit
 
 When logging in to a site or service, you simply enter your domain name (web address). The site you are trying to login to then visits your website and grabs a list of the social media profiles you listed on the homepage of your website. You can use any of them to log in.
 
-The big advantage: The site you are logging in to only stores your domain name. And because that is yours and you control it, you will never lose access to the account you are logging in to. If you use different social media accounts in the future, just put them on your homepage and they are immediately available for logging in with.
+The big advantage: The site you are logging in to only stores your domain name. And because that is yours and you are in control of it, you will never lose access to the account you are logging in to. If you decide to use different social media accounts in the future, just put them on your homepage and they are immediately available for logging in with.
 
 [**IndieAuth**](https://indieauth.com) is a service that makes it easy for sites and services to offer login with RelMeAuth. The two terms "RelMeAuth" and "IndieAuth" are often used for the same thing.
 
@@ -72,7 +72,7 @@ Let's add some to our `site/snippets/header.php` snippet:
 </head>
 ```
 
-Last step: You need to add a link to your site to your social media profile. RelMeAuth needs that link back to your site to verify your identity.
+Last step: You need to add a link to your site on your social media profile. RelMeAuth needs that backlink to your site to verify your identity.
 
 ## More information
 
