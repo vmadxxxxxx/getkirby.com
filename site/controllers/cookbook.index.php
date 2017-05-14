@@ -6,7 +6,7 @@ return function($site, $pages, $page) {
     if($cat == 'new') {
       $items = $page->children()->visible()->sortBy('date', 'desc')->limit(6);
     } else {
-      $items = $page->children()->visible()->filterBy('category', $cat);
+      $items = $page->children()->visible()->filterBy('category', $cat, ',');
     }
   } else {
     $items = $page->children()->visible();
