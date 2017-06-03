@@ -36,17 +36,16 @@ This methods checks if an element is empty. And element is empty if the key does
 
 ```php
 <?php
-$array = array(
+
+$array = [
   'cat' => 'miao',
   'dog' => 'wuff',
   'bird' => 'tweet',
-  'hippo' => 0
-);
+  'hippo' => null
+];
 
-$required = array('cat', 'elephant', 'hippo');
+$required = ['cat', 'elephant', 'hippo'];
 
 $missing = a::missing($array, $required);
-// missing: array(
-//   'elephant', 'hippo'
-// );
+// missing: ['elephant', 'hippo'];
 ```

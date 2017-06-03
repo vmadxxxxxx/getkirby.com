@@ -34,8 +34,12 @@ This release contains further bug fixes for Kirby 2.4.0 and also has a few small
 
 - Updated Smartypants library
 - Fixed issue where Kirby would output a misleading error message if the directory structure was invalid [#549](https://github.com/getkirby/kirby/issues/549)
+- If no custom roles are defined, `editor` is now the default role to avoid permission/security issues with invalid roles [#569](https://github.com/getkirby/kirby/issues/569)
 - The `url` option is now automatically corrected if there is an unnecessary trailing slash [#564](https://github.com/getkirby/kirby/issues/564)
 - The `$users` object can now be grouped with `$users->groupBy()` [#577](https://github.com/getkirby/kirby/issues/577)
+- Only get the response from cache if the request is a GET or HEAD request [#559](https://github.com/getkirby/kirby/issues/559)
+- Preserve (query) params when redirecting from `/home` to the site's home URL [#573](https://github.com/getkirby/kirby/issues/573)
+- Fixed multilang content fallback for files [#575](https://github.com/getkirby/kirby/issues/575)
 
 ## Toolkit
 
@@ -59,3 +63,4 @@ This release contains further bug fixes for Kirby 2.4.0 and also has a few small
 - Added support for youtube-nocookie.com URLs in (toolkit: embed/youtube)
 - Fixed nested (toolkit: database-query/where) queries [#209](https://github.com/getkirby/toolkit/issues/209)
 - Don't throw an error if an image without EXIF data is printed [#219](https://github.com/getkirby/toolkit/issues/219)
+- Fixed (toolkit: a/missing) flagging keys that are set to "falsy" values like empty strings or `0` [#233](https://github.com/getkirby/toolkit/issues/233)
