@@ -28,6 +28,8 @@ Text:
 
 This tutorial assumes that you have a page called `projects` in `/content` with some project subpages. For the example to work, the text file in `/projects` must be called `projects.txt`.
 
+**Do not put the HTML comment tags `<!-- This is a comment -->` in the code examples below into your files, they are just there to indicate file names.**
+
 ****
 
 Often, you only want to show a limited number of projects, articles or images on a page when it is first loaded. If users want to see more, they can click or tap a button and additional content is appended to the DOM. In this tutorial, we'll go through the steps that are needed to achieve this with Kirby.
