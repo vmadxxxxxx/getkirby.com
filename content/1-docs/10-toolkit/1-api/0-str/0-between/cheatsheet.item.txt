@@ -2,7 +2,7 @@ Title: str::between
 
 ----
 
-Since: 2.4.2
+Since: 2.5.0
 
 ----
 

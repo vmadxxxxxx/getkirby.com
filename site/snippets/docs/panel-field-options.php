@@ -126,7 +126,7 @@ The json must have the following format:
 }
 ```
 
-<since v="2.4.2">
+<since v="2.5.0">
 You can also use relative URLs and get the options from the same site:
 
 ```

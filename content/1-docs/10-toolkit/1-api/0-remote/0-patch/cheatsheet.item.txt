@@ -2,6 +2,10 @@ Title: remote::patch
 
 ----
 
+Since: 2.5.0
+
+----
+
 Excerpt: Static method to send a PATCH request
 
 ----

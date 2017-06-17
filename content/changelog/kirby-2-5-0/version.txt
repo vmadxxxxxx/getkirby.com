@@ -1,4 +1,4 @@
-Title: Kirby 2.4.2
+Title: Kirby 2.5.0
 
 ----
 
@@ -12,7 +12,11 @@ Download:
 
 Text:
 
-This release contains further bug fixes for Kirby 2.4.0 and also has a few small but interesting new features.
+## Highlights in 2.5.0
+
+
+
+---
 
 ## Panel
 

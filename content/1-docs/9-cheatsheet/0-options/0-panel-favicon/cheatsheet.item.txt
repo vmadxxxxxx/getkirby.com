@@ -2,7 +2,7 @@ Title: panel.favicon
 
 ----
 
-Since: 2.4.2
+Since: 2.5.0
 
 ----
 
