@@ -23,8 +23,11 @@ Text:
 - Pages with subpages can now be deleted after confirming a warning message
 - Updated translations
 - Added support for importing whole field groups in blueprints
+- The Panel now only cleans up thumbs after page and file operations (e.g. uploading a file, renaming a page) if that's necessary; this improves performance a lot for image-heavy sites [#460](https://github.com/getkirby/kirby/issues/460)
 - Added (sheet: options/panel-favicon) option
 - The (sheet: panel-fields/select), (sheet: panel-fields/checkboxes) and (sheet: panel-fields/radiobuttons) fields now support options from a JSON file with a relative URL
+- The (sheet: panel-fields/datetime) field now supports the `override` option of the `date` and `time` fields [#1051](https://github.com/getkirby/panel/issues/1051)
+- Proper support for the 12 hour time format in the (sheet: panel-fields/datetime) field [#1046](https://github.com/getkirby/panel/issues/1046)
 - Structure fields no longer require the `title` field
 - Hidden fields are no longer displayed in structure fields of type `table`
 - Several other fixes for the structure field
@@ -38,7 +41,7 @@ Text:
 
 - Updated Smartypants library
 - Fixed issue where Kirby would output a misleading error message if the directory structure was invalid [#549](https://github.com/getkirby/kirby/issues/549)
-- If no custom roles are defined, `editor` is now the default role to avoid permission/security issues with invalid roles [#569](https://github.com/getkirby/kirby/issues/569)
+- `admin` is no longer the default role to avoid permission/security issues with invalid roles; the new default is either `editor` (if no custom roles have been defined) or a new role without permissions (if custom roles exist) [#569](https://github.com/getkirby/kirby/issues/569)
 - The `url` option is now automatically corrected if there is an unnecessary trailing slash [#564](https://github.com/getkirby/kirby/issues/564)
 - The `$users` object can now be grouped with `$users->groupBy()` [#577](https://github.com/getkirby/kirby/issues/577)
 - Only get the response from cache if the request is a GET or HEAD request [#559](https://github.com/getkirby/kirby/issues/559)

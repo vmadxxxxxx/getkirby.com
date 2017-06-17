@@ -49,3 +49,16 @@ datetime:
     date: now
     time: 19.30
 ```
+
+<since v="2.5.0">
+## Override
+
+Setting the override option will always select the default instead of the already saved value, so that on saving the page again, it will be overridden with the default value.
+
+```
+fields:
+  datetime:
+    type: datetime
+    default: today
+    override: true
+```
