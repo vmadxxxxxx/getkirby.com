@@ -24,6 +24,13 @@ With Kirby 2.5.0 we extended that feature. It is now possible to import whole fi
 
 (link: docs/panel/blueprints/global-field-definitions#field-groups text: Read more about this feature in the docs).
 
+### More flexible user handling
+
+User objects are no longer required to have a password and an associated email address.
+This is useful if you want to implement passwordless authentication (e.g. with OAuth, IndieAuth or SMS tokens).
+
+There is also a new method called (sheet: user/login-passwordless) which you can use to log in a Kirby user after you have manually authenticated the user.
+
 ### Deleting pages with subpages in the Panel
 
 If you are using the [Modules plugin](https://github.com/getkirby-plugins/modules-plugin) or if you are storing comments to your blog posts as subpages, you may have been in the situation that you wanted to delete a page with its subpages with one click in the Panel.
@@ -60,9 +67,11 @@ The Panel now only cleans up thumbs after page and file operations (e.g. uploadi
 
 ## Core
 
+- General support for passwordless login with the (sheet: user/login-passwordless) method; having a password is no longer a requirement for a user [#550](https://github.com/getkirby/kirby/pull/550)
+- User objects are no longer required to have an associated `email` address [#551](https://github.com/getkirby/kirby/pull/551)
 - Updated Smartypants library
-- Fixed issue where Kirby would output a misleading error message if the directory structure was invalid [#549](https://github.com/getkirby/kirby/issues/549)
 - `admin` is no longer the default role to avoid permission/security issues with invalid roles; the new default is either `editor` (if no custom roles have been defined) or a new role without permissions (if custom roles exist) [#569](https://github.com/getkirby/kirby/issues/569)
+- Fixed issue where Kirby would output a misleading error message if the directory structure was invalid [#549](https://github.com/getkirby/kirby/issues/549)
 - The `url` option is now automatically corrected if there is an unnecessary trailing slash [#564](https://github.com/getkirby/kirby/issues/564)
 - The `$users` object can now be grouped with `$users->groupBy()` [#577](https://github.com/getkirby/kirby/issues/577)
 - Only get the response from cache if the request is a GET or HEAD request [#559](https://github.com/getkirby/kirby/issues/559)
