@@ -14,7 +14,7 @@ Create a new `fields` folder inside `/site/blueprints/`. All your field definiti
 
 Create a field definition, e.g. a date field and save as `date.yml`:
 
-```text
+```
 # /site/blueprints/fields/date.yml
 label: Date
 type: date
@@ -23,7 +23,7 @@ default: now
 
 or an image select field:
 
-```text
+```
 # /site/blueprints/fields/imageselect.yml
 label: Select an image
 type: select
@@ -34,7 +34,7 @@ options: images
 
 Now you can reference your field definitions in your blueprints like so:
 
-```text
+```
 # /site/blueprints/mypage.yml
 …
 fields: 
@@ -52,7 +52,7 @@ This gives you full control over your field names.
 
 You can easily extend a field definition if you want to overwrite the default behaviour, for example, give the field another label or set another default. Here is an example:
 
-```text
+```
 # /site/blueprints/mypage.yml
 …
 fields: 
@@ -67,3 +67,62 @@ fields:
    extends: imageselect
    label: Cover Image
 ```
+
+<since v="2.5.0">
+## Field groups
+
+It is also possible to define a set of fields as a field group and then import the whole group:
+
+```
+# /site/blueprints/fields/metadata.yml
+type: group
+fields:
+  author:
+    label: Created by
+    type:  user
+    width: 1/3
+    readonly: true
+  created:
+    label: Created on
+    type:  date
+    width: 1/3
+    readonly: true
+    default:  now
+  updated:
+    label: Updated on
+    type:  date
+    width: 1/3
+    readonly: true
+    default:  now
+    override: true
+```
+
+```
+# /site/blueprints/mypage.yml
+fields:
+  title:
+    label: Title
+    type:  text
+  metadata:
+    extends: metadata
+```
+
+Of course you can extend and override any option of one of the group's fields:
+
+```
+# /site/blueprints/mypage.yml
+fields:
+  title:
+    label: Title
+    type:  text
+  metadata:
+    extends: metadata
+    fields:
+      author:
+        label: Creator
+      created:
+        default: tomorrow
+      updated:
+        default: tomorrow
+```
+</since>

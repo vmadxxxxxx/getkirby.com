@@ -81,7 +81,7 @@ You can set default values for structure fields which will prepopulate the field
 
 ### Options
 
-Display entries in a table layout:
+#### Display entries in a table layout
 
 ```
 emails:
@@ -90,7 +90,7 @@ emails:
   style: table
 ```
   
-Control the width of the structure modals ("small", "medium" or "large"): 
+#### Control the width of the structure modals ("small", "medium" or "large")
   
 ```
 emails:
@@ -99,7 +99,7 @@ emails:
   modalsize: small
 ```
 
-Don't allow changes:
+#### Don't allow changes
 
 ```
 emails:
@@ -109,13 +109,50 @@ emails:
 ```
 
 <since v="2.3.2">
-Limit number of items:
+#### Limit number of items
 
 ```
 emails:
   label: Emails
   type: structure
   limit: 10
+```
+</since>
+
+<since v="2.5.0">
+#### Sorting and flipping the displayed entries
+
+```
+fields:
+  addresses:
+    label: Addresses
+    type: structure
+    sort: zip, asc, street, asc
+    flip: true
+    entry: >
+      {{street}}<br />
+      {{zip}} {{city}}
+    fields:
+      street:
+        label: Street
+        type: text
+      zip:
+        label: ZIP
+        type: text
+      city:
+        label: City
+        type: text
+```
+
+If you use either sorting or flipping, manual sorting in the Panel is disabled.
+
+Please note that the order in which the items are stored in the content files is unaffected. These options only apply to the *display* order in the Panel.
+You can of course apply the same operations in your templates, which is a lot more reliable than relying on the order in the content file:
+
+```php
+<?php foreach($page->addresses()->toStructure()->sortBy('zip', 'asc', 'street', 'asc')->flip()): ?>
+...
+<?php endforeach ?>
 ```
 </since>
 
