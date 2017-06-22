@@ -12,6 +12,12 @@ Download: https://download.getkirby.com/kirby-2.5.0.zip
 
 Text:
 
+## Update!
+
+A nasty little bug made its way into this release. (link: ../kirby-2-5-1 text: Please use 2.5.1) instead to get the fixed version.
+
+## 2.5.0
+
 With Kirby 2.5.0 we fixed a lot of bugs and also introduced some nice litte features:
 
 ## Highlights in 2.5.0
