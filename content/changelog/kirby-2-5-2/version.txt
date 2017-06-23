@@ -1,0 +1,27 @@
+Title: Kirby 2.5.2
+
+----
+
+Date: 
+
+----
+
+Download: 
+
+----
+
+Text:
+
+This release contains further bug fixes and improvements for Kirby 2.5.0.
+It is strongly recommended to upgrade to Kirby 2.5.2.
+
+## Panel
+
+- Fixed error when trying to create a new user in the Panel [#1064](https://github.com/getkirby/panel/issues/1064)
+- Fixed error for input list fields ((sheet: panel-fields/radiobuttons), (sheet: panel-fields/checkboxes), (sheet: panel-fields/toggle)) if no label was set [#1063](https://github.com/getkirby/panel/issues/1063)
+- Fixed broken layout of the (sheet: panel-fields/headline) field if no label was set [#1061](https://github.com/getkirby/panel/issues/1061)
+- Option to disable numbering in the (sheet: panel-fields/headline) field [#1065](https://github.com/getkirby/panel/issues/1065)
+
+## Core
+
+## Toolkit

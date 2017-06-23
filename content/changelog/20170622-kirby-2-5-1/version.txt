@@ -18,6 +18,8 @@ Unfortunately we introduced a nasty little bug in (link: ../kirby-2-5-0 text: 2.
 
 Please check out the (link: ../kirby-2-5-0 text: highlights and release notes for 2.5.0)
 
+---
+
 ## Toolkit
 
 - CLI detection fix in (toolkit: r/cli)
