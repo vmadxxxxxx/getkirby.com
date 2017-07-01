@@ -25,3 +25,6 @@ It is strongly recommended to upgrade to Kirby 2.5.2.
 ## Core
 
 ## Toolkit
+
+- The (toolkit: helpers/csrf) helper now works correctly if `null` is passed as argument when checking the token [#240](https://github.com/getkirby/toolkit/issues/240)
+- Only generate one CSRF token per session, not per call of the (toolkit: helpers/csrf) helper [#242](https://github.com/getkirby/toolkit/issues/242)
