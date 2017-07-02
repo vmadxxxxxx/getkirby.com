@@ -24,6 +24,9 @@ It is strongly recommended to upgrade to Kirby 2.5.2.
 
 ## Core
 
+- The (sheet: helpers/css) and (sheet: helpers/js) helpers now accept an array of custom HTML attributes like the `defer` attribute [#506](https://github.com/getkirby/kirby/issues/506)
+- Prevent overwriting of existing (custom) page models and methods using the registry [#536](https://github.com/getkirby/kirby/issues/536)
+
 ## Toolkit
 
 - The (toolkit: helpers/csrf) helper now works correctly if `null` is passed as argument when checking the token [#240](https://github.com/getkirby/toolkit/issues/240)

@@ -12,8 +12,8 @@ Params: -
   text: Relative or absolute URL
 - 
   name: $async
-  type: boolean
-  text: Whether to load file asynchronously
+  type: boolean|array
+  text: Either true for the async attribute or an array of attributes
 
 ----
 
@@ -78,4 +78,14 @@ This also works with an array of paths:
 ), true) ?>
 ```
 
+</since>
+
+<since v="2.5.2">
+### Other attributes
+
+You can also pass an array of completely custom attributes like the `defer` attribute:
+
+```php
+<?php echo js('assets/js/site.js', ['async' => true, 'defer' => true, 'data-something' => 'my-value']) ?>
+```
 </since>

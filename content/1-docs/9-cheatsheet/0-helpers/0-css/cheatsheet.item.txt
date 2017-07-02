@@ -12,8 +12,8 @@ Params: -
   text: Relative or absolute URL
 - 
   name: $media
-  type: string
-  text: CSS media value
+  type: string|array
+  text: CSS media value or an array of attributes
 
 ----
 
@@ -66,3 +66,13 @@ You can also specify a media attribute for the link tags:
 ```php
 <?php echo css('assets/css/print.css', 'print') ?>
 ```
+
+<since v="2.5.2">
+### Other attributes
+
+You can also pass an array of completely custom attributes:
+
+```php
+<?php echo css('assets/css/print.css', ['media' => 'print', 'data-something' => 'my-value']) ?>
+```
+</since>
