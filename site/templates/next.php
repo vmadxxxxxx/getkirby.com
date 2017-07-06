@@ -45,7 +45,7 @@
       <ul>
         <li class="box">
           <p>
-            <strong>Fellowship Package</strong><br>
+            <strong>Kirby 3 Fellowship Package</strong><br>
             Follow the process behind Kirby 3 with all updates, coding sessions and more.
           </p>
           <p>
@@ -55,11 +55,12 @@
         <li class="box">
           <p>
             <strong>Kirby 3 License Package</strong><br>
-            Be among the first to buy a Kirby 3 license and follow the process how we build it for you! 
+            Be among the first to buy a Kirby 3 license and follow the process how we build it for you!<br>
+            Includes everything from the Fellowship Package + one license for Kirby 3.
           </p>
           <p> 
-            You can use this license for a Kirby 2 project in the meantime and we guarantee you a 
-            free upgrade to Kirby 3 once it has been launched.
+            You can use this license for a Kirby 2 project in the meantime and we guarantee you that
+            your license will get a free upgrade to Kirby 3 once it has been launched.
           </p>
           <p>
             <small><i>Kirby 3 will be a paid upgrade for Kirby 2 license holders.</i></small>
@@ -70,7 +71,7 @@
         </li>
       </ul>
       <p>
-        The prices for our supporter packages don't include VAT. They are one-time purchases. No monthly fees or other hidden costs, no matter how long it takes to finish the release.
+        The prices for our supporter packages don't include VAT. They are one-time purchases. No monthly fees or other hidden costs, no matter how long it takes us to finish the release.
       </p>
     </div>
   </div>
