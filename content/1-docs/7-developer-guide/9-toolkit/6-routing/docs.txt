@@ -108,13 +108,20 @@ Optional attributes can be defined by adding a question mark to the placeholder:
 
 ## Creating routing filters
 
+Routing filters are run before the route function. They can be used to check for user authentication/authorization or they can check if a route is applicable for the current environment.
+
+### Registering routing filters globally
+
+You can register routing filters globally to use them in many of your routes at once:
+
 ```php
-$router->filter('auth', function() {
+$router->filter('auth', function($route) {
   // some authentication checks
+  // $route is the route array
 });
 ```
 
-### Applying a filter to a route
+#### Applying a global filter to a route
 
 ```php
 $router->register('api/users/(:any)', array(
@@ -126,7 +133,7 @@ $router->register('api/users/(:any)', array(
 ));
 ```
 
-### Applying multiple filters to a route
+#### Applying multiple global filters to a route
 
 ```php
 $router->register('api/users/(:any)', array(
@@ -137,6 +144,41 @@ $router->register('api/users/(:any)', array(
   }
 ));
 ```
+
+You can also use this syntax:
+
+```php
+$router->register('api/users/(:any)', array(
+  'method' => 'ALL',
+  'filter' => ['auth', 'someotherfilter'],
+  'action' => function($username) {
+    // the router action code
+  }
+));
+```
+
+<since v="2.5.3">
+### Using a routing filter for just one route
+
+You can also pass an anonymous function to a route directly if the filter is supposed to be applied to only that route:
+
+```php
+$router->register('api/users/(:any)', array(
+  'method' => 'ALL',
+  'filter' => function($route) {
+    // some checks
+    // $route is the route array
+  },
+  'action' => function($username) {
+    // the router action code
+  }
+));
+```
+
+### Skipping routes from a routing filter
+
+A routing filter can return `false`. This will tell the router to skip the route and try the next matching one.
+</since>
 
 ## Run the router
 

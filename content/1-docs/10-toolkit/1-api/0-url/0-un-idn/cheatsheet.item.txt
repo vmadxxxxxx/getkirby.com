@@ -1,16 +1,16 @@
-Title: url::idn
+Title: url::unIdn
 
 ----
 
-Since: 2.3.2
+Since: 2.5.3
 
 ----
 
-Excerpt: Converts a URL with an internationalized domain name to the human-readable UTF8 representation
+Excerpt: Converts a URL with an internationalized domain name to the machine-readable Punycode representation
 
 ----
 
-Call: url::idn($url)
+Call: url::unIdn($url)
 
 ----
 

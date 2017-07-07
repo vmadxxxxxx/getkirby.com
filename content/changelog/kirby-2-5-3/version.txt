@@ -1,0 +1,30 @@
+Title: Kirby 2.5.3
+
+----
+
+Date: 
+
+----
+
+Download: 
+
+----
+
+Text:
+
+## Panel
+
+
+
+## Core
+
+
+
+## Toolkit
+
+- (link: docs/developer-guide/toolkit/routing#creating-routing-filters text: Route filters) can now be set directly instead of having to register a filter globally [#211](https://github.com/getkirby/toolkit/issues/211)
+- (link: docs/developer-guide/toolkit/routing#creating-routing-filters text: Routes) can now make themselves dynamically skippable [#211](https://github.com/getkirby/toolkit/issues/211)
+- The (toolkit: url/idn) method now converts full URLs, not only domain names [#232](https://github.com/getkirby/toolkit/issues/232)
+- Added (toolkit: url/un-idn) method [#232](https://github.com/getkirby/toolkit/issues/232)
+- Redirects with `header::redirect()` or the (toolkit: helpers/go) helper now work with internationalized domain names [#232](https://github.com/getkirby/toolkit/issues/232)
+- Added MIME type for `.ics` files [#231](https://github.com/getkirby/toolkit/issues/231)
