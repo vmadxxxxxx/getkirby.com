@@ -15,24 +15,26 @@ fields:
 
 #### Available option keywords
 
-Option            | Description
------------------ | -------------
-children          | List of options with all children
-grandchildren     | List of options with all grandchildren
-visibleChildren   | List of options with all visible children
-invisibleChildren | List of options with all invisible children
-visibleSiblings   | List of options with all visible siblings
-invisibleSiblings | List of options with all invisible siblings
-index             | List of options with all descendants
-pages             | List of options with all pages of the site
-siblings          | List of options with all siblings
-files             | List of options with all files of the page
-images            | List of options with all (link: docs/cheatsheet/file/type text: images) of the page
-documents         | List of options with all (link: docs/cheatsheet/file/type text: documents) of the page
-videos            | List of options with all (link: docs/cheatsheet/file/type text: videos) of the page
-audio             | List of options with all (link: docs/cheatsheet/file/type text: audio files) of the page
-code              | List of options with all (link: docs/cheatsheet/file/type text: code files) of the page
-archives          | List of options with all (link: docs/cheatsheet/file/type text: archives) of the page
+Option                 | Description
+-----------------      | -------------
+children               | List of options with all children
+visibleChildren        | List of options with all visible children
+invisibleChildren      | List of options with all invisible children
+grandchildren          | List of options with all grandchildren
+visibleGrandchildren   | List of options with all visible grandchildren (added in 2.5.3)
+invisibleGrandchildren | List of options with all invisible grandchildren (added in 2.5.3)
+siblings               | List of options with all siblings
+visibleSiblings        | List of options with all visible siblings
+invisibleSiblings      | List of options with all invisible siblings
+index                  | List of options with all descendants
+pages                  | List of options with all pages of the site
+files                  | List of options with all files of the page
+images                 | List of options with all (link: docs/cheatsheet/file/type text: images) of the page
+documents              | List of options with all (link: docs/cheatsheet/file/type text: documents) of the page
+videos                 | List of options with all (link: docs/cheatsheet/file/type text: videos) of the page
+audio                  | List of options with all (link: docs/cheatsheet/file/type text: audio files) of the page
+code                   | List of options with all (link: docs/cheatsheet/file/type text: code files) of the page
+archives               | List of options with all (link: docs/cheatsheet/file/type text: archives) of the page
 
 
 ### Option queries

@@ -2,7 +2,7 @@ Title: size($input)
 
 ----
 
-Excerpt: Returns the size of strings, numbers, files and arrays.
+Excerpt: Determines the size/length of numbers, strings, arrays and countable objects
 
 ----
 
@@ -29,10 +29,10 @@ echo size('my awesome string');
 echo size(15);
 // will echo 15
 
-echo size('/some/file/on/the/server/which/has/1kb.jpg');
-// will echo 1024
-
-echo size(array('a', 'b', 'c'));
+echo size(['a', 'b', 'c']);
 // will echo 3
 
+$collection = new Collection(['a', 'b', 'c']);
+echo size($collection);
+// will echo 3
 ```

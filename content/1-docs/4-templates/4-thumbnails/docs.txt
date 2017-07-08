@@ -12,12 +12,15 @@ Kirby's built-in thumbnail class lets you resize and crop any image from your co
 
 ## The thumb function
 
-Any image in your content folder can be passed to Kirby's `thumb()` function, which is available in all templates, snippets, controllers and plugin files. 
+Any image in your content folder can be passed to Kirby's `thumb()` function, which is available in all templates, snippets, controllers and plugin files. Image objects also have a `$image->thumb()` method that works the same way.
 
 ### Example:
 
 ```php
 echo thumb($page->image('cover.jpg'), array('width' => 300));
+
+// or
+echo $page->image('cover.jpg')->thumb(array('width' => 300));
 ```
 
 
@@ -69,23 +72,47 @@ echo thumb($image, array('width' => 300, 'height' => 400, 'crop' => true));
 Since Kirby version 2.2, you can also use the shorthand `crop()` method. Check out the Cheat Sheet at http://getkirby.com/docs/cheatsheet/file/crop
 </since>
 
-## Setting the quality
+## Other thumb options
+
+### Setting the quality
 
 ```php
 echo thumb($image, array('width' => 300, 'quality' => 80));
 ```
 
-## Blurring
+### Blurring
 
 ```php
 echo thumb($image, array('width' => 300, 'blur' => true));
 ```
 
-## Grayscale
+### Grayscale
 
 ```php
 echo thumb($image, array('width' => 300, 'grayscale' => true));
 ```
+
+<since v="2.5.3">
+## Thumb presets
+
+You can globally define thumb presets in your config file. This is useful if you need the same thumb sizes in different places of the site or if you want to pre-define sizes for responsive images.
+
+```php
+// define the thumb presets in site/config/config.php
+c::set('thumbs.presets', [
+  'default' => ['width' => 300, 'quality' => 80],
+  'blurred' => ['width' => 300, 'quality' => 80, 'blur' => true],
+]);
+
+// using the presets
+echo thumb($image, 'default');
+echo $image->thumb('blurred');
+
+// the "default" preset is used if no params are passed at all
+echo thumb($image);
+echo $image->thumb();
+```
+</since>
 
 ## Using thumb class methods
 

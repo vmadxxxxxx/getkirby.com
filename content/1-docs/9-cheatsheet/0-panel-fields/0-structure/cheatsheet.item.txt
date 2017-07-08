@@ -32,7 +32,6 @@ fields:
       city:
         label: City
         type: text
-
 ```
 
 Such a structure will be stored in the content file like this:
@@ -53,15 +52,15 @@ addresses:
   city:   The capitol of the Bahamas
 ```
 
-### Fields
+## Fields
 
 You can define any number of fields and use the same (link: docs/cheatsheet#panel-fields text: field types listed). The only exception is a structure field nested in a structure field.
 
-### Entry template
+## Entry template
 
 You can use the `entry` option to define how the entries will be displayed in the list view. The syntax for entry templates is very simple. Double curly brackets define a variable and will be replaced with the appropriate content.
 
-### Default values
+## Default values
 
 You can set default values for structure fields which will prepopulate the field:
 
@@ -79,9 +78,9 @@ You can set default values for structure fields which will prepopulate the field
         type: email
 ```
 
-### Options
+## Table layout
 
-#### Display entries in a table layout
+Instead of the default, card-based layout, you can display the items in a table:
 
 ```
 emails:
@@ -89,8 +88,41 @@ emails:
   type: structure
   style: table
 ```
+
+<since v="2.5.3">
+### Configuring the displayed columns
+
+Like in the default layout, it is possible to configure the displayed columns in the table style:
+
+```
+fields:
+  addresses:
+    label: Addresses
+    type: structure
+    style: table
+    entry:
+      - street
+      - city
+    fields:
+      street:
+        label: Street
+        type: text
+      zip:
+        label: ZIP
+        type: text
+      city:
+        label: City
+        type: text
+```
+
+It is also possible to resort the columns by configuring the `entry` option in a different order.
+</since>
+
+## Options
   
-#### Control the width of the structure modals ("small", "medium" or "large")
+### Control the width of the structure modals
+
+Available widths are "small", "medium" or "large".
   
 ```
 emails:
@@ -99,7 +131,7 @@ emails:
   modalsize: small
 ```
 
-#### Don't allow changes
+### Don't allow changes
 
 ```
 emails:
@@ -109,7 +141,7 @@ emails:
 ```
 
 <since v="2.3.2">
-#### Limit number of items
+### Limit number of items
 
 ```
 emails:
@@ -120,7 +152,7 @@ emails:
 </since>
 
 <since v="2.5.0">
-#### Sorting and flipping the displayed entries
+### Sorting and flipping the displayed entries
 
 ```
 fields:
