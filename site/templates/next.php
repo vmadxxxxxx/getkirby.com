@@ -46,7 +46,7 @@
         <li class="box">
           <p>
             <strong>Kirby 3 Fellowship Package</strong><br>
-            Follow the process behind Kirby 3 with all updates, coding sessions and more.
+            Follow the process behind Kirby 3 with all updates, coding sessions and more. This package does not include any Kirby 2 or 3 license.
           </p>
           <p>
             <a href="http://sites.fastspring.com/openwe/product/kirby-3-fellowship-package" class="btn">€ 29 &rarr;</a>
@@ -54,13 +54,21 @@
         </li>
         <li class="box">
           <p>
-            <strong>Kirby 3 License Package</strong><br>
-            Be among the first to buy a Kirby 3 license and follow the process how we build it for you!<br>
-            Includes everything from the Fellowship Package + one license for Kirby 3.
+            <strong>Kirby 3 Pro Upgrade + Fellowship Package</strong><br>
+            Upgrade your existing Kirby 2 Pro license to a Kirby 3 Pro license before Kirby 3 even exists and follow us along the way.
+          </p>
+          <p>
+            <a href="http://sites.fastspring.com/openwe/product/kirby-3-upgrade-package" class="btn">€ 49 &rarr;</a>
+          </p>
+        </li>
+        <li class="box">
+          <p>
+            <strong>Kirby 3 Pro License + Fellowship Package</strong><br>
+            Be among the first to buy a Kirby 3 Pro License and follow the process how we build it for you!
           </p>
           <p> 
-            You can use this license for a Kirby 2 project in the meantime and we guarantee you that
-            your license will get a free upgrade to Kirby 3 once it has been launched.
+            You can use this license for a Kirby 2 Pro project in the meantime and we guarantee you a 
+            free upgrade to Kirby 3 Pro once it has been launched.
           </p>
           <p>
             <small><i>Kirby 3 will be a paid upgrade for Kirby 2 license holders.</i></small>
